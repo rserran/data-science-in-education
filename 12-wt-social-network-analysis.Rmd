@@ -91,10 +91,6 @@ tt_tweets <-
   tt_tweets %>%
   # Use regular expression to identify all the usernames in a tweet
   mutate(all_mentions = str_extract_all(text, regex))
-
-unnest(tt_tweets, all_mentions) %>% 
-  select(tt_tweets, text, all_mentions) %>% 
-  View()
 ```
 
 Let's put these into their own data frame, called `mentions`.
