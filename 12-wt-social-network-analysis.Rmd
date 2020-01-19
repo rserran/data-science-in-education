@@ -90,8 +90,11 @@ regex <- "@([A-Za-z]+[A-Za-z0-9_]+)(?![A-Za-z0-9_]*\\.)"
 tt_tweets <-
   tt_tweets %>%
   # Use regular expression to identify all the usernames in a tweet
-  mutate(all_mentions = str_extract_all(text, regex)) %>%
-  unnest(all_mentions)
+  mutate(all_mentions = str_extract_all(text, regex))
+
+unnest(tt_tweets, all_mentions) %>% 
+  select(tt_tweets, text, all_mentions) %>% 
+  View()
 ```
 
 Let's put these into their own data frame, called `mentions`.
@@ -116,7 +119,7 @@ What needs to happen to these to make them easier to work with in an edgelist? O
 ```{r}
 edgelist <- 
   mentions %>% 
-  mutate(all_mentions= str_sub(all_mentions, start = 2)) %>% 
+  mutate(all_mentions = str_sub(all_mentions, start = 2)) %>% 
   select(sender, receiver = all_mentions)
 ```
 
