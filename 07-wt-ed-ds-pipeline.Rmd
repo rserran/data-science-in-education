@@ -524,7 +524,7 @@ dat <-
   distinct(dat, course_id, student_id, .keep_all = TRUE)
 ```
 
-This is a much smaller data frame - with one row for each sudnet in the course
+This is a much smaller data frame - with one row for each studnet in the course
 (instead of the 29,701 rows which we would be interested in were we analyzing
 this data at the level of specific students' grades for specific gradebook
 items). Now that our data are ready to go, we can start to ask some questions of
