@@ -1,7 +1,7 @@
-05-foundational-skills.pdf
-05-foundational-skills.html
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+.DS_Store
+data/.DS_Store
 10a_scratch.R

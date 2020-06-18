@@ -1,16 +1,55 @@
-# Walkthrough 6: Exploring Relationships Using Social Network Analysis Models and Methods {#c12}
+# Walkthrough 6: Exploring Relationships Using Social Network Analysis With Social Media Data {#c12}
 
-In the past, if a teacher wanted advice about how to plan a unit or to design a lesson, they would likely turn to a trusted peer in their building or district [@spillane2012]. In the present, though, they are as likely to turn to someone in the professional learning network [@trust2016].
+## Topics Emphasized
 
-There are a few reasons to be interested in social media. For example, if you work in a school district, you may be interested in who is interacting with the content you share. If you are a researcher, you may wish to investigate what teachers, administrators, and others do through state-based hashtags (e.g., @rosenberg2016). Social media-based data can also be interesting because it provides new contexts for learning to take place, such as learning through informal communities.
+- Transforming data
+- Visualizing data
 
-In this chapter, we focus on a source of data that could be used to understand how one new community functions. That community, #tidytuesday is one sparked by the work of one of the *Data Science in Education Using R* co-authors, Jesse Mostipak, who created the #r4ds community from which #tidytuesday was created. #tidytuesday is a weekly data visualization challenge. A great place to see examples from past #tidytuesday challenges is an interactive Shiny application (https://github.com/nsgrantham/tidytuesdayrocks). 
+## Functions Introduced
 
-In this walkthrough, we focus on a) accessing data on #tidytuesday from Twitter and b) trying to understand the nature of the interactions that take place through #tidytuesday. We note that while we focused on #tidytuesday because we think it exemplifies the new kinds of learning that a data science toolkit allows an analyst to try to understand (through new data sources), we also chose this because it is straightforward to access data from Twitter, and we think you may find other opportunities to analyze data from Twitter in other cases.
+- `rtweet::search_tweets()`
+- `randomNames::randomNames()`
+- `tidyr::unnest()`
+- `tidygraph::as_tbl_graph()`
+- `ggraph::ggraph()`
 
-## Accessing data
+## Vocabulary
 
-In this chapter, we access data using the rtweet package [@kearney2016]. Through rtweet, it is easy to access data from Twitter as long as one has a Twitter account. We will load the tidyverse and rtweet packages to get started. Here is an example of searching the most recent 1,000 tweets which include the hashtag #rstats. When you run this code, you will be prompted to authenticate your access via Twitter. 
+- Application Programming Interface (API)
+- edgelist
+- edge
+- influence model
+- regex
+- selection model
+- social network analysis
+- sociogram
+- vertex
+
+## Chapter Overview
+
+This chapter builds on [Walkthrough 5/Chapter 11](#c11), where we worked with #tidytuesday data. In the previous chapter we focused on using text analysis to understand the *content* of tweets. In this, we chapter focus on the *interactions* between #tidytuesday participants using social network analysis (sometimes simply referred to as network analysis) techniques. 
+
+While social network analysis is increasingly common, it remains challenging to carry out. For one, cleaning and tidying the data can be even more challenging than for most other data sources, as net data for social network analysis (or network data) often includes variables about both individuals (such as information students or teachers) and their relationships (whether they have a relationship at all, for example, or how strong or of what type their relationship is). This chapter is designed to take you from not having carried out social network analysis through visualizing network data.
+
+Like the previous chapter, we've also included an appendix ([Appendix C](#c20c)) to introduce some social network-related ideas for further exploration; these focus on modeling social network processes, particularly, the processes of who chooses (or selects) to interact with whom, and of influence, or how relationships can impact individuals' behaviors.
+
+You will need a Twitter account to complete *all* of the code outlined in this chapter in order to access your own Twitter data (through the Twitter Application Interface [API]; see [Chapter 11](#c11) for an in-depth description of what this means and how to access it). 
+
+If you do not have a Twitter account, you can create one and keep it private, or even delete the account once you're done with this walkthrough. Additionally, you can simply access data that has already been accessed from the Twitter API via the {dataedu} package (as we describe below).
+
+### Background
+
+There are a few reasons to be interested in social media. For example, if you work in a school district, you may want to know who is interacting with the content you share. If you are a researcher, you may want to investigate what teachers, administrators, and others do through state-based hashtags (e.g., @rosenberg2016). Social media-based data also provides new contexts for learning to take place, like in professional learning networks [@trust2016]. 
+
+In the past, if a teacher wanted advice about how to plan a unit or to design a lesson, they would turn to a trusted peer in their building or district [@spillane2012]. Today they are as likely to turn to someone in a social media network. Social media interactions like the ones tagged with the #tidytuesday hashtag are increasingly common in education. Using data science tools to learn from these interactions is valuable for improving the student experience. 
+
+### Packages
+
+In this chapter, we access data using the {rtweet} package [@kearney2016]. Through {rtweet} and a Twitter account, it is easy to access data from Twitter. We will load the {tidyverse} and {rtweet} packages to get started. 
+
+We will also load other packages that we will be using in this analysis, including two packages related to social network analysis [@R-tidygraph, @R-ggraph] as well as one that will help us to use not-anonymized names in a savvy way [@R-randomNames]. As always, if you have not installed any of these packages before (which may particularly be the case for the {rtweet}, {randomNames}, {tidygraph}, and {ggraph} packages, which we have not yet used int he book), do so using the `install.packages()` function. More on installing packages is included in the [Packages](#c06p) section of the [Foundational Skills](#c06) chapter.
+
+Let's load the packages with the following calls to the `library()` function:
 
 
 ```r
@@ -22,110 +61,104 @@ library(tidygraph)
 library(ggraph)
 ```
 
+### Data Sources and Import
+
+Here is an example of searching the most recent 1,000 tweets which include the hashtag #rstats. When you run this code, you will be prompted to authenticate your access via Twitter. 
+
 
 ```r
 rstats_tweets <- 
   search_tweets("#rstats")
 ```
 
-The search term can be easily changed to other hashtags - or other terms. To search for #tidytuesday tweets, we can simply replace #rstats with #tidytuesday. 
+You can easily change the search term to other hashtags terms. For example, to search for #tidytuesday tweets, we can replace #rstats with #tidytuesday: 
 
 
 ```r
-tidytuesday_tweets <- 
+tt_tweets  <- 
   search_tweets("#tidytuesday")
 ```
 
-A key point--and limitation--for how Twitter allows access to their data for the seven most recent days. There are a number of ways to access older data, which we discuss at the end of this chapter, though we focus on one way here: having access to the URLs to (or the status IDs for) tweets. We used this technique, which we describe in this chapter's *Appendix A*, along with other strategies for collecting historical data from Twitter. The data that we processed is available in the dataedu R package as the `tt-tweets` dataset.
+You can find a greater number of tweets by adding a greater value to the `n` argument of the `search_tweets()` function, as follows, to collect the most recent 500 tweets:
 
 
 ```r
-tt_tweets
+tt_tweets  <- 
+  search_tweets("#tidytuesday", n = 500)
+```
+
+You may notice that the most recent tweets containing the #tidytuesday hashtag are returned. What if you wanted to explore 
+
+### Using an Application Programming Interface (or API)
+
+It's worth taking a short detour to talk about how you can obtain a dataset like this. A common way to import data from websites, including social media platforms, is to use something called an Application Programming Interface (API). In fact, if you ran the code above, you just accessed an API!
+
+Think of an API as a special door a home builder made for a house that has a lot of cool stuff in it. The home builder doesn’t want everyone to be able to walk right in and use a bunch of stuff in the house. But they also don’t want to make it too hard because, after all, sharing is caring! Imagine the home builder made a door just for folks who know how to use doors. In order to get through this door, users need to know where to find it along the outside of the house. Once they’re there, they have to know the code to open. And, once they’re through the door, they have to know how to use the stuff inside. An API for social media platforms like Twitter and Facebook are the same way. You can download datasets of social media information, like tweets, using some code and authentication credentials organized by the website.
+
+There are some advantages to using an API to import data at the start of your education dataset analysis. Every time you run the code in your analysis, you’ll be using the API to contact the social media platform and download a fresh dataset. Now your analysis is not just a one-off product, but, rather, is one that can be updated with the most recent data (in this case, Tweets), every time you run it. By using an API to import new data every time you run your code, you create an analysis that can be used again and again on future datasets. However, A key point - and limitation - is that Twitter allows access to their data via their API only for (approximately) the seven most recent days. There are a number of *other* ways to access older data, though we focus on one way here: Having access to the URLs to (or the status IDs for) tweets. 
+
+As a result, we used this technique - described in-depth in [Appendix B](#c20b) - to collect older (historical) data from Twitter about the #tidytuesday hashtag, using a different function than the one described above (`rtweet::lookup_statuses()` instead of `rtweet::search_tweets()`). This was important for this chapter because having acess to a greater number of tweets allows us to better understand the interactions between a larger number of the individuals participating in #tidytuesday. The data that we prepared from acessing historical data for #tidytuesday is available in the {dataedu} R package as the `tt_tweets` dataset, as we describe next.
+
+**Accessing the data from {dataedu}***
+
+Don't have Twitter or don't wish to access the data via Twitter? Then, you can load the data from the {dataedu} package (just as we did in the last chapter, [Chapter 11](#c11)), as follows:
+
+
+```r
+tt_tweets <- dataedu::tt_tweets
+```
+
+## View Data
+
+We can see that there are *many* rows for the data:
+
+
+```r
+nrow(tt_tweets)
 ```
 
 ```
-## # A tibble: 4,418 x 90
-##    user_id status_id created_at          screen_name text  source
-##    <chr>   <chr>     <dttm>              <chr>       <chr> <chr> 
-##  1 115921… 11631542… 2019-08-18 18:22:42 MKumarYYC   "Fir… Twitt…
-##  2 107332… 11632475… 2019-08-19 00:33:11 cizzart     "El … Twitt…
-##  3 107332… 11450435… 2019-06-29 18:57:17 cizzart     "Pro… Twitt…
-##  4 107332… 11168648… 2019-04-13 00:45:15 cizzart     "#Ar… Twitt…
-##  5 107332… 11228824… 2019-04-29 15:17:02 cizzart     "Pes… Twitt…
-##  6 107332… 11176387… 2019-04-15 04:00:17 cizzart     "Dat… Twitt…
-##  7 107332… 11245531… 2019-05-04 05:55:32 cizzart     "El … Twitt…
-##  8 107332… 11407021… 2019-06-17 19:25:50 cizzart     "#da… Twitt…
-##  9 107332… 11325299… 2019-05-26 06:12:46 cizzart     "El … Twitt…
-## 10 107332… 11233585… 2019-04-30 22:48:43 cizzart     "Vis… Twitt…
-## # … with 4,408 more rows, and 84 more variables: display_text_width <dbl>,
-## #   reply_to_status_id <chr>, reply_to_user_id <chr>,
-## #   reply_to_screen_name <chr>, is_quote <lgl>, is_retweet <lgl>,
-## #   favorite_count <int>, retweet_count <int>, quote_count <int>,
-## #   reply_count <int>, hashtags <list>, symbols <list>, urls_url <list>,
-## #   urls_t.co <list>, urls_expanded_url <list>, media_url <list>,
-## #   media_t.co <list>, media_expanded_url <list>, media_type <list>,
-## #   ext_media_url <list>, ext_media_t.co <list>, ext_media_expanded_url <list>,
-## #   ext_media_type <chr>, mentions_user_id <list>, mentions_screen_name <list>,
-## #   lang <chr>, quoted_status_id <chr>, quoted_text <chr>,
-## #   quoted_created_at <dttm>, quoted_source <chr>, quoted_favorite_count <int>,
-## #   quoted_retweet_count <int>, quoted_user_id <chr>, quoted_screen_name <chr>,
-## #   quoted_name <chr>, quoted_followers_count <int>,
-## #   quoted_friends_count <int>, quoted_statuses_count <int>,
-## #   quoted_location <chr>, quoted_description <chr>, quoted_verified <lgl>,
-## #   retweet_status_id <chr>, retweet_text <chr>, retweet_created_at <dttm>,
-## #   retweet_source <chr>, retweet_favorite_count <int>,
-## #   retweet_retweet_count <int>, retweet_user_id <chr>,
-## #   retweet_screen_name <chr>, retweet_name <chr>,
-## #   retweet_followers_count <int>, retweet_friends_count <int>,
-## #   retweet_statuses_count <int>, retweet_location <chr>,
-## #   retweet_description <chr>, retweet_verified <lgl>, place_url <chr>,
-## #   place_name <chr>, place_full_name <chr>, place_type <chr>, country <chr>,
-## #   country_code <chr>, geo_coords <list>, coords_coords <list>,
-## #   bbox_coords <list>, status_url <chr>, name <chr>, location <chr>,
-## #   description <chr>, url <chr>, protected <lgl>, followers_count <int>,
-## #   friends_count <int>, listed_count <int>, statuses_count <int>,
-## #   favourites_count <int>, account_created_at <dttm>, verified <lgl>,
-## #   profile_url <chr>, profile_expanded_url <chr>, account_lang <lgl>,
-## #   profile_banner_url <chr>, profile_background_url <chr>,
-## #   profile_image_url <chr>
+## [1] 4418
 ```
 
-## Preparing the data for the analysis
+## Methods: Process Data
 
-Network data, in general, and network data from Twitter, particularly, requires some processing before it can be used in subsequent analyses. In particular, we are going to create an edgelist, a data structure that is especially helpful for understanding the nature of relationships. 
+Network data requires some processing before it can be used in subsequent analyses. The network dataset needs a way to identify each participant's role in the interaction. We need to answer questions like: Did someone reach out to another for help? Was someone contacted by another for help? We can process the data by creating an *edgelist*. An edgelist is a dataset where each row is a unique interaction between two parties. Each row (which represents a single relationship) in the edgelist is referred to as an *edge*. We note that one challenge facing data scientists beginning to use network analysis is the different terms that are used for similar (or the same!) aspects of analyses: Edges are sometimes referred to as *ties* or *relations*, but these generally refer to the same thing, though they may be used in different contexts.
 
-An edgelist looks like the following, where the sender denotes who is initiating the interaction or relationship, and the receiver is who is the recipient of it:
+An edgelist looks like the following, where the `sender` (sometimes called the "nominator") column identifies who is initiating the interaction and the `receiver` (sometimes called the "nominee") column identifies who is receiving the interaction:
 
 
 
 
 ```
 ## # A tibble: 12 x 2
-##    sender            receiver                  
-##    <chr>             <chr>                     
-##  1 Winters, Jasmine  al-Galla, Manaara         
-##  2 Sanchez, David    Onexayvieng, Bradley      
-##  3 Sanchez, David    Ward, Victoria            
-##  4 Hartmann, Maranda Onexayvieng, Bradley      
-##  5 Hartmann, Maranda al-Galla, Manaara         
-##  6 Hartmann, Maranda Alarid, Chad              
-##  7 Howell, Shelby    Ward, Victoria            
-##  8 Howell, Shelby    Montoya-Yzaguirre, Leticia
-##  9 Howell, Shelby    Alarid, Chad              
-## 10 Martinez, Sylis   Ho, Alyssa                
-## 11 Nettles, Isaiah   Ward, Victoria            
-## 12 Nettles, Isaiah   Ho, Alyssa
+##    sender         receiver                
+##    <chr>          <chr>                   
+##  1 Patel, Dominic Gebremedhin, Anthony    
+##  2 Duran, Taneil  Alcantar, Andrew        
+##  3 Duran, Taneil  Mitchell, Donavon       
+##  4 Huff, Kevin    Alcantar, Andrew        
+##  5 Huff, Kevin    Gebremedhin, Anthony    
+##  6 Huff, Kevin    Aguilar, Bailee         
+##  7 el-Omar, Fidda Mitchell, Donavon       
+##  8 el-Omar, Fidda Chavez, David           
+##  9 el-Omar, Fidda Aguilar, Bailee         
+## 10 Pena, Joshua   al-Rasheed, Abdul Hakeem
+## 11 Ho, Lawrence   Mitchell, Donavon       
+## 12 Ho, Lawrence   al-Rasheed, Abdul Hakeem
 ```
 
-In this edgelist, the sender could indicate, for example, someone who nominates someone else (the receiver) as someone they go to for help. The sender could also indicate someone who interacted with the receiver, such as by recognizing one of their tweets with a favorite (or a mention). In the following steps, we will work to create an edgelist from the data from #tidytuesday on Twitter.
+In this edgelist, the `sender` column might identify someone who nominates another  (the receiver) as someone they go to for help. The sender might also identify someone who interacts with the receiver in other ways, like "liking" or "mentioning" their tweets. In the following steps, we will work to create an edgelist from the data from #tidytuesday on Twitter.
 
-## Extracting mentions
+### Extracting Mentions
 
-Let's extract the mentions. There is a lot going on in the code below; let's break it down line-by-line, starting with the `mutate()`:
+Let's extract the mentions. There is a lot going on in the code below; let's break it down line-by-line, starting with `mutate()`:
 
-- `mutate(all_mentions = str_extract_all(text, regex))`: this line uses a regex, or regular expression, to identify all of the usernames in the tweet (*note*: the regex comes from from [this page](https://stackoverflow.com/questions/18164839/get-twitter-username-with-regex-in-r))
-- `unnest(all_mentions)` this line uses a tidyr function, `unnest()` to move every mention to its own line, while keeping all of the other information the same (see more about `unnest()` here: https://tidyr.tidyverse.org/reference/unnest.html)
- 
+- `mutate(all_mentions = str_extract_all(text, regex))`: this line uses a regex, or regular expression, to identify all of the usernames in the tweet (*note*: the regex comes from from [this Stack Overflow page](https://stackoverflow.com/questions/18164839/get-twitter-username-with-regex-in-r) (https[]()://stackoverflow.com/questions/18164839/get-twitter-username-with-regex-in-r))
+- `unnest(all_mentions)` this line uses a {tidyr} function, `unnest()` to move every mention to its own line, while keeping all of the other information the same (see more about `unnest()` here: [https://tidyr.tidyverse.org/reference/unnest.html](https://tidyr.tidyverse.org/reference/unnest.html))).
+
+Now let's use these functions to extract the mentions from the dataset. Here's how all the code looks in action: 
+
 
 ```r
 regex <- "@([A-Za-z]+[A-Za-z0-9_]+)(?![A-Za-z0-9_]*\\.)"
@@ -147,9 +180,9 @@ mentions <-
   select(sender = screen_name, all_mentions)
 ```
 
-## Putting the edgelist together
+### Putting the Edgelist Together
 
-An edgelist is a common social network analysis data structure that has columns for the "sender" and "receiver" of interactions, or relations. For example, someone "sends" the mention to someone who is mentioned, who can be considered to "receive" it. This will require one last processing step. Let's look at our data as it is now.
+Recall that an edgelist is a data structure that has columns for the "sender" and "receiver" of interactions. Someone "sends" the mention to someone who is mentioned, who can be considered to "receive" it. To make the edgelist, we'll need to clean it up a little by removing the "@" symbol. Let's look at our data as it is now.
 
 
 ```r
@@ -173,7 +206,7 @@ mentions
 ## # … with 2,437 more rows
 ```
 
-What needs to happen to these to make them easier to work with in an edgelist? One step is to remove the "@" symbol from the columns we created and to save the results to a new tibble, `edgelist`.
+Let's remove that "@" symbol from the columns we created and save the results to a new tibble, `edgelist`.
 
 
 ```r
@@ -185,11 +218,13 @@ edgelist <-
   select(sender, receiver = all_mentions)
 ```
 
-## Plotting the network
+## Analysis and Results
 
-Now that we have our edgelist, it is straightforward to plot the network. We'll use the {tidygraph} and {ggraph} packages to visualize the data.
+Now that we have our edgelist, let's plot the network. We'll use the {tidygraph} and {ggraph} packages to visualize the data. We note that network visualizations are often referred to as *sociograms*, or a representation of the relationships between individuals in a network. We use this term and the term network visualization interchangeably in this chapter.
 
-Because large networks (like this one) can present challenges, it is common to filter them to only include some individuals. Let's explore how many interactions each individual in the network sent.
+### Plotting the Network
+
+Large networks like this one can be hard to work with because of their size. We can get around that problem by only include some individuals. Let's explore how many interactions each individual in the network sent by using `count()`: 
 
 
 ```r
@@ -223,13 +258,14 @@ interactions_sent
 
 
 ```r
-interactions_sent <- interactions_sent %>% 
+interactions_sent <- 
+  interactions_sent %>% 
   filter(n > 1)
 ```
 
-That leaves us with only 349, perhaps a more reasonable number.
+That leaves us with only 349, which will be much easier to work with. 
 
-We now need to filter the edgelist to only include these 349 individuals. The following code simply uses the `filter()` function combined with the `%in%` operator to do this:
+We now need to filter the edgelist to only include these 349 individuals. The following code uses the `filter()` function combined with the `%in%` operator to do this:
 
 
 ```r
@@ -240,7 +276,7 @@ edgelist <- edgelist %>%
          receiver %in% interactions_sent$sender)
 ```
 
-We'll use the `as_tbl_graph()` function, which (by default) identified the first column as the "sender" and the second as the "receiver." Let's look at the object it creates, too.
+We'll use the `as_tbl_graph()` function, which identifies the first column as the "sender" and the second as the "receiver." Let's look at the object it creates: 
 
 
 ```r
@@ -275,7 +311,7 @@ g
 ## # … with 972 more rows
 ```
 
-We can see that the network now consists of 267 individuals - the 267 who sent more than one interaction.
+We can see that the network now has 267 individuals, all of which sent more than one interaction. The individuals in a network are often referred to as *nodes* (and, this terminology is used in the {ggraph} functions for plotting the individuals - the nodes - in a network). We note that nodes are sometimes referred to as *vertices* or *actors*; like the different names for edges, these generally mean the same thing. 
 
 Next, we'll use the `ggraph()` function:
 
@@ -292,9 +328,9 @@ g %>%
   theme_graph()
 ```
 
-<img src="12-wt-social-network-analysis_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+![(\#fig:fig12-1)Network Graph](12-wt-social-network-analysis_files/figure-docx/fig12-1-1.png){width=100%}
 
-Finally, let's size the points based on a measure of centrality, typically a measure of how (potentially) influence an individual may be, based on the interactions observed.
+Finally, let's size the points based on a measure of centrality. A common way to do this is to measure how influential an individual may be based on the interactions observed.
 
 
 
@@ -311,238 +347,533 @@ g %>%
   theme_graph()
 ```
 
-<img src="12-wt-social-network-analysis_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+```
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
-There is much more you can do with {ggraph} (and {tidygraph}); check out the {ggraph} tutorial here: https://ggraph.data-imaginist.com/
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
-## Selection and influence models
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
-Behind these visualizations, though, there are also statistical models and methods that can help to understand what is going on with respect to particular relationships in a network in additional ways.
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
-One way to consider these models and methods is in terms of two *processes* at play in our relationships (cite). These two processes are commonly (though not exclusively) the focus of statistical analyses of networks. In addition to not being exclusive, they do not interact independently: they affect each other reciprocally (Xu, Frank, & Penuel, 2018). They are:
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
-- *Selection*: the processes regarding who chooses to have a relationship with whom
-- *Infuence*: the processes regarding how who we have relationships with affects our behavior
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
-While these are complex, they can be studied with the type of data collected from asking people about their relationships (and possibly asking them about or studying their behavior--or measuring some outcome). Happily, the use of these methods has expanded along with R: many of the best tools for studying social networks are in the form of long-standing R packages. Additionally, while there are many potential nuances to studying selection and influence, these are models that can fundamentally be carried out with regression, or the linear model (or extensions of it). We describe these in *Appendix B* for this chapter, as they do not use the tidytuesday dataset and are likely to be of interest to readers only after having mastered preparing and visualizing network data.
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
-## Appendix A
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
-<!-- Note - proposing moving this to the text analysis tidytuesday walkthrough -->
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
-### Accessing historical data using status URLs
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
-Because the creator of the interactive web application for exploring #tidytuesday content, #tidytuesday.rocks, searched for (and archived) #tidytuesday tweets on a regular basis, a large data set from more than one year of weekly #tidytuesday challenges is available through [the GitHub repository](https://github.com/nsgrantham/tidytuesdayrocks) for the Shiny application. These Tweets (saved in the `data` directory) can be read with the following function
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 
-```r
-raw_tidytuesday_tweets <-
-  read_delim(
-    "https://raw.githubusercontent.com/nsgrantham/tidytuesdayrocks/master/data/tweets.tsv",
-    "\t",
-    escape_double = FALSE,
-    trim_ws = TRUE
-  )
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 ```
 
 ```
-## Parsed with column specification:
-## cols(
-##   status_url = col_character(),
-##   screen_name = col_character(),
-##   created_at = col_datetime(format = ""),
-##   favorite_count = col_double(),
-##   retweet_count = col_double(),
-##   dataset_id = col_character()
-## )
-```
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-Then the URL for the tweet (the `status_url` column) can be passed to a different rtweet function than the one we used, `lookup_statuses()`. Before we do this, there is one additional step to take. Because most of the Tweets are from more than seven days ago, Twitter requires an additional authentication step. In short, you need to use keys and tokens for the Twitter API, or application programming interface. The rtweet vignette on accessing keys and tokens (https://rtweet.info/articles/auth.html) explains the process. The end result will be that you will create a token using rtweet that you will use along with your rtweet function (in this case, `lookup_statuses()`):
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-```r
-token <-
-  create_token(
-    consumer_key = < add - your - key - here > ,
-    consumer_secret = < add - your - secret - here >
-  )
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-# here, we pass the status_url variable from raw_tidytuesday_tweets as the statuses to lookup in the lookup_statuses() function, as well as our token
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-tidytuesday_tweets <-
-  lookup_statuses(raw_tidytuesday_tweets$status_url,
-                  token = token)
-```
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-The end result will be a tibble, like that above for #rstats, for #tidytuesday tweets.
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-### Accessing historical data when you do not have access to status URLs
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-In the above case, we had access to the URLs for tweets because they were saved for the #tidytuesday.rocks Shiny. But, in many cases, historical data will not be available. There are two strategies that may be helpful.
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-First is [TAGS](https://tags.hawksey.info/). TAGS is based in, believe it or not, Google Sheets, and it works great for collecting Twitter data over time - even a long period of time The only catch is that you need to setup and start to use a TAGS sheet *in advance of the period for which you want to collect data*. For example, you can start a TAGS archiver in August of one year, with the intention to collect data over the coming academic year; or, you can start a TAGS archiver before an academic conference for which you want to collect Tweets.
-
-A second option is the Premium API through Twitter. This is an expensive option, but is one that can be done through rtweet, and can also access historical data, even if you haven not started a TAGS sheet and do not otherwise have access to the status URLs.
-
-## Appendix B
-
-As noted above, there is much more to understanding interactions, and network analysis, beyond creating edgelists and visualizing network data (through the use of an edgelist). Two processes that are particularly important (and able to be studied with network data using R) are for influence and selection. 
-
-### An example of influence
-
-First, let's look at an example of influence. To do so, let's create three different data frames. Here is what they should, at the end of the process, contain:
-
-- A data frame indicating who the *nominator* and *nominee* for the relation (i.e., if Stefanie says that José is her friend, then Stefanie is the nominator and José the nominee) - as well as an optional variable indicating the weight, or strength, of their relation.
-- This data frame and its type can be considered the basis for many types of social network analysis and is a common structure for network data: it is an *edgelist*.
-- Data frames indicating the values of some behavior - an outcome - at two different time points.
-
-In this example, we create some example data that can be used to explore questions about how influence works.
-
-Let's take a look at the merged data. What this data now contains is the first data frame, `data1`, with each nominees' outcome at time 1 (`yvar1`). Note that we will find each nominators' outcome at time 2 later on.
-
-
-```r
-data1 <-
-  data.frame(
-    nominator = c(2, 1, 3, 1, 2, 6, 3, 5, 6, 4, 3, 4),
-    nominee = c(1, 2, 2, 3, 3, 3, 4, 4, 4, 5, 6, 6),
-    relate = c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-  )
-
-data2 <-
-  data.frame(nominee = c(1, 2, 3, 4, 5, 6),
-             yvar1 = c(2.4, 2.6, 1.1, -0.5, -3, -1))
-
-data3 <-
-  data.frame(nominator = c(1, 2, 3, 4, 5, 6),
-             yvar2 = c(2, 2, 1, -0.5, -2, -0.5))
-```
-
-### Joining the data
-
-Next, we'll join the data into one data frame. Note that while this is sometimes tedius and time-consuming, especially with large sources of network data, it is a key step for being able to carry out network analysis - often, even for creating visualiations that are informative.
-
-
-```r
-data <-
-  left_join(data1, data2, by = "nominee")
-
-data <-
-  data %>% 
-  # this makes merging later easier
-  mutate(nominee = as.character(nominee)) 
-
-# calculate indegree in tempdata and merge with data
-tempdata <- data.frame(table(data$nominee))
-
-tempdata <-
-  tempdata %>%
-  rename(
-    # rename the column "Var1" to "nominee" 
-    "nominee" = "Var1", 
-    # rename the column "Freq" to "indegree"
-    "indegree" = "Freq"
-    ) %>% 
-  # makes nominee a character data type, instead of a factor, which can cause problems
-  mutate(nominee = as.character(nominee))
-
-data <- 
-  left_join(data, tempdata, by = "nominee")
-```
-
-#### Calculating an exposure term
-
-This is the key step that makes this model - a regression, or linear, model - one that is special. It is creating an exposure term. The idea is that the exposure term "captures" how your interactions with someone, over some period of time (between the first and second time points) impact some outcome. This model accounts for an individual's initial report of the outcome, i.e., their time 1 prior value, so it is a model for *change* in some outcome.
-
-
-```r
-# Calculating exposure
-data <-
-  data %>% 
-  mutate(exposure = relate * yvar1)
-
-# Calculating mean exposure
-mean_exposure <-
-  data %>%
-  group_by(nominator) %>%
-  summarize(exposure_mean = mean(exposure))
-```
-
-What this data frame - `mean_exposure` - contains is the mean of the outcome (in this case, `yvar1`) for all of the individuals the nominator had a relation with.
-
-As we need a final data set with `mean_exposure`,`degree`, `yvar1`, and `yvar2` added, we'll process the data a bit more.
-
-
-```r
-data2 <-
-  data2 %>% 
-  # rename nominee as nominator to merge these
-  rename("nominator" = "nominee") 
-
-final_data <-
-  left_join(mean_exposure, data2, by = "nominator")
-
-final_data <- 
-  # data3 already has nominator, so no need to change
-  left_join(final_data, data3, by = "nominator") 
-```
-
-#### Regression (linear model)
-
-Calculating the exposure term is the most distinctive and important step in carrying out influence models. Now, we can simply use a linear model to find out how much relations - as captured by the influence term - affect some outcome.
-
-
-```r
-model1 <-
-  lm(yvar2 ~ yvar1 + exposure_mean, data = final_data)
-
-summary(model1)
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 ```
 
 ```
-## 
-## Call:
-## lm(formula = yvar2 ~ yvar1 + exposure_mean, data = final_data)
-## 
-## Residuals:
-##        1        2        3        4        5        6 
-##  0.02946 -0.09319  0.09429 -0.02730 -0.02548  0.02222 
-## 
-## Coefficients:
-##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)    0.11614    0.03445   3.371   0.0434 *  
-## yvar1          0.67598    0.02406  28.092  9.9e-05 ***
-## exposure_mean  0.12542    0.03615   3.470   0.0403 *  
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 0.08232 on 3 degrees of freedom
-## Multiple R-squared:  0.9984,	Adjusted R-squared:  0.9974 
-## F-statistic: 945.3 on 2 and 3 DF,  p-value: 6.306e-05
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+## 'Arial Narrow' not found, will use 'sans' instead
 ```
 
-So, the influence model is used to study a key process for social network analysis, but it is one that is useful, because you can quantify, given what you measure and how you measure it, *the network effect*, something that is sometimes not considered, especially in education (Frank, 2009). It's also fundamentally a regression. That's really it, as the majority of the work goes into calculating the exposure term.
+```
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-### An example of selection
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-Selection models are also commonly used - and are commonly of interest not only to researchers but also to administrators and teachers (and even to youth and students). 
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-Here, we briefly describe a few possible approaches for using a selection model.
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-At its core, the selection model is a regression - albeit, one that is a generalization of one, namely, a logistic regression (sometimes termed a generalized linear model, because it is *basically* a regression but is one with an outcome that consists just of 0's and 1's). Thus, the most straight-away way to use a selection model is to use a logistic regression where all of the relations (note the `relate` variable in `data1` above) are indicated with a 1. But, here is the important and challenging step: all of the *possible relations* (i.e., all of the relations that are possible between all of the individuals in a network) are indicated with a 0 in an edgelist. Note that, again, an edgelist is the preferred data structure for carrying out this analysis. This step involves some data wrangling, especially the idea of widening or lengthening a data frame.
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-Once all of the relations are indicated with a 1 or a 0, then a simple linear regression can be used. Imagine that we are interested in whether individuals from the *same* group are more or less likely to interact than those from different groups; same could be created in the data frame based upon knowing which group both nominator and nominee are from:
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 
-```r
-m_selection <- 
-  glm(relate ~ 1 + same, data = edgelist1)
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
 ```
 
-While this is a straightforward way to carry out a selection model, there are some limitations to it. Namely, it does not account for individuals who send more (or less) nominations overall--and not considering this may mean other effects, like the one associated with being from the *same* group, are not accurate. A few extensions of the linear model - including those that can use data for which relationships are indicated with weights, not just 1's and 0's, have been developed. 
+```
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
 
-One type of model extends the logistic regression. It can be used for data that is not only 1's and 0's but also data that is normally distributed . It is the amen package available [here](https://cran.r-project.org/web/packages/amen/index.html).
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
 
-A particularly common one is an Exponential Random Graph Model, or an ERGM. An R package that makes estimating these easy is available [here](https://cran.r-project.org/web/packages/ergm/index.html). That R package, {ergm}, is part of a powerful and often-used collection of packages, including those for working with network data (data that can begin with an edgelist, but may need additional processing that is challenging to do with edgelist data), {statnet}. A link to the statnet packages is [here](https://statnet.org/).
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+```
 
-Trust, T., Krutka, D. G., & Carpenter, J. P. (2016). “Together we are better”: Professional learning networks for teachers. Computers & education, 102, 15-34.
+```
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+```
+
+```
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+```
+
+```
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+```
+
+```
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+```
+
+```
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+```
+
+```
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+```
+
+```
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family 'Arial Narrow' not found, will use 'sans' instead
+```
+
+```
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## font family 'Arial Narrow' not found, will use 'sans' instead
+```
+
+![(\#fig:fig12-2)Network Graph with Centrality](12-wt-social-network-analysis_files/figure-docx/fig12-2-1.png){width=100%}
+
+There is much more you can do with {ggraph} (and {tidygraph}); check out the {ggraph} tutorial here: [https://ggraph.data-imaginist.com/](https://ggraph.data-imaginist.com/)
+
+## Conclusion
+
+In this chapter, we used social media data from the #tidytuesday hashtag to prepare and visualize social network data. Sociograms are a useful visualization tool to  reveal who is interacting with whom--and, in some cases, to suggest why. In our applications of data science, we have found that the individuals (such as teachers or students) who are represented in a network often like to see what the network (and the relationships in it) *look like*. It can be compelling to think about why networks are the way they are, and how changes could be made to - for example - foster more connections between individuals who have few opportunities to interact. In this way, social network analysis can be useful to the data scientist in education because it provides a technique to communicate with other educational stakeholders in a compelling way.
+
+Social network analysis is a broad (and growing) domain, and this chapter was intended to present some of its foundation. Fortunately for R users, many recent developments are implemented first in R (e.g., @R-amen). If you are interested in some of the additional steps that you can take to model and analyze network data, consider the appendix on two types of models (for selection and influence processes), [Appendix C](#c20c).
