@@ -225,19 +225,19 @@ dataset has some lines at the top that contain no data:
 
 
 ```
-## # A tibble: 16,234 x 31
-##    `Extraction Dat… `6/12/2013` X3    X4    X5    X6    X7    X8    X9    X10  
-##    <chr>            <chr>       <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
-##  1 Updated:         2/12/2014   <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
-##  2 Revised:         <NA>        <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
-##  3 <NA>             <NA>        <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
-##  4 Year             State Name  SEA … SEA … Amer… Asia… Blac… Hisp… Nati… Two …
-##  5 2012             ALABAMA     Corr… All … -     -     -     -     -     -    
-##  6 2012             ALABAMA     Home  All … 1     1     57    12    0     2    
-##  7 2012             ALABAMA     Home… All … -     -     -     -     -     -    
-##  8 2012             ALABAMA     Insi… All … -     -     -     -     -     -    
-##  9 2012             ALABAMA     Insi… All … -     -     -     -     -     -    
-## 10 2012             ALABAMA     Insi… All … -     -     -     -     -     -    
+## # A tibble: 16,234 × 31
+##    `Extraction Date… `6/12/2013` X3    X4    X5    X6    X7    X8    X9    X10  
+##    <chr>             <chr>       <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
+##  1 Updated:          2/12/2014   <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
+##  2 Revised:          <NA>        <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
+##  3 <NA>              <NA>        <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
+##  4 Year              State Name  SEA … SEA … Amer… Asia… Blac… Hisp… Nati… Two …
+##  5 2012              ALABAMA     Corr… All … -     -     -     -     -     -    
+##  6 2012              ALABAMA     Home  All … 1     1     57    12    0     2    
+##  7 2012              ALABAMA     Home… All … -     -     -     -     -     -    
+##  8 2012              ALABAMA     Insi… All … -     -     -     -     -     -    
+##  9 2012              ALABAMA     Insi… All … -     -     -     -     -     -    
+## 10 2012              ALABAMA     Insi… All … -     -     -     -     -     -    
 ## # … with 16,224 more rows, and 21 more variables: X11 <chr>, X12 <chr>,
 ## #   X13 <chr>, X14 <chr>, X15 <chr>, X16 <chr>, X17 <chr>, X18 <chr>,
 ## #   X19 <chr>, X20 <chr>, X21 <chr>, X22 <chr>, X23 <chr>, X24 <chr>,
@@ -269,31 +269,26 @@ skip = 4)
 ```
 
 ```
-## # A tibble: 16,230 x 31
-##     Year `State Name` `SEA Education … `SEA Disability… `American India…
-##    <dbl> <chr>        <chr>            <chr>            <chr>           
-##  1  2012 ALABAMA      Correctional Fa… All Disabilities -               
-##  2  2012 ALABAMA      Home             All Disabilities 1               
-##  3  2012 ALABAMA      Homebound/Hospi… All Disabilities -               
-##  4  2012 ALABAMA      Inside regular … All Disabilities -               
-##  5  2012 ALABAMA      Inside regular … All Disabilities -               
-##  6  2012 ALABAMA      Inside regular … All Disabilities -               
-##  7  2012 ALABAMA      Other Location … All Disabilities 7               
-##  8  2012 ALABAMA      Other Location … All Disabilities 1               
-##  9  2012 ALABAMA      Parentally Plac… All Disabilities -               
-## 10  2012 ALABAMA      Residential Fac… All Disabilities 0               
-## # … with 16,220 more rows, and 26 more variables: `Asian Age 3-5` <chr>, `Black
-## #   or African American Age 3-5` <chr>, `Hispanic/Latino Age 3-5` <chr>,
-## #   `Native Hawaiian or Other Pacific Islander Age 3-5` <chr>, `Two or More
-## #   Races Age 3-5` <chr>, `White Age 3-5` <chr>, `Female Age 3 to 5` <chr>,
-## #   `Male Age 3 to 5` <chr>, `LEP Yes Age 3 to 5` <chr>, `LEP No Age 3 to
-## #   5` <chr>, `Age 3 to 5` <chr>, `Age 6-11` <chr>, `Age 12-17` <chr>, `Age
-## #   18-21` <chr>, `Ages 6-21` <chr>, `LEP Yes Age 6 to 21` <chr>, `LEP No Age 6
-## #   to 21` <chr>, `Female Age 6 to 21` <chr>, `Male Age 6 to 21` <chr>,
-## #   `American Indian or Alaska Native Age 6 to21` <chr>, `Asian Age 6
-## #   to21` <chr>, `Black or African American Age 6 to21` <chr>, `Hispanic/Latino
-## #   Age 6 to21` <chr>, `Native Hawaiian or Other Pacific Islander Age 6
-## #   to21` <chr>, `Two or more races Age 6 to21` <chr>, `White Age 6 to21` <chr>
+## # A tibble: 16,230 × 31
+##     Year `State Name` `SEA Education Envir… `SEA Disability … `American Indian …
+##    <dbl> <chr>        <chr>                 <chr>             <chr>             
+##  1  2012 ALABAMA      Correctional Facilit… All Disabilities  -                 
+##  2  2012 ALABAMA      Home                  All Disabilities  1                 
+##  3  2012 ALABAMA      Homebound/Hospital    All Disabilities  -                 
+##  4  2012 ALABAMA      Inside regular class… All Disabilities  -                 
+##  5  2012 ALABAMA      Inside regular class… All Disabilities  -                 
+##  6  2012 ALABAMA      Inside regular class… All Disabilities  -                 
+##  7  2012 ALABAMA      Other Location Regul… All Disabilities  7                 
+##  8  2012 ALABAMA      Other Location Regul… All Disabilities  1                 
+##  9  2012 ALABAMA      Parentally Placed in… All Disabilities  -                 
+## 10  2012 ALABAMA      Residential Facility… All Disabilities  0                 
+## # … with 16,220 more rows, and 26 more variables: Asian Age 3-5 <chr>,
+## #   Black or African American Age 3-5 <chr>, Hispanic/Latino Age 3-5 <chr>,
+## #   Native Hawaiian or Other Pacific Islander Age 3-5 <chr>,
+## #   Two or More Races Age 3-5 <chr>, White Age 3-5 <chr>,
+## #   Female Age 3 to 5 <chr>, Male Age 3 to 5 <chr>, LEP Yes Age 3 to 5 <chr>,
+## #   LEP No Age 3 to 5 <chr>, Age 3 to 5 <chr>, Age 6-11 <chr>, Age 12-17 <chr>,
+## #   Age 18-21 <chr>, Ages 6-21 <chr>, LEP Yes Age 6 to 21 <chr>, …
 ```
 
 The `skip` argument told `read_csv()` to make the line containing "Year", "State
@@ -521,28 +516,26 @@ all_files[[5]]
 ```
 
 ```
-## # A tibble: 16,230 x 50
-##    `2016` Alabama `Correctional F… `All Disabiliti… `-`   `-_1` `-_2` `-_3`
-##     <dbl> <chr>   <chr>            <chr>            <chr> <chr> <chr> <chr>
-##  1   2016 Alabama Home             All Disabilities 43    30    35    0    
-##  2   2016 Alabama Homebound/Hospi… All Disabilities -     -     -     -    
-##  3   2016 Alabama Inside regular … All Disabilities -     -     -     -    
-##  4   2016 Alabama Inside regular … All Disabilities -     -     -     -    
-##  5   2016 Alabama Inside regular … All Disabilities -     -     -     -    
-##  6   2016 Alabama Parentally Plac… All Disabilities -     -     -     -    
-##  7   2016 Alabama Residential Fac… All Disabilities 5     3     4     0    
-##  8   2016 Alabama Residential Fac… All Disabilities -     -     -     -    
-##  9   2016 Alabama Separate Class   All Disabilities 58    58    98    0    
-## 10   2016 Alabama Separate School… All Disabilities 11    20    19    0    
-## # … with 16,220 more rows, and 42 more variables: `-_4` <chr>, `-_5` <chr>,
-## #   `-_6` <chr>, `-_7` <chr>, `-_8` <chr>, `-_9` <chr>, `-_10` <chr>,
-## #   `-_11` <chr>, `-_12` <chr>, `-_13` <chr>, `-_14` <chr>, `0` <chr>,
-## #   `0_1` <chr>, `0_2` <chr>, `0_3` <chr>, `0_4` <chr>, `0_5` <chr>,
-## #   `0_6` <chr>, `0_7` <chr>, `0_8` <chr>, `1` <chr>, `2` <chr>, `4` <chr>,
-## #   `14` <chr>, `22` <chr>, `30` <chr>, `4_1` <chr>, `0_9` <chr>, `7` <chr>,
-## #   `70` <chr>, `77` <chr>, `0_10` <chr>, `77_1` <chr>, `1_1` <chr>,
-## #   `76` <chr>, `0_11` <chr>, `0_12` <chr>, `68` <chr>, `0_13` <chr>,
-## #   `0_14` <chr>, `0_15` <chr>, `9` <chr>
+## # A tibble: 16,230 × 50
+##    `2016` Alabama `Correctional Facili… `All Disabiliti… `-`   `-_1` `-_2` `-_3`
+##     <dbl> <chr>   <chr>                 <chr>            <chr> <chr> <chr> <chr>
+##  1   2016 Alabama Home                  All Disabilities 43    30    35    0    
+##  2   2016 Alabama Homebound/Hospital    All Disabilities -     -     -     -    
+##  3   2016 Alabama Inside regular class… All Disabilities -     -     -     -    
+##  4   2016 Alabama Inside regular class… All Disabilities -     -     -     -    
+##  5   2016 Alabama Inside regular class… All Disabilities -     -     -     -    
+##  6   2016 Alabama Parentally Placed in… All Disabilities -     -     -     -    
+##  7   2016 Alabama Residential Facility… All Disabilities 5     3     4     0    
+##  8   2016 Alabama Residential Facility… All Disabilities -     -     -     -    
+##  9   2016 Alabama Separate Class        All Disabilities 58    58    98    0    
+## 10   2016 Alabama Separate School, Age… All Disabilities 11    20    19    0    
+## # … with 16,220 more rows, and 42 more variables: -_4 <chr>, -_5 <chr>,
+## #   -_6 <chr>, -_7 <chr>, -_8 <chr>, -_9 <chr>, -_10 <chr>, -_11 <chr>,
+## #   -_12 <chr>, -_13 <chr>, -_14 <chr>, 0 <chr>, 0_1 <chr>, 0_2 <chr>,
+## #   0_3 <chr>, 0_4 <chr>, 0_5 <chr>, 0_6 <chr>, 0_7 <chr>, 0_8 <chr>, 1 <chr>,
+## #   2 <chr>, 4 <chr>, 14 <chr>, 22 <chr>, 30 <chr>, 4_1 <chr>, 0_9 <chr>,
+## #   7 <chr>, 70 <chr>, 77 <chr>, 0_10 <chr>, 77_1 <chr>, 1_1 <chr>, 76 <chr>,
+## #   0_11 <chr>, 0_12 <chr>, 68 <chr>, 0_13 <chr>, 0_14 <chr>, 0_15 <chr>, …
 ```
 
 We used `skip = 4` when we read in the datasets in the list. That worked for all
@@ -553,6 +546,11 @@ argument `skip = 3`. We'll assign the newly read dataset to the fifth element of
 the `all_files` list:
 
 
+```r
+all_files[[5]] <-
+  # Skip the first 3 lines instead of the first 4
+  read_csv(filenames[[5]], skip = 3)
+```
 
 Try printing `all_files` now. You can confirm we fixed the problem by checking
 that the variable names are correct.
@@ -588,21 +586,21 @@ all_files[[1]] %>%
 ```
 
 ```
-## # A tibble: 16,230 x 8
-##     Year `State Name` `SEA Education … `SEA Disability… `Female Age 3 t…
-##    <dbl> <chr>        <chr>            <chr>            <chr>           
-##  1  2012 ALABAMA      Correctional Fa… All Disabilities -               
-##  2  2012 ALABAMA      Home             All Disabilities 63              
-##  3  2012 ALABAMA      Homebound/Hospi… All Disabilities -               
-##  4  2012 ALABAMA      Inside regular … All Disabilities -               
-##  5  2012 ALABAMA      Inside regular … All Disabilities -               
-##  6  2012 ALABAMA      Inside regular … All Disabilities -               
-##  7  2012 ALABAMA      Other Location … All Disabilities 573             
-##  8  2012 ALABAMA      Other Location … All Disabilities 81              
-##  9  2012 ALABAMA      Parentally Plac… All Disabilities -               
-## 10  2012 ALABAMA      Residential Fac… All Disabilities 6               
-## # … with 16,220 more rows, and 3 more variables: `Male Age 3 to 5` <chr>,
-## #   `Female Age 6 to 21` <chr>, `Male Age 6 to 21` <chr>
+## # A tibble: 16,230 × 8
+##     Year `State Name` `SEA Education Environ… `SEA Disability … `Female Age 3 t…
+##    <dbl> <chr>        <chr>                   <chr>             <chr>           
+##  1  2012 ALABAMA      Correctional Facilities All Disabilities  -               
+##  2  2012 ALABAMA      Home                    All Disabilities  63              
+##  3  2012 ALABAMA      Homebound/Hospital      All Disabilities  -               
+##  4  2012 ALABAMA      Inside regular class 4… All Disabilities  -               
+##  5  2012 ALABAMA      Inside regular class 8… All Disabilities  -               
+##  6  2012 ALABAMA      Inside regular class l… All Disabilities  -               
+##  7  2012 ALABAMA      Other Location Regular… All Disabilities  573             
+##  8  2012 ALABAMA      Other Location Regular… All Disabilities  81              
+##  9  2012 ALABAMA      Parentally Placed in P… All Disabilities  -               
+## 10  2012 ALABAMA      Residential Facility, … All Disabilities  6               
+## # … with 16,220 more rows, and 3 more variables: Male Age 3 to 5 <chr>,
+## #   Female Age 6 to 21 <chr>, Male Age 6 to 21 <chr>
 ```
 
 That code chunk verifies that we got the variables we want, so now we will turn
@@ -715,7 +713,7 @@ str(child_counts)
 ```
 
 ```
-## tibble [97,387 × 8] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+## tibble [97,387 × 8] (S3: tbl_df/tbl/data.frame)
 ##  $ Year                     : num [1:97387] 2012 2012 2012 2012 2012 ...
 ##  $ State Name               : chr [1:97387] "ALABAMA" "ALABAMA" "ALABAMA" "ALABAMA" ...
 ##  $ SEA Education Environment: chr [1:97387] "Correctional Facilities" "Home" "Homebound/Hospital" "Inside regular class 40% through 79% of day" ...
@@ -724,6 +722,12 @@ str(child_counts)
 ##  $ Male Age 3 to 5          : chr [1:97387] "-" "174" "-" "-" ...
 ##  $ Female Age 6 to 21       : chr [1:97387] "4" "-" "104" "1590" ...
 ##  $ Male Age 6 to 21         : chr [1:97387] "121" "-" "130" "3076" ...
+##  - attr(*, "problems")= tibble [3 × 5] (S3: tbl_df/tbl/data.frame)
+##   ..$ row     : int [1:3] 16228 16229 16230
+##   ..$ col     : chr [1:3] "Year" "Year" "Year"
+##   ..$ expected: chr [1:3] "a double" "a double" "a double"
+##   ..$ actual  : chr [1:3] "-------------------" "-   Data not available" "x   Data supressed due to small cell size"
+##   ..$ file    : chr [1:3] "'/Users/shortessay/data-science-in-education/data/longitudinal_data/bchildcountandedenvironments2012.csv'" "'/Users/shortessay/data-science-in-education/data/longitudinal_data/bchildcountandedenvironments2012.csv'" "'/Users/shortessay/data-science-in-education/data/longitudinal_data/bchildcountandedenvironments2012.csv'"
 ```
 
 ### Importing the data from the {dataedu} package
@@ -733,7 +737,7 @@ you can run the following code to load it directly from the {dataedu} package:
 
 
 ```r
-longitudinal_data <- dataedu::longitudinal_data
+longitudinal_data <- dataedu::child_counts
 ```
 
 ### Filter for the Desired Disabilities and Age Groups
@@ -751,7 +755,7 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 16 x 2
+## # A tibble: 16 × 2
 ##    `SEA Disability Category`                                                   n
 ##    <chr>                                                                   <int>
 ##  1 All Disabilities                                                         6954
@@ -825,7 +829,7 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 6 x 2
+## # A tibble: 6 × 2
 ##   state              n
 ##   <chr>          <int>
 ## 1 Alabama            8
@@ -915,7 +919,7 @@ child_counts <-
 ```
 
 ```
-## Warning: NAs introduced by coercion
+## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
 ```
 
 ```r
@@ -923,7 +927,7 @@ child_counts
 ```
 
 ```
-## # A tibble: 2,928 x 6
+## # A tibble: 2,928 × 6
 ##     year state   age             disability       gender total
 ##    <dbl> <chr>   <chr>           <chr>            <chr>  <dbl>
 ##  1  2012 alabama Total, Age 3-5  All Disabilities f       2228
@@ -1018,7 +1022,7 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 2,928 x 6
+## # A tibble: 2,928 × 6
 ##    year       state   age             disability       gender total
 ##    <date>     <chr>   <chr>           <chr>            <chr>  <dbl>
 ##  1 2012-01-01 alabama Total, Age 3-5  All Disabilities f       2228
@@ -1060,7 +1064,7 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 1,390 x 6
+## # A tibble: 1,390 × 6
 ##    year       state          age             disability       gender total
 ##    <date>     <chr>          <chr>           <chr>            <chr>  <dbl>
 ##  1 2012-01-01 alabama        Total, Age 3-5  All Disabilities f       2228
@@ -1102,7 +1106,7 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 6 x 2
+## # A tibble: 6 × 2
 ##   state                                            mean_count
 ##   <chr>                                                 <dbl>
 ## 1 california                                          180879.
@@ -1254,7 +1258,7 @@ year. Our coding strategy will be to
   - Use `pivot_wider()` to create separate columns for male and female students.
   - Use `mutate()` to create a new variable called `ratio`. The values in this
     column will be the result of dividing the count of male students by the
-    count of female students
+    count of female students.
  
 Note here that we can also accomplish this comparison by dividing the number of
 female students by the number of male students. In this case, the result would
@@ -1372,15 +1376,15 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 6 x 5
-##   year       state                                  age                 f      m
-##   <date>     <chr>                                  <chr>           <dbl>  <dbl>
-## 1 2012-01-01 us, outlying areas, and freely associ… Total, Age 6… 1933619 3.89e6
-## 2 2013-01-01 us, outlying areas, and freely associ… Total, Age 6… 1937726 3.88e6
-## 3 2014-01-01 us, outlying areas, and freely associ… Total, Age 6… 1965204 3.92e6
-## 4 2015-01-01 us, outlying areas, and freely associ… Total, Age 6… 2007174 3.98e6
-## 5 2016-01-01 us, outlying areas, and freely associ… Total, Age 6… 2014120 3.97e6
-## 6 2017-01-01 us, outlying areas, and freely associ… Total, Age 6… 2051438 4.02e6
+## # A tibble: 6 × 5
+##   year       state                                            age        f      m
+##   <date>     <chr>                                            <chr>  <dbl>  <dbl>
+## 1 2012-01-01 us, outlying areas, and freely associated states Tota… 1.93e6 3.89e6
+## 2 2013-01-01 us, outlying areas, and freely associated states Tota… 1.94e6 3.88e6
+## 3 2014-01-01 us, outlying areas, and freely associated states Tota… 1.97e6 3.92e6
+## 4 2015-01-01 us, outlying areas, and freely associated states Tota… 2.01e6 3.98e6
+## 5 2016-01-01 us, outlying areas, and freely associated states Tota… 2.01e6 3.97e6
+## 6 2017-01-01 us, outlying areas, and freely associated states Tota… 2.05e6 4.02e6
 ```
 
 This is where we discover that each of the data points in the upper right hand
@@ -1421,8 +1425,8 @@ female students to learn about the ratio of female to male students? Similarly,
 we should ask the question Do we have enough data points across our year
 variable to learn about how this ratio has changed over time?
 
-To answer that question, let's start by making a new dataset that excludes any
-rows where the `f` variables has a value that is less than or equal to 500,000.
+To answer that question, let's start by making a new dataset that includes any
+rows where the `f` variable has a value that is less than or equal to 500,000.
 We'll convert the `year` variable to a factor data type--we'll see how this
 helps in a bit. We'll also add a column called `ratio` that contains the male to
 female count ratio.
@@ -1450,7 +1454,7 @@ model_data %>%
 ```
 
 ```
-## # A tibble: 6 x 2
+## # A tibble: 6 × 2
 ##   year      n
 ##   <fct> <int>
 ## 1 2012     59
@@ -1556,7 +1560,7 @@ model_data %>%
 ```
 
 ```
-## # A tibble: 6 x 2
+## # A tibble: 6 × 2
 ##   year  mean_ratio
 ##   <fct>      <dbl>
 ## 1 2012        2.03
@@ -1623,7 +1627,7 @@ model_data %>%
 ```
 
 ```
-## # A tibble: 6 x 2
+## # A tibble: 6 × 2
 ##   year  median_ratio
 ##   <fct>        <dbl>
 ## 1 2012          1.99

@@ -45,7 +45,7 @@ quizzes_1
 ```
 
 ```
-## # A tibble: 3 x 5
+## # A tibble: 3 × 5
 ##   teacher_id student_id quiz_1 quiz_2 quiz_3
 ##        <dbl>      <int>  <int>  <int>  <int>
 ## 1          1          1     27     87     35
@@ -62,7 +62,7 @@ quizzes_1 %>%
 ```
 
 ```
-## # A tibble: 9 x 4
+## # A tibble: 9 × 4
 ##   teacher_id student_id quiz_number score
 ##        <dbl>      <int> <chr>       <int>
 ## 1          1          1 quiz_1         27
@@ -87,7 +87,7 @@ quizzes_1 %>%
 ```
 
 ```
-## # A tibble: 3 x 2
+## # A tibble: 3 × 2
 ##   student_id quiz_mean
 ##        <int>     <dbl>
 ## 1          1      49.7
@@ -144,7 +144,7 @@ all_quizzes
 ```
 
 ```
-## # A tibble: 9 x 6
+## # A tibble: 9 × 6
 ##   teacher_id student_id quiz_1 quiz_2 quiz_3 intervention
 ##        <dbl>      <int>  <int>  <int>  <int>        <dbl>
 ## 1          1          1     27     87     35            0
@@ -172,7 +172,11 @@ all_quizzes %>%
 ```
 
 ```
-## # A tibble: 9 x 3
+## `summarise()` has grouped output by 'student_id'. You can override using the `.groups` argument.
+```
+
+```
+## # A tibble: 9 × 3
 ## # Groups:   student_id [9]
 ##   student_id intervention quiz_mean
 ##        <int>        <dbl>     <dbl>
