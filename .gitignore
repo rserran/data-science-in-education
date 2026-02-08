@@ -3,5 +3,15 @@
 .RData
 .Ruserdata
 .DS_Store
+.here
 data/.DS_Store
 10a_scratch.R
+_main.rds
+*.json
+*.html
+_book/
+_bookdown_files/
+libs/
+**/*.bib
+**/*.html
+data-science-in-education.Rproj

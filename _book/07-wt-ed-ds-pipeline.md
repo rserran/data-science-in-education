@@ -1,8 +1,10 @@
-# Walkthrough 1: The Education Data Science Pipeline With Online Science Class Data {#c07}
+# Walkthrough 1: The education data science pipeline with online science class data {#c07}
 
 ## Topics Emphasized
 
-For this and the remaining walkthroughs, we refer to the topics emphasized in terms of distinct but related steps involved in the process of data science. In this book, we use the six steps---described in detail in [Chapter 3](#c03)---from @grolemund2018's depiction of the process.
+For this and the remaining walkthroughs, we refer to the topics emphasized in terms of distinct but related 
+steps involved in the process of data science. In this book, we use the six steps - described in detail 
+in [Chapter 3](#c03) - from @grolemund2018's depiction of the process.
 
 As mentioned in [Chapter 5](#c05), then, the topics emphasized are those that are the *particular* focus of each chapter; most of the walkthroughs contain some element of all of the five aspects, but all have specific emphases.
 
@@ -42,29 +44,30 @@ In this section (here and in the other walkthrough sections), we include key ter
 
 This chapter is the first of eight walkthroughs included in the book. In it, we
 present *one approach* to analyzing a specific dataset. In this chapter, the
-approach is what we refer to as the "education data science pipeline", or some of the steps taken in many data science projects, including cleaning and tidying data as well as exploring and visualizing or modeling it.
+approach is what we refer to as the *education data science pipeline*, orsome  the steps taken in many data science projects, including cleaning and tidying data as well as exploring and visualizing or modeling it.
 
 Here, we will be using data from a number of online science classes and will show the process of
 working with an education dataset from start to finish. While the walkthroughs
 are very different, the structure and section headings will be consistent
-throughout them. For example, each walkthrough will begin with a
+throughout the walkthroughs. For example, every walkthrough will begin with a
 vocabulary section, followed by an introduction to the dataset and an
 introduction to the question or problem explored in the walkthrough. 
 
 We note that this chapter assumes familiarity with the four core concepts that 
 comprise the foundational skills framework: projects, functions, packages, and data. If you would 
-like a refresher about (or an introduction to) any of those, reading [Chapter 6](#06) then writing and running some of the code in it may be helpful to you.
+like a refresher about (or an introduction to) any of those, the foundational skills chapter, 
+then reading and writing and running some of the code in the previous chapter [Chapter 6](#06) may be helpful to you.
 
 ## Chapter Overview
 
 In this walkthrough, we explore some of the key steps that are a part of many
 data science in education projects. In particular, we explore how to process and
 prepare data. These steps are sometimes referred to as "data wrangling". To do
-this, we rely heavily on a set of tools that we use throughout *all* the
-walkthroughs---those associated with the {tidyverse}.
+so, we rely heavily on a set of tools that we use throughout *all* of the
+walkthroughs, those associated with the {tidyverse}.
 
 The {tidyverse} is a set of packages for data manipulation, exploration, and
-visualization that uses the design philosophy of "tidy" data [@wickham2014].
+visualization. that uses the design philosophy of 'tidy' data [@wickham2014].
 Tidy data has a specific structure: each variable is a column, each observation
 is a row, and each type of observational unit is a table. We'll discuss both the
 {tidyverse} and tidy data much more throughout the book. For more information,
@@ -73,14 +76,15 @@ see the Foundational Skills chapters or <https://www.tidyverse.org/>.
 ### Background
 
 The online science classes we explore in this chapter were designed and taught
-by instructors through a state-wide online course provider designed to supplement---but not replace---students' enrollment in their local school. For example,
+by instructors through a statewide online course provider designed to supplement
+- but not replace - students' enrollment in their local school. For example,
 students may have chosen to enroll in an online physics class because one was
 not offered at their school. The data were originally collected for a research
 study, which utilized a number of different data sources to understand students'
 course-related motivation. These datasets included:
 
 1.  A self-report survey assessing three aspects of students' motivation
-2.  Log-trace data, such as data output from the learning management system (LMS)
+2.  Log-trace data, such as data output from the learning management system
 3.  Discussion board data
 4.  Academic achievement data
 
@@ -88,9 +92,10 @@ Our high-level *purpose* for this walkthrough is to conduct an analysis that
 helps explain students' performance in these online courses. The *problem* we
 are facing is a very common one when it comes to data science in education: the
 data are complex and in need of further processing before we can get to the step
-of running analyses. We will use this same dataset in the final walkthrough, _Walkthrough 8_, in [Chapter 14](#c14), where we will provide more details there about the dataset and the context. 
+of running analyses. We will use this same dataset in the final walkthrough [Walkthrough 8/Chapter 14](#c14), and we will provide more details there about the dataset and the context. 
 
-To understand students' performance, we will focus on an LMS variable that indicates the amount of time students spent within
+To understand students' performance, we will focus on a learning management
+system (LMS) variable that indicates the amount of time students spent within
 the course LMS. We will also explore the effects of the type of science course
 and the section in which students are enrolled on student performance.
 
@@ -108,7 +113,7 @@ competence. A *measure* is a concept that we try to make concrete and assess
 using survey questions. The three motivation measures we explore here come from
 Expectancy-Value Theory, which states that students are motivated to learn when
 they both believe that they can achieve something (expectancy, also known as
-"perceived competence") and believe that the concept they are trying to learn is
+perceived competence) and believe that the concept they are trying to learn is
 important (value) [@wigfield2000]. There are multiple types of value, but we
 explore two of them here: interest and utility value. Utility value is the
 degree to which a person is able to connect the concept being learned with
@@ -118,12 +123,12 @@ following ten items:
 1.  I think this course is an interesting subject. (Interest)
 2.  What I am learning in this class is relevant to my life. (Utility value)
 3.  I consider this topic to be one of my best subjects. (Perceived competence)
-4.  I am not interested in this course. (Interest---reverse coded)
+4.  I am not interested in this course. (Interest - reverse coded)
 5.  I think I will like learning about this topic. (Interest)
 6.  I think what we are studying in this course is useful for me to know.
     (Utility value)
 7.  I don’t feel comfortable when it comes to answering questions in this area.
-    (Perceived competence--reverse coded)
+    (Perceived competence - reverse coded)
 8.  I think this subject is interesting. (Interest)
 9.  I find the content of this course to be personally meaningful. (Utility
     value)
@@ -133,12 +138,13 @@ following ten items:
 
 *Log-trace data* is data generated from our interactions with digital
 technologies, such as archived data from social media postings (see
-[Chapters 11](#c11) and [12](#c12)). In education, an increasingly common
-source of log-trace data is that generated from interactions with LMS and other digital tools [@siemens2012]. The data for this
+[Chapter 11](#c11) and [Chapter 12](#c12)). In education, an increasingly common
+source of log-trace data is that generated from interactions with learning
+management systems and other digital tools [@siemens2012]. The data for this
 walk-through is a summary type of log-trace data: the number of minutes students
 spent on the course. While this data type is fairly straightforward, there are
-even more complex sources of log-trace data out there (e.g., time stamps
-associated with when students started and stopped accessing the course).
+even more complex sources of log-trace data out there (e.g. time stamps
+associated with when students started and stopped accessing the course!).
 
 ### Data Source \#3: Academic Achievement and Gradebook Data
 
@@ -150,7 +156,7 @@ for the course.
 
 Discussion board data is both rich and unstructured because it is made up of
 large chunks of text that the students wrote. While discussion board data was
-collected for this research project, we do not examine it in this
+collected for this research project, but we do not examine it in this
 walkthrough. More information about analyzing text data can be found in
 [Chapter 11](#c11).
 
@@ -189,13 +195,13 @@ function; the names of the packages must be provided to the function as follows:
 
 
 ```r
-install.packages(c("tidyverse", "apaTables"))
+install.packages(c("tidyverse", "apaTables))
 ```
 
 When you're installing a package for the first time (which may be needed for the other walkthrough chapters, as well), you will need to take these same steps, first. 
 The good news is that you only need to install a package *once*, after which you can simply load it using `library()` (as below).
 
-More on the installation of packages is included in the ["Packages" section](#c06p) of [Chapter 6](#c06). 
+More on the installation of packages is included in the [Packages section](#c06p) of [Chapter 6](#c06). 
 
 
 ```r
@@ -253,11 +259,11 @@ pre_survey
 ##  8 _80624_1        BioA-S116-01                      5                   3
 ##  9 _80624_1        BioA-T116-01                     NA                  NA
 ## 10 _80624_1        PhysA-S116-01                     4                   4
-## # … with 1,092 more rows, and 8 more variables: Q1MaincellgroupRow3 <dbl>,
-## #   Q1MaincellgroupRow4 <dbl>, Q1MaincellgroupRow5 <dbl>,
-## #   Q1MaincellgroupRow6 <dbl>, Q1MaincellgroupRow7 <dbl>,
-## #   Q1MaincellgroupRow8 <dbl>, Q1MaincellgroupRow9 <dbl>,
-## #   Q1MaincellgroupRow10 <dbl>
+## # ℹ 1,092 more rows
+## # ℹ 8 more variables: Q1MaincellgroupRow3 <dbl>, Q1MaincellgroupRow4 <dbl>,
+## #   Q1MaincellgroupRow5 <dbl>, Q1MaincellgroupRow6 <dbl>,
+## #   Q1MaincellgroupRow7 <dbl>, Q1MaincellgroupRow8 <dbl>,
+## #   Q1MaincellgroupRow9 <dbl>, Q1MaincellgroupRow10 <dbl>
 ```
 
 ```r
@@ -278,8 +284,8 @@ course_data
 ##  8 AnPhA-S116-01           60186 1.3: Create a Li… Hw                       86.3
 ##  9 AnPhA-S116-01           60186 1.3: Create a Li… Hw                       86.3
 ## 10 AnPhA-S116-01           60186 1.4: Negative Fe… Hw                       86.3
-## # … with 29,701 more rows, and 3 more variables: Points_Possible <dbl>,
-## #   Points_Earned <dbl>, Gender <chr>
+## # ℹ 29,701 more rows
+## # ℹ 3 more variables: Points_Possible <dbl>, Points_Earned <dbl>, Gender <chr>
 ```
 
 ```r
@@ -300,7 +306,7 @@ course_minutes
 ##  8     86349 OcnA-S116-01            1601.
 ##  9     86460 OcnA-S116-01            1891.
 ## 10     87970 OcnA-S116-01            3123.
-## # … with 588 more rows
+## # ℹ 588 more rows
 ```
 
 ## Process Data
@@ -318,8 +324,8 @@ and 3) utility value. We do this by:
 
 Let's take these steps in order:
 
-1.  Take the pre-survey data, and save it as a new object with the same name
-    "pre\_survey". Rename the question columns to something much simpler. To do
+1.  Take the pre-survey data and save it as a new object with the same name
+    "pre\_survey." Rename the question columns to something much simpler. To do
     this, we will use the `rename()` function and will input first the new
     variable name, then the "=" sign, and then the old variable name. You'll
     notice another function at the bottom called `mutate_at()`. We'll explain
@@ -358,7 +364,7 @@ To learn a little more about `mutate()`, try the example below, where we create
 a new data frame called "df". A data frame is a two-dimensional structure that stores tables. The table has a header and data rows and each cell stores values. 
 
 We fill this data frame with two columns: "male" and
-"female". Each column has only one value, and that value is 5. In the second
+"female." Each column has only one value, and that value is 5. In the second
 part of the code, we add a `total_students` column by adding the number of
 `male` students and `female` students.
 
@@ -405,9 +411,9 @@ in a column with other values based on some criteria. Education datasets use a
 lot of codes to describe demographics, like numerical codes for disability
 categories, race groups, or proficiency in a test. When you work with codes like
 this, you'll often want to change the codes to values that are easier to
-understand. For example, a consultant analyzing how students did on state
-testing might use `case_when()` to replace proficiency codes like 1, 2, or 3 with
-more descriptive words, like "below proficiency", "proficient", or "advanced".
+understand. For a example, a consultant analyzing how students did on state
+testing might use `case_when()` to replace proficiency codes like 1, 2, or 3 to
+more descriptive words like "below proficiency", "proficient", or "advanced."
 	
 `case_when()` lets you vectorize the rules you want to use to change values in a
 column. When a sequence of criteria is vectorized, R will evaluate a value in a
@@ -481,10 +487,10 @@ values for questions 4 and 7.
     having 1,102 observations of 12 variables, we will now have 11,020
     observations of 4 variables. By using `pivot_longer()`, we make it so that
     each question & response pair has its own line in the data. Therefore, since
-    we have ten question variables (columns) in the `pre_survey` dataset, after
-    we use `pivot_longer()` we will end up with ten times as many observations
+    we have 10 question variables (columns) in the `pre_survey` dataset, after
+    we use `pivot_longer()`, we will end up with 10 times as many observations
     (rows) as before. Additionally, we no longer need a separate column for each
-    individual question since each question-response pair is now on its own
+    individual question, since each question-response pair is now on its own
     line. What was previously one row of data now takes up ten rows of data. so
     `pivot_longer()` automatically deletes those empty columns after condensing
     all the data. We'll save this new dataset as an object called `measure_mean`
@@ -507,7 +513,7 @@ measure_mean <-
 
   - `int`: interest
   - `uv`: utility value
-  - `pc`: perceived competence  
+  - `pc`: perceived competence .
 
 We will use the `case_when()` function we learned earlier in order to do this.
 When we pivoted from wide format to long format in the prior step, we ended up
@@ -606,8 +612,8 @@ course_data <-
 
 After running the code chunk above, take a look at the dataset `course_data` to
 make sure it looks the way you'd expect it to look. In this case, we are
-expecting that we will add three new variables, taking the total number of variables
-in this dataset from eight to 11. We will still see the original variable
+expecting that we will add 3 new variables, taking the total number of variables
+in this dataset from 8 to 11. We will still see the original variable
 `CourseSectionOrigID` in the data as well.
 
 ### Joining the Data
@@ -624,9 +630,10 @@ basis of that variable.
 When we look at the `course_data` and `pre_survey` datasets in our environment,
 we see that both have variables for the course and the student. However, this
 information is captured in different variable names in each dataset. Our first
-goal will be to rename two variables in each dataset so that they will
+goal will be to rename two variables in each of our datasets so that they will
 match. One variable will correspond to the course, and the other will correspond
-to the student. We are not changing anything in the data itself at this step---instead, we are just cleaning up the column headers up so we can look at the
+to the student. We are not changing anything in the data itself at this step -
+instead, we are just cleaning the column headers up so that we can look at the
 data all in one place.
 
 Let's start with the pre-survey data. We will rename `RespondentID` and
@@ -657,16 +664,17 @@ pre_survey
 ##  8 _80624_1   BioA-S116-01     5     3     3     5     5     4     5     5     3
 ##  9 _80624_1   BioA-T116-01    NA    NA    NA    NA    NA    NA    NA    NA    NA
 ## 10 _80624_1   PhysA-S116-…     4     4     3     4     4     4     4     4     3
-## # … with 1,092 more rows, and 1 more variable: q10 <dbl>
+## # ℹ 1,092 more rows
+## # ℹ 1 more variable: q10 <dbl>
 ```
 
 Those variable names look better now!
 
-When we look at the data more closely, though, we notice that the
-`student_id` variable has another issue---the variable has some additional
+When we look at the data more closely, though, we will notice that the
+`student_id` variable has another issue - the variable has some additional
 characters before and after *the actual ID* that we will need to be able to join
 this data with the other data sources we have. Why does this variable have these
-additional characters? Why is there a "1" at the end of every five-digit ID number?
+additional characters? Why is there a "1" at the end of every 5-digit ID number?
 We are not sure! Sometimes, educational data from different systems (used for
 different purposes) may have additional "meta"-data added on. In any event, here
 is what the variables look like before processing:
@@ -680,12 +688,13 @@ head(pre_survey$student_id)
 ## [1] "_80624_1" "_80623_1" "_82588_1" "_80623_1" "_80624_1" "_80624_1"
 ```
 
-What we need is the five characters in between the underscore (_) symbols.
+What we need is the five characters in between the underscore symbols - these:
+`_`.
 
 One way to do this is to use the `str_sub()` function from the {stringr}
-package. This function lets us subset "string" variables---variables that store
+package. This function lets us subset *string* variables: variables that store
 text data. You can specify the indices of the variables you want the string to
-start and end with.
+*start* and *end* with.
 
 Here, for example, is how we can select only the content starting with the
 second character, skipping the first underscore in the process. This next chunk
@@ -705,9 +714,9 @@ str_sub("_99888_1", start = 2)
 We can apply the same thinking to delete characters from the end of a string. We
 will use a `-` to indicate that we want to start from the right side of the
 string of characters. Interestingly, when we specify the argument `end` below,
-we will tell it the placement of the first character we want to _include_. When we
-type `end = -3`, we end up deleting only the last two characters. Our new
-rightmost character will be the final eight.
+we will tell it the placement of the first character we want to INCLUDE. When we
+type `end = -3`, we end up deleting only the last 2 characters. Our new
+rightmost character will be the final 8.
 
 
 ```r
@@ -719,7 +728,7 @@ str_sub("_99888_1", end = -3)
 ```
 
 Putting the pieces together, the following should return what we want. Try
-running the code below to see if it yields the five-digit ID number we are shooting
+running the code below to see if it yields the 5-digit ID number we are shooting
 to extract.
 
 
@@ -735,7 +744,7 @@ _Note: you may receive a warning telling you that `NA` values were introduced by
 
 We can apply this process to our data using `mutate()`. We convert the string
 into a number using `as.numeric()` in the next portion of the code. This step is
-important so the data can be joined to the other numeric `student_id` variables
+important so the data can be joined to the other, numeric `student_id` variables
 (in the other datasets):
 
 
@@ -750,12 +759,15 @@ pre_survey <- pre_survey %>%
 ```
 
 ```
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
+## Warning: There was 1 warning in `mutate()`.
+## ℹ In argument: `student_id = as.numeric(student_id)`.
+## Caused by warning:
+## ! NAs introduced by coercion
 ```
 
 Now that the `student_id` and `course_id` variables are ready to go in the
-`pre_survey` dataset, let's proceed to the course data. Our goal is to rename the
-two variables that correspond to the course and the student so we can match them
+`pre_survey` dataset, let's proceed to the course data. Our goal is to rename
+two variables that correspond to the course and the student so that we can match
 with the other variables we just created for the pre-survey data. In the code
 chunk below, we will rename both those variables.
 
@@ -767,13 +779,15 @@ course_data <-
          course_id = CourseSectionOrigID)
 ```
 
-Now that we have two variables that are consistent across both datasets---we
-have called them `course_id` and `student_id`. We can now join the two datasets
-using the {dplyr} function, `left_join()`, which is named based on the "direction" that the data is being joined.
+Now that we have two variables that are consistent across both datasets - we
+have called them `course_id` and `student_id` - we can join the two datasets
+using the {dplyr} function, `left_join()`.
+
+`left_join()` is named based on the 'direction' that the data is being joined.
 Note the order of the data frames passed to our "left" join. Left joins retain
 all of the rows in the data frame on the "left", and joins every matching row in
 the right data frame to it. We will use two variables as keys for joining the
-datasets, and we will specify those after the word `by`.  
+datasets, and we will specify those after the word `by`.
 
 Let's save our joined data as a new object called `dat`.
 
@@ -782,27 +796,38 @@ Let's save our joined data as a new object called `dat`.
 dat <-
   left_join(course_data, pre_survey,
             by = c("student_id", "course_id"))
+```
+
+```
+## Warning in left_join(course_data, pre_survey, by = c("student_id", "course_id")): Detected an unexpected many-to-many relationship between `x` and `y`.
+## ℹ Row 54 of `x` matches multiple rows in `y`.
+## ℹ Row 401 of `y` matches multiple rows in `x`.
+## ℹ If a many-to-many relationship is expected, set `relationship =
+##   "many-to-many"` to silence this warning.
+```
+
+```r
 dat
 ```
 
 ```
 ## # A tibble: 40,348 × 21
-##    course_id     subject semester section student_id Gradebook_Item Grade_Category
-##    <chr>         <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
-##  1 AnPhA-S116-01 AnPhA   S116     01           60186 POINTS EARNED… <NA>          
-##  2 AnPhA-S116-01 AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
-##  3 AnPhA-S116-01 AnPhA   S116     01           60186 0.1: Message … <NA>          
-##  4 AnPhA-S116-01 AnPhA   S116     01           60186 0.2: Intro As… Hw            
-##  5 AnPhA-S116-01 AnPhA   S116     01           60186 0.3: Intro As… Hw            
-##  6 AnPhA-S116-01 AnPhA   S116     01           60186 1.1: Quiz      Qz            
-##  7 AnPhA-S116-01 AnPhA   S116     01           60186 1.2: Quiz      Qz            
-##  8 AnPhA-S116-01 AnPhA   S116     01           60186 1.3: Create a… Hw            
-##  9 AnPhA-S116-01 AnPhA   S116     01           60186 1.3: Create a… Hw            
-## 10 AnPhA-S116-01 AnPhA   S116     01           60186 1.4: Negative… Hw            
-## # … with 40,338 more rows, and 14 more variables: FinalGradeCEMS <dbl>,
-## #   Points_Possible <dbl>, Points_Earned <dbl>, Gender <chr>, q1 <dbl>,
-## #   q2 <dbl>, q3 <dbl>, q4 <dbl>, q5 <dbl>, q6 <dbl>, q7 <dbl>, q8 <dbl>,
-## #   q9 <dbl>, q10 <dbl>
+##    course_id   subject semester section student_id Gradebook_Item Grade_Category
+##    <chr>       <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
+##  1 AnPhA-S116… AnPhA   S116     01           60186 POINTS EARNED… <NA>          
+##  2 AnPhA-S116… AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
+##  3 AnPhA-S116… AnPhA   S116     01           60186 0.1: Message … <NA>          
+##  4 AnPhA-S116… AnPhA   S116     01           60186 0.2: Intro As… Hw            
+##  5 AnPhA-S116… AnPhA   S116     01           60186 0.3: Intro As… Hw            
+##  6 AnPhA-S116… AnPhA   S116     01           60186 1.1: Quiz      Qz            
+##  7 AnPhA-S116… AnPhA   S116     01           60186 1.2: Quiz      Qz            
+##  8 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
+##  9 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
+## 10 AnPhA-S116… AnPhA   S116     01           60186 1.4: Negative… Hw            
+## # ℹ 40,338 more rows
+## # ℹ 14 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
+## #   Points_Earned <dbl>, Gender <chr>, q1 <dbl>, q2 <dbl>, q3 <dbl>, q4 <dbl>,
+## #   q5 <dbl>, q6 <dbl>, q7 <dbl>, q8 <dbl>, q9 <dbl>, q10 <dbl>
 ```
 
 Let's hone in on how this code is structured. After `left_join()`, we see
@@ -815,7 +840,8 @@ Our aim with that code is that all of the rows in `course_data` are retained in
 our new data frame, `dat`, with matching rows of `pre_survey` joined to it. An
 important note is that there are not multiple matching rows of `pre_survey`;
 otherwise, you would end up with more rows in `dat` than expected. There is a
-lot packed into this one function. Joins are extremely powerful---and common---in many data analysis processing pipelines, both in education and in other fields.
+lot packed into this one function. Joins are extremely powerful - and common -
+in many data analysis processing pipelines, both in education and in any field.
 Think of all of the times you have data in more than one data frame, but you
 want everything to be in a single data frame! As a result, we think that joins
 are well worth investing the time to be able to use.
@@ -832,7 +858,7 @@ types of joins will start to become more intuitive as you use them more often.
 
 #### `semi_join()`
 
-`semi_join()` joins and retains all of the *matching* rows in the "left" and
+`semi_join()`: joins and retains all of the *matching* rows in the "left" and
 "right" data frame. This is useful when you are only interested in keeping the
 rows (or cases/observations) that are able to be joined. `semi_join()` will not
 create duplicate rows of the left data frame, even when it finds multiple
@@ -854,25 +880,26 @@ dat_semi
 
 ```
 ## # A tibble: 28,655 × 11
-##    course_id     subject semester section student_id Gradebook_Item Grade_Category
-##    <chr>         <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
-##  1 AnPhA-S116-01 AnPhA   S116     01           60186 POINTS EARNED… <NA>          
-##  2 AnPhA-S116-01 AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
-##  3 AnPhA-S116-01 AnPhA   S116     01           60186 0.1: Message … <NA>          
-##  4 AnPhA-S116-01 AnPhA   S116     01           60186 0.2: Intro As… Hw            
-##  5 AnPhA-S116-01 AnPhA   S116     01           60186 0.3: Intro As… Hw            
-##  6 AnPhA-S116-01 AnPhA   S116     01           60186 1.1: Quiz      Qz            
-##  7 AnPhA-S116-01 AnPhA   S116     01           60186 1.2: Quiz      Qz            
-##  8 AnPhA-S116-01 AnPhA   S116     01           60186 1.3: Create a… Hw            
-##  9 AnPhA-S116-01 AnPhA   S116     01           60186 1.3: Create a… Hw            
-## 10 AnPhA-S116-01 AnPhA   S116     01           60186 1.4: Negative… Hw            
-## # … with 28,645 more rows, and 4 more variables: FinalGradeCEMS <dbl>,
-## #   Points_Possible <dbl>, Points_Earned <dbl>, Gender <chr>
+##    course_id   subject semester section student_id Gradebook_Item Grade_Category
+##    <chr>       <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
+##  1 AnPhA-S116… AnPhA   S116     01           60186 POINTS EARNED… <NA>          
+##  2 AnPhA-S116… AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
+##  3 AnPhA-S116… AnPhA   S116     01           60186 0.1: Message … <NA>          
+##  4 AnPhA-S116… AnPhA   S116     01           60186 0.2: Intro As… Hw            
+##  5 AnPhA-S116… AnPhA   S116     01           60186 0.3: Intro As… Hw            
+##  6 AnPhA-S116… AnPhA   S116     01           60186 1.1: Quiz      Qz            
+##  7 AnPhA-S116… AnPhA   S116     01           60186 1.2: Quiz      Qz            
+##  8 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
+##  9 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
+## 10 AnPhA-S116… AnPhA   S116     01           60186 1.4: Negative… Hw            
+## # ℹ 28,645 more rows
+## # ℹ 4 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
+## #   Points_Earned <dbl>, Gender <chr>
 ```
 
 #### `anti_join()`
 
-`anti_join()` *removes* all of the rows in the "left" data frame that can be
+`anti_join()`: *removes* all of the rows in the "left" data frame that can be
 joined with those in the "right" data frame.
 
 
@@ -887,25 +914,26 @@ dat_anti
 
 ```
 ## # A tibble: 1,056 × 11
-##    course_id     subject semester section student_id Gradebook_Item Grade_Category
-##    <chr>         <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
-##  1 AnPhA-S116-01 AnPhA   S116     01           85865 POINTS EARNED… <NA>          
-##  2 AnPhA-S116-01 AnPhA   S116     01           85865 WORK ATTEMPTED <NA>          
-##  3 AnPhA-S116-01 AnPhA   S116     01           85865 0.1: Message … <NA>          
-##  4 AnPhA-S116-01 AnPhA   S116     01           85865 0.2: Intro As… Hw            
-##  5 AnPhA-S116-01 AnPhA   S116     01           85865 0.3: Intro As… Hw            
-##  6 AnPhA-S116-01 AnPhA   S116     01           85865 1.1: Quiz      Qz            
-##  7 AnPhA-S116-01 AnPhA   S116     01           85865 1.2: Quiz      Qz            
-##  8 AnPhA-S116-01 AnPhA   S116     01           85865 1.3: Create a… Hw            
-##  9 AnPhA-S116-01 AnPhA   S116     01           85865 1.3: Create a… Hw            
-## 10 AnPhA-S116-01 AnPhA   S116     01           85865 1.4: Negative… Hw            
-## # … with 1,046 more rows, and 4 more variables: FinalGradeCEMS <dbl>,
-## #   Points_Possible <dbl>, Points_Earned <dbl>, Gender <chr>
+##    course_id   subject semester section student_id Gradebook_Item Grade_Category
+##    <chr>       <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
+##  1 AnPhA-S116… AnPhA   S116     01           85865 POINTS EARNED… <NA>          
+##  2 AnPhA-S116… AnPhA   S116     01           85865 WORK ATTEMPTED <NA>          
+##  3 AnPhA-S116… AnPhA   S116     01           85865 0.1: Message … <NA>          
+##  4 AnPhA-S116… AnPhA   S116     01           85865 0.2: Intro As… Hw            
+##  5 AnPhA-S116… AnPhA   S116     01           85865 0.3: Intro As… Hw            
+##  6 AnPhA-S116… AnPhA   S116     01           85865 1.1: Quiz      Qz            
+##  7 AnPhA-S116… AnPhA   S116     01           85865 1.2: Quiz      Qz            
+##  8 AnPhA-S116… AnPhA   S116     01           85865 1.3: Create a… Hw            
+##  9 AnPhA-S116… AnPhA   S116     01           85865 1.3: Create a… Hw            
+## 10 AnPhA-S116… AnPhA   S116     01           85865 1.4: Negative… Hw            
+## # ℹ 1,046 more rows
+## # ℹ 4 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
+## #   Points_Earned <dbl>, Gender <chr>
 ```
 
 #### `right_join()`
 
-Perhaps the least helpful of the three, `right_join()`, works the
+`right_join()`: perhaps the least helpful of the three, `right_join()` works the
 same as `left_join()`, but by retaining all of the rows in the "right" data
 frame, and joining matching rows in the "left" data frame (so, the opposite of
 `left_join()`).
@@ -916,31 +944,41 @@ dat_right <-
   right_join(course_data,
              pre_survey,
              by = c("student_id", "course_id"))
+```
 
+```
+## Warning in right_join(course_data, pre_survey, by = c("student_id", "course_id")): Detected an unexpected many-to-many relationship between `x` and `y`.
+## ℹ Row 54 of `x` matches multiple rows in `y`.
+## ℹ Row 401 of `y` matches multiple rows in `x`.
+## ℹ If a many-to-many relationship is expected, set `relationship =
+##   "many-to-many"` to silence this warning.
+```
+
+```r
 dat_right
 ```
 
 ```
 ## # A tibble: 39,593 × 21
-##    course_id     subject semester section student_id Gradebook_Item Grade_Category
-##    <chr>         <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
-##  1 AnPhA-S116-01 AnPhA   S116     01           60186 POINTS EARNED… <NA>          
-##  2 AnPhA-S116-01 AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
-##  3 AnPhA-S116-01 AnPhA   S116     01           60186 0.1: Message … <NA>          
-##  4 AnPhA-S116-01 AnPhA   S116     01           60186 0.2: Intro As… Hw            
-##  5 AnPhA-S116-01 AnPhA   S116     01           60186 0.3: Intro As… Hw            
-##  6 AnPhA-S116-01 AnPhA   S116     01           60186 1.1: Quiz      Qz            
-##  7 AnPhA-S116-01 AnPhA   S116     01           60186 1.2: Quiz      Qz            
-##  8 AnPhA-S116-01 AnPhA   S116     01           60186 1.3: Create a… Hw            
-##  9 AnPhA-S116-01 AnPhA   S116     01           60186 1.3: Create a… Hw            
-## 10 AnPhA-S116-01 AnPhA   S116     01           60186 1.4: Negative… Hw            
-## # … with 39,583 more rows, and 14 more variables: FinalGradeCEMS <dbl>,
-## #   Points_Possible <dbl>, Points_Earned <dbl>, Gender <chr>, q1 <dbl>,
-## #   q2 <dbl>, q3 <dbl>, q4 <dbl>, q5 <dbl>, q6 <dbl>, q7 <dbl>, q8 <dbl>,
-## #   q9 <dbl>, q10 <dbl>
+##    course_id   subject semester section student_id Gradebook_Item Grade_Category
+##    <chr>       <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
+##  1 AnPhA-S116… AnPhA   S116     01           60186 POINTS EARNED… <NA>          
+##  2 AnPhA-S116… AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
+##  3 AnPhA-S116… AnPhA   S116     01           60186 0.1: Message … <NA>          
+##  4 AnPhA-S116… AnPhA   S116     01           60186 0.2: Intro As… Hw            
+##  5 AnPhA-S116… AnPhA   S116     01           60186 0.3: Intro As… Hw            
+##  6 AnPhA-S116… AnPhA   S116     01           60186 1.1: Quiz      Qz            
+##  7 AnPhA-S116… AnPhA   S116     01           60186 1.2: Quiz      Qz            
+##  8 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
+##  9 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
+## 10 AnPhA-S116… AnPhA   S116     01           60186 1.4: Negative… Hw            
+## # ℹ 39,583 more rows
+## # ℹ 14 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
+## #   Points_Earned <dbl>, Gender <chr>, q1 <dbl>, q2 <dbl>, q3 <dbl>, q4 <dbl>,
+## #   q5 <dbl>, q6 <dbl>, q7 <dbl>, q8 <dbl>, q9 <dbl>, q10 <dbl>
 ```
 
-If we wanted this to return exactly the same output as `left_join()` (and, in doing so, to
+If we wanted this to return exactly the same output as `left_join()` (and so to
 create a data frame that is identical to the `dat` data frame we created above), we could
 simply switch the order of the two data frames to be the opposite of those used
 for the `left_join()` above:
@@ -948,28 +986,41 @@ for the `left_join()` above:
 
 ```r
 dat_right <-
-  semi_join(pre_survey,
+  right_join(pre_survey,
             course_data,
             by = c("student_id", "course_id"))
+```
 
+```
+## Warning in right_join(pre_survey, course_data, by = c("student_id", "course_id")): Detected an unexpected many-to-many relationship between `x` and `y`.
+## ℹ Row 26 of `x` matches multiple rows in `y`.
+## ℹ Row 22129 of `y` matches multiple rows in `x`.
+## ℹ If a many-to-many relationship is expected, set `relationship =
+##   "many-to-many"` to silence this warning.
+```
+
+```r
 dat_right
 ```
 
 ```
-## # A tibble: 801 × 12
+## # A tibble: 40,348 × 21
 ##    student_id course_id       q1    q2    q3    q4    q5    q6    q7    q8    q9
 ##         <dbl> <chr>        <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
 ##  1      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
-##  2      87010 FrScA-S116-…     5     3     3     5     4     4     3     5     2
-##  3      87027 FrScA-S116-…     5     5     4     4     4     5     4     5     4
-##  4      85649 FrScA-S116-…    NA    NA    NA    NA    NA    NA    NA    NA    NA
-##  5      86216 BioA-S116-01     5     3     4     4     5     4     3     5     4
-##  6      68476 OcnA-S116-02     4     4     2     2     3     4     4     4     4
-##  7      68476 OcnA-S116-02     4     4     4     4     4     4     4     4     4
-##  8      87866 FrScA-T116-…     5     4     3     5     4     4     3     3     3
-##  9      64930 FrScA-T116-…     4     3     3     4     4     4     3     4     4
-## 10      86280 FrScA-S116-…     4     3     2     4     4     4     4     4     3
-## # … with 791 more rows, and 1 more variable: q10 <dbl>
+##  2      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
+##  3      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
+##  4      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
+##  5      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
+##  6      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
+##  7      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
+##  8      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
+##  9      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
+## 10      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
+## # ℹ 40,338 more rows
+## # ℹ 10 more variables: q10 <dbl>, subject <chr>, semester <chr>, section <chr>,
+## #   Gradebook_Item <chr>, Grade_Category <chr>, FinalGradeCEMS <dbl>,
+## #   Points_Possible <dbl>, Points_Earned <dbl>, Gender <chr>
 ```
 
 Now that we've gone through the different types of joins available, we will
@@ -977,8 +1028,8 @@ return to our main focus: joining our course datasets together. While we didn't
 do any data processing steps on it, we still have the `course_minutes` dataset
 in our environment from when we loaded it there earlier in the chapter. In the
 code chunk below, we will rename the necessary variables in that dataset so that
-it is ready to merge. Then, we will merge the `course_minutes` dataset and its
-newly renamed variables `student_id` and `course_id` with our `dat` dataset.
+it is ready to merge. Then, we will merge the `course_minutes` dataset, with its
+newly renamed variables `student_id` and `course_id`, with our `dat` dataset.
 
 
 ```r
@@ -1010,22 +1061,23 @@ dat
 
 ```
 ## # A tibble: 40,348 × 22
-##    course_id     subject semester section student_id Gradebook_Item Grade_Category
-##    <chr>         <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
-##  1 AnPhA-S116-01 AnPhA   S116     01           60186 POINTS EARNED… <NA>          
-##  2 AnPhA-S116-01 AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
-##  3 AnPhA-S116-01 AnPhA   S116     01           60186 0.1: Message … <NA>          
-##  4 AnPhA-S116-01 AnPhA   S116     01           60186 0.2: Intro As… Hw            
-##  5 AnPhA-S116-01 AnPhA   S116     01           60186 0.3: Intro As… Hw            
-##  6 AnPhA-S116-01 AnPhA   S116     01           60186 1.1: Quiz      Qz            
-##  7 AnPhA-S116-01 AnPhA   S116     01           60186 1.2: Quiz      Qz            
-##  8 AnPhA-S116-01 AnPhA   S116     01           60186 1.3: Create a… Hw            
-##  9 AnPhA-S116-01 AnPhA   S116     01           60186 1.3: Create a… Hw            
-## 10 AnPhA-S116-01 AnPhA   S116     01           60186 1.4: Negative… Hw            
-## # … with 40,338 more rows, and 15 more variables: FinalGradeCEMS <dbl>,
-## #   Points_Possible <dbl>, Points_Earned <dbl>, Gender <chr>, q1 <dbl>,
-## #   q2 <dbl>, q3 <dbl>, q4 <dbl>, q5 <dbl>, q6 <dbl>, q7 <dbl>, q8 <dbl>,
-## #   q9 <dbl>, q10 <dbl>, TimeSpent <dbl>
+##    course_id   subject semester section student_id Gradebook_Item Grade_Category
+##    <chr>       <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
+##  1 AnPhA-S116… AnPhA   S116     01           60186 POINTS EARNED… <NA>          
+##  2 AnPhA-S116… AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
+##  3 AnPhA-S116… AnPhA   S116     01           60186 0.1: Message … <NA>          
+##  4 AnPhA-S116… AnPhA   S116     01           60186 0.2: Intro As… Hw            
+##  5 AnPhA-S116… AnPhA   S116     01           60186 0.3: Intro As… Hw            
+##  6 AnPhA-S116… AnPhA   S116     01           60186 1.1: Quiz      Qz            
+##  7 AnPhA-S116… AnPhA   S116     01           60186 1.2: Quiz      Qz            
+##  8 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
+##  9 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
+## 10 AnPhA-S116… AnPhA   S116     01           60186 1.4: Negative… Hw            
+## # ℹ 40,338 more rows
+## # ℹ 15 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
+## #   Points_Earned <dbl>, Gender <chr>, q1 <dbl>, q2 <dbl>, q3 <dbl>, q4 <dbl>,
+## #   q5 <dbl>, q6 <dbl>, q7 <dbl>, q8 <dbl>, q9 <dbl>, q10 <dbl>,
+## #   TimeSpent <dbl>
 ```
 
 It looks like we have 40348 observations from 22 variables.
@@ -1034,7 +1086,7 @@ It looks like we have 40348 observations from 22 variables.
 
 If a student was enrolled in two courses, she will have a different final grade for each of
 those two courses. However,  our data in
-its current form has many rows representing each course. An easy way we can visually inspect to make sure every row
+its current form has many rows representing *each course. An easy way we can visually inspect to make sure every row
 is the same for the same student, by course is to use the `glimpse()` function. 
 Try it below.
 
@@ -1077,7 +1129,7 @@ correspond to the same student for the same course. As we expected, the
 `FinalGradeCEMs` variable (representing students' final grade) is also consistent across these rows. 
 
 Since we are not carrying out a finer-grained analysis using the `Gradebook_Item`, these
-duplicate rows are not necessary. We only want variables at the student level
+duplicate rows are not necessary. We only want variables at the student level,
 and not at the level of different gradebook items. We can extract only the
 unique student-level data using the `distinct()` function. This function takes
 as arguments the name of the data frame and the name of the variables used to
@@ -1085,17 +1137,18 @@ determine what counts as a unique case.
 
 Imagine having a bucket of Halloween candy that has 100 pieces of candy. You
 know that these 100 pieces are really just a bunch of duplicate pieces from a
-relatively short list of candy brands. `distinct()` takes that bucket and returns one containing a single piece from each distinct "brand".
+relatively short list of candy brands. `distinct()` takes that bucket of 100
+pieces and returns a bucket containing only one of each distinct piece.
 
 Another thing to note about `distinct()` is that it will only return the
-variable(s)---it is possible to pass more than one variable to `distinct()`---you
+variable(s) (it is possible to pass more than one variable to `distinct()`) you
 used to determine uniqueness, *unless* you include the argument `.keep_all =
 TRUE`. For the sake of making it simple to view the output, we will omit this
-argument for now.  
+argument for now.
 
 Were we to run `distinct(dat, Gradebook_Item)`, what do you think would be
 returned? Running the following code returns a one-column data frame that lists the names of
-every distinct gradebook item.  
+every distinct gradebook item.
  
 
 ```r
@@ -1116,11 +1169,13 @@ distinct(dat, Gradebook_Item)
 ##  8 1.3: Create a Living Creature                   
 ##  9 1.3: Create a Living Creature - Discussion Board
 ## 10 1.4: Negative Feedback Loop Flowchart           
-## # … with 212 more rows
+## # ℹ 212 more rows
 ```
 
-You might be wondering whether some gradebook items have the same names across courses. 
-We can return the unique *combination* of courses and gradebook items by simply adding another variable to `distinct()`:
+You might be wondering whether some gradebook
+items have the same names across courses. We can return the unique *combination*
+of courses and gradebook items by simply adding another variable to
+`distinct()`:
 
 
 ```r
@@ -1141,19 +1196,19 @@ distinct(dat, course_id, Gradebook_Item)
 ##  8 AnPhA-S116-01 1.3: Create a Living Creature                   
 ##  9 AnPhA-S116-01 1.3: Create a Living Creature - Discussion Board
 ## 10 AnPhA-S116-01 1.4: Negative Feedback Loop Flowchart           
-## # … with 1,259 more rows
+## # ℹ 1,259 more rows
 ```
 
 The data frame we get when we run the code chunk above yields a much longer (more
 observations) dataset. Thus, it looks like *a lot* of gradebook items were
-repeated across courses---likely across the different sections of the same
+repeated across courses - likely across the different sections of the same
 course. If you'd like, you can continue to investigate this: we would be curious
 to hear what you find if you do!
 
 Next, let's use a similar process to find the unique values at the student
 level. Thus, instead of exploring unique gradebook items, we will explore unique
 students (still accounting for the course, as students could enroll in more than
-one course). This time, we will add the `keep_all = TRUE` argument.
+one course.) This time, we will add the `keep_all = TRUE` argument.
 
 
 ```r
@@ -1161,13 +1216,13 @@ dat <-
   distinct(dat, course_id, student_id, .keep_all = TRUE)
 ```
 
-This is a much smaller data frame---with one row for each student in the course.
+This is a much smaller data frame - with one row for each student in the course.
 Whereas our prior version of the `dat` dataset had over 40,000 rows, that prior
 version is only helpful if we wanted to do an analysis at the level of specific
 students' grades for specific gradebook items. Our new dataset keeps only the
 unique combinations of student and course, leaving us with a more manageable
-number of observations: 603. Now that our data is ready to go, we can
-start to ask some questions of it.
+number of observations: 603. Now that our data are ready to go, we can
+start to ask some questions of the data.
 
 Let's take one last step. Since we will be using the final grade variable in 
 many of the figures and analyses that follow, let's rename it using the {dplyr} 
@@ -1188,12 +1243,12 @@ introduce {ggplot2}, a visualization package we'll be using in our walkthroughs.
 
 ### About {ggplot2}
 
-{ggplot2} is a package we’ll be using a lot for graphing and visualizing our education datasets.
-It is designed to build graphs layer by layer, where each layer is a
+{ggplot2} is a package we’ll be using a lot for graphing our education datasets.
+{ggplot2} is designed to build graphs layer by layer, where each layer is a
 building block for your graph. Making graphs in layers is useful because we can
 think of building up our graphs in separate parts: the data comes first, then
 the x-axis and y-axis, and finally other components like text labels and graph
-shapes. When something goes wrong and your {ggplot2} code returns an error, you
+shapes. When something goes wrong and your ggplot2 code returns an error, you
 can learn about what’s happening by removing one layer at a time and running it
 again until the code works properly. Once you know which line is causing the
 problem, you can focus on fixing it.
@@ -1240,7 +1295,7 @@ Writing code is like writing essays. There's a range of acceptable styles and ce
  - Using `ggtitle()` for labels vs using `labs()` 
  - Order of `ggplot()` levels 
 
-It's okay if those terms are new to you. The main point is there are multiple ways to make the plot you want. You'll see that in this book and in other peoples' code. As you learn, we encourage you to practice empathy and think about how well your code conveys your ideas to others, including yourself when you look at it many weeks from when you wrote it. 
+It's ok if those terms are new to you. The main point is there are multiple ways to make the plot you want. You'll see that in this book and in other peoples' code. As you learn, we encourage you to practice empathy and think about how well your code conveys your ideas to other people, including yourself when you look at it many weeks from when you wrote it. 
 
 ### The Relationship between Time Spent on Course and Final Grade
 
@@ -1263,9 +1318,9 @@ dat %>%
 
 ![(\#fig:fig7-2)Percentage Earned vs. Time Spent](07-wt-ed-ds-pipeline_files/figure-docx/fig7-2-1.png){width=100%}
 
-_Note: you may receive a warning that reads `Warning message: Removed 5 rows containing missing values (geom_point).` This is due to the `NA` values that were introduced through coercion earlier in this walkthrough and are not a cause for alarm!_
+_Note: you may receive a warning that reads `Warning message: Removed 5 rows containing missing values (geom_point).` This is due to the `NA` values that were introduced through coercion earlier in this walkthrough, and are not a cause for alarm!_
 
-There appears to be *some* relationship. What if we added a line of best fit---a
+There appears to be *some* relationship. What if we added a line of best fit - a
 linear model? The code below is the same plot we just made, but it includes the
 addition of another layer called `geom_smooth`. 
 
@@ -1285,11 +1340,12 @@ dat %>%
 ![(\#fig:fig7-3)Adding a Line of Best Fit](07-wt-ed-ds-pipeline_files/figure-docx/fig7-3-1.png){width=100%}
 
 Looking at this plot, it appears that the more time students spent on the
-course, the higher their final grade is. 
+course, the higher that there final grade is. 
 
-What is the line doing in the upper right part of the graph? Based upon the trend observable in the data, the line of best fit predicts that students who spend 
+What is the line doing in the upper right part of the graph? Based upon the trend
+that is observable in the data, the line of best fit predicts that students who spend 
 a particular amount of time on the course *earn greater than 100* for their final grade!
-Of course, this is not possible and highlights the importance of understanding your 
+Of course, this is not possible, and highlights the importance of understanding your 
 data and carefully interpreting lines of best fit (and other, more sophisticated analyses)
 carefully, keeping that understanding and knowledge in mind as you present and make sense 
 of the results.
@@ -1301,13 +1357,13 @@ using a linear model. We discuss linear models in more detail in
 [Chapter 10](#c10).
 
 Let's use this technique to model the relationship between the time spent on the
-course and students' final grades. Here, we predict
-`final_grade`. The student's final, reported grade is the dependent, or *y*-variable, and so
+course and students' final grade. Here, we predict
+`final_grade`. Students' final, reported grade is the dependent, or *y*-variable, and so
 we enter it first, after the `lm()` command and before the tilde (`~`) symbol.
 To the right of the tilde is one independent variable, `TimeSpent`, or the time
 that students spent on the course. We also pass, or provide, the data frame,
 `dat`. At this point, we're ready to run the model. Let's run this line of code
-and save the results to an object---we chose `m_linear`, but any name will work.
+and save the results to an object - we chose `m_linear`, but any name will work.
 We will then run the `summary()` function on the output.
 
 
@@ -1367,13 +1423,13 @@ tab_model(m_linear,
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">65.81</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">62.88&nbsp;&ndash;&nbsp;68.74</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">TimeSpent</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.01</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.00&nbsp;&ndash;&nbsp;0.01</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
@@ -1460,7 +1516,8 @@ survey_responses <-
 ```
 
 ```
-## `summarise()` has grouped output by 'student_id'. You can override using the `.groups` argument.
+## `summarise()` has grouped output by 'student_id'. You can override using the
+## `.groups` argument.
 ```
 
 ```r
@@ -1482,7 +1539,7 @@ survey_responses
 ##  8      52326  5     3.5   5   
 ##  9      52446  3     3     3.33
 ## 10      53248  4     3     3.33
-## # … with 505 more rows
+## # ℹ 505 more rows
 ```
 
 Now that we've prepared the survey responses, we can use the `apa.cor.table()` function:
@@ -1523,7 +1580,7 @@ survey_responses %>%
 The time spent variable is on a very large scale (minutes); what if we
 transformed it to represent the number of *hours* that students spent on the
 course? Let's use the `mutate()` function we used earlier. We'll end the
-variable name with `_hours`, to represent what this variable means.
+variable name in `_hours`, to represent what this variable means.
 
 
 ```r
@@ -1557,13 +1614,13 @@ tab_model(m_linear_1,
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">65.81</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">62.88&nbsp;&ndash;&nbsp;68.74</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">TimeSpent_hours</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">TimeSpent hours</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.36</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.29&nbsp;&ndash;&nbsp;0.44</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
@@ -1613,13 +1670,13 @@ tab_model(m_linear_2,
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">76.75</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">75.05&nbsp;&ndash;&nbsp;78.45</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">TimeSpent_std</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">TimeSpent std</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">8.24</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">6.51&nbsp;&ndash;&nbsp;9.96</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
@@ -1637,12 +1694,12 @@ tab_model(m_linear_2,
 When we look at this output, it seems to make more sense. However, there is a
 different interpretation now for the time spent variable: for every one standard
 deviation increase in the amount of time spent on the course, students' final
-grades increased by 8.24, or around eight percentage points.
+grades increases by 8.24, or around eight percentage points.
 
 ## Results
 
 Let's extend our regression model and consider the following to be the final
-model in this sequence: What other variables may matter? Perhaps there
+model in this sequence of models: What other variables may matter? Perhaps there
 are differences based on the subject of the course. We can add subject as a
 variable easily, as follows:
 
@@ -1678,13 +1735,13 @@ tab_model(m_linear_3,
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">70.19</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">66.76&nbsp;&ndash;&nbsp;73.61</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">TimeSpent_std</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">TimeSpent std</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">9.63</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">7.90&nbsp;&ndash;&nbsp;11.37</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">subject [BioA]</td>
@@ -1696,7 +1753,7 @@ tab_model(m_linear_3,
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">subject [FrScA]</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">11.73</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">7.38&nbsp;&ndash;&nbsp;16.08</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">subject [OcnA]</td>
@@ -1708,7 +1765,7 @@ tab_model(m_linear_3,
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">subject [PhysA]</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">16.04</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">10.00&nbsp;&ndash;&nbsp;22.07</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
@@ -1723,24 +1780,30 @@ tab_model(m_linear_3,
 
 
 
-It looks like subjects `FrSc`---forensic science---and `PhysA`---Physics---are associated with a higher final grade. This indicates that students in those two classes earned higher grades than students in other science classes in this dataset.
+It looks like subject `FrSc` - forensic science - and subject `Ocn` -
+oceanography - are associated with a higher final grade. This indicates that students in those two classes earned higher grades
+than students in other science classes in this dataset.
 
 ## Conclusion
 
-In this walkthrough, we focused on taking unprocessed or raw data and loading,
-viewing, and then processing it through a series of steps. The result was a dataset which we could use to create visualizations and a simple (but powerful!)
+In this walkthrough, we focused on taking unprocessed, or raw data, and loading,
+viewing, and then processing it through a series of steps. The result was a data
+set which we could use to create visualizations and a simple (but powerful!)
 linear model, also known as a regression model. We found that the time that
 students spent on the course was positively (and statistically significantly)
 related to students' final grades, and that there appeared to be differences by
 subject. While we focused on using this model in a traditional, explanatory
-sense, it could also potentially be used for predictive analytics in that
-knowing how long a student spent on the course and what subject their course is
-could be used to estimate what that student's final grade might be. We focus on
+sense, it could also potentially be used for predictive analytics, in that
+knowing how long students spent on the course and what subject their course is
+could be used to estimate what that students' final grade might be. We focus on
 uses of predictive models further in [Chapter 14](#c14).
 
 In the follow-up to this walkthrough (see [Chapter 13](#c13)), we will focus on
 visualizing and then modeling the data using an advanced methodological
-technique, multilevel models, using the data we prepared as a part of the data
+technique, multi-level models, using the data we prepared as a part of this data
 processing pipeline used in this chapter.
 
 
+```r
+write_csv(dat, "data/online-science-motivation/processed/sci_mo_processed.csv")
+```

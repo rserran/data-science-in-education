@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Gochi+Hand&display=swap');
 
 h1 {
    font-family: "Gochi Hand";
@@ -9,7 +9,7 @@ h1 {
 }
 
 .book.font-family-1 {
-  font-family: "Gill Sans MT";
+  font-family: "Cabin";
 }
 
 .book .book-body .page-wrapper .page-inner section.normal h1{font-size:1.8em}
@@ -41,7 +41,7 @@ dt {
 
 .book .book-summary {
   background-color: #003f5c;
-  font-family: "Gill Sans MT";
+  font-family: "Cabin";
 }
 
 .book .book-summary ul.summary li a {
@@ -59,4 +59,11 @@ dt {
 
 .book .book-summary .booksearch li a {
   color: #ffffff;
+}
+
+.markdown-body .callout.callout_info {
+  --text: #6a737d;  // theme text color default
+  --title: inherit; // theme title color (falls back to text color by default)
+  --background: #f8f8f9;
+  --border: #8b939c;
 }
