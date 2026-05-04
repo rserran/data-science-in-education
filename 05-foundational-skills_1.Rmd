@@ -39,14 +39,14 @@ We will be covering the following topics in this chapter:
 - Installing the {dataedu} package
 - Exploring R with the {swirl} package
 
-If you already have experience using R and RStudio, you may find some of the contents of this chapter to be a refresher---or as a chance to learn a new things about getting set up. If you are looking to get started with the basics of data loading and manipulation using the {tidyverse} [@wickham2019] right now, consider reading this chapter and then starting [Chapter 6](#c06), which covers foundational skills.
+If you already have experience using R and RStudio, you may find some of the contents of this chapter to be a refresher---or as a chance to learn new things about getting set up. If you are looking to get started with the basics of data loading and manipulation using the {tidyverse} [@wickham2019] right now, consider reading this chapter and then starting [Chapter 6](#c06), which covers foundational skills.
 
 ## Downloading R and RStudio
 
 First, you will need to download the latest versions of R [@rcoreteam] and RStudio [@rstudio]. R is a free environment for statistical computing and graphics using the programming language R. 
-RStudio is a set of integrated tools created by [Posit](https://posit.co/) that allow for a more user-friendly experience for using R.
+RStudio is a set of integrated tools created by [Posit](https://posit.co/) that allows for a more user-friendly experience for using R.
 
-Although you will likely use RStudio as your main console and editor, you must first install R as RStudio uses R behind the scenes. Both R and RStudio are freely available, cross-platform, and open-source.
+Although you will likely use RStudio as your main console and editor, you must first install R because RStudio uses R behind the scenes. Both R and RStudio are freely available, cross-platform, and open-source.
 
 ### To download R:
 
@@ -94,7 +94,7 @@ We bring up alternative IDEs---particularly ESS---because RStudio, as of this wr
 
 When we open RStudio for the first time, we should see something similar to this:
 
-```{r fig5-2, fig.cap = "RStudio Layout", echo = FALSE, fig.alt="Default RStudio layout", fig.alt="RStudio Default Layout with console, environment, and files"}
+```{r fig5-2, fig.cap = "RStudio layout", echo = FALSE, fig.alt="Default RStudio layout"}
 knitr::include_graphics("./man/figures/Figure 5.2.png")
 ```
 
@@ -106,7 +106,7 @@ As you work with R more, you'll find yourself using the tabs within each of the 
 
 When you create a new file, such as an R script, an R Markdown file, or a Shiny app, RStudio will open a fourth pane, known as the "Source pane". The Source pane should show up as a square in the top left. You can open an `.R` script in the Source pane by going to "File", selecting "New File", and then selecting "R Script":
 
-```{r fig5-3, fig.cap = "Creating a New R Script in RStudio", echo = FALSE, fig.alt="Creating a New Script in RStudio by going to file then R script"}
+```{r fig5-3, fig.cap = "Creating a new R script in RStudio", echo = FALSE, fig.alt="Creating a New Script in RStudio by going to file then R script"}
 knitr::include_graphics("./man/figures/Figure 5.3.png")
 ```
 
@@ -118,13 +118,13 @@ One of the balances to strike in this text is a balance between best practices i
 
 To accomplish this, go to "Tools", and select "Global Options" from the dropdown menu.
 
-```{r fig5-4, fig.cap = "Selecting Global Options from the Tool Dropdown Menu", echo = FALSE, fig.alt="Selecting Global Options from the Tool Dropdown Menu"}
+```{r fig5-4, fig.cap = "Selecting Global Options from the Tool dropdown menu", echo = FALSE, fig.alt="Selecting Global Options from the Tool Dropdown Menu"}
 knitr::include_graphics("./man/figures/Figure 5.4.png")
 ```
 
 The "General" tab will open, with several checkboxes selected and unselected. It's important to select "Never" next to the "Save workspace to .RData on exit:" prompt. After selecting "Never", go through and check and uncheck boxes so that your General tab looks like this: 
 
-```{r fig5-5, fig.cap = "General Tab from Global Options", echo = FALSE, fig.alt="General tab from the Global Options in RStudio"}
+```{r fig5-5, fig.cap = "General tab from Global Options", echo = FALSE, fig.alt="General tab from the Global Options in RStudio"}
 knitr::include_graphics("./man/figures/Figure 5.5.png")
 ```
 
@@ -139,25 +139,25 @@ If, at any point, you find that one of your panes has disappeared, one of two th
 
 Look at the Environment pane as an example. If the Environment pane has been minimized, we'll see something like this:  
 
-```{r fig5-6, fig.cap = "RStudio Layout with the Environment Pane Minimized", fig.alt = "RStudio layout with a minimized Environment Pane", echo = FALSE}
+```{r fig5-6, fig.cap = "RStudio layout with the Environment pane minimized", fig.alt = "RStudio layout with a minimized Environment pane", echo = FALSE}
 knitr::include_graphics("./man/figures/Figure 5.6.png")
 ```
 
-You'll know that the Environment pane has been minimized because, although we can see the pane headers in the top right, you can't see the information _within_ the Environment pane. To fix this,  click on the icon of two squares in the top right of the Environment pane. If you click on the icon of the large square in the top right of the Environment pane, you'll maximize the Environment pane and minimize the Files pane. This is not preferred, since in general you'll want to see all the panes at once.
+You'll know that the Environment pane has been minimized because, although we can see the pane headers in the top right, you can't see the information _within_ the Environment pane. To fix this, click on the icon of two squares in the top right of the Environment pane. If you click on the icon of the large square in the top right of the Environment pane, you'll maximize the Environment pane and minimize the Files pane. This is not preferred, since in general you'll want to see all the panes at once.
 
 If the Environment pane has somehow been closed, you can recover it by going to the "View" menu, selecting "Panes", and then selecting "Pane Layout", like so: 
 
-```{r fig5-7, fig.cap = "Accessing the Pane Layout from the View Dropdown Menu", fig.alt = "Accessing the Pane Layout from the View Dropdown Menu", echo = FALSE}
+```{r fig5-7, fig.cap = "Accessing the Pane Layout from the View dropdown menu", fig.alt = "Accessing the Pane Layout from the View Dropdown Menu", echo = FALSE}
 knitr::include_graphics("./man/figures/Figure 5.7.png")
 ```
 
 When you select Pane Layout, you'll see this: 
 
-```{r fig5-8, fig.cap = "Pane Layout Options within RStudio", echo = FALSE, fig.alt = "Pane Layout Options within RStudio"}
+```{r fig5-8, fig.cap = "Pane Layout options within RStudio", echo = FALSE, fig.alt = "Pane Layout Options within RStudio"}
 knitr::include_graphics("./man/figures/Figure 5.8.png")
 ```
 
-From here, you can select which tabs you'd like to appear within each pane, and you can even change where each pane appears within RStudio. If the Environment Pane had been closed, select it from the Pane Layout in order to re-open it within RStudio.
+From here, you can select which tabs you'd like to appear within each pane, and you can even change where each pane appears within RStudio. If the Environment pane had been closed, select it from the Pane Layout in order to re-open it within RStudio.
 
 ## Writing and running code in RStudio
 
@@ -167,15 +167,15 @@ In order to run code in R, you need to type your code either in the Console or w
 
 When possible, create an `.R` script as you're learning, as it allows you to type all of your code, add comments, and then save your `.R` script for reference. If you work entirely in the Console, anything that you type in the Console will disappear as soon as you restart or close R, and you will not be able to reference it in the future.    
 
-### Writing code in the console
+### Writing code in the Console
 
-To run code in the Console, you type your code next to the `>` and hit `Enter`. Practicing running code in the Console by exploring some basic properties of coding in R.  
+To run code in the Console, you type your code next to the `>` and hit `Enter`. Practice running code in the Console by exploring some basic properties of coding in R.  
 
 In the Console, type `3 + 4` and hit `Enter`. 
 
 You should see the following:  
 
-```{r fig5-9, fig.cap = "Using the Console as a Calculator", echo = FALSE, fig.alt = "Adding 3 and 4 on the console"}
+```{r fig5-9, fig.cap = "Using the Console as a calculator", echo = FALSE, fig.alt = "Adding 3 and 4 on the console"}
 knitr::include_graphics("./man/figures/Figure 5.9.png")
 ```
 
@@ -189,11 +189,11 @@ print("I am learning R")
 
 You should see this in the Console:
 
-```{r fig5-10, fig.cap = "Printing Text to the Console", fig.alt = "Printing I am learning R on the console", echo = FALSE}
+```{r fig5-10, fig.cap = "Printing text to the Console", fig.alt = "Printing I am learning R on the console", echo = FALSE}
 knitr::include_graphics("./man/figures/Figure 5.10.png")
 ```
 
-There's one error that you're likely going to come across, both when running code in the Console as well as in an R script. Explore that error now by running the following code in the Console and hitting `Enter`: 
+There's one error that you're likely going to come across, both when running code in the Console and in an R script. Explore that error now by running the following code in the Console and hitting `Enter`: 
 
 ```{r, eval = FALSE}
 print("This is going to cause a problem"
@@ -201,11 +201,11 @@ print("This is going to cause a problem"
 
 Make sure that you left off the closing parenthesis. What you'll see in the Console is: 
 
-```{r fig5-11, fig.cap = "Incomplete Parentheses Change What R Expects Next", echo = FALSE, fig.alt="Printing this is going to cause a problem with the last parantheses missing"}
+```{r fig5-11, fig.cap = "Incomplete parentheses change what R expects next", echo = FALSE, fig.alt="Printing this is going to cause a problem with the last parantheses missing"}
 knitr::include_graphics("./man/figures/Figure 5.11.png")
 ```
 
-When you're missing a closing parenthesis, R is expecting you to provide more code. You'll know this because instead of seeing a carat `>` in our Console, you see a `+`, and R has not returned the expected print statement.
+When you're missing a closing parenthesis, R is expecting you to provide more code. You'll know this because instead of seeing the `>` prompt in your Console, you see a `+`, and R has not returned the expected print statement.
 
 There are two ways to fix this problem: 
 
@@ -220,7 +220,7 @@ There are three main ways to run code in an `.R` script:
 
 - Highlight the line(s) of code you'd like to run and press `Ctrl` + `Enter`  
 - Highlight the line(s) of code you'd like to run and click the "Run" button in the `R script` pane  
-- To run _every_ line of code in your file you can press `Ctrl` + `Shift` + `Enter`
+- To run _every_ line of code in your file, you can press `Ctrl` + `Shift` + `Enter`
 
 Create a new `.R` script, or open the one you created earlier in this chapter. Next, type in the following code and run it using each of the options listed above.
 
@@ -234,13 +234,13 @@ print("Next, subtraction!")
 0.65 - 1.42
 ```
 
-Feel free to spend some more time writing and running code within your `.R` script, or move on to the next section, where you'll add comments to our code.  
+Feel free to spend some more time writing and running code within your `.R` script, or move on to the next section, where you'll add comments to your code.  
 
 ### Commenting your code in R
 
 It is considered good practice to comment your code when working in an `.R` script. Even if you are the only person working on your code, it's helpful to write yourself notes about what you were trying to do with a specific piece of code.
 
-Moreover, writing comments in your code as you work through the examples in this book is a great way to reinforce you're learning.
+Moreover, writing comments in your code as you work through the examples in this book is a great way to reinforce your learning.
 
 And remember, comments are ignored by R when running a script, so they will not affect your code or analysis. 
 
@@ -259,7 +259,7 @@ library(here)  # Load the here package
 data <- read_csv(here("file_path", "file_name.csv"))  # Save file_name.csv as data
 ```
 
-If you think you'll be writing more than one line of comments, you can do a pound sign followed by a single quotation mark (`#'`). This will continue to comment out lines of text or code each time you hit `Enter`. You can delete the `#'` on a new line where you want to write code for R to run. This method is useful when you're writing a long description of what you're doing in R.
+If you think you'll be writing more than one line of comments, you can use a pound sign followed by a single quotation mark (`#'`). This will continue to comment out lines of text or code each time you hit `Enter`. You can delete the `#'` on a new line where you want to write code for R to run. This method is useful when you're writing a long description of what you're doing in R.
 
 _Note: "Commenting" refers to adding in actual text comments, whereas "commenting out" refers to using the pound sign (octothorpe) in front of a line of code so that R ignores it._
 _You'll also note the phrase "uncomment code", which means you should delete or omit the_ `#` _or_ `#'` _in an example._
@@ -289,8 +289,8 @@ pak::pak("data-edu/dataedu")
 *A special note on {tabulapdf}:* 
 
 One of the walkthroughs uses [{tabulapdf}](https://github.com/ropensci/tabulapdf), created by ROpenSci to read PDFs. 
-{tabulapdf} requires the installation of [RJava](https://cran.r-project.org/web/packages/rJava/index.html), which can be a tricky process on Mac computers. 
-Neither {tabulapdf} nor {RJava} are included in `mass_install()`. Reading through the notes on the [{tabulapdf} GitHub repository](https://github.com/ropensci/tabulapdf) if you choose to install it.
+{tabulapdf} requires the installation of [rJava](https://cran.r-project.org/web/packages/rJava/index.html), which can be a tricky process on Mac computers. 
+Neither {tabulapdf} nor {rJava} is included in `mass_install()`. Read through the notes on the [{tabulapdf} GitHub repository](https://github.com/ropensci/tabulapdf) if you choose to install it.
 
 ## Exploring R with the {swirl} package
 
@@ -312,7 +312,7 @@ install_course("R_Programming_E")
 swirl()
 ```
 
-There are multiple courses available on {swirl}, and you can access them by installing them and then running the `swirl()` command in your console.
+There are multiple courses available on {swirl}, and you can access them by installing them and then running the `swirl()` command in your Console.
 
 The authors are not affiliated with {swirl} in any way, nor is {swirl} required to progress through this text. But it is a great resource to keep on your radar!  
 
