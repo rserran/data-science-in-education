@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>16 Teaching data science | Data Science in Education Using R</title>
   <meta name="description" content="Bookdown for ‘Data Science in Education Using R’ by Ryan A. Estrellado, Emily A. Freer, Joshua M. Rosenberg, and Isabella C. Velásquez to be published by Routledge in 2024" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="16 Teaching data science | Data Science in Education Using R" />
   <meta property="og:type" content="book" />
@@ -63,6 +63,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -136,6 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -173,6 +175,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#prologue"><i class="fa fa-check"></i>Prologue</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#whats-new-in-this-edition"><i class="fa fa-check"></i><b>0.1</b> What’s new in this edition?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#dedications"><i class="fa fa-check"></i>Dedications</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i>Citation</a></li>
@@ -181,7 +184,7 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="c01.html"><a href="c01.html"><i class="fa fa-check"></i><b>1</b> Introduction: Data science in education – you’re invited to the party!</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="c01.html"><a href="c01.html#learning-data-science-in-education"><i class="fa fa-check"></i><b>1.1</b> Learning data science in education</a></li>
-<li class="chapter" data-level="1.2" data-path="c01.html"><a href="c01.html#making-the-path-a-little-clearer"><i class="fa fa-check"></i><b>1.2</b> Making the path a little clearer</a></li>
+<li class="chapter" data-level="1.2" data-path="c01.html"><a href="c01.html#making-the-path-clearer"><i class="fa fa-check"></i><b>1.2</b> Making the path clearer</a></li>
 <li class="chapter" data-level="1.3" data-path="c01.html"><a href="c01.html#conventions-used-in-the-book"><i class="fa fa-check"></i><b>1.3</b> Conventions used in the book</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="c02.html"><a href="c02.html"><i class="fa fa-check"></i><b>2</b> How to use this book</a>
@@ -193,7 +196,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.1.3" data-path="c02.html"><a href="c02.html#read-through-the-walkthroughs-and-run-the-code"><i class="fa fa-check"></i><b>2.1.3</b> Read through the walkthroughs and run the code</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="c02.html"><a href="c02.html#a-note-on-statistics"><i class="fa fa-check"></i><b>2.2</b> A note on statistics</a></li>
-<li class="chapter" data-level="2.3" data-path="c02.html"><a href="c02.html#what-this-book-is-not-about"><i class="fa fa-check"></i><b>2.3</b> What this book is not about</a></li>
+<li class="chapter" data-level="2.3" data-path="c02.html"><a href="c02.html#what-this-book-doesnt-cover"><i class="fa fa-check"></i><b>2.3</b> What this book doesn’t cover</a></li>
 <li class="chapter" data-level="2.4" data-path="c02.html"><a href="c02.html#supporting-the-book"><i class="fa fa-check"></i><b>2.4</b> Supporting the book</a></li>
 <li class="chapter" data-level="2.5" data-path="c02.html"><a href="c02.html#contributing-to-the-book"><i class="fa fa-check"></i><b>2.5</b> Contributing to the book</a></li>
 </ul></li>
@@ -228,17 +231,16 @@ div.csl-indent {
 <li class="chapter" data-level="4.1" data-path="c04.html"><a href="c04.html#things-to-consider-when-doing-data-science-in-any-domain"><i class="fa fa-check"></i><b>4.1</b> Things to consider when doing data science in any domain</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="c04.html"><a href="c04.html#learning-to-code"><i class="fa fa-check"></i><b>4.1.1</b> Learning to code</a></li>
-<li class="chapter" data-level="4.1.2" data-path="c04.html"><a href="c04.html#addressing-ambiguity-a-reproducible-approach"><i class="fa fa-check"></i><b>4.1.2</b> Addressing ambiguity: a reproducible approach</a></li>
+<li class="chapter" data-level="4.1.2" data-path="c04.html"><a href="c04.html#cleaning-data"><i class="fa fa-check"></i><b>4.1.2</b> Cleaning data</a></li>
+<li class="chapter" data-level="4.1.3" data-path="c04.html"><a href="c04.html#addressing-ambiguity-a-reproducible-approach"><i class="fa fa-check"></i><b>4.1.3</b> Addressing ambiguity: a reproducible approach</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="c04.html"><a href="c04.html#things-to-consider-when-doing-data-science-in-education"><i class="fa fa-check"></i><b>4.2</b> Things to consider when doing data science in education</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="c04.html"><a href="c04.html#addressing-organizational-resistance-a-self-driven-analytic-approach"><i class="fa fa-check"></i><b>4.2.1</b> Addressing organizational resistance: a self-driven analytic approach</a></li>
 <li class="chapter" data-level="4.2.2" data-path="c04.html"><a href="c04.html#lack-of-processes-and-guidelines"><i class="fa fa-check"></i><b>4.2.2</b> Lack of processes and guidelines</a></li>
-<li class="chapter" data-level="4.2.3" data-path="c04.html"><a href="c04.html#limited-training-and-educational-opportunities"><i class="fa fa-check"></i><b>4.2.3</b> Limited training and educational opportunities</a></li>
-<li class="chapter" data-level="4.2.4" data-path="c04.html"><a href="c04.html#advancing-equity"><i class="fa fa-check"></i><b>4.2.4</b> Advancing equity</a></li>
-<li class="chapter" data-level="4.2.5" data-path="c04.html"><a href="c04.html#the-complex-nature-of-education-data"><i class="fa fa-check"></i><b>4.2.5</b> The complex nature of education data</a></li>
-<li class="chapter" data-level="4.2.6" data-path="c04.html"><a href="c04.html#ethical-and-legal-concerns"><i class="fa fa-check"></i><b>4.2.6</b> Ethical and legal concerns</a></li>
-<li class="chapter" data-level="4.2.7" data-path="c04.html"><a href="c04.html#analytic-considerations"><i class="fa fa-check"></i><b>4.2.7</b> Analytic considerations</a></li>
+<li class="chapter" data-level="4.2.3" data-path="c04.html"><a href="c04.html#advancing-equity"><i class="fa fa-check"></i><b>4.2.3</b> Advancing equity</a></li>
+<li class="chapter" data-level="4.2.4" data-path="c04.html"><a href="c04.html#the-complex-nature-of-education-data"><i class="fa fa-check"></i><b>4.2.4</b> The complex nature of education data</a></li>
+<li class="chapter" data-level="4.2.5" data-path="c04.html"><a href="c04.html#ethical-and-legal-concerns"><i class="fa fa-check"></i><b>4.2.5</b> Ethical and legal concerns</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="c04.html"><a href="c04.html#conclusion"><i class="fa fa-check"></i><b>4.3</b> Conclusion</a></li>
 </ul></li>
@@ -260,7 +262,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="c05.html"><a href="c05.html#writing-and-running-code-in-rstudio"><i class="fa fa-check"></i><b>5.6</b> Writing and running code in RStudio</a>
 <ul>
-<li class="chapter" data-level="5.6.1" data-path="c05.html"><a href="c05.html#writing-code-in-the-console"><i class="fa fa-check"></i><b>5.6.1</b> Writing code in the console</a></li>
+<li class="chapter" data-level="5.6.1" data-path="c05.html"><a href="c05.html#writing-code-in-the-console"><i class="fa fa-check"></i><b>5.6.1</b> Writing code in the Console</a></li>
 <li class="chapter" data-level="5.6.2" data-path="c05.html"><a href="c05.html#writing-code-in-an-r-script"><i class="fa fa-check"></i><b>5.6.2</b> Writing code in an R script</a></li>
 <li class="chapter" data-level="5.6.3" data-path="c05.html"><a href="c05.html#commenting-your-code-in-r"><i class="fa fa-check"></i><b>5.6.3</b> Commenting your code in R</a></li>
 </ul></li>
@@ -281,11 +283,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="c06.html"><a href="c06.html#functions"><i class="fa fa-check"></i><b>6.7</b> Functions</a>
 <ul>
-<li class="chapter" data-level="6.7.1" data-path="c06.html"><a href="c06.html#writing-your-own-functions"><i class="fa fa-check"></i><b>6.7.1</b> Writing Your Own Functions</a></li>
+<li class="chapter" data-level="6.7.1" data-path="c06.html"><a href="c06.html#writing-your-own-functions"><i class="fa fa-check"></i><b>6.7.1</b> Writing your own functions</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="c06.html"><a href="c06.html#c06p"><i class="fa fa-check"></i><b>6.8</b> Packages</a>
 <ul>
-<li class="chapter" data-level="6.8.1" data-path="c06.html"><a href="c06.html#installing-and-loading-a-package"><i class="fa fa-check"></i><b>6.8.1</b> Installing and Loading a Package</a></li>
+<li class="chapter" data-level="6.8.1" data-path="c06.html"><a href="c06.html#installing-and-loading-a-package"><i class="fa fa-check"></i><b>6.8.1</b> Installing and loading a package</a></li>
 <li class="chapter" data-level="6.8.2" data-path="c06.html"><a href="c06.html#how-to-find-packages"><i class="fa fa-check"></i><b>6.8.2</b> How to find packages</a></li>
 <li class="chapter" data-level="6.8.3" data-path="c06.html"><a href="c06.html#learning-more-about-a-package"><i class="fa fa-check"></i><b>6.8.3</b> Learning more about a package</a></li>
 <li class="chapter" data-level="6.8.4" data-path="c06.html"><a href="c06.html#installing-the-dataedu-package-1"><i class="fa fa-check"></i><b>6.8.4</b> Installing the {dataedu} package</a></li>
@@ -295,20 +297,20 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.9" data-path="c06.html"><a href="c06.html#data"><i class="fa fa-check"></i><b>6.9</b> Data</a></li>
 <li class="chapter" data-level="6.10" data-path="c06.html"><a href="c06.html#help-documentation"><i class="fa fa-check"></i><b>6.10</b> Help documentation</a></li>
-<li class="chapter" data-level="6.11" data-path="c06.html"><a href="c06.html#steps-for-working-through-new-and-unfamiliar-content"><i class="fa fa-check"></i><b>6.11</b> Steps for working through new and unfamiliar content</a>
+<li class="chapter" data-level="6.11" data-path="c06.html"><a href="c06.html#steps-for-working-through-unfamiliar-r-content"><i class="fa fa-check"></i><b>6.11</b> Steps for working through unfamiliar R content</a>
 <ul>
 <li class="chapter" data-level="6.11.1" data-path="c06.html"><a href="c06.html#activate-prior-knowledge"><i class="fa fa-check"></i><b>6.11.1</b> Activate prior knowledge</a></li>
 <li class="chapter" data-level="6.11.2" data-path="c06.html"><a href="c06.html#look-for-context-clues"><i class="fa fa-check"></i><b>6.11.2</b> Look for context clues</a></li>
 <li class="chapter" data-level="6.11.3" data-path="c06.html"><a href="c06.html#check-the-help-documentation"><i class="fa fa-check"></i><b>6.11.3</b> Check the help documentation</a></li>
 <li class="chapter" data-level="6.11.4" data-path="c06.html"><a href="c06.html#find-the-limits"><i class="fa fa-check"></i><b>6.11.4</b> Find the limits</a></li>
-<li class="chapter" data-level="6.11.5" data-path="c06.html"><a href="c06.html#test-and-refine-your-understanding"><i class="fa fa-check"></i><b>6.11.5</b> Test (and refine) your understanding</a></li>
+<li class="chapter" data-level="6.11.5" data-path="c06.html"><a href="c06.html#test-your-understanding-through-communication"><i class="fa fa-check"></i><b>6.11.5</b> Test your understanding through communication</a></li>
 </ul></li>
 <li class="chapter" data-level="6.12" data-path="c06.html"><a href="c06.html#bringing-it-all-together-getting-started-coding-walkthrough"><i class="fa fa-check"></i><b>6.12</b> Bringing it all together: getting started coding walkthrough</a>
 <ul>
-<li class="chapter" data-level="6.12.1" data-path="c06.html"><a href="c06.html#creating-a-project-and-an-.r-script-and-setting-up-our-rstudio-environment"><i class="fa fa-check"></i><b>6.12.1</b> Creating a project and an <code>.R</code> script and setting up our RStudio environment</a></li>
-<li class="chapter" data-level="6.12.2" data-path="c06.html"><a href="c06.html#loading-data-from-dataedu-into-our-r-environment"><i class="fa fa-check"></i><b>6.12.2</b> Loading data from {dataedu} into our R Environment</a></li>
-<li class="chapter" data-level="6.12.3" data-path="c06.html"><a href="c06.html#exploring-our-data-and-common-errors"><i class="fa fa-check"></i><b>6.12.3</b> Exploring our data and common errors</a></li>
-<li class="chapter" data-level="6.12.4" data-path="c06.html"><a href="c06.html#exploring-our-data-with-the-pipe-operator"><i class="fa fa-check"></i><b>6.12.4</b> Exploring our data with the pipe operator</a></li>
+<li class="chapter" data-level="6.12.1" data-path="c06.html"><a href="c06.html#creating-a-project-and-an-.r-script"><i class="fa fa-check"></i><b>6.12.1</b> Creating a project and an <code>.R</code> script</a></li>
+<li class="chapter" data-level="6.12.2" data-path="c06.html"><a href="c06.html#loading-data-from-dataedu-into-our-r-environment"><i class="fa fa-check"></i><b>6.12.2</b> Loading data from {dataedu} into our R environment</a></li>
+<li class="chapter" data-level="6.12.3" data-path="c06.html"><a href="c06.html#exploring-data-and-common-errors"><i class="fa fa-check"></i><b>6.12.3</b> Exploring data and common errors</a></li>
+<li class="chapter" data-level="6.12.4" data-path="c06.html"><a href="c06.html#exploring-data-with-the-pipe-operator"><i class="fa fa-check"></i><b>6.12.4</b> Exploring data with the pipe operator</a></li>
 <li class="chapter" data-level="6.12.5" data-path="c06.html"><a href="c06.html#exploring-assignment-vs.-equality"><i class="fa fa-check"></i><b>6.12.5</b> Exploring assignment vs. equality</a></li>
 <li class="chapter" data-level="6.12.6" data-path="c06.html"><a href="c06.html#basics-of-object-and-variable-names"><i class="fa fa-check"></i><b>6.12.6</b> Basics of object and variable names</a></li>
 </ul></li>
@@ -316,71 +318,72 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="c07.html"><a href="c07.html"><i class="fa fa-check"></i><b>7</b> Walkthrough 1: The education data science pipeline with online science class data</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="c07.html"><a href="c07.html#topics-emphasized-2"><i class="fa fa-check"></i><b>7.1</b> Topics Emphasized</a></li>
-<li class="chapter" data-level="7.2" data-path="c07.html"><a href="c07.html#functions-introduced-2"><i class="fa fa-check"></i><b>7.2</b> Functions Introduced</a></li>
-<li class="chapter" data-level="7.3" data-path="c07.html"><a href="c07.html#vocabulary"><i class="fa fa-check"></i><b>7.3</b> Vocabulary</a></li>
-<li class="chapter" data-level="7.4" data-path="c07.html"><a href="c07.html#introduction-to-the-walkthroughs"><i class="fa fa-check"></i><b>7.4</b> Introduction to the Walkthroughs</a></li>
-<li class="chapter" data-level="7.5" data-path="c07.html"><a href="c07.html#chapter-overview-2"><i class="fa fa-check"></i><b>7.5</b> Chapter Overview</a>
+<li class="chapter" data-level="7.1" data-path="c07.html"><a href="c07.html#introduction-to-the-walkthroughs"><i class="fa fa-check"></i><b>7.1</b> Introduction to the walkthroughs</a></li>
+<li class="chapter" data-level="7.2" data-path="c07.html"><a href="c07.html#topics-emphasized-2"><i class="fa fa-check"></i><b>7.2</b> Topics emphasized</a></li>
+<li class="chapter" data-level="7.3" data-path="c07.html"><a href="c07.html#functions-introduced-2"><i class="fa fa-check"></i><b>7.3</b> Functions introduced</a></li>
+<li class="chapter" data-level="7.4" data-path="c07.html"><a href="c07.html#vocabulary"><i class="fa fa-check"></i><b>7.4</b> Vocabulary</a></li>
+<li class="chapter" data-level="7.5" data-path="c07.html"><a href="c07.html#chapter-overview-2"><i class="fa fa-check"></i><b>7.5</b> Chapter overview</a></li>
+<li class="chapter" data-level="7.6" data-path="c07.html"><a href="c07.html#background"><i class="fa fa-check"></i><b>7.6</b> Background</a></li>
+<li class="chapter" data-level="7.7" data-path="c07.html"><a href="c07.html#methods"><i class="fa fa-check"></i><b>7.7</b> Methods</a></li>
+<li class="chapter" data-level="7.8" data-path="c07.html"><a href="c07.html#data-sources"><i class="fa fa-check"></i><b>7.8</b> Data sources</a>
 <ul>
-<li class="chapter" data-level="7.5.1" data-path="c07.html"><a href="c07.html#background"><i class="fa fa-check"></i><b>7.5.1</b> Background</a></li>
-<li class="chapter" data-level="7.5.2" data-path="c07.html"><a href="c07.html#data-sources"><i class="fa fa-check"></i><b>7.5.2</b> Data Sources</a></li>
-<li class="chapter" data-level="7.5.3" data-path="c07.html"><a href="c07.html#data-source-2-log-trace-data"><i class="fa fa-check"></i><b>7.5.3</b> Data Source #2: Log-Trace Data</a></li>
-<li class="chapter" data-level="7.5.4" data-path="c07.html"><a href="c07.html#data-source-3-academic-achievement-and-gradebook-data"><i class="fa fa-check"></i><b>7.5.4</b> Data Source #3: Academic Achievement and Gradebook Data</a></li>
-<li class="chapter" data-level="7.5.5" data-path="c07.html"><a href="c07.html#data-source-4-discussion-board-data"><i class="fa fa-check"></i><b>7.5.5</b> Data Source #4: Discussion Board Data</a></li>
-<li class="chapter" data-level="7.5.6" data-path="c07.html"><a href="c07.html#methods"><i class="fa fa-check"></i><b>7.5.6</b> Methods</a></li>
+<li class="chapter" data-level="7.8.1" data-path="c07.html"><a href="c07.html#data-source-1-self-report-survey-about-students-motivation"><i class="fa fa-check"></i><b>7.8.1</b> Data source #1: Self-report survey about students’ motivation</a></li>
+<li class="chapter" data-level="7.8.2" data-path="c07.html"><a href="c07.html#data-source-2-log-trace-data"><i class="fa fa-check"></i><b>7.8.2</b> Data source #2: Log-trace data</a></li>
+<li class="chapter" data-level="7.8.3" data-path="c07.html"><a href="c07.html#data-source-3-academic-achievement-and-gradebook-data"><i class="fa fa-check"></i><b>7.8.3</b> Data source #3: Academic achievement and gradebook data</a></li>
+<li class="chapter" data-level="7.8.4" data-path="c07.html"><a href="c07.html#data-source-4-discussion-board-data"><i class="fa fa-check"></i><b>7.8.4</b> Data source #4: Discussion board data</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="c07.html"><a href="c07.html#load-packages"><i class="fa fa-check"></i><b>7.6</b> Load Packages</a></li>
-<li class="chapter" data-level="7.7" data-path="c07.html"><a href="c07.html#import-data"><i class="fa fa-check"></i><b>7.7</b> Import Data</a></li>
-<li class="chapter" data-level="7.8" data-path="c07.html"><a href="c07.html#view-data"><i class="fa fa-check"></i><b>7.8</b> View Data</a></li>
-<li class="chapter" data-level="7.9" data-path="c07.html"><a href="c07.html#process-data"><i class="fa fa-check"></i><b>7.9</b> Process Data</a>
+<li class="chapter" data-level="7.9" data-path="c07.html"><a href="c07.html#load-packages"><i class="fa fa-check"></i><b>7.9</b> Load packages</a></li>
+<li class="chapter" data-level="7.10" data-path="c07.html"><a href="c07.html#import-data"><i class="fa fa-check"></i><b>7.10</b> Import data</a></li>
+<li class="chapter" data-level="7.11" data-path="c07.html"><a href="c07.html#view-data"><i class="fa fa-check"></i><b>7.11</b> View data</a></li>
+<li class="chapter" data-level="7.12" data-path="c07.html"><a href="c07.html#process-data"><i class="fa fa-check"></i><b>7.12</b> Process data</a>
 <ul>
-<li class="chapter" data-level="7.9.1" data-path="c07.html"><a href="c07.html#processing-the-course-data"><i class="fa fa-check"></i><b>7.9.1</b> Processing the Course Data</a></li>
-<li class="chapter" data-level="7.9.2" data-path="c07.html"><a href="c07.html#joining-the-data"><i class="fa fa-check"></i><b>7.9.2</b> Joining the Data</a></li>
-<li class="chapter" data-level="7.9.3" data-path="c07.html"><a href="c07.html#finding-distinct-cases-at-the-student-level"><i class="fa fa-check"></i><b>7.9.3</b> Finding Distinct Cases at the Student-Level</a></li>
+<li class="chapter" data-level="7.12.1" data-path="c07.html"><a href="c07.html#pre-survey-data"><i class="fa fa-check"></i><b>7.12.1</b> Pre-survey data</a></li>
+<li class="chapter" data-level="7.12.2" data-path="c07.html"><a href="c07.html#course-data"><i class="fa fa-check"></i><b>7.12.2</b> Course data</a></li>
+<li class="chapter" data-level="7.12.3" data-path="c07.html"><a href="c07.html#joining-the-data"><i class="fa fa-check"></i><b>7.12.3</b> Joining the data</a></li>
+<li class="chapter" data-level="7.12.4" data-path="c07.html"><a href="c07.html#finding-distinct-cases-at-the-student-level"><i class="fa fa-check"></i><b>7.12.4</b> Finding distinct cases at the student level</a></li>
 </ul></li>
-<li class="chapter" data-level="7.10" data-path="c07.html"><a href="c07.html#analysis"><i class="fa fa-check"></i><b>7.10</b> Analysis</a>
+<li class="chapter" data-level="7.13" data-path="c07.html"><a href="c07.html#analysis"><i class="fa fa-check"></i><b>7.13</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="7.10.1" data-path="c07.html"><a href="c07.html#about-ggplot2"><i class="fa fa-check"></i><b>7.10.1</b> About {ggplot2}</a></li>
-<li class="chapter" data-level="7.10.2" data-path="c07.html"><a href="c07.html#the-relationship-between-time-spent-on-course-and-final-grade"><i class="fa fa-check"></i><b>7.10.2</b> The Relationship between Time Spent on Course and Final Grade</a></li>
-<li class="chapter" data-level="7.10.3" data-path="c07.html"><a href="c07.html#linear-model-regression"><i class="fa fa-check"></i><b>7.10.3</b> Linear Model (Regression)</a></li>
+<li class="chapter" data-level="7.13.1" data-path="c07.html"><a href="c07.html#about-ggplot2"><i class="fa fa-check"></i><b>7.13.1</b> About {ggplot2}</a></li>
+<li class="chapter" data-level="7.13.2" data-path="c07.html"><a href="c07.html#the-relationship-between-time-spent-on-course-and-final-grade"><i class="fa fa-check"></i><b>7.13.2</b> The relationship between time spent on course and final grade</a></li>
+<li class="chapter" data-level="7.13.3" data-path="c07.html"><a href="c07.html#linear-model-regression"><i class="fa fa-check"></i><b>7.13.3</b> Linear model (regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="7.11" data-path="c07.html"><a href="c07.html#results"><i class="fa fa-check"></i><b>7.11</b> Results</a></li>
-<li class="chapter" data-level="7.12" data-path="c07.html"><a href="c07.html#conclusion-3"><i class="fa fa-check"></i><b>7.12</b> Conclusion</a></li>
+<li class="chapter" data-level="7.14" data-path="c07.html"><a href="c07.html#results"><i class="fa fa-check"></i><b>7.14</b> Results</a></li>
+<li class="chapter" data-level="7.15" data-path="c07.html"><a href="c07.html#conclusion-3"><i class="fa fa-check"></i><b>7.15</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="c08.html"><a href="c08.html"><i class="fa fa-check"></i><b>8</b> Walkthrough 2: Approaching gradebook data from a data science perspective</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="c08.html"><a href="c08.html#topics-emphasized-3"><i class="fa fa-check"></i><b>8.1</b> Topics emphasized</a></li>
 <li class="chapter" data-level="8.2" data-path="c08.html"><a href="c08.html#functions-introduced-3"><i class="fa fa-check"></i><b>8.2</b> Functions introduced</a></li>
 <li class="chapter" data-level="8.3" data-path="c08.html"><a href="c08.html#vocabulary-1"><i class="fa fa-check"></i><b>8.3</b> Vocabulary</a></li>
-<li class="chapter" data-level="8.4" data-path="c08.html"><a href="c08.html#chapter-overview-3"><i class="fa fa-check"></i><b>8.4</b> Chapter overview</a>
+<li class="chapter" data-level="8.4" data-path="c08.html"><a href="c08.html#chapter-overview-3"><i class="fa fa-check"></i><b>8.4</b> Chapter overview</a></li>
+<li class="chapter" data-level="8.5" data-path="c08.html"><a href="c08.html#background-1"><i class="fa fa-check"></i><b>8.5</b> Background</a></li>
+<li class="chapter" data-level="8.6" data-path="c08.html"><a href="c08.html#methods-1"><i class="fa fa-check"></i><b>8.6</b> Methods</a></li>
+<li class="chapter" data-level="8.7" data-path="c08.html"><a href="c08.html#data-sources-1"><i class="fa fa-check"></i><b>8.7</b> Data sources</a></li>
+<li class="chapter" data-level="8.8" data-path="c08.html"><a href="c08.html#load-packages-1"><i class="fa fa-check"></i><b>8.8</b> Load packages</a></li>
+<li class="chapter" data-level="8.9" data-path="c08.html"><a href="c08.html#import-data-1"><i class="fa fa-check"></i><b>8.9</b> Import data</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="c08.html"><a href="c08.html#background-1"><i class="fa fa-check"></i><b>8.4.1</b> Background</a></li>
-<li class="chapter" data-level="8.4.2" data-path="c08.html"><a href="c08.html#data-sources-1"><i class="fa fa-check"></i><b>8.4.2</b> Data sources</a></li>
-<li class="chapter" data-level="8.4.3" data-path="c08.html"><a href="c08.html#methods-1"><i class="fa fa-check"></i><b>8.4.3</b> Methods</a></li>
+<li class="chapter" data-level="8.9.1" data-path="c08.html"><a href="c08.html#about-file-types"><i class="fa fa-check"></i><b>8.9.1</b> About file types</a></li>
+<li class="chapter" data-level="8.9.2" data-path="c08.html"><a href="c08.html#import-using-here"><i class="fa fa-check"></i><b>8.9.2</b> Import using <code>here()</code></a></li>
+<li class="chapter" data-level="8.9.3" data-path="c08.html"><a href="c08.html#import-using-a-file-path"><i class="fa fa-check"></i><b>8.9.3</b> Import using a file path</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="c08.html"><a href="c08.html#load-packages-1"><i class="fa fa-check"></i><b>8.5</b> Load packages</a></li>
-<li class="chapter" data-level="8.6" data-path="c08.html"><a href="c08.html#import-data-1"><i class="fa fa-check"></i><b>8.6</b> Import data</a>
+<li class="chapter" data-level="8.10" data-path="c08.html"><a href="c08.html#process-data-1"><i class="fa fa-check"></i><b>8.10</b> Process data</a>
 <ul>
-<li class="chapter" data-level="8.6.1" data-path="c08.html"><a href="c08.html#import-using-a-file-path"><i class="fa fa-check"></i><b>8.6.1</b> Import using a file path</a></li>
-<li class="chapter" data-level="8.6.2" data-path="c08.html"><a href="c08.html#import-using-here"><i class="fa fa-check"></i><b>8.6.2</b> Import using <code>here()</code></a></li>
+<li class="chapter" data-level="8.10.1" data-path="c08.html"><a href="c08.html#tidy-data"><i class="fa fa-check"></i><b>8.10.1</b> Tidy data</a></li>
+<li class="chapter" data-level="8.10.2" data-path="c08.html"><a href="c08.html#about-janitor"><i class="fa fa-check"></i><b>8.10.2</b> About {janitor}</a></li>
+<li class="chapter" data-level="8.10.3" data-path="c08.html"><a href="c08.html#create-new-variables-and-further-process-the-data"><i class="fa fa-check"></i><b>8.10.3</b> Create new variables and further process the data</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="c08.html"><a href="c08.html#process-data-1"><i class="fa fa-check"></i><b>8.7</b> Process data</a>
+<li class="chapter" data-level="8.11" data-path="c08.html"><a href="c08.html#analysis-1"><i class="fa fa-check"></i><b>8.11</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="8.7.1" data-path="c08.html"><a href="c08.html#tidy-data"><i class="fa fa-check"></i><b>8.7.1</b> Tidy data</a></li>
-<li class="chapter" data-level="8.7.2" data-path="c08.html"><a href="c08.html#about-janitor"><i class="fa fa-check"></i><b>8.7.2</b> About {janitor}</a></li>
-<li class="chapter" data-level="8.7.3" data-path="c08.html"><a href="c08.html#create-new-variables-and-further-process-the-data"><i class="fa fa-check"></i><b>8.7.3</b> Create new variables and further process the data</a></li>
+<li class="chapter" data-level="8.11.1" data-path="c08.html"><a href="c08.html#visualize-data"><i class="fa fa-check"></i><b>8.11.1</b> Visualize data</a></li>
+<li class="chapter" data-level="8.11.2" data-path="c08.html"><a href="c08.html#model-data"><i class="fa fa-check"></i><b>8.11.2</b> Model data</a></li>
+<li class="chapter" data-level="8.11.3" data-path="c08.html"><a href="c08.html#correlation-analysis"><i class="fa fa-check"></i><b>8.11.3</b> Correlation analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="8.8" data-path="c08.html"><a href="c08.html#analysis-1"><i class="fa fa-check"></i><b>8.8</b> Analysis</a>
+<li class="chapter" data-level="8.12" data-path="c08.html"><a href="c08.html#results-1"><i class="fa fa-check"></i><b>8.12</b> Results</a>
 <ul>
-<li class="chapter" data-level="8.8.1" data-path="c08.html"><a href="c08.html#visualize-data"><i class="fa fa-check"></i><b>8.8.1</b> Visualize data</a></li>
-<li class="chapter" data-level="8.8.2" data-path="c08.html"><a href="c08.html#model-data"><i class="fa fa-check"></i><b>8.8.2</b> Model data</a></li>
-<li class="chapter" data-level="8.8.3" data-path="c08.html"><a href="c08.html#correlation-analysis"><i class="fa fa-check"></i><b>8.8.3</b> Correlation analysis</a></li>
+<li class="chapter" data-level="8.12.1" data-path="c08.html"><a href="c08.html#more-on-interpreting-models"><i class="fa fa-check"></i><b>8.12.1</b> More on interpreting models</a></li>
 </ul></li>
-<li class="chapter" data-level="8.9" data-path="c08.html"><a href="c08.html#results-1"><i class="fa fa-check"></i><b>8.9</b> Results</a>
-<ul>
-<li class="chapter" data-level="8.9.1" data-path="c08.html"><a href="c08.html#more-on-interpreting-models"><i class="fa fa-check"></i><b>8.9.1</b> More on interpreting models</a></li>
-</ul></li>
-<li class="chapter" data-level="8.10" data-path="c08.html"><a href="c08.html#conclusion-4"><i class="fa fa-check"></i><b>8.10</b> Conclusion</a></li>
+<li class="chapter" data-level="8.13" data-path="c08.html"><a href="c08.html#conclusion-4"><i class="fa fa-check"></i><b>8.13</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="c09.html"><a href="c09.html"><i class="fa fa-check"></i><b>9</b> Walkthrough 3: Using school-level aggregate data to illuminate educational inequities</a>
 <ul>
@@ -391,146 +394,151 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="9.4.1" data-path="c09.html"><a href="c09.html#background-2"><i class="fa fa-check"></i><b>9.4.1</b> Background</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="c09.html"><a href="c09.html#data-sources-2"><i class="fa fa-check"></i><b>9.5</b> Data sources</a>
+<li class="chapter" data-level="9.5" data-path="c09.html"><a href="c09.html#methods-2"><i class="fa fa-check"></i><b>9.5</b> Methods</a></li>
+<li class="chapter" data-level="9.6" data-path="c09.html"><a href="c09.html#data-sources-2"><i class="fa fa-check"></i><b>9.6</b> Data sources</a>
 <ul>
-<li class="chapter" data-level="9.5.1" data-path="c09.html"><a href="c09.html#selecting-data"><i class="fa fa-check"></i><b>9.5.1</b> Selecting data</a></li>
-<li class="chapter" data-level="9.5.2" data-path="c09.html"><a href="c09.html#methods-2"><i class="fa fa-check"></i><b>9.5.2</b> Methods</a></li>
+<li class="chapter" data-level="9.6.1" data-path="c09.html"><a href="c09.html#selecting-data"><i class="fa fa-check"></i><b>9.6.1</b> Selecting data</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="c09.html"><a href="c09.html#load-packages-2"><i class="fa fa-check"></i><b>9.6</b> Load packages</a></li>
-<li class="chapter" data-level="9.7" data-path="c09.html"><a href="c09.html#import-data-2"><i class="fa fa-check"></i><b>9.7</b> Import data</a></li>
-<li class="chapter" data-level="9.8" data-path="c09.html"><a href="c09.html#view-data-1"><i class="fa fa-check"></i><b>9.8</b> View data</a>
+<li class="chapter" data-level="9.7" data-path="c09.html"><a href="c09.html#load-packages-2"><i class="fa fa-check"></i><b>9.7</b> Load packages</a></li>
+<li class="chapter" data-level="9.8" data-path="c09.html"><a href="c09.html#import-data-2"><i class="fa fa-check"></i><b>9.8</b> Import data</a></li>
+<li class="chapter" data-level="9.9" data-path="c09.html"><a href="c09.html#process-the-data"><i class="fa fa-check"></i><b>9.9</b> Process the data</a></li>
+<li class="chapter" data-level="9.10" data-path="c09.html"><a href="c09.html#view-data-1"><i class="fa fa-check"></i><b>9.10</b> View data</a>
 <ul>
-<li class="chapter" data-level="9.8.1" data-path="c09.html"><a href="c09.html#discovering-distributions"><i class="fa fa-check"></i><b>9.8.1</b> Discovering distributions</a></li>
-<li class="chapter" data-level="9.8.2" data-path="c09.html"><a href="c09.html#analyzing-spread"><i class="fa fa-check"></i><b>9.8.2</b> Analyzing spread</a></li>
+<li class="chapter" data-level="9.10.1" data-path="c09.html"><a href="c09.html#discovering-distributions"><i class="fa fa-check"></i><b>9.10.1</b> Discovering distributions</a></li>
+<li class="chapter" data-level="9.10.2" data-path="c09.html"><a href="c09.html#analyzing-spread"><i class="fa fa-check"></i><b>9.10.2</b> Analyzing spread</a></li>
 </ul></li>
-<li class="chapter" data-level="9.9" data-path="c09.html"><a href="c09.html#analysis-2"><i class="fa fa-check"></i><b>9.9</b> Analysis</a>
+<li class="chapter" data-level="9.11" data-path="c09.html"><a href="c09.html#analysis-2"><i class="fa fa-check"></i><b>9.11</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="9.9.1" data-path="c09.html"><a href="c09.html#creating-categories"><i class="fa fa-check"></i><b>9.9.1</b> Creating categories</a></li>
-<li class="chapter" data-level="9.9.2" data-path="c09.html"><a href="c09.html#reveal-relationships"><i class="fa fa-check"></i><b>9.9.2</b> Reveal relationships</a></li>
+<li class="chapter" data-level="9.11.1" data-path="c09.html"><a href="c09.html#creating-categories"><i class="fa fa-check"></i><b>9.11.1</b> Creating categories</a></li>
+<li class="chapter" data-level="9.11.2" data-path="c09.html"><a href="c09.html#reveal-relationships"><i class="fa fa-check"></i><b>9.11.2</b> Reveal relationships</a></li>
 </ul></li>
-<li class="chapter" data-level="9.10" data-path="c09.html"><a href="c09.html#results-2"><i class="fa fa-check"></i><b>9.10</b> Results</a></li>
-<li class="chapter" data-level="9.11" data-path="c09.html"><a href="c09.html#conclusion-5"><i class="fa fa-check"></i><b>9.11</b> Conclusion</a></li>
+<li class="chapter" data-level="9.12" data-path="c09.html"><a href="c09.html#results-2"><i class="fa fa-check"></i><b>9.12</b> Results</a></li>
+<li class="chapter" data-level="9.13" data-path="c09.html"><a href="c09.html#conclusion-5"><i class="fa fa-check"></i><b>9.13</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="c10.html"><a href="c10.html"><i class="fa fa-check"></i><b>10</b> Walkthrough 4: Longitudinal analysis with federal students with disabilities data</a>
+<li class="chapter" data-level="10" data-path="c10.html"><a href="c10.html"><i class="fa fa-check"></i><b>10</b> Walkthrough 4: Longitudinal analysis with federal data on students with disabilities</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="c10.html"><a href="c10.html#topics-emphasized-5"><i class="fa fa-check"></i><b>10.1</b> Topics emphasized</a></li>
 <li class="chapter" data-level="10.2" data-path="c10.html"><a href="c10.html#functions-introduced-5"><i class="fa fa-check"></i><b>10.2</b> Functions introduced</a></li>
 <li class="chapter" data-level="10.3" data-path="c10.html"><a href="c10.html#vocabulary-3"><i class="fa fa-check"></i><b>10.3</b> Vocabulary</a></li>
-<li class="chapter" data-level="10.4" data-path="c10.html"><a href="c10.html#chapter-overview-5"><i class="fa fa-check"></i><b>10.4</b> Chapter overview</a>
+<li class="chapter" data-level="10.4" data-path="c10.html"><a href="c10.html#chapter-overview-5"><i class="fa fa-check"></i><b>10.4</b> Chapter overview</a></li>
+<li class="chapter" data-level="10.5" data-path="c10.html"><a href="c10.html#background-3"><i class="fa fa-check"></i><b>10.5</b> Background</a></li>
+<li class="chapter" data-level="10.6" data-path="c10.html"><a href="c10.html#methods-3"><i class="fa fa-check"></i><b>10.6</b> Methods</a></li>
+<li class="chapter" data-level="10.7" data-path="c10.html"><a href="c10.html#data-sources-3"><i class="fa fa-check"></i><b>10.7</b> Data sources</a></li>
+<li class="chapter" data-level="10.8" data-path="c10.html"><a href="c10.html#load-packages-3"><i class="fa fa-check"></i><b>10.8</b> Load packages</a></li>
+<li class="chapter" data-level="10.9" data-path="c10.html"><a href="c10.html#import-data-3"><i class="fa fa-check"></i><b>10.9</b> Import data</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="c10.html"><a href="c10.html#background-3"><i class="fa fa-check"></i><b>10.4.1</b> Background</a></li>
-<li class="chapter" data-level="10.4.2" data-path="c10.html"><a href="c10.html#methods-3"><i class="fa fa-check"></i><b>10.4.2</b> Methods</a></li>
+<li class="chapter" data-level="10.9.1" data-path="c10.html"><a href="c10.html#a-note-on-file-paths"><i class="fa fa-check"></i><b>10.9.1</b> A note on file paths</a></li>
+<li class="chapter" data-level="10.9.2" data-path="c10.html"><a href="c10.html#how-to-download-the-files"><i class="fa fa-check"></i><b>10.9.2</b> How to download the files</a></li>
+<li class="chapter" data-level="10.9.3" data-path="c10.html"><a href="c10.html#reading-in-one-dataset"><i class="fa fa-check"></i><b>10.9.3</b> Reading in one dataset</a></li>
+<li class="chapter" data-level="10.9.4" data-path="c10.html"><a href="c10.html#reading-in-many-datasets"><i class="fa fa-check"></i><b>10.9.4</b> Reading in many datasets</a></li>
+<li class="chapter" data-level="10.9.5" data-path="c10.html"><a href="c10.html#loading-the-data-from-dataedu"><i class="fa fa-check"></i><b>10.9.5</b> Loading the data from {dataedu}</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="c10.html"><a href="c10.html#load-packages-3"><i class="fa fa-check"></i><b>10.5</b> Load packages</a></li>
-<li class="chapter" data-level="10.6" data-path="c10.html"><a href="c10.html#import-data-3"><i class="fa fa-check"></i><b>10.6</b> Import data</a>
+<li class="chapter" data-level="10.10" data-path="c10.html"><a href="c10.html#process-data-2"><i class="fa fa-check"></i><b>10.10</b> Process data</a>
 <ul>
-<li class="chapter" data-level="10.6.1" data-path="c10.html"><a href="c10.html#what-to-download"><i class="fa fa-check"></i><b>10.6.1</b> What to download</a></li>
-<li class="chapter" data-level="10.6.2" data-path="c10.html"><a href="c10.html#a-note-on-file-paths"><i class="fa fa-check"></i><b>10.6.2</b> A note on file paths</a></li>
-<li class="chapter" data-level="10.6.3" data-path="c10.html"><a href="c10.html#how-to-download-the-files"><i class="fa fa-check"></i><b>10.6.3</b> How to download the files</a></li>
-<li class="chapter" data-level="10.6.4" data-path="c10.html"><a href="c10.html#reading-in-one-dataset"><i class="fa fa-check"></i><b>10.6.4</b> Reading in one dataset</a></li>
-<li class="chapter" data-level="10.6.5" data-path="c10.html"><a href="c10.html#reading-in-many-datasets"><i class="fa fa-check"></i><b>10.6.5</b> Reading in many datasets</a></li>
-<li class="chapter" data-level="10.6.6" data-path="c10.html"><a href="c10.html#loading-the-data-from-dataedu"><i class="fa fa-check"></i><b>10.6.6</b> Loading the data from {dataedu}</a></li>
+<li class="chapter" data-level="10.10.1" data-path="c10.html"><a href="c10.html#fix-the-variable-names-in-the-2016-data"><i class="fa fa-check"></i><b>10.10.1</b> Fix the variable names in the 2016 data</a></li>
+<li class="chapter" data-level="10.10.2" data-path="c10.html"><a href="c10.html#select-variables"><i class="fa fa-check"></i><b>10.10.2</b> Select variables</a></li>
+<li class="chapter" data-level="10.10.3" data-path="c10.html"><a href="c10.html#combine-six-datasets-into-one"><i class="fa fa-check"></i><b>10.10.3</b> Combine six datasets into one</a></li>
+<li class="chapter" data-level="10.10.4" data-path="c10.html"><a href="c10.html#importing-the-data-from-the-dataedu-package"><i class="fa fa-check"></i><b>10.10.4</b> Importing the data from the {dataedu} package</a></li>
+<li class="chapter" data-level="10.10.5" data-path="c10.html"><a href="c10.html#filter-for-the-desired-disabilities-and-age-groups"><i class="fa fa-check"></i><b>10.10.5</b> Filter for the desired disabilities and age groups</a></li>
+<li class="chapter" data-level="10.10.6" data-path="c10.html"><a href="c10.html#rename-the-variables"><i class="fa fa-check"></i><b>10.10.6</b> Rename the variables</a></li>
+<li class="chapter" data-level="10.10.7" data-path="c10.html"><a href="c10.html#clean-state-names"><i class="fa fa-check"></i><b>10.10.7</b> Clean state names</a></li>
+<li class="chapter" data-level="10.10.8" data-path="c10.html"><a href="c10.html#tidy-the-dataset"><i class="fa fa-check"></i><b>10.10.8</b> Tidy the dataset</a></li>
+<li class="chapter" data-level="10.10.9" data-path="c10.html"><a href="c10.html#convert-data-types"><i class="fa fa-check"></i><b>10.10.9</b> Convert data types</a></li>
+<li class="chapter" data-level="10.10.10" data-path="c10.html"><a href="c10.html#explore-and-address-nas"><i class="fa fa-check"></i><b>10.10.10</b> Explore and address NAs</a></li>
 </ul></li>
-<li class="chapter" data-level="10.7" data-path="c10.html"><a href="c10.html#process-data-2"><i class="fa fa-check"></i><b>10.7</b> Process data</a>
+<li class="chapter" data-level="10.11" data-path="c10.html"><a href="c10.html#analysis-3"><i class="fa fa-check"></i><b>10.11</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="10.7.1" data-path="c10.html"><a href="c10.html#fix-the-variable-names-in-the-2016-data"><i class="fa fa-check"></i><b>10.7.1</b> Fix the variable names in the 2016 data</a></li>
-<li class="chapter" data-level="10.7.2" data-path="c10.html"><a href="c10.html#pick-variables"><i class="fa fa-check"></i><b>10.7.2</b> Pick variables</a></li>
-<li class="chapter" data-level="10.7.3" data-path="c10.html"><a href="c10.html#combine-six-datasets-into-one"><i class="fa fa-check"></i><b>10.7.3</b> Combine six datasets into one</a></li>
-<li class="chapter" data-level="10.7.4" data-path="c10.html"><a href="c10.html#importing-the-data-from-the-dataedu-package"><i class="fa fa-check"></i><b>10.7.4</b> Importing the data from the {dataedu} package</a></li>
-<li class="chapter" data-level="10.7.5" data-path="c10.html"><a href="c10.html#filter-for-the-desired-disabilities-and-age-groups"><i class="fa fa-check"></i><b>10.7.5</b> Filter for the desired disabilities and age groups</a></li>
-<li class="chapter" data-level="10.7.6" data-path="c10.html"><a href="c10.html#rename-the-variables"><i class="fa fa-check"></i><b>10.7.6</b> Rename the variables</a></li>
-<li class="chapter" data-level="10.7.7" data-path="c10.html"><a href="c10.html#clean-state-names"><i class="fa fa-check"></i><b>10.7.7</b> Clean state names</a></li>
-<li class="chapter" data-level="10.7.8" data-path="c10.html"><a href="c10.html#tidy-the-dataset"><i class="fa fa-check"></i><b>10.7.8</b> Tidy the dataset</a></li>
-<li class="chapter" data-level="10.7.9" data-path="c10.html"><a href="c10.html#convert-data-types"><i class="fa fa-check"></i><b>10.7.9</b> Convert data types</a></li>
-<li class="chapter" data-level="10.7.10" data-path="c10.html"><a href="c10.html#explore-and-address-nas"><i class="fa fa-check"></i><b>10.7.10</b> Explore and address NAs</a></li>
+<li class="chapter" data-level="10.11.1" data-path="c10.html"><a href="c10.html#visualize-the-dataset"><i class="fa fa-check"></i><b>10.11.1</b> Visualize the dataset</a></li>
+<li class="chapter" data-level="10.11.2" data-path="c10.html"><a href="c10.html#model-the-dataset"><i class="fa fa-check"></i><b>10.11.2</b> Model the dataset</a></li>
 </ul></li>
-<li class="chapter" data-level="10.8" data-path="c10.html"><a href="c10.html#analysis-3"><i class="fa fa-check"></i><b>10.8</b> Analysis</a>
+<li class="chapter" data-level="10.12" data-path="c10.html"><a href="c10.html#results-3"><i class="fa fa-check"></i><b>10.12</b> Results</a></li>
+<li class="chapter" data-level="10.13" data-path="c10.html"><a href="c10.html#conclusion-6"><i class="fa fa-check"></i><b>10.13</b> Conclusion</a>
 <ul>
-<li class="chapter" data-level="10.8.1" data-path="c10.html"><a href="c10.html#visualize-the-dataset"><i class="fa fa-check"></i><b>10.8.1</b> Visualize the dataset</a></li>
-<li class="chapter" data-level="10.8.2" data-path="c10.html"><a href="c10.html#model-the-dataset"><i class="fa fa-check"></i><b>10.8.2</b> Model the dataset</a></li>
-</ul></li>
-<li class="chapter" data-level="10.9" data-path="c10.html"><a href="c10.html#results-3"><i class="fa fa-check"></i><b>10.9</b> Results</a></li>
-<li class="chapter" data-level="10.10" data-path="c10.html"><a href="c10.html#conclusion-6"><i class="fa fa-check"></i><b>10.10</b> Conclusion</a>
-<ul>
-<li class="chapter" data-level="10.10.1" data-path="c10.html"><a href="c10.html#student-level-data-for-analysis-of-local-populations-aggregate-data-for-base-rate-and-context"><i class="fa fa-check"></i><b>10.10.1</b> Student-level data for analysis of local populations: aggregate data for base rate and context</a></li>
+<li class="chapter" data-level="10.13.1" data-path="c10.html"><a href="c10.html#student-level-data-for-analysis-of-local-populations-aggregate-data-for-base-rate-and-context"><i class="fa fa-check"></i><b>10.13.1</b> Student-level data for analysis of local populations: aggregate data for base rate and context</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="c11.html"><a href="c11.html"><i class="fa fa-check"></i><b>11</b> Walkthrough 5: Text analysis with social media data</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="c11.html"><a href="c11.html#topics-emphasized-6"><i class="fa fa-check"></i><b>11.1</b> Topics emphasized</a></li>
 <li class="chapter" data-level="11.2" data-path="c11.html"><a href="c11.html#functions-introduced-6"><i class="fa fa-check"></i><b>11.2</b> Functions introduced</a></li>
-<li class="chapter" data-level="11.3" data-path="c11.html"><a href="c11.html#functions-introduced-in-the-appendix-1"><i class="fa fa-check"></i><b>11.3</b> Functions introduced in the appendix</a></li>
-<li class="chapter" data-level="11.4" data-path="c11.html"><a href="c11.html#vocabulary-4"><i class="fa fa-check"></i><b>11.4</b> Vocabulary</a></li>
-<li class="chapter" data-level="11.5" data-path="c11.html"><a href="c11.html#chapter-overview-6"><i class="fa fa-check"></i><b>11.5</b> Chapter overview</a>
+<li class="chapter" data-level="11.3" data-path="c11.html"><a href="c11.html#vocabulary-4"><i class="fa fa-check"></i><b>11.3</b> Vocabulary</a></li>
+<li class="chapter" data-level="11.4" data-path="c11.html"><a href="c11.html#chapter-overview-6"><i class="fa fa-check"></i><b>11.4</b> Chapter overview</a>
 <ul>
-<li class="chapter" data-level="11.5.1" data-path="c11.html"><a href="c11.html#background-4"><i class="fa fa-check"></i><b>11.5.1</b> Background</a></li>
-<li class="chapter" data-level="11.5.2" data-path="c11.html"><a href="c11.html#data-source"><i class="fa fa-check"></i><b>11.5.2</b> Data source</a></li>
-<li class="chapter" data-level="11.5.3" data-path="c11.html"><a href="c11.html#methods-4"><i class="fa fa-check"></i><b>11.5.3</b> Methods</a></li>
+<li class="chapter" data-level="11.4.1" data-path="c11.html"><a href="c11.html#background-4"><i class="fa fa-check"></i><b>11.4.1</b> Background</a></li>
+<li class="chapter" data-level="11.4.2" data-path="c11.html"><a href="c11.html#data-source"><i class="fa fa-check"></i><b>11.4.2</b> Data source</a></li>
+<li class="chapter" data-level="11.4.3" data-path="c11.html"><a href="c11.html#methods-4"><i class="fa fa-check"></i><b>11.4.3</b> Methods</a></li>
 </ul></li>
-<li class="chapter" data-level="11.6" data-path="c11.html"><a href="c11.html#load-packages-4"><i class="fa fa-check"></i><b>11.6</b> Load packages</a></li>
-<li class="chapter" data-level="11.7" data-path="c11.html"><a href="c11.html#import-data-4"><i class="fa fa-check"></i><b>11.7</b> Import data</a></li>
-<li class="chapter" data-level="11.8" data-path="c11.html"><a href="c11.html#view-data-2"><i class="fa fa-check"></i><b>11.8</b> View data</a></li>
-<li class="chapter" data-level="11.9" data-path="c11.html"><a href="c11.html#process-data-3"><i class="fa fa-check"></i><b>11.9</b> Process data</a></li>
-<li class="chapter" data-level="11.10" data-path="c11.html"><a href="c11.html#analysis-counting-words"><i class="fa fa-check"></i><b>11.10</b> Analysis: counting words</a></li>
-<li class="chapter" data-level="11.11" data-path="c11.html"><a href="c11.html#analysis-sentiment-analysis"><i class="fa fa-check"></i><b>11.11</b> Analysis: sentiment analysis</a>
+<li class="chapter" data-level="11.5" data-path="c11.html"><a href="c11.html#load-packages-4"><i class="fa fa-check"></i><b>11.5</b> Load packages</a></li>
+<li class="chapter" data-level="11.6" data-path="c11.html"><a href="c11.html#import-data-4"><i class="fa fa-check"></i><b>11.6</b> Import data</a></li>
+<li class="chapter" data-level="11.7" data-path="c11.html"><a href="c11.html#view-data-2"><i class="fa fa-check"></i><b>11.7</b> View data</a></li>
+<li class="chapter" data-level="11.8" data-path="c11.html"><a href="c11.html#process-data-3"><i class="fa fa-check"></i><b>11.8</b> Process data</a></li>
+<li class="chapter" data-level="11.9" data-path="c11.html"><a href="c11.html#analysis-counting-words"><i class="fa fa-check"></i><b>11.9</b> Analysis: counting words</a></li>
+<li class="chapter" data-level="11.10" data-path="c11.html"><a href="c11.html#analysis-sentiment-analysis"><i class="fa fa-check"></i><b>11.10</b> Analysis: sentiment analysis</a>
 <ul>
-<li class="chapter" data-level="11.11.1" data-path="c11.html"><a href="c11.html#count-positive-words"><i class="fa fa-check"></i><b>11.11.1</b> Count positive words</a></li>
-<li class="chapter" data-level="11.11.2" data-path="c11.html"><a href="c11.html#dataviz-and-other-positive-words"><i class="fa fa-check"></i><b>11.11.2</b> “Dataviz” and other positive words</a></li>
-<li class="chapter" data-level="11.11.3" data-path="c11.html"><a href="c11.html#taking-a-close-read-of-randomly-selected-tweets"><i class="fa fa-check"></i><b>11.11.3</b> Taking a close read of randomly selected tweets</a></li>
+<li class="chapter" data-level="11.10.1" data-path="c11.html"><a href="c11.html#count-positive-words"><i class="fa fa-check"></i><b>11.10.1</b> Count positive words</a></li>
+<li class="chapter" data-level="11.10.2" data-path="c11.html"><a href="c11.html#dataviz-and-other-positive-words"><i class="fa fa-check"></i><b>11.10.2</b> “Dataviz” and other positive words</a></li>
+<li class="chapter" data-level="11.10.3" data-path="c11.html"><a href="c11.html#taking-a-close-read-of-randomly-selected-posts"><i class="fa fa-check"></i><b>11.10.3</b> Taking a close read of randomly selected posts</a></li>
 </ul></li>
-<li class="chapter" data-level="11.12" data-path="c11.html"><a href="c11.html#conclusion-7"><i class="fa fa-check"></i><b>11.12</b> Conclusion</a></li>
+<li class="chapter" data-level="11.11" data-path="c11.html"><a href="c11.html#conclusion-7"><i class="fa fa-check"></i><b>11.11</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="c12.html"><a href="c12.html"><i class="fa fa-check"></i><b>12</b> Walkthrough 6: Exploring relationships using social network analysis with social media data</a>
 <ul>
 <li class="chapter" data-level="12.1" data-path="c12.html"><a href="c12.html#topics-emphasized-7"><i class="fa fa-check"></i><b>12.1</b> Topics emphasized</a></li>
 <li class="chapter" data-level="12.2" data-path="c12.html"><a href="c12.html#functions-introduced-7"><i class="fa fa-check"></i><b>12.2</b> Functions introduced</a></li>
 <li class="chapter" data-level="12.3" data-path="c12.html"><a href="c12.html#vocabulary-5"><i class="fa fa-check"></i><b>12.3</b> Vocabulary</a></li>
-<li class="chapter" data-level="12.4" data-path="c12.html"><a href="c12.html#chapter-overview-7"><i class="fa fa-check"></i><b>12.4</b> Chapter overview</a>
+<li class="chapter" data-level="12.4" data-path="c12.html"><a href="c12.html#chapter-overview-7"><i class="fa fa-check"></i><b>12.4</b> Chapter overview</a></li>
+<li class="chapter" data-level="12.5" data-path="c12.html"><a href="c12.html#background-5"><i class="fa fa-check"></i><b>12.5</b> Background</a></li>
+<li class="chapter" data-level="12.6" data-path="c12.html"><a href="c12.html#packages"><i class="fa fa-check"></i><b>12.6</b> Packages</a></li>
+<li class="chapter" data-level="12.7" data-path="c12.html"><a href="c12.html#data-sources-and-import"><i class="fa fa-check"></i><b>12.7</b> Data sources and import</a>
 <ul>
-<li class="chapter" data-level="12.4.1" data-path="c12.html"><a href="c12.html#background-5"><i class="fa fa-check"></i><b>12.4.1</b> Background</a></li>
-<li class="chapter" data-level="12.4.2" data-path="c12.html"><a href="c12.html#packages"><i class="fa fa-check"></i><b>12.4.2</b> Packages</a></li>
-<li class="chapter" data-level="12.4.3" data-path="c12.html"><a href="c12.html#data-sources-and-import"><i class="fa fa-check"></i><b>12.4.3</b> Data sources and import</a></li>
-<li class="chapter" data-level="12.4.4" data-path="c12.html"><a href="c12.html#using-an-application-programming-interface-or-api"><i class="fa fa-check"></i><b>12.4.4</b> Using an Application Programming Interface (or API)</a></li>
+<li class="chapter" data-level="12.7.1" data-path="c12.html"><a href="c12.html#accessing-bluesky-data-through-the-application-programming-interface-api"><i class="fa fa-check"></i><b>12.7.1</b> Accessing Bluesky data through the Application Programming Interface (API)</a></li>
+<li class="chapter" data-level="12.7.2" data-path="c12.html"><a href="c12.html#loading-already-accessed-data"><i class="fa fa-check"></i><b>12.7.2</b> Loading already-accessed data</a></li>
 </ul></li>
-<li class="chapter" data-level="12.5" data-path="c12.html"><a href="c12.html#view-data-3"><i class="fa fa-check"></i><b>12.5</b> View data</a></li>
-<li class="chapter" data-level="12.6" data-path="c12.html"><a href="c12.html#methods-process-data"><i class="fa fa-check"></i><b>12.6</b> Methods: process data</a>
+<li class="chapter" data-level="12.8" data-path="c12.html"><a href="c12.html#processing-the-data"><i class="fa fa-check"></i><b>12.8</b> Processing the data</a>
 <ul>
-<li class="chapter" data-level="12.6.1" data-path="c12.html"><a href="c12.html#extracting-mentions"><i class="fa fa-check"></i><b>12.6.1</b> Extracting mentions</a></li>
-<li class="chapter" data-level="12.6.2" data-path="c12.html"><a href="c12.html#putting-the-edgelist-together"><i class="fa fa-check"></i><b>12.6.2</b> Putting the edgelist together</a></li>
+<li class="chapter" data-level="12.8.1" data-path="c12.html"><a href="c12.html#what-is-our-network"><i class="fa fa-check"></i><b>12.8.1</b> What is our network?</a></li>
 </ul></li>
-<li class="chapter" data-level="12.7" data-path="c12.html"><a href="c12.html#analysis-and-results"><i class="fa fa-check"></i><b>12.7</b> Analysis and results</a>
+<li class="chapter" data-level="12.9" data-path="c12.html"><a href="c12.html#view-data-3"><i class="fa fa-check"></i><b>12.9</b> View data</a></li>
+<li class="chapter" data-level="12.10" data-path="c12.html"><a href="c12.html#methods-processing-data-into-network-format"><i class="fa fa-check"></i><b>12.10</b> Methods: processing data into network format</a>
 <ul>
-<li class="chapter" data-level="12.7.1" data-path="c12.html"><a href="c12.html#plotting-the-network"><i class="fa fa-check"></i><b>12.7.1</b> Plotting the network</a></li>
+<li class="chapter" data-level="12.10.1" data-path="c12.html"><a href="c12.html#extracting-nodes-and-edges"><i class="fa fa-check"></i><b>12.10.1</b> Extracting nodes and edges</a></li>
 </ul></li>
-<li class="chapter" data-level="12.8" data-path="c12.html"><a href="c12.html#conclusion-8"><i class="fa fa-check"></i><b>12.8</b> Conclusion</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="c13.html"><a href="c13.html"><i class="fa fa-check"></i><b>13</b> Walkthrough 7: The role (and usefulness) of multilevel models</a>
+<li class="chapter" data-level="12.11" data-path="c12.html"><a href="c12.html#analysis-and-results"><i class="fa fa-check"></i><b>12.11</b> Analysis and results</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="c13.html"><a href="c13.html#topics-emphasized-8"><i class="fa fa-check"></i><b>13.1</b> Topics Emphasized</a></li>
-<li class="chapter" data-level="13.2" data-path="c13.html"><a href="c13.html#functions-introduced-8"><i class="fa fa-check"></i><b>13.2</b> Functions Introduced</a></li>
+<li class="chapter" data-level="12.11.1" data-path="c12.html"><a href="c12.html#descriptive-statistics"><i class="fa fa-check"></i><b>12.11.1</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="12.11.2" data-path="c12.html"><a href="c12.html#plotting-the-network"><i class="fa fa-check"></i><b>12.11.2</b> Plotting the network</a></li>
+<li class="chapter" data-level="12.11.3" data-path="c12.html"><a href="c12.html#refining-the-graph-filtering-isolated-nodes"><i class="fa fa-check"></i><b>12.11.3</b> Refining the graph – filtering isolated nodes</a></li>
+<li class="chapter" data-level="12.11.4" data-path="c12.html"><a href="c12.html#interpreting-the-network-through-an-educational-lens"><i class="fa fa-check"></i><b>12.11.4</b> Interpreting the network through an educational lens</a></li>
+</ul></li>
+<li class="chapter" data-level="12.12" data-path="c12.html"><a href="c12.html#conclusion-8"><i class="fa fa-check"></i><b>12.12</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="c13.html"><a href="c13.html"><i class="fa fa-check"></i><b>13</b> Walkthrough 7: Multilevel models</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="c13.html"><a href="c13.html#topics-emphasized-8"><i class="fa fa-check"></i><b>13.1</b> Topics emphasized</a></li>
+<li class="chapter" data-level="13.2" data-path="c13.html"><a href="c13.html#functions-introduced-8"><i class="fa fa-check"></i><b>13.2</b> Functions introduced</a></li>
 <li class="chapter" data-level="13.3" data-path="c13.html"><a href="c13.html#vocabulary-6"><i class="fa fa-check"></i><b>13.3</b> Vocabulary</a></li>
-<li class="chapter" data-level="13.4" data-path="c13.html"><a href="c13.html#chapter-overview-8"><i class="fa fa-check"></i><b>13.4</b> Chapter Overview</a>
+<li class="chapter" data-level="13.4" data-path="c13.html"><a href="c13.html#chapter-overview-8"><i class="fa fa-check"></i><b>13.4</b> Chapter overview</a>
 <ul>
 <li class="chapter" data-level="13.4.1" data-path="c13.html"><a href="c13.html#background-6"><i class="fa fa-check"></i><b>13.4.1</b> Background</a></li>
-<li class="chapter" data-level="13.4.2" data-path="c13.html"><a href="c13.html#data-source-1"><i class="fa fa-check"></i><b>13.4.2</b> Data Source</a></li>
+<li class="chapter" data-level="13.4.2" data-path="c13.html"><a href="c13.html#data-source-1"><i class="fa fa-check"></i><b>13.4.2</b> Data source</a></li>
 <li class="chapter" data-level="13.4.3" data-path="c13.html"><a href="c13.html#methods-5"><i class="fa fa-check"></i><b>13.4.3</b> Methods</a></li>
 </ul></li>
-<li class="chapter" data-level="13.5" data-path="c13.html"><a href="c13.html#load-packages-5"><i class="fa fa-check"></i><b>13.5</b> Load Packages</a></li>
-<li class="chapter" data-level="13.6" data-path="c13.html"><a href="c13.html#the-role-of-dummy-codes"><i class="fa fa-check"></i><b>13.6</b> The Role of Dummy Codes</a></li>
-<li class="chapter" data-level="13.7" data-path="c13.html"><a href="c13.html#import-data-5"><i class="fa fa-check"></i><b>13.7</b> Import Data</a></li>
+<li class="chapter" data-level="13.5" data-path="c13.html"><a href="c13.html#load-packages-5"><i class="fa fa-check"></i><b>13.5</b> Load packages</a></li>
+<li class="chapter" data-level="13.6" data-path="c13.html"><a href="c13.html#the-role-of-dummy-codes"><i class="fa fa-check"></i><b>13.6</b> The role of dummy codes</a></li>
+<li class="chapter" data-level="13.7" data-path="c13.html"><a href="c13.html#import-data-5"><i class="fa fa-check"></i><b>13.7</b> Import data</a></li>
 <li class="chapter" data-level="13.8" data-path="c13.html"><a href="c13.html#analysis-4"><i class="fa fa-check"></i><b>13.8</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="13.8.1" data-path="c13.html"><a href="c13.html#regression-linear-model-analysis-with-dummy-codes"><i class="fa fa-check"></i><b>13.8.1</b> Regression (Linear Model) Analysis with Dummy Codes</a></li>
-<li class="chapter" data-level="13.8.2" data-path="c13.html"><a href="c13.html#a-deep-dive-into-multilevel-models"><i class="fa fa-check"></i><b>13.8.2</b> A Deep-Dive into Multilevel Models</a></li>
-<li class="chapter" data-level="13.8.3" data-path="c13.html"><a href="c13.html#multilevel-model-analysis"><i class="fa fa-check"></i><b>13.8.3</b> Multilevel Model Analysis</a></li>
+<li class="chapter" data-level="13.8.1" data-path="c13.html"><a href="c13.html#regression-linear-model-analysis-with-dummy-codes"><i class="fa fa-check"></i><b>13.8.1</b> Regression (linear model) analysis with dummy codes</a></li>
+<li class="chapter" data-level="13.8.2" data-path="c13.html"><a href="c13.html#a-deep-dive-into-multilevel-models"><i class="fa fa-check"></i><b>13.8.2</b> A deep-dive into multilevel models</a></li>
+<li class="chapter" data-level="13.8.3" data-path="c13.html"><a href="c13.html#multilevel-model-analysis"><i class="fa fa-check"></i><b>13.8.3</b> Multilevel model analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="13.9" data-path="c13.html"><a href="c13.html#results-4"><i class="fa fa-check"></i><b>13.9</b> Results</a>
 <ul>
-<li class="chapter" data-level="13.9.1" data-path="c13.html"><a href="c13.html#adding-additional-levels"><i class="fa fa-check"></i><b>13.9.1</b> Adding Additional Levels</a></li>
+<li class="chapter" data-level="13.9.1" data-path="c13.html"><a href="c13.html#adding-additional-levels"><i class="fa fa-check"></i><b>13.9.1</b> Adding additional levels</a></li>
 </ul></li>
 <li class="chapter" data-level="13.10" data-path="c13.html"><a href="c13.html#conclusion-9"><i class="fa fa-check"></i><b>13.10</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="c14.html"><a href="c14.html"><i class="fa fa-check"></i><b>14</b> Walkthrough 8: Predicting students’ final grades using machine learning methods with online course data</a>
+<li class="chapter" data-level="14" data-path="c14.html"><a href="c14.html"><i class="fa fa-check"></i><b>14</b> Walkthrough 8: Predicting student pass/fail outcomes using supervised machine learning</a>
 <ul>
 <li class="chapter" data-level="14.1" data-path="c14.html"><a href="c14.html#topics-emphasized-9"><i class="fa fa-check"></i><b>14.1</b> Topics emphasized</a></li>
 <li class="chapter" data-level="14.2" data-path="c14.html"><a href="c14.html#functions-introduced-9"><i class="fa fa-check"></i><b>14.2</b> Functions introduced</a></li>
@@ -538,24 +546,33 @@ div.csl-indent {
 <li class="chapter" data-level="14.4" data-path="c14.html"><a href="c14.html#chapter-overview-9"><i class="fa fa-check"></i><b>14.4</b> Chapter overview</a>
 <ul>
 <li class="chapter" data-level="14.4.1" data-path="c14.html"><a href="c14.html#background-7"><i class="fa fa-check"></i><b>14.4.1</b> Background</a></li>
-<li class="chapter" data-level="14.4.2" data-path="c14.html"><a href="c14.html#data-sources-3"><i class="fa fa-check"></i><b>14.4.2</b> Data sources</a></li>
+<li class="chapter" data-level="14.4.2" data-path="c14.html"><a href="c14.html#data-sources-4"><i class="fa fa-check"></i><b>14.4.2</b> Data sources</a></li>
 <li class="chapter" data-level="14.4.3" data-path="c14.html"><a href="c14.html#methods-6"><i class="fa fa-check"></i><b>14.4.3</b> Methods</a></li>
 </ul></li>
-<li class="chapter" data-level="14.5" data-path="c14.html"><a href="c14.html#load-packages-6"><i class="fa fa-check"></i><b>14.5</b> Load packages</a></li>
-<li class="chapter" data-level="14.6" data-path="c14.html"><a href="c14.html#import-and-view-data"><i class="fa fa-check"></i><b>14.6</b> Import and view data</a></li>
-<li class="chapter" data-level="14.7" data-path="c14.html"><a href="c14.html#process-data-4"><i class="fa fa-check"></i><b>14.7</b> Process data</a></li>
-<li class="chapter" data-level="14.8" data-path="c14.html"><a href="c14.html#analysis-5"><i class="fa fa-check"></i><b>14.8</b> Analysis</a>
+<li class="chapter" data-level="14.5" data-path="c14.html"><a href="c14.html#analysis-5"><i class="fa fa-check"></i><b>14.5</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="14.8.1" data-path="c14.html"><a href="c14.html#use-of-caret"><i class="fa fa-check"></i><b>14.8.1</b> Use of {caret}</a></li>
-<li class="chapter" data-level="14.8.2" data-path="c14.html"><a href="c14.html#tuning-the-random-forest-model"><i class="fa fa-check"></i><b>14.8.2</b> Tuning the random forest model</a></li>
-<li class="chapter" data-level="14.8.3" data-path="c14.html"><a href="c14.html#examining-predictive-accuracy-on-the-test-dataset"><i class="fa fa-check"></i><b>14.8.3</b> Examining predictive accuracy on the test dataset</a></li>
+<li class="chapter" data-level="14.5.1" data-path="c14.html"><a href="c14.html#load-packages-6"><i class="fa fa-check"></i><b>14.5.1</b> Load packages</a></li>
+<li class="chapter" data-level="14.5.2" data-path="c14.html"><a href="c14.html#import-data-6"><i class="fa fa-check"></i><b>14.5.2</b> Import data</a></li>
 </ul></li>
-<li class="chapter" data-level="14.9" data-path="c14.html"><a href="c14.html#results-5"><i class="fa fa-check"></i><b>14.9</b> Results</a>
+<li class="chapter" data-level="14.6" data-path="c14.html"><a href="c14.html#the-supervised-machine-learning-workflow"><i class="fa fa-check"></i><b>14.6</b> The supervised machine learning workflow</a>
 <ul>
-<li class="chapter" data-level="14.9.1" data-path="c14.html"><a href="c14.html#variable-importance"><i class="fa fa-check"></i><b>14.9.1</b> Variable importance</a></li>
-<li class="chapter" data-level="14.9.2" data-path="c14.html"><a href="c14.html#comparing-random-forest-to-regression"><i class="fa fa-check"></i><b>14.9.2</b> Comparing random forest to regression</a></li>
+<li class="chapter" data-level="14.6.1" data-path="c14.html"><a href="c14.html#step-1-creating-outcome-and-predictor-variables"><i class="fa fa-check"></i><b>14.6.1</b> Step 1: Creating outcome and predictor variables</a></li>
+<li class="chapter" data-level="14.6.2" data-path="c14.html"><a href="c14.html#step-2-splitting-the-data"><i class="fa fa-check"></i><b>14.6.2</b> Step 2: Splitting the data</a></li>
+<li class="chapter" data-level="14.6.3" data-path="c14.html"><a href="c14.html#step-3-creating-a-recipe-for-selected-preprocessing-steps"><i class="fa fa-check"></i><b>14.6.3</b> Step 3: Creating a recipe for selected preprocessing steps</a></li>
+<li class="chapter" data-level="14.6.4" data-path="c14.html"><a href="c14.html#step-4-specifying-the-model-and-workflow"><i class="fa fa-check"></i><b>14.6.4</b> Step 4: Specifying the model and workflow</a></li>
+<li class="chapter" data-level="14.6.5" data-path="c14.html"><a href="c14.html#step-5-fitting-the-model"><i class="fa fa-check"></i><b>14.6.5</b> Step 5: Fitting the model</a></li>
+<li class="chapter" data-level="14.6.6" data-path="c14.html"><a href="c14.html#step-6-evaluating-model-performance"><i class="fa fa-check"></i><b>14.6.6</b> Step 6: Evaluating model performance</a></li>
 </ul></li>
-<li class="chapter" data-level="14.10" data-path="c14.html"><a href="c14.html#conclusion-10"><i class="fa fa-check"></i><b>14.10</b> Conclusion</a></li>
+<li class="chapter" data-level="14.7" data-path="c14.html"><a href="c14.html#interpreting-results"><i class="fa fa-check"></i><b>14.7</b> Interpreting results</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="c14.html"><a href="c14.html#the-limitation-of-accuracy"><i class="fa fa-check"></i><b>14.7.1</b> The limitation of accuracy</a></li>
+<li class="chapter" data-level="14.7.2" data-path="c14.html"><a href="c14.html#looking-deeper-with-a-confusion-matrix"><i class="fa fa-check"></i><b>14.7.2</b> Looking deeper with a confusion matrix</a></li>
+<li class="chapter" data-level="14.7.3" data-path="c14.html"><a href="c14.html#metrics-built-from-the-confusion-matrix"><i class="fa fa-check"></i><b>14.7.3</b> Metrics built from the confusion matrix</a></li>
+<li class="chapter" data-level="14.7.4" data-path="c14.html"><a href="c14.html#when-does-each-metric-matter"><i class="fa fa-check"></i><b>14.7.4</b> When does each metric matter?</a></li>
+<li class="chapter" data-level="14.7.5" data-path="c14.html"><a href="c14.html#beyond-the-confusion-matrix-auc-roc"><i class="fa fa-check"></i><b>14.7.5</b> Beyond the confusion matrix: AUC-ROC</a></li>
+<li class="chapter" data-level="14.7.6" data-path="c14.html"><a href="c14.html#improving-the-model"><i class="fa fa-check"></i><b>14.7.6</b> Improving the model</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="c14.html"><a href="c14.html#conclusion-10"><i class="fa fa-check"></i><b>14.8</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="c15.html"><a href="c15.html"><i class="fa fa-check"></i><b>15</b> Introducing data science tools to your education job</a>
 <ul>
@@ -568,8 +585,8 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="c15.html"><a href="c15.html#other-ways-to-reimagine-the-scale-of-your-work"><i class="fa fa-check"></i><b>15.3</b> Other ways to reimagine the scale of your work</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="c15.html"><a href="c15.html#reflect-on-your-current-scale-then-push-to-the-next-level"><i class="fa fa-check"></i><b>15.3.1</b> Reflect on your current scale, then push to the next level</a></li>
-<li class="chapter" data-level="15.3.2" data-path="c15.html"><a href="c15.html#look-for-lots-of-similarly-structured-sata"><i class="fa fa-check"></i><b>15.3.2</b> Look for lots of similarly structured sata</a></li>
-<li class="chapter" data-level="15.3.3" data-path="c15.html"><a href="c15.html#cleaning-data"><i class="fa fa-check"></i><b>15.3.3</b> Cleaning data</a></li>
+<li class="chapter" data-level="15.3.2" data-path="c15.html"><a href="c15.html#look-for-lots-of-similarly-structured-data"><i class="fa fa-check"></i><b>15.3.2</b> Look for lots of similarly structured data</a></li>
+<li class="chapter" data-level="15.3.3" data-path="c15.html"><a href="c15.html#cleaning-data-1"><i class="fa fa-check"></i><b>15.3.3</b> Cleaning data</a></li>
 </ul></li>
 <li class="chapter" data-level="15.4" data-path="c15.html"><a href="c15.html#solving-problems-together"><i class="fa fa-check"></i><b>15.4</b> Solving problems together</a>
 <ul>
@@ -587,29 +604,27 @@ div.csl-indent {
 <li class="chapter" data-level="16.2.1" data-path="c16.html"><a href="c16.html#problem-based-learning"><i class="fa fa-check"></i><b>16.2.1</b> Problem-based learning</a></li>
 <li class="chapter" data-level="16.2.2" data-path="c16.html"><a href="c16.html#differentiation"><i class="fa fa-check"></i><b>16.2.2</b> Differentiation</a></li>
 <li class="chapter" data-level="16.2.3" data-path="c16.html"><a href="c16.html#working-in-the-open"><i class="fa fa-check"></i><b>16.2.3</b> Working in the open</a></li>
+<li class="chapter" data-level="16.2.4" data-path="c16.html"><a href="c16.html#building-mental-models"><i class="fa fa-check"></i><b>16.2.4</b> Building mental models</a></li>
+<li class="chapter" data-level="16.2.5" data-path="c16.html"><a href="c16.html#universal-design"><i class="fa fa-check"></i><b>16.2.5</b> Universal design</a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="c16.html"><a href="c16.html#building-mental-models"><i class="fa fa-check"></i><b>16.3</b> Building mental models</a>
+<li class="chapter" data-level="16.3" data-path="c16.html"><a href="c16.html#strategies-for-teaching-data-science"><i class="fa fa-check"></i><b>16.3</b> Strategies for teaching data science</a>
 <ul>
-<li class="chapter" data-level="16.3.1" data-path="c16.html"><a href="c16.html#universal-design"><i class="fa fa-check"></i><b>16.3.1</b> Universal design</a></li>
+<li class="chapter" data-level="16.3.1" data-path="c16.html"><a href="c16.html#provide-a-home-base-for-learners-to-access-resources-and-to-learn-more"><i class="fa fa-check"></i><b>16.3.1</b> Provide a home base for learners to access resources (and to learn more)</a></li>
+<li class="chapter" data-level="16.3.2" data-path="c16.html"><a href="c16.html#when-it-comes-to-writing-code-think-early-and-often"><i class="fa fa-check"></i><b>16.3.2</b> When it comes to writing code, think early and often</a></li>
+<li class="chapter" data-level="16.3.3" data-path="c16.html"><a href="c16.html#dont-touch-that-keyboard"><i class="fa fa-check"></i><b>16.3.3</b> Don’t touch that keyboard!</a></li>
+<li class="chapter" data-level="16.3.4" data-path="c16.html"><a href="c16.html#anticipate-issues-and-sacrifice-accuracy-for-clarity"><i class="fa fa-check"></i><b>16.3.4</b> Anticipate issues (and sacrifice accuracy for clarity)</a></li>
+<li class="chapter" data-level="16.3.5" data-path="c16.html"><a href="c16.html#start-lessons-or-activities-with-visualizing-data"><i class="fa fa-check"></i><b>16.3.5</b> Start lessons or activities with visualizing data</a></li>
+<li class="chapter" data-level="16.3.6" data-path="c16.html"><a href="c16.html#consider-representation-and-inclusion-in-the-data-and-examples-you-use"><i class="fa fa-check"></i><b>16.3.6</b> Consider representation and inclusion in the data and examples you use</a></li>
+<li class="chapter" data-level="16.3.7" data-path="c16.html"><a href="c16.html#draw-on-other-resources"><i class="fa fa-check"></i><b>16.3.7</b> Draw on other resources</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="c16.html"><a href="c16.html#strategies-for-teaching-data-science"><i class="fa fa-check"></i><b>16.4</b> Strategies for teaching data science</a>
+<li class="chapter" data-level="16.4" data-path="c16.html"><a href="c16.html#general-strategies-related-to-teaching-and-learning"><i class="fa fa-check"></i><b>16.4</b> General strategies related to teaching and learning</a>
 <ul>
-<li class="chapter" data-level="16.4.1" data-path="c16.html"><a href="c16.html#provide-a-home-base-for-learners-to-access-resources-and-to-learn-more"><i class="fa fa-check"></i><b>16.4.1</b> Provide a home base for learners to access resources (and to learn more)</a></li>
-<li class="chapter" data-level="16.4.2" data-path="c16.html"><a href="c16.html#when-it-comes-to-writing-code-think-early-and-often"><i class="fa fa-check"></i><b>16.4.2</b> When it comes to writing code, think early and often</a></li>
-<li class="chapter" data-level="16.4.3" data-path="c16.html"><a href="c16.html#dont-touch-that-keyboard"><i class="fa fa-check"></i><b>16.4.3</b> Don’t touch that keyboard!</a></li>
-<li class="chapter" data-level="16.4.4" data-path="c16.html"><a href="c16.html#anticipate-issues-and-sacrifice-accuracy-for-clarity"><i class="fa fa-check"></i><b>16.4.4</b> Anticipate issues (and sacrifice accuracy for clarity)</a></li>
-<li class="chapter" data-level="16.4.5" data-path="c16.html"><a href="c16.html#start-lessons-or-activities-with-visualizing-data"><i class="fa fa-check"></i><b>16.4.5</b> Start lessons or activities with visualizing data</a></li>
-<li class="chapter" data-level="16.4.6" data-path="c16.html"><a href="c16.html#consider-representation-and-inclusion-in-the-data-and-examples-you-use"><i class="fa fa-check"></i><b>16.4.6</b> Consider representation and inclusion in the data and examples you use</a></li>
-<li class="chapter" data-level="16.4.7" data-path="c16.html"><a href="c16.html#draw-on-other-resources"><i class="fa fa-check"></i><b>16.4.7</b> Draw on other resources</a></li>
+<li class="chapter" data-level="16.4.1" data-path="c16.html"><a href="c16.html#teaching-and-learning-are-complex"><i class="fa fa-check"></i><b>16.4.1</b> Teaching and learning are complex</a></li>
+<li class="chapter" data-level="16.4.2" data-path="c16.html"><a href="c16.html#learners-learn-many-different-things-consciously-and-unconsciously"><i class="fa fa-check"></i><b>16.4.2</b> Learners learn many different things (consciously and unconsciously)</a></li>
+<li class="chapter" data-level="16.4.3" data-path="c16.html"><a href="c16.html#meta-cognition-is-important-even-though-it-sounds-more-sophisticated-than-it-is"><i class="fa fa-check"></i><b>16.4.3</b> Meta-cognition is important (even though it sounds more sophisticated than it is!)</a></li>
+<li class="chapter" data-level="16.4.4" data-path="c16.html"><a href="c16.html#learning-strategies-matter"><i class="fa fa-check"></i><b>16.4.4</b> Learning strategies matter</a></li>
 </ul></li>
-<li class="chapter" data-level="16.5" data-path="c16.html"><a href="c16.html#general-strategies-related-to-teaching-and-learning"><i class="fa fa-check"></i><b>16.5</b> General strategies related to teaching and learning</a>
-<ul>
-<li class="chapter" data-level="16.5.1" data-path="c16.html"><a href="c16.html#teaching-and-learning-are-complex"><i class="fa fa-check"></i><b>16.5.1</b> Teaching and learning are complex</a></li>
-<li class="chapter" data-level="16.5.2" data-path="c16.html"><a href="c16.html#learners-learn-many-different-things-consciously-and-unconsciously"><i class="fa fa-check"></i><b>16.5.2</b> Learners learn many different things (consciously and unconsciously)</a></li>
-<li class="chapter" data-level="16.5.3" data-path="c16.html"><a href="c16.html#meta-cognition-is-important-even-though-it-sounds-more-dophisticated-than-it-is"><i class="fa fa-check"></i><b>16.5.3</b> Meta-cognition is important (even though it sounds more dophisticated than it is!)</a></li>
-<li class="chapter" data-level="16.5.4" data-path="c16.html"><a href="c16.html#learning-strategies-matter"><i class="fa fa-check"></i><b>16.5.4</b> Learning strategies matter</a></li>
-</ul></li>
-<li class="chapter" data-level="16.6" data-path="c16.html"><a href="c16.html#summary-1"><i class="fa fa-check"></i><b>16.6</b> Summary</a></li>
+<li class="chapter" data-level="16.5" data-path="c16.html"><a href="c16.html#summary-1"><i class="fa fa-check"></i><b>16.5</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="c17.html"><a href="c17.html"><i class="fa fa-check"></i><b>17</b> Learning more</a>
 <ul>
@@ -657,7 +672,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="20" data-path="c20.html"><a href="c20.html"><i class="fa fa-check"></i><b>20</b> Appendices</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="c20.html"><a href="c20.html#c20a"><i class="fa fa-check"></i><b>20.1</b> Appendix A: importing data</a>
+<li class="chapter" data-level="20.1" data-path="c20.html"><a href="c20.html#c20a"><i class="fa fa-check"></i><b>20.1</b> Appendix A: Importing data</a>
 <ul>
 <li class="chapter" data-level="20.1.1" data-path="c20.html"><a href="c20.html#using-functions-to-import-data"><i class="fa fa-check"></i><b>20.1.1</b> Using functions to import data</a></li>
 <li class="chapter" data-level="20.1.2" data-path="c20.html"><a href="c20.html#saving-a-file-from-the-internet"><i class="fa fa-check"></i><b>20.1.2</b> Saving a file from the internet</a></li>
@@ -665,27 +680,20 @@ div.csl-indent {
 <li class="chapter" data-level="20.1.4" data-path="c20.html"><a href="c20.html#saving-files"><i class="fa fa-check"></i><b>20.1.4</b> Saving files</a></li>
 <li class="chapter" data-level="20.1.5" data-path="c20.html"><a href="c20.html#loading-excel-files"><i class="fa fa-check"></i><b>20.1.5</b> Loading Excel files</a></li>
 <li class="chapter" data-level="20.1.6" data-path="c20.html"><a href="c20.html#loading-sav-files"><i class="fa fa-check"></i><b>20.1.6</b> Loading SAV files</a></li>
-<li class="chapter" data-level="20.1.7" data-path="c20.html"><a href="c20.html#google-sheets"><i class="fa fa-check"></i><b>20.1.7</b> Google sheets</a></li>
+<li class="chapter" data-level="20.1.7" data-path="c20.html"><a href="c20.html#google-sheets"><i class="fa fa-check"></i><b>20.1.7</b> Google Sheets</a></li>
 </ul></li>
-<li class="chapter" data-level="20.2" data-path="c20.html"><a href="c20.html#appendix-b-accessing-twitter-data-c20b"><i class="fa fa-check"></i><b>20.2</b> Appendix B: accessing Twitter data {c20b}</a>
+<li class="chapter" data-level="20.2" data-path="c20.html"><a href="c20.html#c20c"><i class="fa fa-check"></i><b>20.2</b> Appendix B: Social network influence and selection models</a>
 <ul>
-<li class="chapter" data-level="20.2.1" data-path="c20.html"><a href="c20.html#accessing-twitter-data-from-the-last-seven-days"><i class="fa fa-check"></i><b>20.2.1</b> Accessing Twitter data from the last seven days</a></li>
-<li class="chapter" data-level="20.2.2" data-path="c20.html"><a href="c20.html#accessing-historical-twitter-data-when-you-have-access-to-already-collected-status-urls"><i class="fa fa-check"></i><b>20.2.2</b> Accessing historical Twitter data when you have access to already-collected status URLs</a></li>
-<li class="chapter" data-level="20.2.3" data-path="c20.html"><a href="c20.html#accessing-historical-data-when-you-do-not-have-access-to-status-urls"><i class="fa fa-check"></i><b>20.2.3</b> Accessing historical data when you do not have access to status URLs</a></li>
+<li class="chapter" data-level="20.2.1" data-path="c20.html"><a href="c20.html#an-example-of-influence"><i class="fa fa-check"></i><b>20.2.1</b> An example of influence</a></li>
+<li class="chapter" data-level="20.2.2" data-path="c20.html"><a href="c20.html#joining-the-data-1"><i class="fa fa-check"></i><b>20.2.2</b> Joining the data</a></li>
+<li class="chapter" data-level="20.2.3" data-path="c20.html"><a href="c20.html#an-example-of-selection"><i class="fa fa-check"></i><b>20.2.3</b> An example of selection</a></li>
 </ul></li>
-<li class="chapter" data-level="20.3" data-path="c20.html"><a href="c20.html#c20c"><i class="fa fa-check"></i><b>20.3</b> Appendix C: social network influence and selection models</a>
-<ul>
-<li class="chapter" data-level="20.3.1" data-path="c20.html"><a href="c20.html#an-example-of-influence"><i class="fa fa-check"></i><b>20.3.1</b> An example of influence</a></li>
-<li class="chapter" data-level="20.3.2" data-path="c20.html"><a href="c20.html#joining-the-data-1"><i class="fa fa-check"></i><b>20.3.2</b> Joining the data</a></li>
-<li class="chapter" data-level="20.3.3" data-path="c20.html"><a href="c20.html#an-example-of-selection"><i class="fa fa-check"></i><b>20.3.3</b> An example of selection</a></li>
-</ul></li>
-<li class="chapter" data-level="20.4" data-path="c20.html"><a href="c20.html#appendix-d-colophon"><i class="fa fa-check"></i><b>20.4</b> Appendix D: colophon</a></li>
+<li class="chapter" data-level="20.3" data-path="c20.html"><a href="c20.html#appendix-c-colophon"><i class="fa fa-check"></i><b>20.3</b> Appendix C: Colophon</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://www.emilybovee.com/">Emily A. Bovee</a></li>
 <li><a href="https://ryanestrellado.com/">Ryan A. Estrellado</a></li>
-<li><a href="https://www.jessemaegan.com/">Jesse Mostipak</a></li>
 <li><a href="https://joshuamrosenberg.com/">Joshua M. Rosenberg</a></li>
 <li><a href="https://ivelasq.rbind.io/">Isabella C. Velásquez</a></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -709,8 +717,8 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="c16" class="section level1 hasAnchor" number="16">
 <h1><span class="header-section-number">16</span> Teaching data science<a href="c16.html#c16" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><strong>Abstract</strong>
-This chapter explores strategies for teaching data science to others. While our focus in this book (and the focus of many doing data science in education) is on the use of data science methods to ask and answer questions and identify and solve problems relating to teaching, learning, and educational systems, how data science is taught and learned is also an important consideration. This is particularly true for those tasked with teaching others, whether in formal settings (such as in classes or workshops) or in those that are informal (such as when providing just-in-time help to a colleague or peer). This chapter first draws attention to the pedagogical principles that undergirded this book, and then describes strategies for teaching data science as well as some general pedagogical strategies that have relevance to those teaching data science. The chapter concludes with a call for those teaching data science to carve out a distinctive field of their own.</p>
+<p><strong>Abstract</strong></p>
+<p>This chapter explores strategies for teaching data science to others. While our focus in this book (and the focus of many doing data science in education) is on the use of data science methods to ask and answer questions and identify and solve problems relating to teaching, learning, and educational systems, how data science is taught and learned is also an important consideration. This is particularly true for those tasked with teaching others, whether in formal settings (such as in classes or workshops) or in those that are informal (such as when providing just-in-time help to a colleague or peer). This chapter first draws attention to the pedagogical principles that undergirded this book, and then describes strategies for teaching data science as well as some general pedagogical strategies that have relevance to those teaching data science. The chapter concludes with a call for those teaching data science to carve out a distinctive field of their own.</p>
 <div id="chapter-overview-11" class="section level2 hasAnchor" number="16.1">
 <h2><span class="header-section-number">16.1</span> Chapter overview<a href="c16.html#chapter-overview-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This book is focused on the application of data science to education. In other
@@ -723,9 +731,9 @@ in education, it is important to not only discuss the application of
 data science methods, but also to consider what we know about <em>how to teach
 data science</em>. In recognition of these dual meanings of data science in
 education, we’ve referred to the application of data science methods as
-“data science <em>in</em> education*, and the teaching and
-learning of data science as”data science *for” education
-<span class="citation">(<a href="references.html#ref-rosenberg2020mdsc">Joshua M. Rosenberg et al., 2020</a>)</span>.</p>
+“data science <em>in</em> education”, and the teaching and
+learning of data science as “data science <em>for</em> education”
+<span class="citation">(<a href="references.html#ref-rosenberg2020mdsc">Joshua M. Rosenberg et al., 2020a</a>)</span>.</p>
 <p>Naturally, educators who do data science are positioned well to try to
 teach others how to do data science. In addition, we expect readers of this book—many of whom will
 also be involved in education—will be interested in teaching others about data science.</p>
@@ -741,7 +749,7 @@ also be involved in education—will be interested in teaching others about data
 <p>As the authors of a book about data science in education—and readers of books
 that taught us about data science—we considered what would make it effective
 for our readers when we set out to write it. The result of this process was a
-pedagogical framework that consists of four principles: problem-based learning,
+pedagogical framework that consisted of four principles: problem-based learning,
 differentiation, building mental models, and working in the open. We consider each of these in turn.</p>
 <div id="problem-based-learning" class="section level3 hasAnchor" number="16.2.1">
 <h3><span class="header-section-number">16.2.1</span> Problem-based learning<a href="c16.html#problem-based-learning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -782,7 +790,7 @@ we presented the content.</p>
 <p>We then aimed to differentiate the book by recognizing and providing background
 knowledge (either explicitly or through references to other resources) and
 recommendations for where to begin based on prior expertise. We also provided
-screenshots–particularly in <a href="c05.html#c05">Chapter 5/Getting Started with R and
+screenshots—particularly in <a href="c05.html#c05">Chapter 5/Getting Started with R and
 RStudio</a> and <a href="c06.html#c06">Chapter 6/Foundational Skills</a>—that are annotated and
 reflective of the content in the text to help show readers how to use what they
 are reading about.</p>
@@ -790,7 +798,7 @@ are reading about.</p>
 For inclusivity, we considered who makes up the audience for this text and how a
 broader view of who participates in data science informs the types of challenges,
 topics, and data that we included and its accessibility (technically, in terms of how a wide audience of readers
-is able to access and use the book as well how the
+is able to access and use the book as well as how the
 content is written based on the unique assets that those in education bring),
 along with how we differentiate the book.</p>
 </div>
@@ -798,28 +806,26 @@ along with how we differentiate the book.</p>
 <h3><span class="header-section-number">16.2.3</span> Working in the open<a href="c16.html#working-in-the-open" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We started writing this book in the open, on GitHub. This allowed us to share
 the book as it developed. Writing the book in the open also allowed others from
-the wider educational data science and data science community to contribute.
+the wider educational data science community to contribute.
 These contributions included writing sections of the book in which contributors
-had specific expertise, asking clarifying questions, and, even creating a logo
+had specific expertise, asking clarifying questions, and even creating a logo
 for the book which informed our choice of a color palette. We decided to write
 this book in the open after witnessing the success of other books on data
-science (such as <span class="citation">Wickham (<a href="references.html#ref-wickham2019advr">2019</a>)</span> <em>Advanced R</em> (<a href="https://adv-r.hadley.nz/" class="uri">https://adv-r.hadley.nz/</a>)
-book.</p>
+science (such as <span class="citation">Wickham (<a href="references.html#ref-wickham2019advr">2019</a>)</span> <em>Advanced R</em> (<a href="https://adv-r.hadley.nz/" class="uri">https://adv-r.hadley.nz/</a>).</p>
 </div>
-</div>
-<div id="building-mental-models" class="section level2 hasAnchor" number="16.3">
-<h2><span class="header-section-number">16.3</span> Building mental models<a href="c16.html#building-mental-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="building-mental-models" class="section level3 hasAnchor" number="16.2.4">
+<h3><span class="header-section-number">16.2.4</span> Building mental models<a href="c16.html#building-mental-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the foundational skills chapter, <a href="c06.html#c06">Chapter 6</a>, we introduced the
 <em>foundational skills framework</em>. The purpose of this framework was to emphasize
 four core concepts (projects, functions, packages, and data) that are relevant to and used in nearly all data science projects.
 We chose to introduce this <em>general</em> framework before walkthroughs, which introduce <em>specific</em> techniques,
-in part to help readers to build a “mental model” of data science: an understanding of
-how data science tools and techniques at a level deeper than particular functions or individual lines of code (see <span class="citation">Krist et al. (<a href="references.html#ref-krist2019">2019</a>)</span>’s framework for
+in part to help readers to build a “mental model” of data science: an understanding of data science tools and techniques at a level deeper than particular functions or individual lines of code (see <span class="citation">Krist et al. (<a href="references.html#ref-krist2019">2019</a>)</span>’s framework for
 the development of <em>mental models</em> and this type of deeper understanding). Understanding both how R works as a programming language (what R code is)
 and how R and RStudio work as software programs can make it easier to troubleshoot the
 (inevitable!) issues and identify possible solutions in the course of working on educational data science projects.</p>
-<div id="universal-design" class="section level3 hasAnchor" number="16.3.1">
-<h3><span class="header-section-number">16.3.1</span> Universal design<a href="c16.html#universal-design" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="universal-design" class="section level3 hasAnchor" number="16.2.5">
+<h3><span class="header-section-number">16.2.5</span> Universal design<a href="c16.html#universal-design" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In our original proposal for this book (see <span class="citation">R. A. Estrellado et al. (<a href="references.html#ref-dsieurproposal">2019</a>)</span>), we noted that
 Universal Design <span class="citation">(<a href="references.html#ref-mctighe2019upgrade">McTighe &amp; Willis, 2019</a>; <a href="references.html#ref-wiggins2005understanding">Wiggins et al., 2005</a>)</span> was a part
 of our pedagogical framework. As we worked toward completing the book, we
@@ -842,8 +848,8 @@ tolerance for error.</p>
 us, and we hope to address them in a future edition of the book.</p>
 </div>
 </div>
-<div id="strategies-for-teaching-data-science" class="section level2 hasAnchor" number="16.4">
-<h2><span class="header-section-number">16.4</span> Strategies for teaching data science<a href="c16.html#strategies-for-teaching-data-science" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="strategies-for-teaching-data-science" class="section level2 hasAnchor" number="16.3">
+<h2><span class="header-section-number">16.3</span> Strategies for teaching data science<a href="c16.html#strategies-for-teaching-data-science" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You may be interested in teaching others data science. You may be doing this
 informally (such as by teaching a colleague in your school
 district or organization), in a formal environment (such as a class on data
@@ -851,15 +857,15 @@ science for educational data scientists or analysts), or in some setting
 in-between (such as a workshop). There is some research
 on teaching data science, as well as practical advice from experienced
 instructors, that can inform these efforts.</p>
-<div id="provide-a-home-base-for-learners-to-access-resources-and-to-learn-more" class="section level3 hasAnchor" number="16.4.1">
-<h3><span class="header-section-number">16.4.1</span> Provide a home base for learners to access resources (and to learn more)<a href="c16.html#provide-a-home-base-for-learners-to-access-resources-and-to-learn-more" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="provide-a-home-base-for-learners-to-access-resources-and-to-learn-more" class="section level3 hasAnchor" number="16.3.1">
+<h3><span class="header-section-number">16.3.1</span> Provide a home base for learners to access resources (and to learn more)<a href="c16.html#provide-a-home-base-for-learners-to-access-resources-and-to-learn-more" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Learning strategies, along with other important factors (such as
 learners’ motivations and having a supportive atmosphere), can make a difference
 for learners. Especially when it comes to learning to do
 data science, there are many tools and resources to keep track of, such as:</p>
 <ul>
 <li>How to download and install R</li>
-<li>How to download and install R Studio</li>
+<li>How to download and install RStudio</li>
 <li>How to install packages</li>
 <li>How to access resources related to the workshop or course (or simply other
 resources you wish to share)</li>
@@ -874,31 +880,31 @@ proprietary learning management system—such as Desire2Learn, Blackboard,
 Moodle, or Canvas—can be helpful (especially if your learners are accustomed
 to using them).</p>
 </div>
-<div id="when-it-comes-to-writing-code-think-early-and-often" class="section level3 hasAnchor" number="16.4.2">
-<h3><span class="header-section-number">16.4.2</span> When it comes to writing code, think early and often<a href="c16.html#when-it-comes-to-writing-code-think-early-and-often" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="when-it-comes-to-writing-code-think-early-and-often" class="section level3 hasAnchor" number="16.3.2">
+<h3><span class="header-section-number">16.3.2</span> When it comes to writing code, think early and often<a href="c16.html#when-it-comes-to-writing-code-think-early-and-often" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It is important to get learners to start writing code early and often. It can be
 tempting to teach classes or workshops that front-load content about data
 science and using R. While this information is important, it can
 mean that those you are teaching do not have the chance to do the things
-they want to do, including installing R (and R Studio) and beginning to run
+they want to do, including installing R (and RStudio) and beginning to run
 analyses. Because of this, we recommend starting with strategies that lower the
 barrier to writing code for learners. Ways to do this include:</p>
 <ul>
-<li>Using R Studio Cloud</li>
+<li>Using Posit Cloud</li>
 <li>Providing an R Markdown document for learners to work through</li>
 <li>Providing a dataset and ideas for how to begin exploring it</li>
 </ul>
 <p>While these strategies are especially helpful for courses or workshops, they can
 be translated to teaching and learning R in tutoring (or “one-on-one”)
 opportunities for learners. In these cases, being able to work through and
-modify an existing analysis (perhaps in R Studio Cloud) is a way to quickly
+modify an existing analysis (perhaps in Posit Cloud) is a way to quickly
 begin running analyses—and to use the analysis as a template for analyses
 associated with other projects. Also, having a dataset associated with a
 project or analysis—and a real need to analyze it using R—can be an
 outstanding way for an individual to learn to use R.</p>
 </div>
-<div id="dont-touch-that-keyboard" class="section level3 hasAnchor" number="16.4.3">
-<h3><span class="header-section-number">16.4.3</span> Don’t touch that keyboard!<a href="c16.html#dont-touch-that-keyboard" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="dont-touch-that-keyboard" class="section level3 hasAnchor" number="16.3.3">
+<h3><span class="header-section-number">16.3.3</span> Don’t touch that keyboard!<a href="c16.html#dont-touch-that-keyboard" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Resist helping learners to the point of hindering their learning. <span class="citation">Wilson (<a href="references.html#ref-wilson2009">2009</a>)</span>
 writes about the way in which those teaching others about R—or to program, in
 general—can find it easier to correct errors in learners’ work. But, by fixing
@@ -917,8 +923,8 @@ Consider taking the additional time needed to help learners navigate
 minor issues and errors in their code: it can pay off in increased motivation on
 their part in the long-term.</p>
 </div>
-<div id="anticipate-issues-and-sacrifice-accuracy-for-clarity" class="section level3 hasAnchor" number="16.4.4">
-<h3><span class="header-section-number">16.4.4</span> Anticipate issues (and sacrifice accuracy for clarity)<a href="c16.html#anticipate-issues-and-sacrifice-accuracy-for-clarity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="anticipate-issues-and-sacrifice-accuracy-for-clarity" class="section level3 hasAnchor" number="16.3.4">
+<h3><span class="header-section-number">16.3.4</span> Anticipate issues (and sacrifice accuracy for clarity)<a href="c16.html#anticipate-issues-and-sacrifice-accuracy-for-clarity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Don’t worry about being perfectly accurate early on, especially if doing so
 would lead to learners who are less interested in the topic you are teaching.
 Especially in cases for which additional details may not be helpful to beginning
@@ -933,8 +939,8 @@ provide the name of packages installed via <code>install.packages()</code> (wher
 names of arguments to other functions, such as <code>dplyr::select()</code> do not need to
 be quoted).</p>
 </div>
-<div id="start-lessons-or-activities-with-visualizing-data" class="section level3 hasAnchor" number="16.4.5">
-<h3><span class="header-section-number">16.4.5</span> Start lessons or activities with visualizing data<a href="c16.html#start-lessons-or-activities-with-visualizing-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="start-lessons-or-activities-with-visualizing-data" class="section level3 hasAnchor" number="16.3.5">
+<h3><span class="header-section-number">16.3.5</span> Start lessons or activities with visualizing data<a href="c16.html#start-lessons-or-activities-with-visualizing-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are examples from data science books by <span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-grolemund2018">2018</a>)</span> and past research
 (e.g., <span class="citation">Lehrer &amp; Schauble (<a href="references.html#ref-lehrer2015">2015</a>)</span>) that suggest that starting with visualizing data can be
 beneficial in terms of learners’ ability to work with data. <span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-grolemund2018">2018</a>)</span> write
@@ -946,8 +952,8 @@ share. <span class="citation">Lehrer et al. (<a href="references.html#ref-lehrer
 statistics by displaying the data in new ways led to productive critique
 among fifth- and sixth-grade students and their teacher.</p>
 </div>
-<div id="consider-representation-and-inclusion-in-the-data-and-examples-you-use" class="section level3 hasAnchor" number="16.4.6">
-<h3><span class="header-section-number">16.4.6</span> Consider representation and inclusion in the data and examples you use<a href="c16.html#consider-representation-and-inclusion-in-the-data-and-examples-you-use" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="consider-representation-and-inclusion-in-the-data-and-examples-you-use" class="section level3 hasAnchor" number="16.3.6">
+<h3><span class="header-section-number">16.3.6</span> Consider representation and inclusion in the data and examples you use<a href="c16.html#consider-representation-and-inclusion-in-the-data-and-examples-you-use" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One way to think about data is that it is objective and free of decisions about
 what to value or prioritize. Another is to consider data as a process that is
 value-laden, from deciding what question to ask (and what data to collect) to
@@ -956,7 +962,7 @@ interpreting findings with attention to how others will make sense of them
 description of data modeling). From this broader view, choosing representative
 data is a choice, like others, that teachers can make. For example, instructors
 can choose data that directs attention to issues—equity-related issues in
-education, for example—that she or he believes would be valuable for students
+education, for example—that they believe would be valuable for students
 to analyze.</p>
 <p>It is important to consider and question what data is collected and why, even with variables that we consider to be objective. For example, some variables are constructed to be dichotomous (e.g., gender) or categorical (e.g., race), but the data that is collected is based on decisions by the observer and may not be inherently objective.</p>
 <p>This broader consideration of data is also important when it comes to which data is used for teaching
@@ -967,8 +973,8 @@ to those we are teaching to decide on themselves, setting the precedent in class
 courses, and other contexts in which data science is taught can be important for
 how learners collect and use data in the future.</p>
 </div>
-<div id="draw-on-other-resources" class="section level3 hasAnchor" number="16.4.7">
-<h3><span class="header-section-number">16.4.7</span> Draw on other resources<a href="c16.html#draw-on-other-resources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="draw-on-other-resources" class="section level3 hasAnchor" number="16.3.7">
+<h3><span class="header-section-number">16.3.7</span> Draw on other resources<a href="c16.html#draw-on-other-resources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We touched on a few strategies for teaching data science. There are others that go more into depth on this topic from different
 perspectives, such as the following:</p>
 <ul>
@@ -978,7 +984,6 @@ guidelines for teaching statistics</li>
 <li><a href="https://www.nap.edu/catalog/25104/data-science-for-undergraduates-opportunities-and-options">Data Science for
 Undergraduates</a> (https<a href=""></a>://www.nap.edu/catalog/25104/data-science-for-undergraduates-opportunities-and-options):
 a report on undergraduate data science education</li>
-<li><a href="https://education.rstudio.com/">R Studio Education</a> (https<a href=""></a>://education.rstudio.com/)</li>
 </ul>
 <p>There are also a number of data science-related curricula (for the K-12 level)
 which may be helpful:</p>
@@ -989,7 +994,7 @@ which may be helpful:</p>
 <li><a href="http://oceansofdata.org/our-work/ocean-tracks-high-school-learning-modules">Oceans of Data Institute
 Curricula</a> (http<a href=""></a>://oceansofdata.org/our-work/ocean-tracks-high-school-learning-modules)</li>
 </ul>
-<p>Last, there are also books that emphasize the importance—for teachers–of
+<p>Last, there are also books that emphasize the importance—for teachers—of
 understanding their students—every student. These books include
 <span class="citation">Paris &amp; Alim (<a href="references.html#ref-paris2017culturally">2017</a>)</span> and <span class="citation">Kozol (<a href="references.html#ref-kozol2012savage">2012</a>)</span>, and will likely be valuable for teachers of data science who wish to understand and honor the diversity of their
 students. <span class="citation">Moore Jr et al. (<a href="references.html#ref-moore2017guide">2017</a>)</span> and <span class="citation">Emdin (<a href="references.html#ref-emdin2016">2016</a>)</span> may be helpful for data science
@@ -997,12 +1002,12 @@ educators who aim to be aware and intentional about teaching students from
 backgrounds other than their own.</p>
 </div>
 </div>
-<div id="general-strategies-related-to-teaching-and-learning" class="section level2 hasAnchor" number="16.5">
-<h2><span class="header-section-number">16.5</span> General strategies related to teaching and learning<a href="c16.html#general-strategies-related-to-teaching-and-learning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The National Academy of Science commissioned a report, <em>How People Learn</em>
-<span class="citation">(<a href="references.html#ref-nrc2000">Bransford et al., 2000</a>)</span>, that aimed to summarize research on teaching and learning from educational psychology
+<div id="general-strategies-related-to-teaching-and-learning" class="section level2 hasAnchor" number="16.4">
+<h2><span class="header-section-number">16.4</span> General strategies related to teaching and learning<a href="c16.html#general-strategies-related-to-teaching-and-learning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The National Academy of Sciences commissioned a report, <em>How People Learn</em>
+<span class="citation">(<a href="references.html#ref-nrc2000"><span class="nocase">Bransford et al.</span>, 2000</a>)</span>, that aimed to summarize research on teaching and learning from educational psychology
 and the learning sciences. In 2018, the report was
-updated in <em>How People Learn II</em> <span class="citation">(<a href="references.html#ref-nrc2018">National Academies of Sciences et al., 2018</a>)</span> with a new emphasis on the
+updated in <em>How People Learn II</em> <span class="citation">(<a href="references.html#ref-nrc2018"><span class="nocase">National Academies of Sciences et al.</span>, 2018</a>)</span> with a new emphasis on the
 social and cultural aspects of teaching and learning. Both reports include general strategies
 that may be helpful to those teaching data science.</p>
 <p>In addition to these reports, there are some books that are more
@@ -1014,8 +1019,8 @@ with an emphasis on strategies applicable to teaching and learning data science.
 are more conceptual than those described in the last section, and are likely more
 useful as starting points for further research or reflection, instead of as specific techniques that can be brought to the next
 workshop, class, or peer-to-peer teaching session.</p>
-<div id="teaching-and-learning-are-complex" class="section level3 hasAnchor" number="16.5.1">
-<h3><span class="header-section-number">16.5.1</span> Teaching and learning are complex<a href="c16.html#teaching-and-learning-are-complex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="teaching-and-learning-are-complex" class="section level3 hasAnchor" number="16.4.1">
+<h3><span class="header-section-number">16.4.1</span> Teaching and learning are complex<a href="c16.html#teaching-and-learning-are-complex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One principle from <em>How People Learn II</em> is that learning is not just about what
 learners know or think, but is also about the developmental, cultural, contextual,
 and historical factors each individual brings to the table. In short, learning is complex.
@@ -1025,8 +1030,8 @@ Individual distinctions also mean that educators need to consider factors beyond
 what learners know, such as their prior educational experiences and what resources
 and other individuals they have access to at work and at home.</p>
 </div>
-<div id="learners-learn-many-different-things-consciously-and-unconsciously" class="section level3 hasAnchor" number="16.5.2">
-<h3><span class="header-section-number">16.5.2</span> Learners learn many different things (consciously and unconsciously)<a href="c16.html#learners-learn-many-different-things-consciously-and-unconsciously" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="learners-learn-many-different-things-consciously-and-unconsciously" class="section level3 hasAnchor" number="16.4.2">
+<h3><span class="header-section-number">16.4.2</span> Learners learn many different things (consciously and unconsciously)<a href="c16.html#learners-learn-many-different-things-consciously-and-unconsciously" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The authors of <em>How People Learn II</em> point out that individuals learn in response
 to different challenges and circumstances, including those in formal learning environments, such as
 workshops or classes. This learning also happens at a different rate for each individual.
@@ -1037,8 +1042,8 @@ from a problem they try to solve on their own, than from a workshop
 or class (or even a degree!). This also suggests that learners may learn things
 that we do not anticipate.</p>
 </div>
-<div id="meta-cognition-is-important-even-though-it-sounds-more-dophisticated-than-it-is" class="section level3 hasAnchor" number="16.5.3">
-<h3><span class="header-section-number">16.5.3</span> Meta-cognition is important (even though it sounds more dophisticated than it is!)<a href="c16.html#meta-cognition-is-important-even-though-it-sounds-more-dophisticated-than-it-is" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="meta-cognition-is-important-even-though-it-sounds-more-sophisticated-than-it-is" class="section level3 hasAnchor" number="16.4.3">
+<h3><span class="header-section-number">16.4.3</span> Meta-cognition is important (even though it sounds more sophisticated than it is!)<a href="c16.html#meta-cognition-is-important-even-though-it-sounds-more-sophisticated-than-it-is" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Educators and educational researchers often talk about meta-cognition, or
 thinking (and ideas) about thinking, as if it is something only very
 sophisticated learners do. In reality, it is much more commonplace, as
@@ -1050,12 +1055,12 @@ Another strategy is to help learners recognize when it is important to ask for h
 Often in data science, the right question to the right person (or community)
 can save hours of work.</p>
 </div>
-<div id="learning-strategies-matter" class="section level3 hasAnchor" number="16.5.4">
-<h3><span class="header-section-number">16.5.4</span> Learning strategies matter<a href="c16.html#learning-strategies-matter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="learning-strategies-matter" class="section level3 hasAnchor" number="16.4.4">
+<h3><span class="header-section-number">16.4.4</span> Learning strategies matter<a href="c16.html#learning-strategies-matter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>While teachers are responsible for designing learning opportunities, learners
 also play an important role in their own learning! According to the authors of
 <em>How People Learn II</em>, learning strategies matter, including those that help students
-retrieve, summarize, and explain what they have learned to themselves and others (see <span class="citation">National Academies of Sciences et al. (<a href="references.html#ref-nrc2018">2018</a>)</span> for an elaboration on these).</p>
+retrieve, summarize, and explain what they have learned to themselves and others (see <span class="citation"><span class="nocase">National Academies of Sciences et al.</span> (<a href="references.html#ref-nrc2018">2018</a>)</span> for an elaboration on these).</p>
 <p>Teaching strategies, such as how content is spaced and sequenced, also help learners.
 <span class="citation">Dirksen (<a href="references.html#ref-dirksen2015">2015</a>)</span>’s <em>Design for How People Learn</em> presents these strategies, based largely on instructional
 design research, that may be helpful to those teaching data science.</p>
@@ -1063,10 +1068,10 @@ design research, that may be helpful to those teaching data science.</p>
 and more the commitment to teaching their students how to learn.</p>
 </div>
 </div>
-<div id="summary-1" class="section level2 hasAnchor" number="16.6">
-<h2><span class="header-section-number">16.6</span> Summary<a href="c16.html#summary-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="summary-1" class="section level2 hasAnchor" number="16.5">
+<h2><span class="header-section-number">16.5</span> Summary<a href="c16.html#summary-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Data science educators do not need to reinvent the wheel when it comes to teaching about data science. Insights from other, related educational domains (such as statistics education and computer science education) may prove helpful to those seeking to teach data science to others, whether in a one-on-one setting, a workshop, or through a formal class. In this chapter, we sought to describe both the pedagogical principles for this book and some
-strategies for teaching data science. As scholarship and practice where it comes to teaching and learning data science continues to develop, we hope that those teaching (and producing scholarship about) data science not only draw upon the findings of those in other domains but carve out a domain of their own—one with findings that may have implications for how statistics, computer science, or even subject matters such as science and mathematics are learned.</p>
+strategies for teaching data science. As scholarship and practice when it comes to teaching and learning data science continues to develop, we hope that those teaching (and producing scholarship about) data science not only draw upon the findings of those in other domains but carve out a domain of their own—one with findings that may have implications for how statistics, computer science, or even subject matters such as science and mathematics are learned.</p>
 
 </div>
 </div>
@@ -1090,48 +1095,62 @@ strategies for teaching data science. As scholarship and practice where it comes
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/data-edu/data-science-in-education/edit/master/16-teaching-data-science.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-},
-"fig_height": 5.3,
-"fig_width": 8.5
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/data-edu/data-science-in-education/edit/main/16-teaching-data-science.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  },
+  "fig_height": 5.3,
+  "fig_width": 8.5
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

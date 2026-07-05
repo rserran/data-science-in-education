@@ -1,8 +1,8 @@
-# Walkthrough 8: Predicting students' final grades using supervised machine learning {#c14}
+# Walkthrough 8: Predicting student pass/fail outcomes using supervised machine learning {#c14}
 
 **Abstract** 
 
-This chapter introduces a different type of statistical model that is increasingly common -- machine learning. Specifically, we focus on supervised machine learning, which involves, first, identifying an outcome (another name for a dependent variable), and then building (or training) a model to predict that outcome. Some supervised machine learning models are highly complex, while others are simple. To illustrate and gain experience training and interpreting a supervised machine learning model, this chapter involves predicting whether students will pass a class using a simple model -- a generalized linear model. The Open University Learning Analytics Dataset (OULAD) is used as an example of the type of data used in learning analytics. The tidymodels collection of packages is used to carry out each of the principal supervised machine learning steps. At the conclusion, ways to build more complex models are discussed.
+This chapter introduces an increasingly common approach to modeling --- supervised machine learning. This involves identifying an outcome or a dependent variable and training a model to predict an outcome. Some supervised machine learning models are highly complex, while others are simple. To illustrate this concept, this chapter includes a demonstration of using a generalized linear model to predict whether students will pass a class. The Open University Learning Analytics Dataset (OULAD) is used as example data in this activity. The {tidymodels} collection of packages is used to carry out the principal supervised machine learning steps. At the conclusion, ways to build more complex models are discussed.
 
 ## Topics emphasized
 
@@ -11,145 +11,198 @@ This chapter introduces a different type of statistical model that is increasing
 
 ## Functions introduced
 
-- initial_split()
-- training()
-- testing()
-- recipe()
-- logistic_reg()
-- set_model()
-- set_mode()
-- workflow()
-- collect_predictions()
-- collect_metrics()
+- `stats::quantile()`
+- `rsample::initial_split()`
+- `rsample::training()`
+- `rsample::testing()`
+- `recipes::recipe()`
+- `parsnip::logistic_reg()`
+- `parsnip::set_engine()`
+- `parsnip::set_mode()`
+- `workflows::workflow()`
+- `tune::collect_predictions()`
+- `tune::collect_metrics()`
 
 ## Vocabulary
+
+We introduce these key terms in the chapter:
 
 - supervised machine learning
 - training data
 - testing data
+- overfitting
+- generalizability
+- bias-variance tradeoff
 - logistic regression
 - classification
+- feature engineering
+- recipe
+- workflow
+- stratified split
 - predictions
 - metrics
+- confusion matrix
+- sensitivity (recall) and specificity
+- positive predictive value (PPV) and negative predictive value (NPV)
+- AUC-ROC
 
 ## Chapter overview
 
 ### Background
 
-In a face-to-face classroom, teachers rely on cues from students to help them to respond and engage their students. But, online, educators do not have ready access to such cues---at least, not the same cues. 
+In a face-to-face classroom, teachers use student cues to help them engage. In online classrooms, these cues aren't always available.
 
-For example, in a face-to-face class, cues like students seeming distracted during a lecture can change what teachers do next. Many online educators find themselves looking for ways to understand and support students online in the same way that face-to-face instructors would. One affordance of technology is that it provides new methods of collecting and storing data that can, potentially, serve as the basis for different kinds of cues. 
+For example, in a face-to-face class, teachers adjust when they notice that students are distracted. Many online educators look for ways to support students online in the same way that face-to-face instructors would. Technology provides new methods of collecting and storing data that can serve as the basis for this kind of student support.
 
-Online Learning Management Systems (LMSs) often automatically track several types of student interactions with the system---and feed that data back to the course instructor. The collection of this data is often met with mixed reactions from educators. Some are concerned that data collection in this manner is intrusive, but others see a new opportunity to support students in online contexts in new ways. As long as data are collected and utilized responsibly, data collection can support student success.
+Online Learning Management Systems (LMSs) automatically track student interactions with the system and feed that data back to the course instructor. The collection of this data is often met with mixed reactions from educators. Some are concerned that this kind of data collection is intrusive, but others see a new opportunity to support students in online classrooms. As long as data is collected and used responsibly, this kind of data collection can support student success.
 
-In this walkthrough, we examine the question, *How well can we predict students who are at risk of dropping a course?*. To answer this question, we use what is typical of learning analytics data---student records, assessment outcomes, course outcomes, and, critically, measures of students' interactions with the course.
+In this walkthrough, you'll examine the question, How well can we predict students who are at risk of dropping a course? To answer this question, you'll use typical learning analytics data---student records, assessment outcomes, course outcomes, and measures of students' interactions with the course.
 
-Here's the key supervised machine learning shift. We focus on *predicting* an outcome--whether a student passes a course--more than *explaining* how variables relate to an outcome, such as how the amount of time students spend on the course relates to their final grade. We do so with a relatively simple model, a generalized linear regression model, though we conclude with a nod to other, more sophisticated models.
+Here's the key shift in thinking you'll make when using a supervised machine learning model: You'll focus on predicting an outcome, like whether a student passes a course. This is different from explaining how variables influence an outcome, like how course time relates to final grades. You'll learn to execute this shift in thinking through a generalized linear model.
 
 ### Data sources
 
-We'll be using a widely-used data set in the learning analytics field that is also emblematic of this unique type of data: the Open University Learning Analytics Dataset (OULAD). The OULAD was created by learning analytics researchers at the United Kingdom-based Open University [@kuzilek2017]. It includes data from post-secondary learners participation in one of several Massive Open Online Courses (called *modules* in the OULAD).
+You'll be using a widely-used dataset in the learning analytics field: the Open University Learning Analytics Dataset (OULAD). The OULAD was created by learning analytics researchers at the United Kingdom-based Open University [@kuzilek2017]. It includes data from post-secondary learners' participation in one of several Massive Open Online Courses. These courses are called modules in the OULAD.
 
-Many students successfully complete these courses, but not all do, highlighting the importance of identifying those who may be at risk
+Many students successfully complete these courses, but not all do. This highlights the importance of identifying those who may be at risk. 
+
+Our analysis will use three datasets, `oulad_students`, `oulad_assessments`, and `oulad_interactions_filtered`. The `oulad_students` dataset has undergone preprocessing to streamline the analysis. It uses information from three sources that relate to students and the courses they took: `studentInfo`, `courses`, and `studentRegistration`. The `oulad_assessments` file provides data on students' performance on various assessments throughout their courses.
 
 ### Methods
 
 #### Predictive analytics and supervised machine learning
 
-A buzzword in education software spheres these days is "predictive analytics". Administrators and educators alike are interested in applying the methods long utilized by marketers and other business professionals to try to determine what a person will want, need, or do next. "Predictive analytics" is a blanket term that can be used to describe any statistical approach that yields a prediction. We could ask a predictive model: "What is the likelihood that my cat will sit on my keyboard today?" and, given enough past information about your cat's computer-sitting behavior, the model could give you a probability of that computer-sitting happening today. Under the hood, some predictive models are not very complex. 
+"Predictive analysis" is a buzzword in education software spheres. Administrators and educators alike are interested in applying the methods long utilized by marketers and other business professionals to predict what a person will want, need, or do. "Predictive analytics" is a blanket term that describes any statistical approach that yields a prediction. You could ask a predictive model: "What is the likelihood that my cat will sit on my keyboard today?" and, given enough past information about your cat's computer-sitting behavior, the model estimates the probability of computer-sitting. Under the hood, some predictive models are not complex. In this chapter, you'll use logistic regression, which is one of the simpler predictive models.
 
-If we have an outcome with two possibilities, a logistic regression model could be fit to the data in order to help us answer the cat-keyboard question. In this chapter, we'll compare a machine learning model to another type of regression: multiple regression. We want to make sure to fit the simplest model as possible to our data.
+There is an adage: "garbage in, garbage out". This holds true here. If you do not feel confident that the data you collected is accurate, you won't feel confident in your conclusions, regardless of the model. To collect good data, you must first identify what you want to learn and what information you need to learn it. 
 
-There is an adage: "garbage in, garbage out". This holds true here. If we do not feel confident that the data we collected are accurate, we will not be able to be confident in our conclusions no matter what model we build. To collect good data, we must first clarify what it is that we want to know (i.e., what question are we really asking?) and what information we would need in order to effectively answer that question. Sometimes, people approach analysis from the opposite direction---they might look at the data they have and ask what questions could be answered based on that data. That approach is okay, as long as you are willing to acknowledge that sometimes the pre-existing dataset may *not* contain all the information you need, and you might need to go out and find additional information to add to your dataset to truly answer your question.
+Sometimes, people approach analysis from the opposite direction---they look at the data they have and identify questions that could be answered by it. That approach is okay, as long as you acknowledge that the pre-existing dataset may not contain all the information you need to answer your specific questions. You might need to find additional information to add to your dataset to truly answer the questions you have.
 
-When people talk about "machine learning", you might get the image in your head of a desktop computer learning how to spell. You might picture your favorite social media site showing you advertisements that are just a little too accurate. At its core, machine learning is the process of "showing" your statistical model only some of the data at once and training the model to predict accurately on that training dataset (this is the "learning" part of machine learning). Then, the model as developed on the training data is shown new data---data you had all along, but hid from your computer initially---and you see how well the model that you developed on the training data performs on this new testing data. Eventually, you might use the model on entirely new data.
+At its core, machine learning is the process of training a model to accurately predict on a training dataset (this is the "learning" part of machine learning). Then, this newly trained model is used on new data. At this point, you'll evaluate how well the model worked outside of the training data conditions.
 
-Let's dive in to the analysis, starting with something you're familiar with---loading packages!
+#### Prediction vs. explanation: same model, different goals
 
-## Load packages
+You may already be familiar with statistical models used to explain relationships between variables. For example, a researcher might use a regression model to estimate how strongly student motivation relates to course grades. The interesting output of that analysis is the coefficient itself: how much grades change with motivation, and whether that relationship is statistically significant.
 
-As always, if you have not installed any of these packages before, do so first using the `install.packages()` function. For a description of packages and their installation, review the [Packages](#c06p) section of the [Foundational Skills](#c06) chapter.
+Supervised machine learning can use the very same statistical model --- including the logistic regression you'll use in this walkthrough --- but with a different aim. In a supervised machine learning approach, the interesting output isn't the coefficients; it's the predictions themselves. Rather than asking "how does motivation relate to grades?", you'll ask "how accurately can we predict each student's grade?"
+
+Let's consider a regression equation (below) used to understand how a single variable ($b_1$) relates to an outcome ($y$). There is also an intercept term ($b_0$) and a residual term ($e$).
+
+$$y = b_0 + b_1x_1 + \cdots + e$$
+
+If your goal is inference, or explaining how variables relate to an outcome, you'll typically use theory and prior research to choose a small set of predictors whose individual effects you can interpret. You'll favor a transparent model where you understand how each predictor relates to $y$.
+
+If your goal is prediction, you can do things differently:
+
+- You can include many more predictors than is typical in an explanatory model, since you care less about interpreting each one individually.
+- Multicollinearity (predictors being correlated with one another) is less of a concern, since you're not trying to make claims about the effect of any single predictor.
+- You evaluate the model not by its R², or coefficient significance, but by how well a trained model predicts values in a separate test dataset.
+- You can use much more complex models, accepting some loss of interpretability in exchange for better predictive accuracy.
+
+The key idea is that it's not about the algorithm, it's about the aim and the use.
+
+#### Why split data into training and testing sets?
+
+A core practice of supervised machine learning is splitting your data into two parts: a training set used to fit the model, and a testing set used to evaluate how well the model predicts on data it hasn't seen.
+
+Why go through this trouble? If you fit a model using all of your data, you can almost always make the model fit that data extremely well --- even perfectly. But a model that fits its own training data perfectly often performs poorly when given new data. This problem is called overfitting: the model has learned the specific patterns and noise of the training sample rather than patterns that generalize to new data.
+
+There are real risks to skipping this step; indeed, if you see a machine learning model that does not do this, beware! If you never test your model on data it hasn't seen, you can easily believe you have a much better model than you actually do. When you or someone using your model try to apply it to new students or new courses, the predictions can fall apart. That's why training/testing splits aren't optional for supervised machine learning --- they're how you evaluate whether what you've built is useful.
+
+#### The bias-variance tradeoff
+
+Whether your model generalizes well depends on a tradeoff that all models face called the bias-variance tradeoff:
+
+- **Bias** is how far off your model's predictions are from the true outcomes, on average. A model with high bias is under-fit --- it fails to capture important relationships in the data.
+- **Variance** is how much your predictions would change if you trained the model on a slightly different sample. A model with high variance is over-fit --- it's too tuned to the specific data it saw during training.
+
+A simple model (like linear regression) tends to have higher bias but lower variance: it might miss subtle patterns, but its predictions are stable across different samples. A very complex model (like a deep neural network with many parameters) can fit training data very closely (low bias) but may give very different predictions when shown new data (high variance).
+
+Good supervised machine learning practice balances the two --- finding a model that captures real patterns in the data without latching onto noise. Splitting data into training and testing sets is one important way to check this balance.
+
+#### A spectrum of interpretability
+
+Models also vary in how easy they are to interpret. It can help to think of three rough categories:
+
+- **Transparent box** models, like linear and logistic regression, have coefficients that map directly to interpretable effects. These are often preferred when inference is the goal.
+- **Gray box** models, like decision trees and random forests, are more complex but still allow you to inspect things like which predictors matter most ("feature importance"). They sit in the middle.
+- **Black box** models, like deep neural networks, can offer the highest predictive accuracy, but their internal logic is largely opaque.
+
+In this chapter, you'll start with a transparent model --- logistic regression --- because it makes the contrast between explanation and prediction especially clear. At the end of the chapter, you'll see how to swap in more complex (gray box) models like random forests and boosted trees with only minor changes to your code.
+
+Now you'll dive into the analysis, starting with something you're familiar with---loading packages.
+
+## Analysis 
+
+### Load packages
+
+If you have not installed any of these packages before, do so first using the `install.packages()` function. For a description of packages and their installation, review the [Packages](#c06p) section of the [Foundational Skills](#c06) chapter.
 
 
-```r
-# load the packages
+``` r
 library(tidyverse)
 library(tidymodels)
+library(dataedu)
 ```
 
-#### Reading CSV Data
+### Import data
 
-To begin, we will load student-level data using the `read_csv()` function. This dataset has undergone minimal preprocessing to help streamline our analysis -- it integrates information from three sources: `studentInfo`, `courses`, and `studentRegistration`, all of which relate to students (and courses they took).
-
-Additionally, we will load an assessments dataset. This provides data on students' performance on various assessments throughout their courses. 
+Get the data from the {dataedu} package.
 
 
-```r
-students <- read_csv("data/ml/oulad-students.csv")
+``` r
+students <- dataedu::oulad_students
+assessments <- dataedu::oulad_assessments
 ```
 
-```
-## Rows: 32593 Columns: 15
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: ","
-## chr (9): code_module, code_presentation, gender, region, highest_education, ...
-## dbl (6): id_student, num_of_prev_attempts, studied_credits, module_presentat...
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
+## The supervised machine learning workflow
 
-```r
-assessments <- read_csv("data/ml/oulad-assessments.csv")
-```
+Your goal in this walkthrough is to build a model that predicts whether a student is at risk of dropping out. 
 
-```
-## Rows: 173912 Columns: 10
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: ","
-## chr (3): code_module, code_presentation, assessment_type
-## dbl (7): id_assessment, id_student, date_submitted, is_banked, score, date, ...
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
+### Step 1: Creating outcome and predictor variables
 
-### Preprocessing and Feature Engineering
+Feature engineering can be handled directly or through something called a "recipe." How should you decide when to handle feature engineering directly or through a recipe? As you progress in your practice, you'll be able to determine if it is more efficient to work outside of a recipe. You'll also get more proficient at determining risks of working outside a recipe, like introducing "data leakage" that biases models. For now, this will not be an issue for the one you'll be using in this walkthrough. 
 
-Our goal is to build a model that predicts whether a student is at risk of dropping out. We will handle some feature engineering directly, below. Later, we will show you how to do similar steps in what is called the "recipe" in the supervised machine learning workflow. How to decide when to take these steps? It depends in part on how straightforward it is to do what you want to within the recipe. Another reason to take these steps within the recipe is to avoid an issue called "data leakage", which can bias a model. For simple steps, this may not be an issue, but for many others it is something to aware of.
-
-#### Step 1: Creating Outcome and Predictor Variables Outside the Recipe
-
-To begin, we create the outcome variable (`pass`) and a factor variable for `disability` directly using `mutate()`:
+To begin, create the outcome variable (`pass`) and a factor variable for `disability` using `mutate()`:
 
 
-```r
-students <- students %>%
-    mutate(pass = ifelse(final_result == "Pass", 1, 0)) %>%
-    mutate(pass = as.factor(pass),
+``` r
+students <-
+    students %>%
+    mutate(pass = case_when(final_result == "Pass" ~ 1,
+                            .default = 0)) %>%
+    # Set "1" (pass) as the first level so {yardstick} treats it
+    # as the positive class when computing sensitivity, specificity, etc.
+    mutate(pass = factor(pass, levels = c("1", "0")),
            disability = as.factor(disability))
 ```
 
-We will also summarize assessment data to create a new predictor based on students’ performance on assessments submitted early in the course. Specifically, we will calculate the mean weighted score of assessments submitted before the first half of assignment dates.
+You will also summarize assessment data to create a new predictor for students’ performance on assessments submitted early in the course. Specifically, you'll calculate the mean weighted score of assessments submitted before the first half of assignment dates.
 
 
-```r
-code_module_dates <- assessments %>% 
+``` r
+code_module_dates <- 
+    assessments %>% 
     group_by(code_module, code_presentation) %>% 
     summarize(quantile_cutoff_date = quantile(date, probs = .5, na.rm = TRUE))
 ```
 
 ```
-## `summarise()` has grouped output by 'code_module'. You can override using the
-## `.groups` argument.
+## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by code_module and code_presentation.
+## ℹ Output is grouped by code_module.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(code_module, code_presentation))` for per-operation
+##   grouping (`?dplyr::dplyr_by`) instead.
 ```
 
-```r
-assessments_joined <- assessments %>% 
-    left_join(code_module_dates) %>% 
-    filter(date < quantile_cutoff_date) %>% 
-    mutate(weighted_score = score * weight) %>% 
-    group_by(id_student) %>% 
+``` r
+assessments_joined <- 
+    assessments %>%
+    left_join(code_module_dates) %>%
+    filter(date < quantile_cutoff_date) %>%
+    mutate(weighted_score = score * weight) %>%
+    group_by(id_student) %>%
     summarize(mean_weighted_score = mean(weighted_score, na.rm = TRUE))
 ```
 
@@ -157,11 +210,12 @@ assessments_joined <- assessments %>%
 ## Joining with `by = join_by(code_module, code_presentation)`
 ```
 
-Last, we will create a socioeconomic status variable (`imd_band`), again outside the recipe:
+Last, you'll create a socioeconomic status variable (`imd_band`), again outside the recipe:
 
 
-```r
-students <- students %>%
+``` r
+students <- 
+    students %>%
     mutate(imd_band = factor(imd_band, levels = c("0-10%",
                                                   "10-20%",
                                                   "20-30%",
@@ -175,86 +229,74 @@ students <- students %>%
     mutate(imd_band = as.factor(imd_band))
 ```
 
-Next, we'll load a new file --- one with *interactions* (or log-trace) data that is the most granular data in the OULAD. In the OULAD documentation, this is called the VLE (virtual learning environment) data source. It's a large file---even after we've taken a few steps to reduce its size (namely, only including interactions for the first one-third of the class).
+Next, you'll load a new file with interactions, or log-trace, data. This is the most granular data in the OULAD. In the OULAD documentation, this is called the virtual learning environment (VLE) data source. It's a large file---even after taking a few steps to reduce its size. The file was prepared by only including interactions for the first one-third of the course.
 
-Let's import this dataset:
+Import the data using the {dataedu} package.
 
 
-```r
-interactions <- read_csv("data/ml/oulad-interactions-filtered.csv") # need to unzip in the repository
+``` r
+interactions <- dataedu::oulad_interactions_filtered
 ```
 
-```
-## Rows: 5548858 Columns: 11
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: ","
-## chr (3): code_module, code_presentation, activity_type
-## dbl (8): id_student, id_site, date, sum_click, week_from, week_to, module_pr...
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
+You'll now explore the dataset to understand it better. 
 
-Let's get a handle on the data by exploring it a bit.
-
-*First*, let's `count()` the `activity_type` variable and *sort* the resulting output by frequency.
+First, `count()` the `activity_type` variable and sort the resulting output by frequency.
 
 
-```r
+``` r
 interactions %>% 
     count(activity_type, sort = TRUE)
 ```
 
 ```
-## # A tibble: 19 × 2
-##    activity_type        n
-##    <chr>            <int>
-##  1 forumng        1279917
-##  2 subpage        1104279
-##  3 oucontent      1065736
-##  4 homepage        832424
-##  5 resource        436704
-##  6 quiz            398966
-##  7 url             232573
-##  8 ouwiki           66413
-##  9 page             33539
-## 10 oucollaborate    25861
-## 11 externalquiz     18171
-## 12 questionnaire    16528
-## 13 ouelluminate     13829
-## 14 glossary          9630
-## 15 dualpane          7306
-## 16 htmlactivity      6562
-## 17 dataplus           311
-## 18 sharedsubpage      103
+##     activity_type       n
+## 1         forumng 1279917
+## 2         subpage 1104279
+## 3       oucontent 1065736
+## 4        homepage  832424
+## 5        resource  436704
+## 6            quiz  398966
+## 7             url  232573
+## 8          ouwiki   66413
+## 9            page   33539
+## 10  oucollaborate   25861
+## 11   externalquiz   18171
+## 12  questionnaire   16528
+## 13   ouelluminate   13829
+## 14       glossary    9630
+## 15       dualpane    7306
+## 16   htmlactivity    6562
+## 17       dataplus     311
+## 18  sharedsubpage     103
 ## 19 repeatactivity       6
 ```
 
-We can see there are a range of activities students interact with. You may wish to try explore this data in other ways---there are many ways we can include this data in our model, and we are just scratching the surface with how we do so here.
+You can see there is a range of activities students do. You may wish to explore this data in other ways, even beyond what you do for this exercise. 
 
+Think about how you would create a feature with `sum_click`. Think back to our discussion earlier; you have options for working with such time series data. Perhaps the simplest is to count the clicks.
 
-
-How can we create a feature with `sum_click`? Think back to our
-discussion in the presentation; we have *many* options for working with
-such time series data. Perhaps the most simple is to count the clicks.
-Please summarize the number of clicks for each student (specific to a
-single course). This means you will need to group your data by
-`id_student`, `code_module`, and `code_presentation`, and then create a
+Summarize the number of clicks for each student, specific to a single course. This means you'll need to group your data by `id_student`, `code_module`, and `code_presentation`, before creating a
 summary variable.
 
 
-```r
-interactions_summarized <- interactions %>% 
+``` r
+interactions_summarized <- 
+    interactions %>% 
     group_by(id_student, code_module, code_presentation) %>% 
     summarize(sum_clicks = sum(sum_click))
 ```
 
 ```
-## `summarise()` has grouped output by 'id_student', 'code_module'. You can
-## override using the `.groups` argument.
+## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by id_student, code_module, and
+##   code_presentation.
+## ℹ Output is grouped by id_student and code_module.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(id_student, code_module, code_presentation))` for
+##   per-operation grouping (`?dplyr::dplyr_by`) instead.
 ```
 
-```r
+``` r
 interactions_summarized
 ```
 
@@ -262,7 +304,7 @@ interactions_summarized
 ## # A tibble: 29,160 × 4
 ## # Groups:   id_student, code_module [28,192]
 ##    id_student code_module code_presentation sum_clicks
-##         <dbl> <chr>       <chr>                  <dbl>
+##         <int> <chr>       <chr>                  <int>
 ##  1       6516 AAA         2014J                    999
 ##  2       8462 DDD         2013J                    516
 ##  3       8462 DDD         2014J                     10
@@ -276,34 +318,27 @@ interactions_summarized
 ## # ℹ 29,150 more rows
 ```
 
-How many times did students click? Let's create a histogram to see.
-Please use {ggplot} and `geom_histogram()` to visualize the distribution
-of the `sum_clicks` variable you just created.
+How many times did students click? Create a histogram to see. Use {ggplot2} and `geom_histogram()` to visualize the distribution of the `sum_clicks` variable you just created.
 
 
-```r
+``` r
 interactions_summarized %>% 
     ggplot(aes(x = sum_clicks)) +
-    geom_histogram()
+    geom_histogram(fill = dataedu_colors("darkblue"),
+                   color = "black") +
+  theme_dataedu()
 ```
 
-```
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-```
+<img src="14-wt-machine-learning_files/figure-html/ch14-activity-histogram-1.png" alt="" width="100%" style="display: block; margin: auto;" />
 
-<img src="14-wt-machine-learning_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" />
+This is a good start --- you've created the first feature based on the log-trace data, `sum_clicks`. What are some other features you can add? A benefit of using the `summarize()` function in R is that you can create multiple summary statistics at once. 
 
-This is a good start - we've created our first feature based upon the
-log data, `sum_clicks`! What are some other features we can add? An affordance
-of using the `summarize()` function in R is we can create multiple
-summary statistics at once. Let's also calculate the standard deviation
-of the number of clicks as well as the mean. Please copy the code you
-wrote above into the code chunk below and then add these two additional
-summary statistics.
+Try calculating the standard deviation and mean of the number of clicks. Do this by copying the code you wrote above into the code chunk below and then add these two additional summary statistics.
 
 
-```r
-interactions_summarized <- interactions %>% 
+``` r
+interactions_summarized <- 
+    interactions %>% 
     group_by(id_student, code_module, code_presentation) %>% 
     summarize(sum_clicks = sum(sum_click),
               sd_clicks = sd(sum_click), 
@@ -311,78 +346,80 @@ interactions_summarized <- interactions %>%
 ```
 
 ```
-## `summarise()` has grouped output by 'id_student', 'code_module'. You can
-## override using the `.groups` argument.
+## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by id_student, code_module, and
+##   code_presentation.
+## ℹ Output is grouped by id_student and code_module.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(id_student, code_module, code_presentation))` for
+##   per-operation grouping (`?dplyr::dplyr_by`) instead.
 ```
 
-Let's join together *all* of the data we'll use for
-our modeling: `students`, `assessments_joined`, and `intteractions_summarized`. 
+Now join all of the data you'll use for modeling: `students`, `assessments_joined`, and `interactions_summarized`.
 
-Use `left_join()` twice, assigning the resulting output the name
-`students_and_interactions`. 
-
-Lots of joining! Sometimes, the hardest part of complex analyses lies in the preparation (and joining) of the data.
+Use `left_join()` twice, assigning the resulting output the name `students_and_interactions`. 
 
 
-```r
-students_and_interactions <- students %>% 
+``` r
+students_and_interactions <- 
+    students %>% 
     left_join(assessments_joined) %>% 
     left_join(interactions_summarized)
 ```
 
+### Step 2: Splitting the data
+
+As suggested above, a key step in supervised machine learning is splitting data into "training" and "testing" datasets. You'll be using the training dataset to train the model. Then you'll use the test dataset to evaluate the model's performance. You'll try the model you trained earlier, but this time on new test data. The outcome in this walkthrough is students passing the course in question. 
+
+You'll split the dataset into training and testing sets using an 80-20 split. Generally, a split like this is appropriate with a larger dataset; for smaller datasets, something closer to a 50-50 split may be more appropriate. You'll also conduct a stratified sample using the outcome variable --- here, `pass`. Stratifying means that the training and testing sets will each contain roughly the same proportion of students who passed and didn't pass as the full dataset does. Without stratification, a random split could end up with very different pass rates in training and testing, which would muddy your evaluation. Stratification is generally a good practice [@boehmke2019hands].
+
+
+``` r
+set.seed(2025) # As this step involves a random sample, setting the seed ensures the same result for pedagogical purposes
+
+# Specify the proportion for the split
+train_test_split <- 
+    initial_split(students_and_interactions, prop = 0.8, strata = "pass")
+
+# Create the training data
+data_train <- 
+    training(train_test_split)
+
+# Create the testing data
+data_test  <- 
+    testing(train_test_split) 
 ```
-## Joining with `by = join_by(id_student)`
-## Joining with `by = join_by(code_module, code_presentation, id_student)`
-```
 
-#### Step 2: Splitting the Data
+### Step 3: Creating a recipe for selected preprocessing steps
 
-As suggested above, a key step in supervised machine learning is splitting out data into "training" and "testing" data sets. We use the training data set to train---build---the model. Then we use the test data set to evaluate the performance. More specifically, after training the model, we use that model with the test data---specifically, we use the predictor variables to predict the test set outcome (here, passing the class). Since we haven't used the test data set to train the model, we can evaluate how well the model would predict the outcome in data that has not been used before to develop the model. In other words, we can evaluate how well the model would do with new data.
+This is the recipe step mentioned earlier in the walkthrough. You'll do two things here. 
 
-We split the dataset into training and testing sets using an 80-20 split. Generally, a split such as this is appropriate with a larger data set; as your data set becomes smaller, something closer to a 50-50 split may be more appropriate. We also conduct a stratified sample using the outcome variable --- here, `pass`; this is generally a good practice [@boehmke2019hands].
+First, you'll specify which predictor variables predict the outcome. For those familiar with the `lm()` function in R, this behaves similarly; the outcome goes on the left side of the `~`, and predictors go on the right. Note that you'll be using the training data for this.
 
-
-```r
-set.seed(2025) # as this step involves a random sample, this ensures the same result for pedagogical purposes
-
-# specify the proportion for the split
-train_test_split <- initial_split(students_and_interactions, prop = 0.8, strata = "pass")
-
-data_train <- training(train_test_split) # create the training data
-data_test  <- testing(train_test_split) # create the testing data
-```
-
-#### Step 3: Creating a Recipe for Selected Preprocessing Steps
-
-Here is the recipe step we metioned earlier. We do two things here. 
-
-First, we specify which predictor variables predict the outcome. For those familiar with the `lm()` function in R, this behaves similarly; the outcome goes on the left side of the `~`, and predictors go on the right. As you can see, the data here is the training data.
-
-Second, we use `step_()` functions, those used for preprocessing, described in comments below.
+Second, you'll use `step_()` functions, which are for preprocessing. These are described in the comments below.
 
 
-```r
-my_rec <- recipe(pass ~ disability + imd_band + mean_weighted_score + 
-                     num_of_prev_attempts + gender + region + highest_education +
-                     sum_clicks + 
-                     sd_clicks +
-                     mean_clicks,
-                 data = data_train) %>%
-    # this step is to impute missing values
+``` r
+my_rec <-
+    recipe(pass ~ disability + imd_band + mean_weighted_score + 
+                  num_of_prev_attempts + gender + region + highest_education +
+                  sum_clicks + sd_clicks + mean_clicks,
+           data = data_train) %>%
+    # This step is to impute missing values for numeric variables
     step_impute_mean(mean_weighted_score, sum_clicks, sd_clicks, mean_clicks) %>%
-    # same, for categorical/factor variables
-    step_impute_mode(imd_band) %>% 
-    # center and scale these variables
+    # This step is to impute missing values for categorical/factor variables
+    step_impute_mode(imd_band) %>%
+    # Center and scale these variables
     step_center(mean_weighted_score, num_of_prev_attempts) %>%
     step_scale(mean_weighted_score, num_of_prev_attempts) %>%
-    # dummy code all categorical/factor predictors
+    # Dummy code all categorical/factor predictors
     step_dummy(all_nominal_predictors(), -all_outcomes())
 ```
 
-We can inspect the recipe to verify the steps we have specified:
+Inspect the recipe to verify the steps you have specified:
 
 
-```r
+``` r
 my_rec
 ```
 
@@ -428,101 +465,188 @@ my_rec
 ```
 
 ```
-## • Centering for: mean_weighted_score and num_of_prev_attempts
+## • Centering for: mean_weighted_score num_of_prev_attempts
 ```
 
 ```
-## • Scaling for: mean_weighted_score and num_of_prev_attempts
+## • Scaling for: mean_weighted_score num_of_prev_attempts
 ```
 
 ```
-## • Dummy variables from: all_nominal_predictors() and -all_outcomes()
+## • Dummy variables from: all_nominal_predictors() -all_outcomes()
 ```
 
-#### Step 4: Specifying the Model and Workflow
+### Step 4: Specifying the model and workflow
 
-Next, we specify a logistic regression model and bundle the recipe and model into a workflow. 
+Next, specify a logistic regression model and bundle the recipe and model into a workflow. 
 
-This step has a lot of pieces, but they are fairly boilerplate. The first part is to specify the model:
+This step has a lot of pieces, but they are fairly boilerplate. First, specify the model:
 
 
-```r
-my_mod <- logistic_reg() %>% # specifies the type of model
-    set_engine("glm") %>% # specifies the package we use to estimate the model
-    set_mode("classification") # specifies whether we are classifying a dichotomous, categorical, or factor variable
+``` r
+my_mod <- 
+    logistic_reg() %>% # Specifies the type of model
+    set_engine("glm") %>% # Specifies the package we use to estimate the model
+    set_mode("classification") # Specifies whether we are classifying a dichotomous, categorical, or factor variable
 ```
 
-The next is to specify the workflow, which basically stitches all of the parts together --- the recipe and the model we just specified.
+Next, specify the workflow, which will stitch the recipe and model together:
 
 
-```r
-my_wf <- workflow() %>% # this initiates the workflow
+``` r
+my_wf <- 
+    workflow() %>% # Initiates the workflow
     add_recipe(my_rec) %>% 
     add_model(my_mod)
 ```
 
-Almost there!
+You're almost there!
 
-#### Step 5: Fitting the Model
+### Step 5: Fitting the model
 
-Now we fit the model to the training data. First, we need to specify here which _metrics_ we want to calculate---statistics that help us understand how good our model is at making predictions. We do this with `metric_set()`, specifying the familiar accuracy as well as precision (how and recall.
+Now you'll fit the model to the training data. First, you'll need to specify which _metrics_ you want to calculate. These are statistics that will help you understand how good the model is at making predictions. You'll use accuracy, plus four other metrics --- sensitivity, specificity, positive predictive value (PPV), and negative predictive value (NPV) --- that you'll interpret in detail in Step 6.
 
 
-```r
-my_metrics <- metric_set(accuracy , precision, recall)
+``` r
+my_metrics <- metric_set(accuracy, sens, spec, ppv, npv)
 ```
 
-Finally, we fit the model. We do this by calling the `last_fit()` function on the workflow and the _split_ specification of the data. We also specify which metrics we specified. 
+Finally, you'll fit the model. Do this by calling the `last_fit()` function on the workflow and the _split_ specification of the data. You'll also specify which metrics to use.
 
-We note that there are other fitting functions you might come across, or use. We use `last_fit` as a bit of a handy way of doing the two critical steps at once: fitting the model to the training data, and then using the test data as the basis for evaluating its performance. So, there is a lot happening in this one line of code! 
+Note that while there are other fitting functions available, you're using `last_fit()` to do two steps at once: fitting the model to the training data, then using the trained model to make predictions on the test data and compute the metrics you specified. This is why you pass `train_test_split` (the split object) rather than the data itself --- `last_fit()` uses the split to know which rows are training and which are testing.
 
 
-```r
+``` r
 final_fit <- last_fit(my_wf, train_test_split, metrics = my_metrics)
 ```
 
-Other times, you may use what is called _cross-validation_, which is where you split the training data many times and fit the model to each of these splits---only examining the performance of the model with the test data after you have trained your last model. For brevity, we do not do that here; consider reading chapter 2 in [@boehmke2019hands] for more on this.
+If you wanted to do these steps separately --- for example, to inspect the fitted model before evaluating it --- you could use `fit()` on the training data and then call `predict()` on the test data manually. For the purposes of this walkthrough, `last_fit()` is the cleaner option.
 
-#### Step 6: Evaluating Model Performance
+Other times, you may use _cross-validation_, where you'll split the training data many times and fit the model to each of these splits. You'll return to cross-validation briefly in the Conclusion. For more on the technique, consider reading Chapter 2 in [@boehmke2019hands].
 
-Finally, we evaluate the model’s performance using the test set. The tidymodels package makes this easy:
+### Step 6: Evaluating model performance
+
+You've fit the model --- now the question is: how good are its predictions? The {tidymodels} package makes it straightforward to retrieve the metrics you specified earlier:
 
 
-```r
-metrics <- final_fit %>%
+``` r
+metrics <-
+    final_fit %>%
     collect_metrics()
 
 metrics
 ```
 
 ```
-## # A tibble: 3 × 4
-##   .metric   .estimator .estimate .config             
-##   <chr>     <chr>          <dbl> <chr>               
-## 1 accuracy  binary         0.640 Preprocessor1_Model1
-## 2 precision binary         0.647 Preprocessor1_Model1
-## 3 recall    binary         0.926 Preprocessor1_Model1
+## # A tibble: 5 × 4
+##   .metric  .estimator .estimate .config        
+##   <chr>    <chr>          <dbl> <chr>          
+## 1 accuracy binary         0.640 pre0_mod0_post0
+## 2 sens     binary         0.172 pre0_mod0_post0
+## 3 spec     binary         0.926 pre0_mod0_post0
+## 4 ppv      binary         0.587 pre0_mod0_post0
+## 5 npv      binary         0.647 pre0_mod0_post0
 ```
 
-So, how did the model do? Let's focus on accuracy for now: we can see the model correctly predicted whether students passed around 64% of the time; this is the percentage of the time the model made correct predictions. 
+## Interpreting results
 
-But, the model seemed to perform differnetly for students who passed versus those who did not. We can see this by looking at the precision and recall metrics: the recall value of .925 tells us that when students passed the call, the model correctly predicted they did so around 92% of the time. The precision, though, tells us that when the model predicted a student passed the course, it was correct around 65% of the time, meaning that the model regularly made _false positive_ predictions. Herein lies the value of metrics other than accuracy: they can help us understand how the model is performing for different outcomes: false positives or false negatives may matter more or less depending on the context, and your knowledge as the analyst and researcher is critical here for determining whether the model is "good enough" for your purposes.
+How did the model do? Focus on accuracy for now: the model correctly predicted whether students passed around 64% of the time.
 
-On that note, how could we improve the model? One affordance of tidymodels is we can readily switch out the model and engine. Try one of these modifications to the code to see how the predictive performance improves---for a random forest and a boosted tree model, respectively, and then re-running the subsequent steps. How much better did the model do with these? We'll leave that to you to figure out!
+### The limitation of accuracy
+
+Accuracy is easy to interpret, but it can also be deceiving. Imagine that only 20% of students in a course actually pass. A model that *always* predicts "did not pass" --- regardless of any input --- would have 80% accuracy on this data, just because most students did not pass. That model would be useless for the actual purpose of identifying students who passed (or struggled), but its accuracy alone wouldn't tell you that.
+
+This is a general issue. Accuracy can be insufficient when:
+
+- Outcomes are imbalanced (one class is much more common than the other).
+- Different kinds of errors have different consequences.
+- You need to tune your model for a specific purpose.
+
+To get past these limitations, you need to look at which predictions the model got right and wrong.
+
+### Looking deeper with a confusion matrix
+
+A confusion matrix is a 2 × 2 table that compares the model's predictions against the true outcomes. It breaks the model's predictions into four categories:
+
+- **True positive (TP):** the student passed, and the model predicted "pass."
+- **True negative (TN):** the student did not pass, and the model predicted "did not pass."
+- **False positive (FP):** the student did not pass, but the model predicted "pass."
+- **False negative (FN):** the student passed, but the model predicted "did not pass."
+
+You can produce a confusion matrix directly from `final_fit` by collecting the test-set predictions and passing them to `conf_mat()`:
 
 
-```r
-my_mod <- rand_forest() %>%
+``` r
+final_fit %>%
+    collect_predictions() %>%
+    conf_mat(truth = pass, estimate = .pred_class)
+```
+
+```
+##           Truth
+## Prediction    1    0
+##          1  426  300
+##          0 2047 3747
+```
+
+The accuracy you saw earlier is just (TP + TN) divided by the total. But the confusion matrix lets you ask much sharper questions --- and several useful metrics can be derived from its four cells.
+
+### Metrics built from the confusion matrix
+
+The metrics below all come from rearranging the same four numbers in the confusion matrix, but each answers a different question.
+
+| Metric | Equation | Question it answers |
+|--------|----------|---------------------|
+| Accuracy | (TP + TN) / Total | What proportion of all predictions were correct? |
+| Sensitivity (also called recall) | TP / (TP + FN) | Of all the students who actually passed, how many did the model correctly identify? |
+| Specificity | TN / (TN + FP) | Of all the students who actually did not pass, how many did the model correctly identify? |
+| Precision (also called positive predictive value, PPV) | TP / (TP + FP) | Of all the students the model predicted would pass, how many actually did? |
+| Negative predictive value (NPV) | TN / (TN + FN) | Of all the students the model predicted would not pass, how many actually did not? |
+
+Each of these appears in your `collect_metrics()` output, because you included them in `my_metrics` earlier. Look back at those values now in light of the table. The sensitivity value of around 0.17 tells you the model correctly identifies only a small share of students who actually passed --- it misses most of them. The specificity value of around 0.93, by contrast, tells you the model correctly identifies most students who did not pass. The PPV of around 0.59 says that when the model does predict a student will pass, it's right about 59% of the time; the NPV of around 0.65 says that when it predicts a student will not pass, it's right about 65% of the time.
+
+Together, these suggest the model is biased toward predicting "not pass" --- it does well at flagging students who won't pass, but misses many of the students who actually do pass. This pattern is common when the outcome is imbalanced: in our test set, more students did not pass than did, so a model that leans toward predicting "not pass" can achieve reasonable accuracy without being especially good at the harder task of identifying who will pass.
+
+### When does each metric matter?
+
+Which of these metrics matters most depends entirely on the question you're asking and the consequences of being wrong. Two examples make the point:
+
+- If you're using a model to flag students who might benefit from extra support, a false positive (flagging a student who didn't actually need it) is relatively low-cost. You'd rather catch every student who needs help (high sensitivity) even at the cost of some false flags (lower PPV).
+- If you're using a model to make a high-stakes decision --- say, automatically flagging students for academic dishonesty --- false positives can do real harm to students who didn't actually cheat. You'd want PPV to be very high before acting on a prediction, even if it means missing some real cases (lower sensitivity).
+
+Your judgment as a researcher, and as someone who understands the context, is critical here. There is no metric that is uniformly "best." The right metric is the one that aligns with how the model will be used and what kinds of errors are acceptable in that use.
+
+### Beyond the confusion matrix: AUC-ROC
+
+You'll also encounter another metric called AUC-ROC (Area Under the Curve - Receiver Operating Characteristic) in the supervised machine learning literature. The intuition is that a classification model usually produces a probability of belonging to a class (e.g., probability of passing), which is then converted to a yes/no prediction by applying a threshold (typically 0.5). AUC-ROC summarizes how well the model's probabilities separate the two classes across every possible threshold, not just the default one. Values closer to 1.0 are better; 0.5 indicates a model that's no better than chance. You don't compute AUC-ROC here, but you can add `roc_auc` to your metric set if you want it.
+
+### Improving the model
+
+On the question of how to improve the model: one benefit of the {tidymodels} framework is swapping in different algorithms with very few changes to your code. Try one of these modifications for a random forest and a boosted tree model and see how the predictive performance changes. How much better do these models do? Are the gains in accuracy overall, or in particular metrics like sensitivity or PPV?
+
+
+``` r
+my_mod <-
+    rand_forest() %>%
     set_engine("ranger") %>% # install.packages("ranger") needed first
     set_mode("classification")
 
-my_mod <- boost_tree() %>% # install.packages("xgboost") needed first
-  set_engine("xgboost") %>% 
-  set_mode("classification")
+my_mod <-
+    boost_tree() %>% # install.packages("xgboost") needed first
+    set_engine("xgboost") %>%
+    set_mode("classification")
 ```
 
 ## Conclusion
 
-Though we focus on this relatively simple model, or algorithm, many of the ideas explored in this chapter will likely extend and prove useful for other machine learning methods. Our goal is for you to finish this final walkthrough with the confidence to explore using machine learning to answer a question or to solve a problem of your own with respect to teaching, learning, and educational systems.
+Though this is a relatively simple model, many of the ideas explored in this chapter will prove useful for other machine learning methods. The goal is for you to finish this walkthrough with the confidence to explore using machine learning to answer a question or to solve a problem of your own in the areas of teaching, learning, and educational systems.
 
-In this chapter, we introduced general machine learning ideas, like training and test datasets and evaluating the importance of specific variables, in the context of predicting students' passing a course. Like many of the topics in this book---but, perhaps *particularly* so for machine learning---there is much more to discover on the topic, and we encourage you to consult the books and resources in the [Learning More chapter](#c17) to learn about further applications of machine learning methods.
+Here are several natural directions to go from here:
+
+**More careful feature engineering.** In this walkthrough, you summarized the log-trace (interactions) data with three simple statistics: the sum, standard deviation, and mean of clicks per student. There's a lot more you can do with this kind of time-series data. You could compute clicks within specific time windows (e.g., the first week of the course vs. the week before an assessment), count distinct activity types a student engaged with, or capture how a student's activity pattern changes over time. Each of these is a different feature you can engineer, and good feature engineering is often what separates a so-so SML model from a strong one.
+
+**Cross-validation.** The chapter used a single train/test split. A more robust approach is cross-validation: split your training data into several "folds" (typically 5 or 10), fit the model many times with each fold held out as a temporary validation set, and average the resulting metrics. This gives a more stable estimate of how well your model is likely to perform on new data, and is especially useful when you're trying different models or tuning their parameters. The {tidymodels} packages support this with `vfold_cv()` and `fit_resamples()`.
+
+**More complex models.** At the end of Step 6, you saw how to swap in a random forest or a boosted tree model with only a few lines of code. These gray box models (per the spectrum of interpretability discussed in the Methods section) can often capture patterns that logistic regression cannot --- but they also have parameters that need to be tuned to perform well. Tuning is usually done in combination with cross-validation, using functions like `tune_grid()` from the {tune} package.
+
+In this chapter, we introduced general machine learning ideas in the context of predicting students' passing a course. Like many of the topics in this book, there is much more to discover. We encourage you to consult the books and resources in the [Learning More chapter](#c17) for more about machine learning methods.

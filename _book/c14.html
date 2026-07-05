@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>14 Walkthrough 8: Predicting students’ final grades using supervised machine learning methods | Data Science in Education Using R</title>
+  <title>14 Walkthrough 8: Predicting student pass/fail outcomes using supervised machine learning | Data Science in Education Using R</title>
   <meta name="description" content="Bookdown for ‘Data Science in Education Using R’ by Ryan A. Estrellado, Emily A. Freer, Joshua M. Rosenberg, and Isabella C. Velásquez to be published by Routledge in 2024" />
-  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="14 Walkthrough 8: Predicting students’ final grades using supervised machine learning methods | Data Science in Education Using R" />
+  <meta property="og:title" content="14 Walkthrough 8: Predicting student pass/fail outcomes using supervised machine learning | Data Science in Education Using R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Bookdown for ‘Data Science in Education Using R’ by Ryan A. Estrellado, Emily A. Freer, Joshua M. Rosenberg, and Isabella C. Velásquez to be published by Routledge in 2024" />
   <meta name="github-repo" content="data-edu/data-science-in-education" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="14 Walkthrough 8: Predicting students’ final grades using supervised machine learning methods | Data Science in Education Using R" />
+  <meta name="twitter:title" content="14 Walkthrough 8: Predicting student pass/fail outcomes using supervised machine learning | Data Science in Education Using R" />
   
   <meta name="twitter:description" content="Bookdown for ‘Data Science in Education Using R’ by Ryan A. Estrellado, Emily A. Freer, Joshua M. Rosenberg, and Isabella C. Velásquez to be published by Routledge in 2024" />
   
@@ -63,6 +63,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -136,6 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -173,6 +175,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#prologue"><i class="fa fa-check"></i>Prologue</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#whats-new-in-this-edition"><i class="fa fa-check"></i><b>0.1</b> What’s new in this edition?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#dedications"><i class="fa fa-check"></i>Dedications</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i>Citation</a></li>
@@ -181,7 +184,7 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="c01.html"><a href="c01.html"><i class="fa fa-check"></i><b>1</b> Introduction: Data science in education – you’re invited to the party!</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="c01.html"><a href="c01.html#learning-data-science-in-education"><i class="fa fa-check"></i><b>1.1</b> Learning data science in education</a></li>
-<li class="chapter" data-level="1.2" data-path="c01.html"><a href="c01.html#making-the-path-a-little-clearer"><i class="fa fa-check"></i><b>1.2</b> Making the path a little clearer</a></li>
+<li class="chapter" data-level="1.2" data-path="c01.html"><a href="c01.html#making-the-path-clearer"><i class="fa fa-check"></i><b>1.2</b> Making the path clearer</a></li>
 <li class="chapter" data-level="1.3" data-path="c01.html"><a href="c01.html#conventions-used-in-the-book"><i class="fa fa-check"></i><b>1.3</b> Conventions used in the book</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="c02.html"><a href="c02.html"><i class="fa fa-check"></i><b>2</b> How to use this book</a>
@@ -193,7 +196,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.1.3" data-path="c02.html"><a href="c02.html#read-through-the-walkthroughs-and-run-the-code"><i class="fa fa-check"></i><b>2.1.3</b> Read through the walkthroughs and run the code</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="c02.html"><a href="c02.html#a-note-on-statistics"><i class="fa fa-check"></i><b>2.2</b> A note on statistics</a></li>
-<li class="chapter" data-level="2.3" data-path="c02.html"><a href="c02.html#what-this-book-is-not-about"><i class="fa fa-check"></i><b>2.3</b> What this book is not about</a></li>
+<li class="chapter" data-level="2.3" data-path="c02.html"><a href="c02.html#what-this-book-doesnt-cover"><i class="fa fa-check"></i><b>2.3</b> What this book doesn’t cover</a></li>
 <li class="chapter" data-level="2.4" data-path="c02.html"><a href="c02.html#supporting-the-book"><i class="fa fa-check"></i><b>2.4</b> Supporting the book</a></li>
 <li class="chapter" data-level="2.5" data-path="c02.html"><a href="c02.html#contributing-to-the-book"><i class="fa fa-check"></i><b>2.5</b> Contributing to the book</a></li>
 </ul></li>
@@ -228,17 +231,16 @@ div.csl-indent {
 <li class="chapter" data-level="4.1" data-path="c04.html"><a href="c04.html#things-to-consider-when-doing-data-science-in-any-domain"><i class="fa fa-check"></i><b>4.1</b> Things to consider when doing data science in any domain</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="c04.html"><a href="c04.html#learning-to-code"><i class="fa fa-check"></i><b>4.1.1</b> Learning to code</a></li>
-<li class="chapter" data-level="4.1.2" data-path="c04.html"><a href="c04.html#addressing-ambiguity-a-reproducible-approach"><i class="fa fa-check"></i><b>4.1.2</b> Addressing ambiguity: a reproducible approach</a></li>
+<li class="chapter" data-level="4.1.2" data-path="c04.html"><a href="c04.html#cleaning-data"><i class="fa fa-check"></i><b>4.1.2</b> Cleaning data</a></li>
+<li class="chapter" data-level="4.1.3" data-path="c04.html"><a href="c04.html#addressing-ambiguity-a-reproducible-approach"><i class="fa fa-check"></i><b>4.1.3</b> Addressing ambiguity: a reproducible approach</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="c04.html"><a href="c04.html#things-to-consider-when-doing-data-science-in-education"><i class="fa fa-check"></i><b>4.2</b> Things to consider when doing data science in education</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="c04.html"><a href="c04.html#addressing-organizational-resistance-a-self-driven-analytic-approach"><i class="fa fa-check"></i><b>4.2.1</b> Addressing organizational resistance: a self-driven analytic approach</a></li>
 <li class="chapter" data-level="4.2.2" data-path="c04.html"><a href="c04.html#lack-of-processes-and-guidelines"><i class="fa fa-check"></i><b>4.2.2</b> Lack of processes and guidelines</a></li>
-<li class="chapter" data-level="4.2.3" data-path="c04.html"><a href="c04.html#limited-training-and-educational-opportunities"><i class="fa fa-check"></i><b>4.2.3</b> Limited training and educational opportunities</a></li>
-<li class="chapter" data-level="4.2.4" data-path="c04.html"><a href="c04.html#advancing-equity"><i class="fa fa-check"></i><b>4.2.4</b> Advancing equity</a></li>
-<li class="chapter" data-level="4.2.5" data-path="c04.html"><a href="c04.html#the-complex-nature-of-education-data"><i class="fa fa-check"></i><b>4.2.5</b> The complex nature of education data</a></li>
-<li class="chapter" data-level="4.2.6" data-path="c04.html"><a href="c04.html#ethical-and-legal-concerns"><i class="fa fa-check"></i><b>4.2.6</b> Ethical and legal concerns</a></li>
-<li class="chapter" data-level="4.2.7" data-path="c04.html"><a href="c04.html#analytic-considerations"><i class="fa fa-check"></i><b>4.2.7</b> Analytic considerations</a></li>
+<li class="chapter" data-level="4.2.3" data-path="c04.html"><a href="c04.html#advancing-equity"><i class="fa fa-check"></i><b>4.2.3</b> Advancing equity</a></li>
+<li class="chapter" data-level="4.2.4" data-path="c04.html"><a href="c04.html#the-complex-nature-of-education-data"><i class="fa fa-check"></i><b>4.2.4</b> The complex nature of education data</a></li>
+<li class="chapter" data-level="4.2.5" data-path="c04.html"><a href="c04.html#ethical-and-legal-concerns"><i class="fa fa-check"></i><b>4.2.5</b> Ethical and legal concerns</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="c04.html"><a href="c04.html#conclusion"><i class="fa fa-check"></i><b>4.3</b> Conclusion</a></li>
 </ul></li>
@@ -260,7 +262,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="c05.html"><a href="c05.html#writing-and-running-code-in-rstudio"><i class="fa fa-check"></i><b>5.6</b> Writing and running code in RStudio</a>
 <ul>
-<li class="chapter" data-level="5.6.1" data-path="c05.html"><a href="c05.html#writing-code-in-the-console"><i class="fa fa-check"></i><b>5.6.1</b> Writing code in the console</a></li>
+<li class="chapter" data-level="5.6.1" data-path="c05.html"><a href="c05.html#writing-code-in-the-console"><i class="fa fa-check"></i><b>5.6.1</b> Writing code in the Console</a></li>
 <li class="chapter" data-level="5.6.2" data-path="c05.html"><a href="c05.html#writing-code-in-an-r-script"><i class="fa fa-check"></i><b>5.6.2</b> Writing code in an R script</a></li>
 <li class="chapter" data-level="5.6.3" data-path="c05.html"><a href="c05.html#commenting-your-code-in-r"><i class="fa fa-check"></i><b>5.6.3</b> Commenting your code in R</a></li>
 </ul></li>
@@ -281,11 +283,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="c06.html"><a href="c06.html#functions"><i class="fa fa-check"></i><b>6.7</b> Functions</a>
 <ul>
-<li class="chapter" data-level="6.7.1" data-path="c06.html"><a href="c06.html#writing-your-own-functions"><i class="fa fa-check"></i><b>6.7.1</b> Writing Your Own Functions</a></li>
+<li class="chapter" data-level="6.7.1" data-path="c06.html"><a href="c06.html#writing-your-own-functions"><i class="fa fa-check"></i><b>6.7.1</b> Writing your own functions</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="c06.html"><a href="c06.html#c06p"><i class="fa fa-check"></i><b>6.8</b> Packages</a>
 <ul>
-<li class="chapter" data-level="6.8.1" data-path="c06.html"><a href="c06.html#installing-and-loading-a-package"><i class="fa fa-check"></i><b>6.8.1</b> Installing and Loading a Package</a></li>
+<li class="chapter" data-level="6.8.1" data-path="c06.html"><a href="c06.html#installing-and-loading-a-package"><i class="fa fa-check"></i><b>6.8.1</b> Installing and loading a package</a></li>
 <li class="chapter" data-level="6.8.2" data-path="c06.html"><a href="c06.html#how-to-find-packages"><i class="fa fa-check"></i><b>6.8.2</b> How to find packages</a></li>
 <li class="chapter" data-level="6.8.3" data-path="c06.html"><a href="c06.html#learning-more-about-a-package"><i class="fa fa-check"></i><b>6.8.3</b> Learning more about a package</a></li>
 <li class="chapter" data-level="6.8.4" data-path="c06.html"><a href="c06.html#installing-the-dataedu-package-1"><i class="fa fa-check"></i><b>6.8.4</b> Installing the {dataedu} package</a></li>
@@ -295,20 +297,20 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.9" data-path="c06.html"><a href="c06.html#data"><i class="fa fa-check"></i><b>6.9</b> Data</a></li>
 <li class="chapter" data-level="6.10" data-path="c06.html"><a href="c06.html#help-documentation"><i class="fa fa-check"></i><b>6.10</b> Help documentation</a></li>
-<li class="chapter" data-level="6.11" data-path="c06.html"><a href="c06.html#steps-for-working-through-new-and-unfamiliar-content"><i class="fa fa-check"></i><b>6.11</b> Steps for working through new and unfamiliar content</a>
+<li class="chapter" data-level="6.11" data-path="c06.html"><a href="c06.html#steps-for-working-through-unfamiliar-r-content"><i class="fa fa-check"></i><b>6.11</b> Steps for working through unfamiliar R content</a>
 <ul>
 <li class="chapter" data-level="6.11.1" data-path="c06.html"><a href="c06.html#activate-prior-knowledge"><i class="fa fa-check"></i><b>6.11.1</b> Activate prior knowledge</a></li>
 <li class="chapter" data-level="6.11.2" data-path="c06.html"><a href="c06.html#look-for-context-clues"><i class="fa fa-check"></i><b>6.11.2</b> Look for context clues</a></li>
 <li class="chapter" data-level="6.11.3" data-path="c06.html"><a href="c06.html#check-the-help-documentation"><i class="fa fa-check"></i><b>6.11.3</b> Check the help documentation</a></li>
 <li class="chapter" data-level="6.11.4" data-path="c06.html"><a href="c06.html#find-the-limits"><i class="fa fa-check"></i><b>6.11.4</b> Find the limits</a></li>
-<li class="chapter" data-level="6.11.5" data-path="c06.html"><a href="c06.html#test-and-refine-your-understanding"><i class="fa fa-check"></i><b>6.11.5</b> Test (and refine) your understanding</a></li>
+<li class="chapter" data-level="6.11.5" data-path="c06.html"><a href="c06.html#test-your-understanding-through-communication"><i class="fa fa-check"></i><b>6.11.5</b> Test your understanding through communication</a></li>
 </ul></li>
 <li class="chapter" data-level="6.12" data-path="c06.html"><a href="c06.html#bringing-it-all-together-getting-started-coding-walkthrough"><i class="fa fa-check"></i><b>6.12</b> Bringing it all together: getting started coding walkthrough</a>
 <ul>
-<li class="chapter" data-level="6.12.1" data-path="c06.html"><a href="c06.html#creating-a-project-and-an-.r-script-and-setting-up-our-rstudio-environment"><i class="fa fa-check"></i><b>6.12.1</b> Creating a project and an <code>.R</code> script and setting up our RStudio environment</a></li>
-<li class="chapter" data-level="6.12.2" data-path="c06.html"><a href="c06.html#loading-data-from-dataedu-into-our-r-environment"><i class="fa fa-check"></i><b>6.12.2</b> Loading data from {dataedu} into our R Environment</a></li>
-<li class="chapter" data-level="6.12.3" data-path="c06.html"><a href="c06.html#exploring-our-data-and-common-errors"><i class="fa fa-check"></i><b>6.12.3</b> Exploring our data and common errors</a></li>
-<li class="chapter" data-level="6.12.4" data-path="c06.html"><a href="c06.html#exploring-our-data-with-the-pipe-operator"><i class="fa fa-check"></i><b>6.12.4</b> Exploring our data with the pipe operator</a></li>
+<li class="chapter" data-level="6.12.1" data-path="c06.html"><a href="c06.html#creating-a-project-and-an-.r-script"><i class="fa fa-check"></i><b>6.12.1</b> Creating a project and an <code>.R</code> script</a></li>
+<li class="chapter" data-level="6.12.2" data-path="c06.html"><a href="c06.html#loading-data-from-dataedu-into-our-r-environment"><i class="fa fa-check"></i><b>6.12.2</b> Loading data from {dataedu} into our R environment</a></li>
+<li class="chapter" data-level="6.12.3" data-path="c06.html"><a href="c06.html#exploring-data-and-common-errors"><i class="fa fa-check"></i><b>6.12.3</b> Exploring data and common errors</a></li>
+<li class="chapter" data-level="6.12.4" data-path="c06.html"><a href="c06.html#exploring-data-with-the-pipe-operator"><i class="fa fa-check"></i><b>6.12.4</b> Exploring data with the pipe operator</a></li>
 <li class="chapter" data-level="6.12.5" data-path="c06.html"><a href="c06.html#exploring-assignment-vs.-equality"><i class="fa fa-check"></i><b>6.12.5</b> Exploring assignment vs. equality</a></li>
 <li class="chapter" data-level="6.12.6" data-path="c06.html"><a href="c06.html#basics-of-object-and-variable-names"><i class="fa fa-check"></i><b>6.12.6</b> Basics of object and variable names</a></li>
 </ul></li>
@@ -316,71 +318,72 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="c07.html"><a href="c07.html"><i class="fa fa-check"></i><b>7</b> Walkthrough 1: The education data science pipeline with online science class data</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="c07.html"><a href="c07.html#topics-emphasized-2"><i class="fa fa-check"></i><b>7.1</b> Topics Emphasized</a></li>
-<li class="chapter" data-level="7.2" data-path="c07.html"><a href="c07.html#functions-introduced-2"><i class="fa fa-check"></i><b>7.2</b> Functions Introduced</a></li>
-<li class="chapter" data-level="7.3" data-path="c07.html"><a href="c07.html#vocabulary"><i class="fa fa-check"></i><b>7.3</b> Vocabulary</a></li>
-<li class="chapter" data-level="7.4" data-path="c07.html"><a href="c07.html#introduction-to-the-walkthroughs"><i class="fa fa-check"></i><b>7.4</b> Introduction to the Walkthroughs</a></li>
-<li class="chapter" data-level="7.5" data-path="c07.html"><a href="c07.html#chapter-overview-2"><i class="fa fa-check"></i><b>7.5</b> Chapter Overview</a>
+<li class="chapter" data-level="7.1" data-path="c07.html"><a href="c07.html#introduction-to-the-walkthroughs"><i class="fa fa-check"></i><b>7.1</b> Introduction to the walkthroughs</a></li>
+<li class="chapter" data-level="7.2" data-path="c07.html"><a href="c07.html#topics-emphasized-2"><i class="fa fa-check"></i><b>7.2</b> Topics emphasized</a></li>
+<li class="chapter" data-level="7.3" data-path="c07.html"><a href="c07.html#functions-introduced-2"><i class="fa fa-check"></i><b>7.3</b> Functions introduced</a></li>
+<li class="chapter" data-level="7.4" data-path="c07.html"><a href="c07.html#vocabulary"><i class="fa fa-check"></i><b>7.4</b> Vocabulary</a></li>
+<li class="chapter" data-level="7.5" data-path="c07.html"><a href="c07.html#chapter-overview-2"><i class="fa fa-check"></i><b>7.5</b> Chapter overview</a></li>
+<li class="chapter" data-level="7.6" data-path="c07.html"><a href="c07.html#background"><i class="fa fa-check"></i><b>7.6</b> Background</a></li>
+<li class="chapter" data-level="7.7" data-path="c07.html"><a href="c07.html#methods"><i class="fa fa-check"></i><b>7.7</b> Methods</a></li>
+<li class="chapter" data-level="7.8" data-path="c07.html"><a href="c07.html#data-sources"><i class="fa fa-check"></i><b>7.8</b> Data sources</a>
 <ul>
-<li class="chapter" data-level="7.5.1" data-path="c07.html"><a href="c07.html#background"><i class="fa fa-check"></i><b>7.5.1</b> Background</a></li>
-<li class="chapter" data-level="7.5.2" data-path="c07.html"><a href="c07.html#data-sources"><i class="fa fa-check"></i><b>7.5.2</b> Data Sources</a></li>
-<li class="chapter" data-level="7.5.3" data-path="c07.html"><a href="c07.html#data-source-2-log-trace-data"><i class="fa fa-check"></i><b>7.5.3</b> Data Source #2: Log-Trace Data</a></li>
-<li class="chapter" data-level="7.5.4" data-path="c07.html"><a href="c07.html#data-source-3-academic-achievement-and-gradebook-data"><i class="fa fa-check"></i><b>7.5.4</b> Data Source #3: Academic Achievement and Gradebook Data</a></li>
-<li class="chapter" data-level="7.5.5" data-path="c07.html"><a href="c07.html#data-source-4-discussion-board-data"><i class="fa fa-check"></i><b>7.5.5</b> Data Source #4: Discussion Board Data</a></li>
-<li class="chapter" data-level="7.5.6" data-path="c07.html"><a href="c07.html#methods"><i class="fa fa-check"></i><b>7.5.6</b> Methods</a></li>
+<li class="chapter" data-level="7.8.1" data-path="c07.html"><a href="c07.html#data-source-1-self-report-survey-about-students-motivation"><i class="fa fa-check"></i><b>7.8.1</b> Data source #1: Self-report survey about students’ motivation</a></li>
+<li class="chapter" data-level="7.8.2" data-path="c07.html"><a href="c07.html#data-source-2-log-trace-data"><i class="fa fa-check"></i><b>7.8.2</b> Data source #2: Log-trace data</a></li>
+<li class="chapter" data-level="7.8.3" data-path="c07.html"><a href="c07.html#data-source-3-academic-achievement-and-gradebook-data"><i class="fa fa-check"></i><b>7.8.3</b> Data source #3: Academic achievement and gradebook data</a></li>
+<li class="chapter" data-level="7.8.4" data-path="c07.html"><a href="c07.html#data-source-4-discussion-board-data"><i class="fa fa-check"></i><b>7.8.4</b> Data source #4: Discussion board data</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="c07.html"><a href="c07.html#load-packages"><i class="fa fa-check"></i><b>7.6</b> Load Packages</a></li>
-<li class="chapter" data-level="7.7" data-path="c07.html"><a href="c07.html#import-data"><i class="fa fa-check"></i><b>7.7</b> Import Data</a></li>
-<li class="chapter" data-level="7.8" data-path="c07.html"><a href="c07.html#view-data"><i class="fa fa-check"></i><b>7.8</b> View Data</a></li>
-<li class="chapter" data-level="7.9" data-path="c07.html"><a href="c07.html#process-data"><i class="fa fa-check"></i><b>7.9</b> Process Data</a>
+<li class="chapter" data-level="7.9" data-path="c07.html"><a href="c07.html#load-packages"><i class="fa fa-check"></i><b>7.9</b> Load packages</a></li>
+<li class="chapter" data-level="7.10" data-path="c07.html"><a href="c07.html#import-data"><i class="fa fa-check"></i><b>7.10</b> Import data</a></li>
+<li class="chapter" data-level="7.11" data-path="c07.html"><a href="c07.html#view-data"><i class="fa fa-check"></i><b>7.11</b> View data</a></li>
+<li class="chapter" data-level="7.12" data-path="c07.html"><a href="c07.html#process-data"><i class="fa fa-check"></i><b>7.12</b> Process data</a>
 <ul>
-<li class="chapter" data-level="7.9.1" data-path="c07.html"><a href="c07.html#processing-the-course-data"><i class="fa fa-check"></i><b>7.9.1</b> Processing the Course Data</a></li>
-<li class="chapter" data-level="7.9.2" data-path="c07.html"><a href="c07.html#joining-the-data"><i class="fa fa-check"></i><b>7.9.2</b> Joining the Data</a></li>
-<li class="chapter" data-level="7.9.3" data-path="c07.html"><a href="c07.html#finding-distinct-cases-at-the-student-level"><i class="fa fa-check"></i><b>7.9.3</b> Finding Distinct Cases at the Student-Level</a></li>
+<li class="chapter" data-level="7.12.1" data-path="c07.html"><a href="c07.html#pre-survey-data"><i class="fa fa-check"></i><b>7.12.1</b> Pre-survey data</a></li>
+<li class="chapter" data-level="7.12.2" data-path="c07.html"><a href="c07.html#course-data"><i class="fa fa-check"></i><b>7.12.2</b> Course data</a></li>
+<li class="chapter" data-level="7.12.3" data-path="c07.html"><a href="c07.html#joining-the-data"><i class="fa fa-check"></i><b>7.12.3</b> Joining the data</a></li>
+<li class="chapter" data-level="7.12.4" data-path="c07.html"><a href="c07.html#finding-distinct-cases-at-the-student-level"><i class="fa fa-check"></i><b>7.12.4</b> Finding distinct cases at the student level</a></li>
 </ul></li>
-<li class="chapter" data-level="7.10" data-path="c07.html"><a href="c07.html#analysis"><i class="fa fa-check"></i><b>7.10</b> Analysis</a>
+<li class="chapter" data-level="7.13" data-path="c07.html"><a href="c07.html#analysis"><i class="fa fa-check"></i><b>7.13</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="7.10.1" data-path="c07.html"><a href="c07.html#about-ggplot2"><i class="fa fa-check"></i><b>7.10.1</b> About {ggplot2}</a></li>
-<li class="chapter" data-level="7.10.2" data-path="c07.html"><a href="c07.html#the-relationship-between-time-spent-on-course-and-final-grade"><i class="fa fa-check"></i><b>7.10.2</b> The Relationship between Time Spent on Course and Final Grade</a></li>
-<li class="chapter" data-level="7.10.3" data-path="c07.html"><a href="c07.html#linear-model-regression"><i class="fa fa-check"></i><b>7.10.3</b> Linear Model (Regression)</a></li>
+<li class="chapter" data-level="7.13.1" data-path="c07.html"><a href="c07.html#about-ggplot2"><i class="fa fa-check"></i><b>7.13.1</b> About {ggplot2}</a></li>
+<li class="chapter" data-level="7.13.2" data-path="c07.html"><a href="c07.html#the-relationship-between-time-spent-on-course-and-final-grade"><i class="fa fa-check"></i><b>7.13.2</b> The relationship between time spent on course and final grade</a></li>
+<li class="chapter" data-level="7.13.3" data-path="c07.html"><a href="c07.html#linear-model-regression"><i class="fa fa-check"></i><b>7.13.3</b> Linear model (regression)</a></li>
 </ul></li>
-<li class="chapter" data-level="7.11" data-path="c07.html"><a href="c07.html#results"><i class="fa fa-check"></i><b>7.11</b> Results</a></li>
-<li class="chapter" data-level="7.12" data-path="c07.html"><a href="c07.html#conclusion-3"><i class="fa fa-check"></i><b>7.12</b> Conclusion</a></li>
+<li class="chapter" data-level="7.14" data-path="c07.html"><a href="c07.html#results"><i class="fa fa-check"></i><b>7.14</b> Results</a></li>
+<li class="chapter" data-level="7.15" data-path="c07.html"><a href="c07.html#conclusion-3"><i class="fa fa-check"></i><b>7.15</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="c08.html"><a href="c08.html"><i class="fa fa-check"></i><b>8</b> Walkthrough 2: Approaching gradebook data from a data science perspective</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="c08.html"><a href="c08.html#topics-emphasized-3"><i class="fa fa-check"></i><b>8.1</b> Topics emphasized</a></li>
 <li class="chapter" data-level="8.2" data-path="c08.html"><a href="c08.html#functions-introduced-3"><i class="fa fa-check"></i><b>8.2</b> Functions introduced</a></li>
 <li class="chapter" data-level="8.3" data-path="c08.html"><a href="c08.html#vocabulary-1"><i class="fa fa-check"></i><b>8.3</b> Vocabulary</a></li>
-<li class="chapter" data-level="8.4" data-path="c08.html"><a href="c08.html#chapter-overview-3"><i class="fa fa-check"></i><b>8.4</b> Chapter overview</a>
+<li class="chapter" data-level="8.4" data-path="c08.html"><a href="c08.html#chapter-overview-3"><i class="fa fa-check"></i><b>8.4</b> Chapter overview</a></li>
+<li class="chapter" data-level="8.5" data-path="c08.html"><a href="c08.html#background-1"><i class="fa fa-check"></i><b>8.5</b> Background</a></li>
+<li class="chapter" data-level="8.6" data-path="c08.html"><a href="c08.html#methods-1"><i class="fa fa-check"></i><b>8.6</b> Methods</a></li>
+<li class="chapter" data-level="8.7" data-path="c08.html"><a href="c08.html#data-sources-1"><i class="fa fa-check"></i><b>8.7</b> Data sources</a></li>
+<li class="chapter" data-level="8.8" data-path="c08.html"><a href="c08.html#load-packages-1"><i class="fa fa-check"></i><b>8.8</b> Load packages</a></li>
+<li class="chapter" data-level="8.9" data-path="c08.html"><a href="c08.html#import-data-1"><i class="fa fa-check"></i><b>8.9</b> Import data</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="c08.html"><a href="c08.html#background-1"><i class="fa fa-check"></i><b>8.4.1</b> Background</a></li>
-<li class="chapter" data-level="8.4.2" data-path="c08.html"><a href="c08.html#data-sources-1"><i class="fa fa-check"></i><b>8.4.2</b> Data sources</a></li>
-<li class="chapter" data-level="8.4.3" data-path="c08.html"><a href="c08.html#methods-1"><i class="fa fa-check"></i><b>8.4.3</b> Methods</a></li>
+<li class="chapter" data-level="8.9.1" data-path="c08.html"><a href="c08.html#about-file-types"><i class="fa fa-check"></i><b>8.9.1</b> About file types</a></li>
+<li class="chapter" data-level="8.9.2" data-path="c08.html"><a href="c08.html#import-using-here"><i class="fa fa-check"></i><b>8.9.2</b> Import using <code>here()</code></a></li>
+<li class="chapter" data-level="8.9.3" data-path="c08.html"><a href="c08.html#import-using-a-file-path"><i class="fa fa-check"></i><b>8.9.3</b> Import using a file path</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="c08.html"><a href="c08.html#load-packages-1"><i class="fa fa-check"></i><b>8.5</b> Load packages</a></li>
-<li class="chapter" data-level="8.6" data-path="c08.html"><a href="c08.html#import-data-1"><i class="fa fa-check"></i><b>8.6</b> Import data</a>
+<li class="chapter" data-level="8.10" data-path="c08.html"><a href="c08.html#process-data-1"><i class="fa fa-check"></i><b>8.10</b> Process data</a>
 <ul>
-<li class="chapter" data-level="8.6.1" data-path="c08.html"><a href="c08.html#import-using-a-file-path"><i class="fa fa-check"></i><b>8.6.1</b> Import using a file path</a></li>
-<li class="chapter" data-level="8.6.2" data-path="c08.html"><a href="c08.html#import-using-here"><i class="fa fa-check"></i><b>8.6.2</b> Import using <code>here()</code></a></li>
+<li class="chapter" data-level="8.10.1" data-path="c08.html"><a href="c08.html#tidy-data"><i class="fa fa-check"></i><b>8.10.1</b> Tidy data</a></li>
+<li class="chapter" data-level="8.10.2" data-path="c08.html"><a href="c08.html#about-janitor"><i class="fa fa-check"></i><b>8.10.2</b> About {janitor}</a></li>
+<li class="chapter" data-level="8.10.3" data-path="c08.html"><a href="c08.html#create-new-variables-and-further-process-the-data"><i class="fa fa-check"></i><b>8.10.3</b> Create new variables and further process the data</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="c08.html"><a href="c08.html#process-data-1"><i class="fa fa-check"></i><b>8.7</b> Process data</a>
+<li class="chapter" data-level="8.11" data-path="c08.html"><a href="c08.html#analysis-1"><i class="fa fa-check"></i><b>8.11</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="8.7.1" data-path="c08.html"><a href="c08.html#tidy-data"><i class="fa fa-check"></i><b>8.7.1</b> Tidy data</a></li>
-<li class="chapter" data-level="8.7.2" data-path="c08.html"><a href="c08.html#about-janitor"><i class="fa fa-check"></i><b>8.7.2</b> About {janitor}</a></li>
-<li class="chapter" data-level="8.7.3" data-path="c08.html"><a href="c08.html#create-new-variables-and-further-process-the-data"><i class="fa fa-check"></i><b>8.7.3</b> Create new variables and further process the data</a></li>
+<li class="chapter" data-level="8.11.1" data-path="c08.html"><a href="c08.html#visualize-data"><i class="fa fa-check"></i><b>8.11.1</b> Visualize data</a></li>
+<li class="chapter" data-level="8.11.2" data-path="c08.html"><a href="c08.html#model-data"><i class="fa fa-check"></i><b>8.11.2</b> Model data</a></li>
+<li class="chapter" data-level="8.11.3" data-path="c08.html"><a href="c08.html#correlation-analysis"><i class="fa fa-check"></i><b>8.11.3</b> Correlation analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="8.8" data-path="c08.html"><a href="c08.html#analysis-1"><i class="fa fa-check"></i><b>8.8</b> Analysis</a>
+<li class="chapter" data-level="8.12" data-path="c08.html"><a href="c08.html#results-1"><i class="fa fa-check"></i><b>8.12</b> Results</a>
 <ul>
-<li class="chapter" data-level="8.8.1" data-path="c08.html"><a href="c08.html#visualize-data"><i class="fa fa-check"></i><b>8.8.1</b> Visualize data</a></li>
-<li class="chapter" data-level="8.8.2" data-path="c08.html"><a href="c08.html#model-data"><i class="fa fa-check"></i><b>8.8.2</b> Model data</a></li>
-<li class="chapter" data-level="8.8.3" data-path="c08.html"><a href="c08.html#correlation-analysis"><i class="fa fa-check"></i><b>8.8.3</b> Correlation analysis</a></li>
+<li class="chapter" data-level="8.12.1" data-path="c08.html"><a href="c08.html#more-on-interpreting-models"><i class="fa fa-check"></i><b>8.12.1</b> More on interpreting models</a></li>
 </ul></li>
-<li class="chapter" data-level="8.9" data-path="c08.html"><a href="c08.html#results-1"><i class="fa fa-check"></i><b>8.9</b> Results</a>
-<ul>
-<li class="chapter" data-level="8.9.1" data-path="c08.html"><a href="c08.html#more-on-interpreting-models"><i class="fa fa-check"></i><b>8.9.1</b> More on interpreting models</a></li>
-</ul></li>
-<li class="chapter" data-level="8.10" data-path="c08.html"><a href="c08.html#conclusion-4"><i class="fa fa-check"></i><b>8.10</b> Conclusion</a></li>
+<li class="chapter" data-level="8.13" data-path="c08.html"><a href="c08.html#conclusion-4"><i class="fa fa-check"></i><b>8.13</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="c09.html"><a href="c09.html"><i class="fa fa-check"></i><b>9</b> Walkthrough 3: Using school-level aggregate data to illuminate educational inequities</a>
 <ul>
@@ -391,146 +394,151 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="9.4.1" data-path="c09.html"><a href="c09.html#background-2"><i class="fa fa-check"></i><b>9.4.1</b> Background</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="c09.html"><a href="c09.html#data-sources-2"><i class="fa fa-check"></i><b>9.5</b> Data sources</a>
+<li class="chapter" data-level="9.5" data-path="c09.html"><a href="c09.html#methods-2"><i class="fa fa-check"></i><b>9.5</b> Methods</a></li>
+<li class="chapter" data-level="9.6" data-path="c09.html"><a href="c09.html#data-sources-2"><i class="fa fa-check"></i><b>9.6</b> Data sources</a>
 <ul>
-<li class="chapter" data-level="9.5.1" data-path="c09.html"><a href="c09.html#selecting-data"><i class="fa fa-check"></i><b>9.5.1</b> Selecting data</a></li>
-<li class="chapter" data-level="9.5.2" data-path="c09.html"><a href="c09.html#methods-2"><i class="fa fa-check"></i><b>9.5.2</b> Methods</a></li>
+<li class="chapter" data-level="9.6.1" data-path="c09.html"><a href="c09.html#selecting-data"><i class="fa fa-check"></i><b>9.6.1</b> Selecting data</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="c09.html"><a href="c09.html#load-packages-2"><i class="fa fa-check"></i><b>9.6</b> Load packages</a></li>
-<li class="chapter" data-level="9.7" data-path="c09.html"><a href="c09.html#import-data-2"><i class="fa fa-check"></i><b>9.7</b> Import data</a></li>
-<li class="chapter" data-level="9.8" data-path="c09.html"><a href="c09.html#view-data-1"><i class="fa fa-check"></i><b>9.8</b> View data</a>
+<li class="chapter" data-level="9.7" data-path="c09.html"><a href="c09.html#load-packages-2"><i class="fa fa-check"></i><b>9.7</b> Load packages</a></li>
+<li class="chapter" data-level="9.8" data-path="c09.html"><a href="c09.html#import-data-2"><i class="fa fa-check"></i><b>9.8</b> Import data</a></li>
+<li class="chapter" data-level="9.9" data-path="c09.html"><a href="c09.html#process-the-data"><i class="fa fa-check"></i><b>9.9</b> Process the data</a></li>
+<li class="chapter" data-level="9.10" data-path="c09.html"><a href="c09.html#view-data-1"><i class="fa fa-check"></i><b>9.10</b> View data</a>
 <ul>
-<li class="chapter" data-level="9.8.1" data-path="c09.html"><a href="c09.html#discovering-distributions"><i class="fa fa-check"></i><b>9.8.1</b> Discovering distributions</a></li>
-<li class="chapter" data-level="9.8.2" data-path="c09.html"><a href="c09.html#analyzing-spread"><i class="fa fa-check"></i><b>9.8.2</b> Analyzing spread</a></li>
+<li class="chapter" data-level="9.10.1" data-path="c09.html"><a href="c09.html#discovering-distributions"><i class="fa fa-check"></i><b>9.10.1</b> Discovering distributions</a></li>
+<li class="chapter" data-level="9.10.2" data-path="c09.html"><a href="c09.html#analyzing-spread"><i class="fa fa-check"></i><b>9.10.2</b> Analyzing spread</a></li>
 </ul></li>
-<li class="chapter" data-level="9.9" data-path="c09.html"><a href="c09.html#analysis-2"><i class="fa fa-check"></i><b>9.9</b> Analysis</a>
+<li class="chapter" data-level="9.11" data-path="c09.html"><a href="c09.html#analysis-2"><i class="fa fa-check"></i><b>9.11</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="9.9.1" data-path="c09.html"><a href="c09.html#creating-categories"><i class="fa fa-check"></i><b>9.9.1</b> Creating categories</a></li>
-<li class="chapter" data-level="9.9.2" data-path="c09.html"><a href="c09.html#reveal-relationships"><i class="fa fa-check"></i><b>9.9.2</b> Reveal relationships</a></li>
+<li class="chapter" data-level="9.11.1" data-path="c09.html"><a href="c09.html#creating-categories"><i class="fa fa-check"></i><b>9.11.1</b> Creating categories</a></li>
+<li class="chapter" data-level="9.11.2" data-path="c09.html"><a href="c09.html#reveal-relationships"><i class="fa fa-check"></i><b>9.11.2</b> Reveal relationships</a></li>
 </ul></li>
-<li class="chapter" data-level="9.10" data-path="c09.html"><a href="c09.html#results-2"><i class="fa fa-check"></i><b>9.10</b> Results</a></li>
-<li class="chapter" data-level="9.11" data-path="c09.html"><a href="c09.html#conclusion-5"><i class="fa fa-check"></i><b>9.11</b> Conclusion</a></li>
+<li class="chapter" data-level="9.12" data-path="c09.html"><a href="c09.html#results-2"><i class="fa fa-check"></i><b>9.12</b> Results</a></li>
+<li class="chapter" data-level="9.13" data-path="c09.html"><a href="c09.html#conclusion-5"><i class="fa fa-check"></i><b>9.13</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="c10.html"><a href="c10.html"><i class="fa fa-check"></i><b>10</b> Walkthrough 4: Longitudinal analysis with federal students with disabilities data</a>
+<li class="chapter" data-level="10" data-path="c10.html"><a href="c10.html"><i class="fa fa-check"></i><b>10</b> Walkthrough 4: Longitudinal analysis with federal data on students with disabilities</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="c10.html"><a href="c10.html#topics-emphasized-5"><i class="fa fa-check"></i><b>10.1</b> Topics emphasized</a></li>
 <li class="chapter" data-level="10.2" data-path="c10.html"><a href="c10.html#functions-introduced-5"><i class="fa fa-check"></i><b>10.2</b> Functions introduced</a></li>
 <li class="chapter" data-level="10.3" data-path="c10.html"><a href="c10.html#vocabulary-3"><i class="fa fa-check"></i><b>10.3</b> Vocabulary</a></li>
-<li class="chapter" data-level="10.4" data-path="c10.html"><a href="c10.html#chapter-overview-5"><i class="fa fa-check"></i><b>10.4</b> Chapter overview</a>
+<li class="chapter" data-level="10.4" data-path="c10.html"><a href="c10.html#chapter-overview-5"><i class="fa fa-check"></i><b>10.4</b> Chapter overview</a></li>
+<li class="chapter" data-level="10.5" data-path="c10.html"><a href="c10.html#background-3"><i class="fa fa-check"></i><b>10.5</b> Background</a></li>
+<li class="chapter" data-level="10.6" data-path="c10.html"><a href="c10.html#methods-3"><i class="fa fa-check"></i><b>10.6</b> Methods</a></li>
+<li class="chapter" data-level="10.7" data-path="c10.html"><a href="c10.html#data-sources-3"><i class="fa fa-check"></i><b>10.7</b> Data sources</a></li>
+<li class="chapter" data-level="10.8" data-path="c10.html"><a href="c10.html#load-packages-3"><i class="fa fa-check"></i><b>10.8</b> Load packages</a></li>
+<li class="chapter" data-level="10.9" data-path="c10.html"><a href="c10.html#import-data-3"><i class="fa fa-check"></i><b>10.9</b> Import data</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="c10.html"><a href="c10.html#background-3"><i class="fa fa-check"></i><b>10.4.1</b> Background</a></li>
-<li class="chapter" data-level="10.4.2" data-path="c10.html"><a href="c10.html#methods-3"><i class="fa fa-check"></i><b>10.4.2</b> Methods</a></li>
+<li class="chapter" data-level="10.9.1" data-path="c10.html"><a href="c10.html#a-note-on-file-paths"><i class="fa fa-check"></i><b>10.9.1</b> A note on file paths</a></li>
+<li class="chapter" data-level="10.9.2" data-path="c10.html"><a href="c10.html#how-to-download-the-files"><i class="fa fa-check"></i><b>10.9.2</b> How to download the files</a></li>
+<li class="chapter" data-level="10.9.3" data-path="c10.html"><a href="c10.html#reading-in-one-dataset"><i class="fa fa-check"></i><b>10.9.3</b> Reading in one dataset</a></li>
+<li class="chapter" data-level="10.9.4" data-path="c10.html"><a href="c10.html#reading-in-many-datasets"><i class="fa fa-check"></i><b>10.9.4</b> Reading in many datasets</a></li>
+<li class="chapter" data-level="10.9.5" data-path="c10.html"><a href="c10.html#loading-the-data-from-dataedu"><i class="fa fa-check"></i><b>10.9.5</b> Loading the data from {dataedu}</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="c10.html"><a href="c10.html#load-packages-3"><i class="fa fa-check"></i><b>10.5</b> Load packages</a></li>
-<li class="chapter" data-level="10.6" data-path="c10.html"><a href="c10.html#import-data-3"><i class="fa fa-check"></i><b>10.6</b> Import data</a>
+<li class="chapter" data-level="10.10" data-path="c10.html"><a href="c10.html#process-data-2"><i class="fa fa-check"></i><b>10.10</b> Process data</a>
 <ul>
-<li class="chapter" data-level="10.6.1" data-path="c10.html"><a href="c10.html#what-to-download"><i class="fa fa-check"></i><b>10.6.1</b> What to download</a></li>
-<li class="chapter" data-level="10.6.2" data-path="c10.html"><a href="c10.html#a-note-on-file-paths"><i class="fa fa-check"></i><b>10.6.2</b> A note on file paths</a></li>
-<li class="chapter" data-level="10.6.3" data-path="c10.html"><a href="c10.html#how-to-download-the-files"><i class="fa fa-check"></i><b>10.6.3</b> How to download the files</a></li>
-<li class="chapter" data-level="10.6.4" data-path="c10.html"><a href="c10.html#reading-in-one-dataset"><i class="fa fa-check"></i><b>10.6.4</b> Reading in one dataset</a></li>
-<li class="chapter" data-level="10.6.5" data-path="c10.html"><a href="c10.html#reading-in-many-datasets"><i class="fa fa-check"></i><b>10.6.5</b> Reading in many datasets</a></li>
-<li class="chapter" data-level="10.6.6" data-path="c10.html"><a href="c10.html#loading-the-data-from-dataedu"><i class="fa fa-check"></i><b>10.6.6</b> Loading the data from {dataedu}</a></li>
+<li class="chapter" data-level="10.10.1" data-path="c10.html"><a href="c10.html#fix-the-variable-names-in-the-2016-data"><i class="fa fa-check"></i><b>10.10.1</b> Fix the variable names in the 2016 data</a></li>
+<li class="chapter" data-level="10.10.2" data-path="c10.html"><a href="c10.html#select-variables"><i class="fa fa-check"></i><b>10.10.2</b> Select variables</a></li>
+<li class="chapter" data-level="10.10.3" data-path="c10.html"><a href="c10.html#combine-six-datasets-into-one"><i class="fa fa-check"></i><b>10.10.3</b> Combine six datasets into one</a></li>
+<li class="chapter" data-level="10.10.4" data-path="c10.html"><a href="c10.html#importing-the-data-from-the-dataedu-package"><i class="fa fa-check"></i><b>10.10.4</b> Importing the data from the {dataedu} package</a></li>
+<li class="chapter" data-level="10.10.5" data-path="c10.html"><a href="c10.html#filter-for-the-desired-disabilities-and-age-groups"><i class="fa fa-check"></i><b>10.10.5</b> Filter for the desired disabilities and age groups</a></li>
+<li class="chapter" data-level="10.10.6" data-path="c10.html"><a href="c10.html#rename-the-variables"><i class="fa fa-check"></i><b>10.10.6</b> Rename the variables</a></li>
+<li class="chapter" data-level="10.10.7" data-path="c10.html"><a href="c10.html#clean-state-names"><i class="fa fa-check"></i><b>10.10.7</b> Clean state names</a></li>
+<li class="chapter" data-level="10.10.8" data-path="c10.html"><a href="c10.html#tidy-the-dataset"><i class="fa fa-check"></i><b>10.10.8</b> Tidy the dataset</a></li>
+<li class="chapter" data-level="10.10.9" data-path="c10.html"><a href="c10.html#convert-data-types"><i class="fa fa-check"></i><b>10.10.9</b> Convert data types</a></li>
+<li class="chapter" data-level="10.10.10" data-path="c10.html"><a href="c10.html#explore-and-address-nas"><i class="fa fa-check"></i><b>10.10.10</b> Explore and address NAs</a></li>
 </ul></li>
-<li class="chapter" data-level="10.7" data-path="c10.html"><a href="c10.html#process-data-2"><i class="fa fa-check"></i><b>10.7</b> Process data</a>
+<li class="chapter" data-level="10.11" data-path="c10.html"><a href="c10.html#analysis-3"><i class="fa fa-check"></i><b>10.11</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="10.7.1" data-path="c10.html"><a href="c10.html#fix-the-variable-names-in-the-2016-data"><i class="fa fa-check"></i><b>10.7.1</b> Fix the variable names in the 2016 data</a></li>
-<li class="chapter" data-level="10.7.2" data-path="c10.html"><a href="c10.html#pick-variables"><i class="fa fa-check"></i><b>10.7.2</b> Pick variables</a></li>
-<li class="chapter" data-level="10.7.3" data-path="c10.html"><a href="c10.html#combine-six-datasets-into-one"><i class="fa fa-check"></i><b>10.7.3</b> Combine six datasets into one</a></li>
-<li class="chapter" data-level="10.7.4" data-path="c10.html"><a href="c10.html#importing-the-data-from-the-dataedu-package"><i class="fa fa-check"></i><b>10.7.4</b> Importing the data from the {dataedu} package</a></li>
-<li class="chapter" data-level="10.7.5" data-path="c10.html"><a href="c10.html#filter-for-the-desired-disabilities-and-age-groups"><i class="fa fa-check"></i><b>10.7.5</b> Filter for the desired disabilities and age groups</a></li>
-<li class="chapter" data-level="10.7.6" data-path="c10.html"><a href="c10.html#rename-the-variables"><i class="fa fa-check"></i><b>10.7.6</b> Rename the variables</a></li>
-<li class="chapter" data-level="10.7.7" data-path="c10.html"><a href="c10.html#clean-state-names"><i class="fa fa-check"></i><b>10.7.7</b> Clean state names</a></li>
-<li class="chapter" data-level="10.7.8" data-path="c10.html"><a href="c10.html#tidy-the-dataset"><i class="fa fa-check"></i><b>10.7.8</b> Tidy the dataset</a></li>
-<li class="chapter" data-level="10.7.9" data-path="c10.html"><a href="c10.html#convert-data-types"><i class="fa fa-check"></i><b>10.7.9</b> Convert data types</a></li>
-<li class="chapter" data-level="10.7.10" data-path="c10.html"><a href="c10.html#explore-and-address-nas"><i class="fa fa-check"></i><b>10.7.10</b> Explore and address NAs</a></li>
+<li class="chapter" data-level="10.11.1" data-path="c10.html"><a href="c10.html#visualize-the-dataset"><i class="fa fa-check"></i><b>10.11.1</b> Visualize the dataset</a></li>
+<li class="chapter" data-level="10.11.2" data-path="c10.html"><a href="c10.html#model-the-dataset"><i class="fa fa-check"></i><b>10.11.2</b> Model the dataset</a></li>
 </ul></li>
-<li class="chapter" data-level="10.8" data-path="c10.html"><a href="c10.html#analysis-3"><i class="fa fa-check"></i><b>10.8</b> Analysis</a>
+<li class="chapter" data-level="10.12" data-path="c10.html"><a href="c10.html#results-3"><i class="fa fa-check"></i><b>10.12</b> Results</a></li>
+<li class="chapter" data-level="10.13" data-path="c10.html"><a href="c10.html#conclusion-6"><i class="fa fa-check"></i><b>10.13</b> Conclusion</a>
 <ul>
-<li class="chapter" data-level="10.8.1" data-path="c10.html"><a href="c10.html#visualize-the-dataset"><i class="fa fa-check"></i><b>10.8.1</b> Visualize the dataset</a></li>
-<li class="chapter" data-level="10.8.2" data-path="c10.html"><a href="c10.html#model-the-dataset"><i class="fa fa-check"></i><b>10.8.2</b> Model the dataset</a></li>
-</ul></li>
-<li class="chapter" data-level="10.9" data-path="c10.html"><a href="c10.html#results-3"><i class="fa fa-check"></i><b>10.9</b> Results</a></li>
-<li class="chapter" data-level="10.10" data-path="c10.html"><a href="c10.html#conclusion-6"><i class="fa fa-check"></i><b>10.10</b> Conclusion</a>
-<ul>
-<li class="chapter" data-level="10.10.1" data-path="c10.html"><a href="c10.html#student-level-data-for-analysis-of-local-populations-aggregate-data-for-base-rate-and-context"><i class="fa fa-check"></i><b>10.10.1</b> Student-level data for analysis of local populations: aggregate data for base rate and context</a></li>
+<li class="chapter" data-level="10.13.1" data-path="c10.html"><a href="c10.html#student-level-data-for-analysis-of-local-populations-aggregate-data-for-base-rate-and-context"><i class="fa fa-check"></i><b>10.13.1</b> Student-level data for analysis of local populations: aggregate data for base rate and context</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="c11.html"><a href="c11.html"><i class="fa fa-check"></i><b>11</b> Walkthrough 5: Text analysis with social media data</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="c11.html"><a href="c11.html#topics-emphasized-6"><i class="fa fa-check"></i><b>11.1</b> Topics emphasized</a></li>
 <li class="chapter" data-level="11.2" data-path="c11.html"><a href="c11.html#functions-introduced-6"><i class="fa fa-check"></i><b>11.2</b> Functions introduced</a></li>
-<li class="chapter" data-level="11.3" data-path="c11.html"><a href="c11.html#functions-introduced-in-the-appendix-1"><i class="fa fa-check"></i><b>11.3</b> Functions introduced in the appendix</a></li>
-<li class="chapter" data-level="11.4" data-path="c11.html"><a href="c11.html#vocabulary-4"><i class="fa fa-check"></i><b>11.4</b> Vocabulary</a></li>
-<li class="chapter" data-level="11.5" data-path="c11.html"><a href="c11.html#chapter-overview-6"><i class="fa fa-check"></i><b>11.5</b> Chapter overview</a>
+<li class="chapter" data-level="11.3" data-path="c11.html"><a href="c11.html#vocabulary-4"><i class="fa fa-check"></i><b>11.3</b> Vocabulary</a></li>
+<li class="chapter" data-level="11.4" data-path="c11.html"><a href="c11.html#chapter-overview-6"><i class="fa fa-check"></i><b>11.4</b> Chapter overview</a>
 <ul>
-<li class="chapter" data-level="11.5.1" data-path="c11.html"><a href="c11.html#background-4"><i class="fa fa-check"></i><b>11.5.1</b> Background</a></li>
-<li class="chapter" data-level="11.5.2" data-path="c11.html"><a href="c11.html#data-source"><i class="fa fa-check"></i><b>11.5.2</b> Data source</a></li>
-<li class="chapter" data-level="11.5.3" data-path="c11.html"><a href="c11.html#methods-4"><i class="fa fa-check"></i><b>11.5.3</b> Methods</a></li>
+<li class="chapter" data-level="11.4.1" data-path="c11.html"><a href="c11.html#background-4"><i class="fa fa-check"></i><b>11.4.1</b> Background</a></li>
+<li class="chapter" data-level="11.4.2" data-path="c11.html"><a href="c11.html#data-source"><i class="fa fa-check"></i><b>11.4.2</b> Data source</a></li>
+<li class="chapter" data-level="11.4.3" data-path="c11.html"><a href="c11.html#methods-4"><i class="fa fa-check"></i><b>11.4.3</b> Methods</a></li>
 </ul></li>
-<li class="chapter" data-level="11.6" data-path="c11.html"><a href="c11.html#load-packages-4"><i class="fa fa-check"></i><b>11.6</b> Load packages</a></li>
-<li class="chapter" data-level="11.7" data-path="c11.html"><a href="c11.html#import-data-4"><i class="fa fa-check"></i><b>11.7</b> Import data</a></li>
-<li class="chapter" data-level="11.8" data-path="c11.html"><a href="c11.html#view-data-2"><i class="fa fa-check"></i><b>11.8</b> View data</a></li>
-<li class="chapter" data-level="11.9" data-path="c11.html"><a href="c11.html#process-data-3"><i class="fa fa-check"></i><b>11.9</b> Process data</a></li>
-<li class="chapter" data-level="11.10" data-path="c11.html"><a href="c11.html#analysis-counting-words"><i class="fa fa-check"></i><b>11.10</b> Analysis: counting words</a></li>
-<li class="chapter" data-level="11.11" data-path="c11.html"><a href="c11.html#analysis-sentiment-analysis"><i class="fa fa-check"></i><b>11.11</b> Analysis: sentiment analysis</a>
+<li class="chapter" data-level="11.5" data-path="c11.html"><a href="c11.html#load-packages-4"><i class="fa fa-check"></i><b>11.5</b> Load packages</a></li>
+<li class="chapter" data-level="11.6" data-path="c11.html"><a href="c11.html#import-data-4"><i class="fa fa-check"></i><b>11.6</b> Import data</a></li>
+<li class="chapter" data-level="11.7" data-path="c11.html"><a href="c11.html#view-data-2"><i class="fa fa-check"></i><b>11.7</b> View data</a></li>
+<li class="chapter" data-level="11.8" data-path="c11.html"><a href="c11.html#process-data-3"><i class="fa fa-check"></i><b>11.8</b> Process data</a></li>
+<li class="chapter" data-level="11.9" data-path="c11.html"><a href="c11.html#analysis-counting-words"><i class="fa fa-check"></i><b>11.9</b> Analysis: counting words</a></li>
+<li class="chapter" data-level="11.10" data-path="c11.html"><a href="c11.html#analysis-sentiment-analysis"><i class="fa fa-check"></i><b>11.10</b> Analysis: sentiment analysis</a>
 <ul>
-<li class="chapter" data-level="11.11.1" data-path="c11.html"><a href="c11.html#count-positive-words"><i class="fa fa-check"></i><b>11.11.1</b> Count positive words</a></li>
-<li class="chapter" data-level="11.11.2" data-path="c11.html"><a href="c11.html#dataviz-and-other-positive-words"><i class="fa fa-check"></i><b>11.11.2</b> “Dataviz” and other positive words</a></li>
-<li class="chapter" data-level="11.11.3" data-path="c11.html"><a href="c11.html#taking-a-close-read-of-randomly-selected-tweets"><i class="fa fa-check"></i><b>11.11.3</b> Taking a close read of randomly selected tweets</a></li>
+<li class="chapter" data-level="11.10.1" data-path="c11.html"><a href="c11.html#count-positive-words"><i class="fa fa-check"></i><b>11.10.1</b> Count positive words</a></li>
+<li class="chapter" data-level="11.10.2" data-path="c11.html"><a href="c11.html#dataviz-and-other-positive-words"><i class="fa fa-check"></i><b>11.10.2</b> “Dataviz” and other positive words</a></li>
+<li class="chapter" data-level="11.10.3" data-path="c11.html"><a href="c11.html#taking-a-close-read-of-randomly-selected-posts"><i class="fa fa-check"></i><b>11.10.3</b> Taking a close read of randomly selected posts</a></li>
 </ul></li>
-<li class="chapter" data-level="11.12" data-path="c11.html"><a href="c11.html#conclusion-7"><i class="fa fa-check"></i><b>11.12</b> Conclusion</a></li>
+<li class="chapter" data-level="11.11" data-path="c11.html"><a href="c11.html#conclusion-7"><i class="fa fa-check"></i><b>11.11</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="c12.html"><a href="c12.html"><i class="fa fa-check"></i><b>12</b> Walkthrough 6: Exploring relationships using social network analysis with social media data</a>
 <ul>
 <li class="chapter" data-level="12.1" data-path="c12.html"><a href="c12.html#topics-emphasized-7"><i class="fa fa-check"></i><b>12.1</b> Topics emphasized</a></li>
 <li class="chapter" data-level="12.2" data-path="c12.html"><a href="c12.html#functions-introduced-7"><i class="fa fa-check"></i><b>12.2</b> Functions introduced</a></li>
 <li class="chapter" data-level="12.3" data-path="c12.html"><a href="c12.html#vocabulary-5"><i class="fa fa-check"></i><b>12.3</b> Vocabulary</a></li>
-<li class="chapter" data-level="12.4" data-path="c12.html"><a href="c12.html#chapter-overview-7"><i class="fa fa-check"></i><b>12.4</b> Chapter overview</a>
+<li class="chapter" data-level="12.4" data-path="c12.html"><a href="c12.html#chapter-overview-7"><i class="fa fa-check"></i><b>12.4</b> Chapter overview</a></li>
+<li class="chapter" data-level="12.5" data-path="c12.html"><a href="c12.html#background-5"><i class="fa fa-check"></i><b>12.5</b> Background</a></li>
+<li class="chapter" data-level="12.6" data-path="c12.html"><a href="c12.html#packages"><i class="fa fa-check"></i><b>12.6</b> Packages</a></li>
+<li class="chapter" data-level="12.7" data-path="c12.html"><a href="c12.html#data-sources-and-import"><i class="fa fa-check"></i><b>12.7</b> Data sources and import</a>
 <ul>
-<li class="chapter" data-level="12.4.1" data-path="c12.html"><a href="c12.html#background-5"><i class="fa fa-check"></i><b>12.4.1</b> Background</a></li>
-<li class="chapter" data-level="12.4.2" data-path="c12.html"><a href="c12.html#packages"><i class="fa fa-check"></i><b>12.4.2</b> Packages</a></li>
-<li class="chapter" data-level="12.4.3" data-path="c12.html"><a href="c12.html#data-sources-and-import"><i class="fa fa-check"></i><b>12.4.3</b> Data sources and import</a></li>
-<li class="chapter" data-level="12.4.4" data-path="c12.html"><a href="c12.html#using-an-application-programming-interface-or-api"><i class="fa fa-check"></i><b>12.4.4</b> Using an Application Programming Interface (or API)</a></li>
+<li class="chapter" data-level="12.7.1" data-path="c12.html"><a href="c12.html#accessing-bluesky-data-through-the-application-programming-interface-api"><i class="fa fa-check"></i><b>12.7.1</b> Accessing Bluesky data through the Application Programming Interface (API)</a></li>
+<li class="chapter" data-level="12.7.2" data-path="c12.html"><a href="c12.html#loading-already-accessed-data"><i class="fa fa-check"></i><b>12.7.2</b> Loading already-accessed data</a></li>
 </ul></li>
-<li class="chapter" data-level="12.5" data-path="c12.html"><a href="c12.html#view-data-3"><i class="fa fa-check"></i><b>12.5</b> View data</a></li>
-<li class="chapter" data-level="12.6" data-path="c12.html"><a href="c12.html#methods-process-data"><i class="fa fa-check"></i><b>12.6</b> Methods: process data</a>
+<li class="chapter" data-level="12.8" data-path="c12.html"><a href="c12.html#processing-the-data"><i class="fa fa-check"></i><b>12.8</b> Processing the data</a>
 <ul>
-<li class="chapter" data-level="12.6.1" data-path="c12.html"><a href="c12.html#extracting-mentions"><i class="fa fa-check"></i><b>12.6.1</b> Extracting mentions</a></li>
-<li class="chapter" data-level="12.6.2" data-path="c12.html"><a href="c12.html#putting-the-edgelist-together"><i class="fa fa-check"></i><b>12.6.2</b> Putting the edgelist together</a></li>
+<li class="chapter" data-level="12.8.1" data-path="c12.html"><a href="c12.html#what-is-our-network"><i class="fa fa-check"></i><b>12.8.1</b> What is our network?</a></li>
 </ul></li>
-<li class="chapter" data-level="12.7" data-path="c12.html"><a href="c12.html#analysis-and-results"><i class="fa fa-check"></i><b>12.7</b> Analysis and results</a>
+<li class="chapter" data-level="12.9" data-path="c12.html"><a href="c12.html#view-data-3"><i class="fa fa-check"></i><b>12.9</b> View data</a></li>
+<li class="chapter" data-level="12.10" data-path="c12.html"><a href="c12.html#methods-processing-data-into-network-format"><i class="fa fa-check"></i><b>12.10</b> Methods: processing data into network format</a>
 <ul>
-<li class="chapter" data-level="12.7.1" data-path="c12.html"><a href="c12.html#plotting-the-network"><i class="fa fa-check"></i><b>12.7.1</b> Plotting the network</a></li>
+<li class="chapter" data-level="12.10.1" data-path="c12.html"><a href="c12.html#extracting-nodes-and-edges"><i class="fa fa-check"></i><b>12.10.1</b> Extracting nodes and edges</a></li>
 </ul></li>
-<li class="chapter" data-level="12.8" data-path="c12.html"><a href="c12.html#conclusion-8"><i class="fa fa-check"></i><b>12.8</b> Conclusion</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="c13.html"><a href="c13.html"><i class="fa fa-check"></i><b>13</b> Walkthrough 7: The role (and usefulness) of multilevel models</a>
+<li class="chapter" data-level="12.11" data-path="c12.html"><a href="c12.html#analysis-and-results"><i class="fa fa-check"></i><b>12.11</b> Analysis and results</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="c13.html"><a href="c13.html#topics-emphasized-8"><i class="fa fa-check"></i><b>13.1</b> Topics Emphasized</a></li>
-<li class="chapter" data-level="13.2" data-path="c13.html"><a href="c13.html#functions-introduced-8"><i class="fa fa-check"></i><b>13.2</b> Functions Introduced</a></li>
+<li class="chapter" data-level="12.11.1" data-path="c12.html"><a href="c12.html#descriptive-statistics"><i class="fa fa-check"></i><b>12.11.1</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="12.11.2" data-path="c12.html"><a href="c12.html#plotting-the-network"><i class="fa fa-check"></i><b>12.11.2</b> Plotting the network</a></li>
+<li class="chapter" data-level="12.11.3" data-path="c12.html"><a href="c12.html#refining-the-graph-filtering-isolated-nodes"><i class="fa fa-check"></i><b>12.11.3</b> Refining the graph – filtering isolated nodes</a></li>
+<li class="chapter" data-level="12.11.4" data-path="c12.html"><a href="c12.html#interpreting-the-network-through-an-educational-lens"><i class="fa fa-check"></i><b>12.11.4</b> Interpreting the network through an educational lens</a></li>
+</ul></li>
+<li class="chapter" data-level="12.12" data-path="c12.html"><a href="c12.html#conclusion-8"><i class="fa fa-check"></i><b>12.12</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="c13.html"><a href="c13.html"><i class="fa fa-check"></i><b>13</b> Walkthrough 7: Multilevel models</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="c13.html"><a href="c13.html#topics-emphasized-8"><i class="fa fa-check"></i><b>13.1</b> Topics emphasized</a></li>
+<li class="chapter" data-level="13.2" data-path="c13.html"><a href="c13.html#functions-introduced-8"><i class="fa fa-check"></i><b>13.2</b> Functions introduced</a></li>
 <li class="chapter" data-level="13.3" data-path="c13.html"><a href="c13.html#vocabulary-6"><i class="fa fa-check"></i><b>13.3</b> Vocabulary</a></li>
-<li class="chapter" data-level="13.4" data-path="c13.html"><a href="c13.html#chapter-overview-8"><i class="fa fa-check"></i><b>13.4</b> Chapter Overview</a>
+<li class="chapter" data-level="13.4" data-path="c13.html"><a href="c13.html#chapter-overview-8"><i class="fa fa-check"></i><b>13.4</b> Chapter overview</a>
 <ul>
 <li class="chapter" data-level="13.4.1" data-path="c13.html"><a href="c13.html#background-6"><i class="fa fa-check"></i><b>13.4.1</b> Background</a></li>
-<li class="chapter" data-level="13.4.2" data-path="c13.html"><a href="c13.html#data-source-1"><i class="fa fa-check"></i><b>13.4.2</b> Data Source</a></li>
+<li class="chapter" data-level="13.4.2" data-path="c13.html"><a href="c13.html#data-source-1"><i class="fa fa-check"></i><b>13.4.2</b> Data source</a></li>
 <li class="chapter" data-level="13.4.3" data-path="c13.html"><a href="c13.html#methods-5"><i class="fa fa-check"></i><b>13.4.3</b> Methods</a></li>
 </ul></li>
-<li class="chapter" data-level="13.5" data-path="c13.html"><a href="c13.html#load-packages-5"><i class="fa fa-check"></i><b>13.5</b> Load Packages</a></li>
-<li class="chapter" data-level="13.6" data-path="c13.html"><a href="c13.html#the-role-of-dummy-codes"><i class="fa fa-check"></i><b>13.6</b> The Role of Dummy Codes</a></li>
-<li class="chapter" data-level="13.7" data-path="c13.html"><a href="c13.html#import-data-5"><i class="fa fa-check"></i><b>13.7</b> Import Data</a></li>
+<li class="chapter" data-level="13.5" data-path="c13.html"><a href="c13.html#load-packages-5"><i class="fa fa-check"></i><b>13.5</b> Load packages</a></li>
+<li class="chapter" data-level="13.6" data-path="c13.html"><a href="c13.html#the-role-of-dummy-codes"><i class="fa fa-check"></i><b>13.6</b> The role of dummy codes</a></li>
+<li class="chapter" data-level="13.7" data-path="c13.html"><a href="c13.html#import-data-5"><i class="fa fa-check"></i><b>13.7</b> Import data</a></li>
 <li class="chapter" data-level="13.8" data-path="c13.html"><a href="c13.html#analysis-4"><i class="fa fa-check"></i><b>13.8</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="13.8.1" data-path="c13.html"><a href="c13.html#regression-linear-model-analysis-with-dummy-codes"><i class="fa fa-check"></i><b>13.8.1</b> Regression (Linear Model) Analysis with Dummy Codes</a></li>
-<li class="chapter" data-level="13.8.2" data-path="c13.html"><a href="c13.html#a-deep-dive-into-multilevel-models"><i class="fa fa-check"></i><b>13.8.2</b> A Deep-Dive into Multilevel Models</a></li>
-<li class="chapter" data-level="13.8.3" data-path="c13.html"><a href="c13.html#multilevel-model-analysis"><i class="fa fa-check"></i><b>13.8.3</b> Multilevel Model Analysis</a></li>
+<li class="chapter" data-level="13.8.1" data-path="c13.html"><a href="c13.html#regression-linear-model-analysis-with-dummy-codes"><i class="fa fa-check"></i><b>13.8.1</b> Regression (linear model) analysis with dummy codes</a></li>
+<li class="chapter" data-level="13.8.2" data-path="c13.html"><a href="c13.html#a-deep-dive-into-multilevel-models"><i class="fa fa-check"></i><b>13.8.2</b> A deep-dive into multilevel models</a></li>
+<li class="chapter" data-level="13.8.3" data-path="c13.html"><a href="c13.html#multilevel-model-analysis"><i class="fa fa-check"></i><b>13.8.3</b> Multilevel model analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="13.9" data-path="c13.html"><a href="c13.html#results-4"><i class="fa fa-check"></i><b>13.9</b> Results</a>
 <ul>
-<li class="chapter" data-level="13.9.1" data-path="c13.html"><a href="c13.html#adding-additional-levels"><i class="fa fa-check"></i><b>13.9.1</b> Adding Additional Levels</a></li>
+<li class="chapter" data-level="13.9.1" data-path="c13.html"><a href="c13.html#adding-additional-levels"><i class="fa fa-check"></i><b>13.9.1</b> Adding additional levels</a></li>
 </ul></li>
 <li class="chapter" data-level="13.10" data-path="c13.html"><a href="c13.html#conclusion-9"><i class="fa fa-check"></i><b>13.10</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="c14.html"><a href="c14.html"><i class="fa fa-check"></i><b>14</b> Walkthrough 8: Predicting students’ final grades using supervised machine learning methods</a>
+<li class="chapter" data-level="14" data-path="c14.html"><a href="c14.html"><i class="fa fa-check"></i><b>14</b> Walkthrough 8: Predicting student pass/fail outcomes using supervised machine learning</a>
 <ul>
 <li class="chapter" data-level="14.1" data-path="c14.html"><a href="c14.html#topics-emphasized-9"><i class="fa fa-check"></i><b>14.1</b> Topics emphasized</a></li>
 <li class="chapter" data-level="14.2" data-path="c14.html"><a href="c14.html#functions-introduced-9"><i class="fa fa-check"></i><b>14.2</b> Functions introduced</a></li>
@@ -538,14 +546,33 @@ div.csl-indent {
 <li class="chapter" data-level="14.4" data-path="c14.html"><a href="c14.html#chapter-overview-9"><i class="fa fa-check"></i><b>14.4</b> Chapter overview</a>
 <ul>
 <li class="chapter" data-level="14.4.1" data-path="c14.html"><a href="c14.html#background-7"><i class="fa fa-check"></i><b>14.4.1</b> Background</a></li>
-<li class="chapter" data-level="14.4.2" data-path="c14.html"><a href="c14.html#data-sources-3"><i class="fa fa-check"></i><b>14.4.2</b> Data sources</a></li>
+<li class="chapter" data-level="14.4.2" data-path="c14.html"><a href="c14.html#data-sources-4"><i class="fa fa-check"></i><b>14.4.2</b> Data sources</a></li>
 <li class="chapter" data-level="14.4.3" data-path="c14.html"><a href="c14.html#methods-6"><i class="fa fa-check"></i><b>14.4.3</b> Methods</a></li>
 </ul></li>
-<li class="chapter" data-level="14.5" data-path="c14.html"><a href="c14.html#load-packages-6"><i class="fa fa-check"></i><b>14.5</b> Load packages</a>
+<li class="chapter" data-level="14.5" data-path="c14.html"><a href="c14.html#analysis-5"><i class="fa fa-check"></i><b>14.5</b> Analysis</a>
 <ul>
-<li class="chapter" data-level="14.5.1" data-path="c14.html"><a href="c14.html#preprocessing-and-feature-engineering"><i class="fa fa-check"></i><b>14.5.1</b> Preprocessing and Feature Engineering</a></li>
+<li class="chapter" data-level="14.5.1" data-path="c14.html"><a href="c14.html#load-packages-6"><i class="fa fa-check"></i><b>14.5.1</b> Load packages</a></li>
+<li class="chapter" data-level="14.5.2" data-path="c14.html"><a href="c14.html#import-data-6"><i class="fa fa-check"></i><b>14.5.2</b> Import data</a></li>
 </ul></li>
-<li class="chapter" data-level="14.6" data-path="c14.html"><a href="c14.html#conclusion-10"><i class="fa fa-check"></i><b>14.6</b> Conclusion</a></li>
+<li class="chapter" data-level="14.6" data-path="c14.html"><a href="c14.html#the-supervised-machine-learning-workflow"><i class="fa fa-check"></i><b>14.6</b> The supervised machine learning workflow</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="c14.html"><a href="c14.html#step-1-creating-outcome-and-predictor-variables"><i class="fa fa-check"></i><b>14.6.1</b> Step 1: Creating outcome and predictor variables</a></li>
+<li class="chapter" data-level="14.6.2" data-path="c14.html"><a href="c14.html#step-2-splitting-the-data"><i class="fa fa-check"></i><b>14.6.2</b> Step 2: Splitting the data</a></li>
+<li class="chapter" data-level="14.6.3" data-path="c14.html"><a href="c14.html#step-3-creating-a-recipe-for-selected-preprocessing-steps"><i class="fa fa-check"></i><b>14.6.3</b> Step 3: Creating a recipe for selected preprocessing steps</a></li>
+<li class="chapter" data-level="14.6.4" data-path="c14.html"><a href="c14.html#step-4-specifying-the-model-and-workflow"><i class="fa fa-check"></i><b>14.6.4</b> Step 4: Specifying the model and workflow</a></li>
+<li class="chapter" data-level="14.6.5" data-path="c14.html"><a href="c14.html#step-5-fitting-the-model"><i class="fa fa-check"></i><b>14.6.5</b> Step 5: Fitting the model</a></li>
+<li class="chapter" data-level="14.6.6" data-path="c14.html"><a href="c14.html#step-6-evaluating-model-performance"><i class="fa fa-check"></i><b>14.6.6</b> Step 6: Evaluating model performance</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="c14.html"><a href="c14.html#interpreting-results"><i class="fa fa-check"></i><b>14.7</b> Interpreting results</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="c14.html"><a href="c14.html#the-limitation-of-accuracy"><i class="fa fa-check"></i><b>14.7.1</b> The limitation of accuracy</a></li>
+<li class="chapter" data-level="14.7.2" data-path="c14.html"><a href="c14.html#looking-deeper-with-a-confusion-matrix"><i class="fa fa-check"></i><b>14.7.2</b> Looking deeper with a confusion matrix</a></li>
+<li class="chapter" data-level="14.7.3" data-path="c14.html"><a href="c14.html#metrics-built-from-the-confusion-matrix"><i class="fa fa-check"></i><b>14.7.3</b> Metrics built from the confusion matrix</a></li>
+<li class="chapter" data-level="14.7.4" data-path="c14.html"><a href="c14.html#when-does-each-metric-matter"><i class="fa fa-check"></i><b>14.7.4</b> When does each metric matter?</a></li>
+<li class="chapter" data-level="14.7.5" data-path="c14.html"><a href="c14.html#beyond-the-confusion-matrix-auc-roc"><i class="fa fa-check"></i><b>14.7.5</b> Beyond the confusion matrix: AUC-ROC</a></li>
+<li class="chapter" data-level="14.7.6" data-path="c14.html"><a href="c14.html#improving-the-model"><i class="fa fa-check"></i><b>14.7.6</b> Improving the model</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="c14.html"><a href="c14.html#conclusion-10"><i class="fa fa-check"></i><b>14.8</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="c15.html"><a href="c15.html"><i class="fa fa-check"></i><b>15</b> Introducing data science tools to your education job</a>
 <ul>
@@ -558,8 +585,8 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="c15.html"><a href="c15.html#other-ways-to-reimagine-the-scale-of-your-work"><i class="fa fa-check"></i><b>15.3</b> Other ways to reimagine the scale of your work</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="c15.html"><a href="c15.html#reflect-on-your-current-scale-then-push-to-the-next-level"><i class="fa fa-check"></i><b>15.3.1</b> Reflect on your current scale, then push to the next level</a></li>
-<li class="chapter" data-level="15.3.2" data-path="c15.html"><a href="c15.html#look-for-lots-of-similarly-structured-sata"><i class="fa fa-check"></i><b>15.3.2</b> Look for lots of similarly structured sata</a></li>
-<li class="chapter" data-level="15.3.3" data-path="c15.html"><a href="c15.html#cleaning-data"><i class="fa fa-check"></i><b>15.3.3</b> Cleaning data</a></li>
+<li class="chapter" data-level="15.3.2" data-path="c15.html"><a href="c15.html#look-for-lots-of-similarly-structured-data"><i class="fa fa-check"></i><b>15.3.2</b> Look for lots of similarly structured data</a></li>
+<li class="chapter" data-level="15.3.3" data-path="c15.html"><a href="c15.html#cleaning-data-1"><i class="fa fa-check"></i><b>15.3.3</b> Cleaning data</a></li>
 </ul></li>
 <li class="chapter" data-level="15.4" data-path="c15.html"><a href="c15.html#solving-problems-together"><i class="fa fa-check"></i><b>15.4</b> Solving problems together</a>
 <ul>
@@ -577,29 +604,27 @@ div.csl-indent {
 <li class="chapter" data-level="16.2.1" data-path="c16.html"><a href="c16.html#problem-based-learning"><i class="fa fa-check"></i><b>16.2.1</b> Problem-based learning</a></li>
 <li class="chapter" data-level="16.2.2" data-path="c16.html"><a href="c16.html#differentiation"><i class="fa fa-check"></i><b>16.2.2</b> Differentiation</a></li>
 <li class="chapter" data-level="16.2.3" data-path="c16.html"><a href="c16.html#working-in-the-open"><i class="fa fa-check"></i><b>16.2.3</b> Working in the open</a></li>
+<li class="chapter" data-level="16.2.4" data-path="c16.html"><a href="c16.html#building-mental-models"><i class="fa fa-check"></i><b>16.2.4</b> Building mental models</a></li>
+<li class="chapter" data-level="16.2.5" data-path="c16.html"><a href="c16.html#universal-design"><i class="fa fa-check"></i><b>16.2.5</b> Universal design</a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="c16.html"><a href="c16.html#building-mental-models"><i class="fa fa-check"></i><b>16.3</b> Building mental models</a>
+<li class="chapter" data-level="16.3" data-path="c16.html"><a href="c16.html#strategies-for-teaching-data-science"><i class="fa fa-check"></i><b>16.3</b> Strategies for teaching data science</a>
 <ul>
-<li class="chapter" data-level="16.3.1" data-path="c16.html"><a href="c16.html#universal-design"><i class="fa fa-check"></i><b>16.3.1</b> Universal design</a></li>
+<li class="chapter" data-level="16.3.1" data-path="c16.html"><a href="c16.html#provide-a-home-base-for-learners-to-access-resources-and-to-learn-more"><i class="fa fa-check"></i><b>16.3.1</b> Provide a home base for learners to access resources (and to learn more)</a></li>
+<li class="chapter" data-level="16.3.2" data-path="c16.html"><a href="c16.html#when-it-comes-to-writing-code-think-early-and-often"><i class="fa fa-check"></i><b>16.3.2</b> When it comes to writing code, think early and often</a></li>
+<li class="chapter" data-level="16.3.3" data-path="c16.html"><a href="c16.html#dont-touch-that-keyboard"><i class="fa fa-check"></i><b>16.3.3</b> Don’t touch that keyboard!</a></li>
+<li class="chapter" data-level="16.3.4" data-path="c16.html"><a href="c16.html#anticipate-issues-and-sacrifice-accuracy-for-clarity"><i class="fa fa-check"></i><b>16.3.4</b> Anticipate issues (and sacrifice accuracy for clarity)</a></li>
+<li class="chapter" data-level="16.3.5" data-path="c16.html"><a href="c16.html#start-lessons-or-activities-with-visualizing-data"><i class="fa fa-check"></i><b>16.3.5</b> Start lessons or activities with visualizing data</a></li>
+<li class="chapter" data-level="16.3.6" data-path="c16.html"><a href="c16.html#consider-representation-and-inclusion-in-the-data-and-examples-you-use"><i class="fa fa-check"></i><b>16.3.6</b> Consider representation and inclusion in the data and examples you use</a></li>
+<li class="chapter" data-level="16.3.7" data-path="c16.html"><a href="c16.html#draw-on-other-resources"><i class="fa fa-check"></i><b>16.3.7</b> Draw on other resources</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="c16.html"><a href="c16.html#strategies-for-teaching-data-science"><i class="fa fa-check"></i><b>16.4</b> Strategies for teaching data science</a>
+<li class="chapter" data-level="16.4" data-path="c16.html"><a href="c16.html#general-strategies-related-to-teaching-and-learning"><i class="fa fa-check"></i><b>16.4</b> General strategies related to teaching and learning</a>
 <ul>
-<li class="chapter" data-level="16.4.1" data-path="c16.html"><a href="c16.html#provide-a-home-base-for-learners-to-access-resources-and-to-learn-more"><i class="fa fa-check"></i><b>16.4.1</b> Provide a home base for learners to access resources (and to learn more)</a></li>
-<li class="chapter" data-level="16.4.2" data-path="c16.html"><a href="c16.html#when-it-comes-to-writing-code-think-early-and-often"><i class="fa fa-check"></i><b>16.4.2</b> When it comes to writing code, think early and often</a></li>
-<li class="chapter" data-level="16.4.3" data-path="c16.html"><a href="c16.html#dont-touch-that-keyboard"><i class="fa fa-check"></i><b>16.4.3</b> Don’t touch that keyboard!</a></li>
-<li class="chapter" data-level="16.4.4" data-path="c16.html"><a href="c16.html#anticipate-issues-and-sacrifice-accuracy-for-clarity"><i class="fa fa-check"></i><b>16.4.4</b> Anticipate issues (and sacrifice accuracy for clarity)</a></li>
-<li class="chapter" data-level="16.4.5" data-path="c16.html"><a href="c16.html#start-lessons-or-activities-with-visualizing-data"><i class="fa fa-check"></i><b>16.4.5</b> Start lessons or activities with visualizing data</a></li>
-<li class="chapter" data-level="16.4.6" data-path="c16.html"><a href="c16.html#consider-representation-and-inclusion-in-the-data-and-examples-you-use"><i class="fa fa-check"></i><b>16.4.6</b> Consider representation and inclusion in the data and examples you use</a></li>
-<li class="chapter" data-level="16.4.7" data-path="c16.html"><a href="c16.html#draw-on-other-resources"><i class="fa fa-check"></i><b>16.4.7</b> Draw on other resources</a></li>
+<li class="chapter" data-level="16.4.1" data-path="c16.html"><a href="c16.html#teaching-and-learning-are-complex"><i class="fa fa-check"></i><b>16.4.1</b> Teaching and learning are complex</a></li>
+<li class="chapter" data-level="16.4.2" data-path="c16.html"><a href="c16.html#learners-learn-many-different-things-consciously-and-unconsciously"><i class="fa fa-check"></i><b>16.4.2</b> Learners learn many different things (consciously and unconsciously)</a></li>
+<li class="chapter" data-level="16.4.3" data-path="c16.html"><a href="c16.html#meta-cognition-is-important-even-though-it-sounds-more-sophisticated-than-it-is"><i class="fa fa-check"></i><b>16.4.3</b> Meta-cognition is important (even though it sounds more sophisticated than it is!)</a></li>
+<li class="chapter" data-level="16.4.4" data-path="c16.html"><a href="c16.html#learning-strategies-matter"><i class="fa fa-check"></i><b>16.4.4</b> Learning strategies matter</a></li>
 </ul></li>
-<li class="chapter" data-level="16.5" data-path="c16.html"><a href="c16.html#general-strategies-related-to-teaching-and-learning"><i class="fa fa-check"></i><b>16.5</b> General strategies related to teaching and learning</a>
-<ul>
-<li class="chapter" data-level="16.5.1" data-path="c16.html"><a href="c16.html#teaching-and-learning-are-complex"><i class="fa fa-check"></i><b>16.5.1</b> Teaching and learning are complex</a></li>
-<li class="chapter" data-level="16.5.2" data-path="c16.html"><a href="c16.html#learners-learn-many-different-things-consciously-and-unconsciously"><i class="fa fa-check"></i><b>16.5.2</b> Learners learn many different things (consciously and unconsciously)</a></li>
-<li class="chapter" data-level="16.5.3" data-path="c16.html"><a href="c16.html#meta-cognition-is-important-even-though-it-sounds-more-dophisticated-than-it-is"><i class="fa fa-check"></i><b>16.5.3</b> Meta-cognition is important (even though it sounds more dophisticated than it is!)</a></li>
-<li class="chapter" data-level="16.5.4" data-path="c16.html"><a href="c16.html#learning-strategies-matter"><i class="fa fa-check"></i><b>16.5.4</b> Learning strategies matter</a></li>
-</ul></li>
-<li class="chapter" data-level="16.6" data-path="c16.html"><a href="c16.html#summary-1"><i class="fa fa-check"></i><b>16.6</b> Summary</a></li>
+<li class="chapter" data-level="16.5" data-path="c16.html"><a href="c16.html#summary-1"><i class="fa fa-check"></i><b>16.5</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="c17.html"><a href="c17.html"><i class="fa fa-check"></i><b>17</b> Learning more</a>
 <ul>
@@ -647,7 +672,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="20" data-path="c20.html"><a href="c20.html"><i class="fa fa-check"></i><b>20</b> Appendices</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="c20.html"><a href="c20.html#c20a"><i class="fa fa-check"></i><b>20.1</b> Appendix A: importing data</a>
+<li class="chapter" data-level="20.1" data-path="c20.html"><a href="c20.html#c20a"><i class="fa fa-check"></i><b>20.1</b> Appendix A: Importing data</a>
 <ul>
 <li class="chapter" data-level="20.1.1" data-path="c20.html"><a href="c20.html#using-functions-to-import-data"><i class="fa fa-check"></i><b>20.1.1</b> Using functions to import data</a></li>
 <li class="chapter" data-level="20.1.2" data-path="c20.html"><a href="c20.html#saving-a-file-from-the-internet"><i class="fa fa-check"></i><b>20.1.2</b> Saving a file from the internet</a></li>
@@ -655,21 +680,15 @@ div.csl-indent {
 <li class="chapter" data-level="20.1.4" data-path="c20.html"><a href="c20.html#saving-files"><i class="fa fa-check"></i><b>20.1.4</b> Saving files</a></li>
 <li class="chapter" data-level="20.1.5" data-path="c20.html"><a href="c20.html#loading-excel-files"><i class="fa fa-check"></i><b>20.1.5</b> Loading Excel files</a></li>
 <li class="chapter" data-level="20.1.6" data-path="c20.html"><a href="c20.html#loading-sav-files"><i class="fa fa-check"></i><b>20.1.6</b> Loading SAV files</a></li>
-<li class="chapter" data-level="20.1.7" data-path="c20.html"><a href="c20.html#google-sheets"><i class="fa fa-check"></i><b>20.1.7</b> Google sheets</a></li>
+<li class="chapter" data-level="20.1.7" data-path="c20.html"><a href="c20.html#google-sheets"><i class="fa fa-check"></i><b>20.1.7</b> Google Sheets</a></li>
 </ul></li>
-<li class="chapter" data-level="20.2" data-path="c20.html"><a href="c20.html#appendix-b-accessing-twitter-data-c20b"><i class="fa fa-check"></i><b>20.2</b> Appendix B: accessing Twitter data {c20b}</a>
+<li class="chapter" data-level="20.2" data-path="c20.html"><a href="c20.html#c20c"><i class="fa fa-check"></i><b>20.2</b> Appendix B: Social network influence and selection models</a>
 <ul>
-<li class="chapter" data-level="20.2.1" data-path="c20.html"><a href="c20.html#accessing-twitter-data-from-the-last-seven-days"><i class="fa fa-check"></i><b>20.2.1</b> Accessing Twitter data from the last seven days</a></li>
-<li class="chapter" data-level="20.2.2" data-path="c20.html"><a href="c20.html#accessing-historical-twitter-data-when-you-have-access-to-already-collected-status-urls"><i class="fa fa-check"></i><b>20.2.2</b> Accessing historical Twitter data when you have access to already-collected status URLs</a></li>
-<li class="chapter" data-level="20.2.3" data-path="c20.html"><a href="c20.html#accessing-historical-data-when-you-do-not-have-access-to-status-urls"><i class="fa fa-check"></i><b>20.2.3</b> Accessing historical data when you do not have access to status URLs</a></li>
+<li class="chapter" data-level="20.2.1" data-path="c20.html"><a href="c20.html#an-example-of-influence"><i class="fa fa-check"></i><b>20.2.1</b> An example of influence</a></li>
+<li class="chapter" data-level="20.2.2" data-path="c20.html"><a href="c20.html#joining-the-data-1"><i class="fa fa-check"></i><b>20.2.2</b> Joining the data</a></li>
+<li class="chapter" data-level="20.2.3" data-path="c20.html"><a href="c20.html#an-example-of-selection"><i class="fa fa-check"></i><b>20.2.3</b> An example of selection</a></li>
 </ul></li>
-<li class="chapter" data-level="20.3" data-path="c20.html"><a href="c20.html#c20c"><i class="fa fa-check"></i><b>20.3</b> Appendix C: social network influence and selection models</a>
-<ul>
-<li class="chapter" data-level="20.3.1" data-path="c20.html"><a href="c20.html#an-example-of-influence"><i class="fa fa-check"></i><b>20.3.1</b> An example of influence</a></li>
-<li class="chapter" data-level="20.3.2" data-path="c20.html"><a href="c20.html#joining-the-data-1"><i class="fa fa-check"></i><b>20.3.2</b> Joining the data</a></li>
-<li class="chapter" data-level="20.3.3" data-path="c20.html"><a href="c20.html#an-example-of-selection"><i class="fa fa-check"></i><b>20.3.3</b> An example of selection</a></li>
-</ul></li>
-<li class="chapter" data-level="20.4" data-path="c20.html"><a href="c20.html#appendix-d-colophon"><i class="fa fa-check"></i><b>20.4</b> Appendix D: colophon</a></li>
+<li class="chapter" data-level="20.3" data-path="c20.html"><a href="c20.html#appendix-c-colophon"><i class="fa fa-check"></i><b>20.3</b> Appendix C: Colophon</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -697,9 +716,9 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="c14" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">14</span> Walkthrough 8: Predicting students’ final grades using supervised machine learning methods<a href="c14.html#c14" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">14</span> Walkthrough 8: Predicting student pass/fail outcomes using supervised machine learning<a href="c14.html#c14" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><strong>Abstract</strong></p>
-<p>This chapter introduces a different kind of analysis that is becoming increasingly common – supervised machine learning. Such analytic methods rely on identifying an outcome (another name for a dependent variable), and then building (or training) a model to predict that outcome. Some supervised machine learning models are highly complex, whereas others are simple. To illustrate and gain experience training and interpreting a supervised machine learning model, this chapter involves predicting whether students will pasa a class using a deliberately simple model – a generalized linear model. The Open University Learning Analytics Dataset (OULAD) is used. The tidymodels collection fo packages is used to carry out each of the principal supervised machine learning steps. At the conclusion, ways to build more complex models are discussed.</p>
+<p>This chapter introduces an increasingly common approach to modeling — supervised machine learning. This involves identifying an outcome or a dependent variable and training a model to predict an outcome. Some supervised machine learning models are highly complex, while others are simple. To illustrate this concept, this chapter includes a demonstration of using a generalized linear model to predict whether students will pass a class. The Open University Learning Analytics Dataset (OULAD) is used as example data in this activity. The {tidymodels} collection of packages is used to carry out the principal supervised machine learning steps. At the conclusion, ways to build more complex models are discussed.</p>
 <div id="topics-emphasized-9" class="section level2 hasAnchor" number="14.1">
 <h2><span class="header-section-number">14.1</span> Topics emphasized<a href="c14.html#topics-emphasized-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
@@ -710,203 +729,224 @@ div.csl-indent {
 <div id="functions-introduced-9" class="section level2 hasAnchor" number="14.2">
 <h2><span class="header-section-number">14.2</span> Functions introduced<a href="c14.html#functions-introduced-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>initial_split()</li>
-<li>training()</li>
-<li>testing()</li>
-<li>recipe()</li>
-<li>logistic_reg()</li>
-<li>set_model()</li>
-<li>set_mode()</li>
-<li>workflow()</li>
-<li>collect_predictions()</li>
-<li>collect_metrics()</li>
+<li><code>stats::quantile()</code></li>
+<li><code>rsample::initial_split()</code></li>
+<li><code>rsample::training()</code></li>
+<li><code>rsample::testing()</code></li>
+<li><code>recipes::recipe()</code></li>
+<li><code>parsnip::logistic_reg()</code></li>
+<li><code>parsnip::set_engine()</code></li>
+<li><code>parsnip::set_mode()</code></li>
+<li><code>workflows::workflow()</code></li>
+<li><code>tune::collect_predictions()</code></li>
+<li><code>tune::collect_metrics()</code></li>
 </ul>
 </div>
 <div id="vocabulary-7" class="section level2 hasAnchor" number="14.3">
 <h2><span class="header-section-number">14.3</span> Vocabulary<a href="c14.html#vocabulary-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We introduce these key terms in the chapter:</p>
 <ul>
 <li>supervised machine learning</li>
 <li>training data</li>
 <li>testing data</li>
+<li>overfitting</li>
+<li>generalizability</li>
+<li>bias-variance tradeoff</li>
 <li>logistic regression</li>
 <li>classification</li>
+<li>feature engineering</li>
+<li>recipe</li>
+<li>workflow</li>
+<li>stratified split</li>
 <li>predictions</li>
 <li>metrics</li>
+<li>confusion matrix</li>
+<li>sensitivity (recall) and specificity</li>
+<li>positive predictive value (PPV) and negative predictive value (NPV)</li>
+<li>AUC-ROC</li>
 </ul>
 </div>
 <div id="chapter-overview-9" class="section level2 hasAnchor" number="14.4">
 <h2><span class="header-section-number">14.4</span> Chapter overview<a href="c14.html#chapter-overview-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="background-7" class="section level3 hasAnchor" number="14.4.1">
 <h3><span class="header-section-number">14.4.1</span> Background<a href="c14.html#background-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In a face-to-face classroom, an educator might count on behavioral cues to help them effectively deliver instruction. Online, educators do not readily have access to the behavioral cues essential for effective face-to-face instruction. For example, in a face-to-face classroom, cues such as a student missing class repeatedly or many students seeming distracted during a lecture can trigger a shift in the delivery of instruction. Many educators find themselves looking for ways to understand and support students online in the same way that face-to-face instructors would. Educational technology affords unique opportunities to support student success online because it provides new methods of collecting and storing data.</p>
-<p>Online learning management systems and Massive Open Online Courses (MOOCs) often automatically track several types of student interactions with the system and feed that data back to the course instructor. For example, an instructor might be able to quickly see how many students logged into their course on a certain day, or they might see how long students engaged with a posted video before pausing it or logging out. The collection of this data is met with mixed reactions from educators. Some are concerned that data collection in this manner is intrusive, but others see a new opportunity to support students in online contexts in new ways. As long as data are collected and utilized responsibly, data collection can support student success.</p>
-<p>In this walkthrough, we examine the question, <em>How well can we predict students who are at risk of dropping a course?</em></p>
-<p>We focus on <em>predicting</em> an outcome–whether a student passes a course–more than <em>explaining</em> how variables relate to an outcome, such as how the amount of time students spend on the course relates to their final grade. We do so with a relatively simple machine learning algorithm, or model, a generalized linear regression model.</p>
+<p>In a face-to-face classroom, teachers use student cues to help them engage. In online classrooms, these cues aren’t always available.</p>
+<p>For example, in a face-to-face class, teachers adjust when they notice that students are distracted. Many online educators look for ways to support students online in the same way that face-to-face instructors would. Technology provides new methods of collecting and storing data that can serve as the basis for this kind of student support.</p>
+<p>Online Learning Management Systems (LMSs) automatically track student interactions with the system and feed that data back to the course instructor. The collection of this data is often met with mixed reactions from educators. Some are concerned that this kind of data collection is intrusive, but others see a new opportunity to support students in online classrooms. As long as data is collected and used responsibly, this kind of data collection can support student success.</p>
+<p>In this walkthrough, you’ll examine the question, How well can we predict students who are at risk of dropping a course? To answer this question, you’ll use typical learning analytics data—student records, assessment outcomes, course outcomes, and measures of students’ interactions with the course.</p>
+<p>Here’s the key shift in thinking you’ll make when using a supervised machine learning model: You’ll focus on predicting an outcome, like whether a student passes a course. This is different from explaining how variables influence an outcome, like how course time relates to final grades. You’ll learn to execute this shift in thinking through a generalized linear model.</p>
 </div>
-<div id="data-sources-3" class="section level3 hasAnchor" number="14.4.2">
-<h3><span class="header-section-number">14.4.2</span> Data sources<a href="c14.html#data-sources-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We’ll be using a widely-used data set in the learning analytics field: the <a href="https://analyse.kmi.open.ac.uk/open_dataset">Open University Learning Analytics Dataset (OULAD)</a>. The OULAD was created by learning analytics researchers at the United Kingdom-based Open University <span class="citation">(<a href="references.html#ref-kuzilek2017">Kuzilek et al., 2017</a>)</span>. It includes data from post-secondary learners participation in one of several Massive Open Online Courses (called <em>modules</em> in the OULAD).</p>
-<p>The Open University Learning Analytics Dataset (OULAD) provides information for analyzing student outcomes in online learning environments. Many students successfully complete these courses, but not all do, highlighting the importance of identifying those who may be at risk. The dataset includes information on students’ initial characteristics and their interactions within the course.</p>
-<p>In this chapter, we draw on a widely-used data set in the learning analytics field: the Open University Learning Analytics Dataset (OULAD). The OULAD was created by learning analytics researchers at the United Kingdom-based Open University. It includes data from post-secondary learners participation in one of several Massive Open Online Courses (called modules in the OULAD).</p>
+<div id="data-sources-4" class="section level3 hasAnchor" number="14.4.2">
+<h3><span class="header-section-number">14.4.2</span> Data sources<a href="c14.html#data-sources-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You’ll be using a widely-used dataset in the learning analytics field: the Open University Learning Analytics Dataset (OULAD). The OULAD was created by learning analytics researchers at the United Kingdom-based Open University <span class="citation">(<a href="references.html#ref-kuzilek2017">Kuzilek et al., 2017</a>)</span>. It includes data from post-secondary learners’ participation in one of several Massive Open Online Courses. These courses are called modules in the OULAD.</p>
+<p>Many students successfully complete these courses, but not all do. This highlights the importance of identifying those who may be at risk.</p>
+<p>Our analysis will use three datasets, <code>oulad_students</code>, <code>oulad_assessments</code>, and <code>oulad_interactions_filtered</code>. The <code>oulad_students</code> dataset has undergone preprocessing to streamline the analysis. It uses information from three sources that relate to students and the courses they took: <code>studentInfo</code>, <code>courses</code>, and <code>studentRegistration</code>. The <code>oulad_assessments</code> file provides data on students’ performance on various assessments throughout their courses.</p>
 </div>
 <div id="methods-6" class="section level3 hasAnchor" number="14.4.3">
 <h3><span class="header-section-number">14.4.3</span> Methods<a href="c14.html#methods-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="predictive-snalytics-and-machine-learning" class="section level4 hasAnchor" number="14.4.3.1">
-<h4><span class="header-section-number">14.4.3.1</span> Predictive snalytics and machine learning<a href="c14.html#predictive-snalytics-and-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>A buzzword in education software spheres these days is “predictive analytics”. Administrators and educators alike are interested in applying the methods long utilized by marketers and other business professionals to try to determine what a person will want, need, or do next. “Predictive analytics” is a blanket term that can be used to describe any statistical approach that yields a prediction. We could ask a predictive model: “What is the likelihood that my cat will sit on my keyboard today?” and, given enough past information about your cat’s computer-sitting behavior, the model could give you a probability of that computer-sitting happening today. Under the hood, some predictive models are not very complex. If we have an outcome with two possibilities, a logistic regression model could be fit to the data in order to help us answer the cat-keyboard question. In this chapter, we’ll compare a machine learning model to another type of regression: multiple regression. We want to make sure to fit the simplest model as possible to our data. After all, the effectiveness in predicting the outcome is really the most important thing, not the fanciness of the model.</p>
-<p>Data collection is an essential first step in any type of machine learning or predictive analytics. It is important to note here that machine learning only works effectively when (1) a person selects variables to include in the model that are anticipated to be related to the outcome and (2) a person correctly interprets the model’s findings.</p>
-<p>There is an adage: “garbage in, garbage out”. This holds true here. If we do not feel confident that the data we collected are accurate, we will not be able to be confident in our conclusions no matter what model we build. To collect good data, we must first clarify what it is that we want to know (i.e., what question are we really asking?) and what information we would need in order to effectively answer that question. Sometimes, people approach analysis from the opposite direction—they might look at the data they have and ask what questions could be answered based on that data. That approach is okay, as long as you are willing to acknowledge that sometimes the pre-existing dataset may <em>not</em> contain all the information you need, and you might need to go out and find additional information to add to your dataset to truly answer your question.</p>
-<p>When people talk about “machine learning”, you might get the image in your head of a desktop computer learning how to spell. You might picture your favorite social media site showing you advertisements that are just a little too accurate. At its core, machine learning is the process of “showing” your statistical model only some of the data at once and training the model to predict accurately on that training dataset (this is the “learning” part of machine learning). Then, the model as developed on the training data is shown new data—data you had all along, but hid from your computer initially—and you see how well the model that you developed on the training data performs on this new testing data. Eventually, you might use the model on entirely new data.</p>
+<div id="predictive-analytics-and-supervised-machine-learning" class="section level4 hasAnchor" number="14.4.3.1">
+<h4><span class="header-section-number">14.4.3.1</span> Predictive analytics and supervised machine learning<a href="c14.html#predictive-analytics-and-supervised-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>“Predictive analysis” is a buzzword in education software spheres. Administrators and educators alike are interested in applying the methods long utilized by marketers and other business professionals to predict what a person will want, need, or do. “Predictive analytics” is a blanket term that describes any statistical approach that yields a prediction. You could ask a predictive model: “What is the likelihood that my cat will sit on my keyboard today?” and, given enough past information about your cat’s computer-sitting behavior, the model estimates the probability of computer-sitting. Under the hood, some predictive models are not complex. In this chapter, you’ll use logistic regression, which is one of the simpler predictive models.</p>
+<p>There is an adage: “garbage in, garbage out”. This holds true here. If you do not feel confident that the data you collected is accurate, you won’t feel confident in your conclusions, regardless of the model. To collect good data, you must first identify what you want to learn and what information you need to learn it.</p>
+<p>Sometimes, people approach analysis from the opposite direction—they look at the data they have and identify questions that could be answered by it. That approach is okay, as long as you acknowledge that the pre-existing dataset may not contain all the information you need to answer your specific questions. You might need to find additional information to add to your dataset to truly answer the questions you have.</p>
+<p>At its core, machine learning is the process of training a model to accurately predict on a training dataset (this is the “learning” part of machine learning). Then, this newly trained model is used on new data. At this point, you’ll evaluate how well the model worked outside of the training data conditions.</p>
+</div>
+<div id="prediction-vs.-explanation-same-model-different-goals" class="section level4 hasAnchor" number="14.4.3.2">
+<h4><span class="header-section-number">14.4.3.2</span> Prediction vs. explanation: same model, different goals<a href="c14.html#prediction-vs.-explanation-same-model-different-goals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You may already be familiar with statistical models used to explain relationships between variables. For example, a researcher might use a regression model to estimate how strongly student motivation relates to course grades. The interesting output of that analysis is the coefficient itself: how much grades change with motivation, and whether that relationship is statistically significant.</p>
+<p>Supervised machine learning can use the very same statistical model — including the logistic regression you’ll use in this walkthrough — but with a different aim. In a supervised machine learning approach, the interesting output isn’t the coefficients; it’s the predictions themselves. Rather than asking “how does motivation relate to grades?”, you’ll ask “how accurately can we predict each student’s grade?”</p>
+<p>Let’s consider a regression equation (below) used to understand how a single variable (<span class="math inline">\(b_1\)</span>) relates to an outcome (<span class="math inline">\(y\)</span>). There is also an intercept term (<span class="math inline">\(b_0\)</span>) and a residual term (<span class="math inline">\(e\)</span>).</p>
+<p><span class="math display">\[y = b_0 + b_1x_1 + \cdots + e\]</span></p>
+<p>If your goal is inference, or explaining how variables relate to an outcome, you’ll typically use theory and prior research to choose a small set of predictors whose individual effects you can interpret. You’ll favor a transparent model where you understand how each predictor relates to <span class="math inline">\(y\)</span>.</p>
+<p>If your goal is prediction, you can do things differently:</p>
+<ul>
+<li>You can include many more predictors than is typical in an explanatory model, since you care less about interpreting each one individually.</li>
+<li>Multicollinearity (predictors being correlated with one another) is less of a concern, since you’re not trying to make claims about the effect of any single predictor.</li>
+<li>You evaluate the model not by its R², or coefficient significance, but by how well a trained model predicts values in a separate test dataset.</li>
+<li>You can use much more complex models, accepting some loss of interpretability in exchange for better predictive accuracy.</li>
+</ul>
+<p>The key idea is that it’s not about the algorithm, it’s about the aim and the use.</p>
+</div>
+<div id="why-split-data-into-training-and-testing-sets" class="section level4 hasAnchor" number="14.4.3.3">
+<h4><span class="header-section-number">14.4.3.3</span> Why split data into training and testing sets?<a href="c14.html#why-split-data-into-training-and-testing-sets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A core practice of supervised machine learning is splitting your data into two parts: a training set used to fit the model, and a testing set used to evaluate how well the model predicts on data it hasn’t seen.</p>
+<p>Why go through this trouble? If you fit a model using all of your data, you can almost always make the model fit that data extremely well — even perfectly. But a model that fits its own training data perfectly often performs poorly when given new data. This problem is called overfitting: the model has learned the specific patterns and noise of the training sample rather than patterns that generalize to new data.</p>
+<p>There are real risks to skipping this step; indeed, if you see a machine learning model that does not do this, beware! If you never test your model on data it hasn’t seen, you can easily believe you have a much better model than you actually do. When you or someone using your model try to apply it to new students or new courses, the predictions can fall apart. That’s why training/testing splits aren’t optional for supervised machine learning — they’re how you evaluate whether what you’ve built is useful.</p>
+</div>
+<div id="the-bias-variance-tradeoff" class="section level4 hasAnchor" number="14.4.3.4">
+<h4><span class="header-section-number">14.4.3.4</span> The bias-variance tradeoff<a href="c14.html#the-bias-variance-tradeoff" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Whether your model generalizes well depends on a tradeoff that all models face called the bias-variance tradeoff:</p>
+<ul>
+<li><strong>Bias</strong> is how far off your model’s predictions are from the true outcomes, on average. A model with high bias is under-fit — it fails to capture important relationships in the data.</li>
+<li><strong>Variance</strong> is how much your predictions would change if you trained the model on a slightly different sample. A model with high variance is over-fit — it’s too tuned to the specific data it saw during training.</li>
+</ul>
+<p>A simple model (like linear regression) tends to have higher bias but lower variance: it might miss subtle patterns, but its predictions are stable across different samples. A very complex model (like a deep neural network with many parameters) can fit training data very closely (low bias) but may give very different predictions when shown new data (high variance).</p>
+<p>Good supervised machine learning practice balances the two — finding a model that captures real patterns in the data without latching onto noise. Splitting data into training and testing sets is one important way to check this balance.</p>
+</div>
+<div id="a-spectrum-of-interpretability" class="section level4 hasAnchor" number="14.4.3.5">
+<h4><span class="header-section-number">14.4.3.5</span> A spectrum of interpretability<a href="c14.html#a-spectrum-of-interpretability" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Models also vary in how easy they are to interpret. It can help to think of three rough categories:</p>
+<ul>
+<li><strong>Transparent box</strong> models, like linear and logistic regression, have coefficients that map directly to interpretable effects. These are often preferred when inference is the goal.</li>
+<li><strong>Gray box</strong> models, like decision trees and random forests, are more complex but still allow you to inspect things like which predictors matter most (“feature importance”). They sit in the middle.</li>
+<li><strong>Black box</strong> models, like deep neural networks, can offer the highest predictive accuracy, but their internal logic is largely opaque.</li>
+</ul>
+<p>In this chapter, you’ll start with a transparent model — logistic regression — because it makes the contrast between explanation and prediction especially clear. At the end of the chapter, you’ll see how to swap in more complex (gray box) models like random forests and boosted trees with only minor changes to your code.</p>
+<p>Now you’ll dive into the analysis, starting with something you’re familiar with—loading packages.</p>
 </div>
 </div>
 </div>
-<div id="load-packages-6" class="section level2 hasAnchor" number="14.5">
-<h2><span class="header-section-number">14.5</span> Load packages<a href="c14.html#load-packages-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As always, if you have not installed any of these packages before, do so first using the <code>install.packages()</code> function. For a description of packages and their installation, review the <a href="c06.html#c06p">Packages</a> section of the <a href="c06.html#c06">Foundational Skills</a> chapter.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="c14.html#cb1-1" tabindex="-1"></a><span class="co"># load the packages</span></span>
-<span id="cb1-2"><a href="c14.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="c14.html#cb1-3" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code></pre></div>
-<div id="reading-csv-data" class="section level4 hasAnchor" number="14.5.0.1">
-<h4><span class="header-section-number">14.5.0.1</span> Reading CSV Data<a href="c14.html#reading-csv-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>To begin, we will load student-level data using the <code>read_csv()</code> function. This dataset has undergone minimal preprocessing to help streamline our analysis – it integrates information from three sources: <code>studentInfo</code>, <code>courses</code>, and <code>studentRegistration</code>.</p>
-<p>Additionally, we will load an assessments dataset, which provides data on students’ performance on various assessments throughout their courses.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="c14.html#cb2-1" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/ml/oulad-students.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 32593 Columns: 15
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (9): code_module, code_presentation, gender, region, highest_education, ...
-## dbl (6): id_student, num_of_prev_attempts, studied_credits, module_presentat...
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="c14.html#cb4-1" tabindex="-1"></a>assessments <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/ml/oulad-assessments.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 173912 Columns: 10
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (3): code_module, code_presentation, assessment_type
-## dbl (7): id_assessment, id_student, date_submitted, is_banked, score, date, ...
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div id="analysis-5" class="section level2 hasAnchor" number="14.5">
+<h2><span class="header-section-number">14.5</span> Analysis<a href="c14.html#analysis-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="load-packages-6" class="section level3 hasAnchor" number="14.5.1">
+<h3><span class="header-section-number">14.5.1</span> Load packages<a href="c14.html#load-packages-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you have not installed any of these packages before, do so first using the <code>install.packages()</code> function. For a description of packages and their installation, review the <a href="c06.html#c06p">Packages</a> section of the <a href="c06.html#c06">Foundational Skills</a> chapter.</p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="c14.html#cb340-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb340-2"><a href="c14.html#cb340-2" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb340-3"><a href="c14.html#cb340-3" tabindex="-1"></a><span class="fu">library</span>(dataedu)</span></code></pre></div>
 </div>
-<div id="preprocessing-and-feature-engineering" class="section level3 hasAnchor" number="14.5.1">
-<h3><span class="header-section-number">14.5.1</span> Preprocessing and Feature Engineering<a href="c14.html#preprocessing-and-feature-engineering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Our goal is to build a model that predicts whether a student is at risk of dropping out. We will handle some feature engineering directly, while moving a couple of preprocessing steps into the recipe to demonstrate how recipes work.</p>
-<div id="step-1-creating-outcome-and-predictor-variables-outside-the-recipe" class="section level4 hasAnchor" number="14.5.1.1">
-<h4><span class="header-section-number">14.5.1.1</span> Step 1: Creating Outcome and Predictor Variables Outside the Recipe<a href="c14.html#step-1-creating-outcome-and-predictor-variables-outside-the-recipe" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>To begin, we create the outcome variable (<code>pass</code>) and a factor variable for <code>disability</code> directly using <code>mutate()</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="c14.html#cb6-1" tabindex="-1"></a>students <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="c14.html#cb6-2" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">pass =</span> <span class="fu">ifelse</span>(final_result <span class="sc">==</span> <span class="st">&quot;Pass&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="c14.html#cb6-3" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">pass =</span> <span class="fu">as.factor</span>(pass),</span>
-<span id="cb6-4"><a href="c14.html#cb6-4" tabindex="-1"></a>           <span class="at">disability =</span> <span class="fu">as.factor</span>(disability))</span></code></pre></div>
-<p>We will also summarize assessment data to create a new predictor based on students’ performance on assessments submitted early in the course. Specifically, we will calculate the mean weighted score of assessments submitted before the first half of assignment dates.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="c14.html#cb7-1" tabindex="-1"></a>code_module_dates <span class="ot">&lt;-</span> assessments <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="c14.html#cb7-2" tabindex="-1"></a>    <span class="fu">group_by</span>(code_module, code_presentation) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href="c14.html#cb7-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">quantile_cutoff_date =</span> <span class="fu">quantile</span>(date, <span class="at">probs =</span> .<span class="dv">5</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;code_module&#39;. You can override using the
-## `.groups` argument.</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="c14.html#cb9-1" tabindex="-1"></a>assessments_joined <span class="ot">&lt;-</span> assessments <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="c14.html#cb9-2" tabindex="-1"></a>    <span class="fu">left_join</span>(code_module_dates) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a href="c14.html#cb9-3" tabindex="-1"></a>    <span class="fu">filter</span>(date <span class="sc">&lt;</span> quantile_cutoff_date) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-4"><a href="c14.html#cb9-4" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">weighted_score =</span> score <span class="sc">*</span> weight) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-5"><a href="c14.html#cb9-5" tabindex="-1"></a>    <span class="fu">group_by</span>(id_student) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-6"><a href="c14.html#cb9-6" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean_weighted_score =</span> <span class="fu">mean</span>(weighted_score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div id="import-data-6" class="section level3 hasAnchor" number="14.5.2">
+<h3><span class="header-section-number">14.5.2</span> Import data<a href="c14.html#import-data-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Get the data from the {dataedu} package.</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="c14.html#cb341-1" tabindex="-1"></a>students <span class="ot">&lt;-</span> dataedu<span class="sc">::</span>oulad_students</span>
+<span id="cb341-2"><a href="c14.html#cb341-2" tabindex="-1"></a>assessments <span class="ot">&lt;-</span> dataedu<span class="sc">::</span>oulad_assessments</span></code></pre></div>
+</div>
+</div>
+<div id="the-supervised-machine-learning-workflow" class="section level2 hasAnchor" number="14.6">
+<h2><span class="header-section-number">14.6</span> The supervised machine learning workflow<a href="c14.html#the-supervised-machine-learning-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Your goal in this walkthrough is to build a model that predicts whether a student is at risk of dropping out.</p>
+<div id="step-1-creating-outcome-and-predictor-variables" class="section level3 hasAnchor" number="14.6.1">
+<h3><span class="header-section-number">14.6.1</span> Step 1: Creating outcome and predictor variables<a href="c14.html#step-1-creating-outcome-and-predictor-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Feature engineering can be handled directly or through something called a “recipe.” How should you decide when to handle feature engineering directly or through a recipe? As you progress in your practice, you’ll be able to determine if it is more efficient to work outside of a recipe. You’ll also get more proficient at determining risks of working outside a recipe, like introducing “data leakage” that biases models. For now, this will not be an issue for the one you’ll be using in this walkthrough.</p>
+<p>To begin, create the outcome variable (<code>pass</code>) and a factor variable for <code>disability</code> using <code>mutate()</code>:</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="c14.html#cb342-1" tabindex="-1"></a>students <span class="ot">&lt;-</span></span>
+<span id="cb342-2"><a href="c14.html#cb342-2" tabindex="-1"></a>    students <span class="sc">%&gt;%</span></span>
+<span id="cb342-3"><a href="c14.html#cb342-3" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">pass =</span> <span class="fu">case_when</span>(final_result <span class="sc">==</span> <span class="st">&quot;Pass&quot;</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb342-4"><a href="c14.html#cb342-4" tabindex="-1"></a>                            <span class="at">.default =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb342-5"><a href="c14.html#cb342-5" tabindex="-1"></a>    <span class="co"># Set &quot;1&quot; (pass) as the first level so {yardstick} treats it</span></span>
+<span id="cb342-6"><a href="c14.html#cb342-6" tabindex="-1"></a>    <span class="co"># as the positive class when computing sensitivity, specificity, etc.</span></span>
+<span id="cb342-7"><a href="c14.html#cb342-7" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">pass =</span> <span class="fu">factor</span>(pass, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;0&quot;</span>)),</span>
+<span id="cb342-8"><a href="c14.html#cb342-8" tabindex="-1"></a>           <span class="at">disability =</span> <span class="fu">as.factor</span>(disability))</span></code></pre></div>
+<p>You will also summarize assessment data to create a new predictor for students’ performance on assessments submitted early in the course. Specifically, you’ll calculate the mean weighted score of assessments submitted before the first half of assignment dates.</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="c14.html#cb343-1" tabindex="-1"></a>code_module_dates <span class="ot">&lt;-</span> </span>
+<span id="cb343-2"><a href="c14.html#cb343-2" tabindex="-1"></a>    assessments <span class="sc">%&gt;%</span> </span>
+<span id="cb343-3"><a href="c14.html#cb343-3" tabindex="-1"></a>    <span class="fu">group_by</span>(code_module, code_presentation) <span class="sc">%&gt;%</span> </span>
+<span id="cb343-4"><a href="c14.html#cb343-4" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">quantile_cutoff_date =</span> <span class="fu">quantile</span>(date, <span class="at">probs =</span> .<span class="dv">5</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by code_module and code_presentation.
+## ℹ Output is grouped by code_module.
+## ℹ Use `summarise(.groups = &quot;drop_last&quot;)` to silence this message.
+## ℹ Use `summarise(.by = c(code_module, code_presentation))` for per-operation
+##   grouping (`?dplyr::dplyr_by`) instead.</code></pre>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="c14.html#cb345-1" tabindex="-1"></a>assessments_joined <span class="ot">&lt;-</span> </span>
+<span id="cb345-2"><a href="c14.html#cb345-2" tabindex="-1"></a>    assessments <span class="sc">%&gt;%</span></span>
+<span id="cb345-3"><a href="c14.html#cb345-3" tabindex="-1"></a>    <span class="fu">left_join</span>(code_module_dates) <span class="sc">%&gt;%</span></span>
+<span id="cb345-4"><a href="c14.html#cb345-4" tabindex="-1"></a>    <span class="fu">filter</span>(date <span class="sc">&lt;</span> quantile_cutoff_date) <span class="sc">%&gt;%</span></span>
+<span id="cb345-5"><a href="c14.html#cb345-5" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">weighted_score =</span> score <span class="sc">*</span> weight) <span class="sc">%&gt;%</span></span>
+<span id="cb345-6"><a href="c14.html#cb345-6" tabindex="-1"></a>    <span class="fu">group_by</span>(id_student) <span class="sc">%&gt;%</span></span>
+<span id="cb345-7"><a href="c14.html#cb345-7" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean_weighted_score =</span> <span class="fu">mean</span>(weighted_score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## Joining with `by = join_by(code_module, code_presentation)`</code></pre>
-<p>Last, we will create a socioeconomic status variable (<code>imd_band</code>) outside the recipe for clarity:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="c14.html#cb11-1" tabindex="-1"></a>students <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="c14.html#cb11-2" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">imd_band =</span> <span class="fu">factor</span>(imd_band, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;0-10%&quot;</span>,</span>
-<span id="cb11-3"><a href="c14.html#cb11-3" tabindex="-1"></a>                                                  <span class="st">&quot;10-20%&quot;</span>,</span>
-<span id="cb11-4"><a href="c14.html#cb11-4" tabindex="-1"></a>                                                  <span class="st">&quot;20-30%&quot;</span>,</span>
-<span id="cb11-5"><a href="c14.html#cb11-5" tabindex="-1"></a>                                                  <span class="st">&quot;30-40%&quot;</span>,</span>
-<span id="cb11-6"><a href="c14.html#cb11-6" tabindex="-1"></a>                                                  <span class="st">&quot;40-50%&quot;</span>,</span>
-<span id="cb11-7"><a href="c14.html#cb11-7" tabindex="-1"></a>                                                  <span class="st">&quot;50-60%&quot;</span>,</span>
-<span id="cb11-8"><a href="c14.html#cb11-8" tabindex="-1"></a>                                                  <span class="st">&quot;60-70%&quot;</span>,</span>
-<span id="cb11-9"><a href="c14.html#cb11-9" tabindex="-1"></a>                                                  <span class="st">&quot;70-80%&quot;</span>,</span>
-<span id="cb11-10"><a href="c14.html#cb11-10" tabindex="-1"></a>                                                  <span class="st">&quot;80-90%&quot;</span>,</span>
-<span id="cb11-11"><a href="c14.html#cb11-11" tabindex="-1"></a>                                                  <span class="st">&quot;90-100%&quot;</span>))) <span class="sc">%&gt;%</span></span>
-<span id="cb11-12"><a href="c14.html#cb11-12" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">imd_band =</span> <span class="fu">as.factor</span>(imd_band))</span></code></pre></div>
-<p>In the OULAD documentation, this is called the VLE (virtual learning environment) data source. Please review the description of the variables in the <em>studentVLE</em> and <em>VLE</em> sources (which are joined together for this learning lab) <a href="https://analyse.kmi.open.ac.uk/open_dataset#description">here</a>.</p>
-<p>Let’s import it:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="c14.html#cb12-1" tabindex="-1"></a>interactions <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/ml/oulad-interactions-filtered.csv&quot;</span>) <span class="co"># need to unzip</span></span></code></pre></div>
-<pre><code>## Rows: 5548858 Columns: 11
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (3): code_module, code_presentation, activity_type
-## dbl (8): id_student, id_site, date, sum_click, week_from, week_to, module_pr...
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div id="your-turn" class="section level4 hasAnchor" number="14.5.1.2">
-<h4><span class="header-section-number">14.5.1.2</span> <span style="color: green;">Your Turn</span> ⤵<a href="c14.html#your-turn" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><em>First</em>, <code>count()</code> the <code>activity_type</code> variable and <em>sort</em> the resulting output by frequency.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="c14.html#cb14-1" tabindex="-1"></a>interactions <span class="sc">%&gt;%</span> </span>
-<span id="cb14-2"><a href="c14.html#cb14-2" tabindex="-1"></a>    <span class="fu">count</span>(activity_type)</span></code></pre></div>
-<pre><code>## # A tibble: 19 × 2
-##    activity_type        n
-##    &lt;chr&gt;            &lt;int&gt;
-##  1 dataplus           311
-##  2 dualpane          7306
-##  3 externalquiz     18171
-##  4 forumng        1279917
-##  5 glossary          9630
-##  6 homepage        832424
-##  7 htmlactivity      6562
-##  8 oucollaborate    25861
-##  9 oucontent      1065736
-## 10 ouelluminate     13829
-## 11 ouwiki           66413
-## 12 page             33539
-## 13 questionnaire    16528
-## 14 quiz            398966
-## 15 repeatactivity       6
-## 16 resource        436704
-## 17 sharedsubpage      103
-## 18 subpage        1104279
-## 19 url             232573</code></pre>
-<p>What does this tell you? Consulting the codebook and your output, please add at least two notes on what you are noticing:</p>
-<p>Then, let’s create a histogram of the <code>date</code> variable.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="c14.html#cb16-1" tabindex="-1"></a>interactions <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="c14.html#cb16-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date)) <span class="sc">+</span></span>
-<span id="cb16-3"><a href="c14.html#cb16-3" tabindex="-1"></a>    <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="14-wt-machine-learning_files/figure-html/unnamed-chunk-8-1.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>Let’s join the data together.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="c14.html#cb18-1" tabindex="-1"></a>students <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span> </span>
-<span id="cb18-2"><a href="c14.html#cb18-2" tabindex="-1"></a>    <span class="fu">left_join</span>(assessments_joined, <span class="at">by =</span> <span class="st">&quot;id_student&quot;</span>)</span></code></pre></div>
-<p>Next, we’ll load a new file — one with <em>interactions</em> (or log-trace) data.</p>
-<p>We have to do the same processing we did in the second learning lab, to obtain cut-off dates. As a reminder, the purpose of this is to train the model on data from the first one-third of the class, with the reasoning being this is a good time to intervene–far enough into the class to make an appreciable impact, but not too late to have a limited chance of being able to change students’ trajectory in the class.</p>
-<p>We’ll repeat the procedure we carried out with the assessments data — calculating a cut-off for each class and then filtering the data based upon this cut-off. But, since we’ve already done this for the assessment data, to allow us to focus more on the modeling, we are providing you with the already-filtered interactions data.</p>
-<p>Next, we load <code>oulad-interactions-filtered.csv</code> into R, assigning the resulting data frame the name <code>interactions</code>.</p>
-</div>
-<div id="your-turn-1" class="section level4 hasAnchor" number="14.5.1.3">
-<h4><span class="header-section-number">14.5.1.3</span> <span style="color: green;">Your Turn</span> ⤵<a href="c14.html#your-turn-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="c14.html#cb19-1" tabindex="-1"></a>interactions <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/ml/oulad-interactions-filtered.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 5548858 Columns: 11
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (3): code_module, code_presentation, activity_type
-## dbl (8): id_student, id_site, date, sum_click, week_from, week_to, module_pr...
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<p>How can we create a feature with <code>sum_click</code>? Think back to our
-discussion in the presentation; we have <em>many</em> options for working with
-such time series data. Perhaps the most simple is to count the clicks.
-Please summarize the number of clicks for each student (specific to a
-single course). This means you will need to group your data by
-<code>id_student</code>, <code>code_module</code>, and <code>code_presentation</code>, and then create a
+<p>Last, you’ll create a socioeconomic status variable (<code>imd_band</code>), again outside the recipe:</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="c14.html#cb347-1" tabindex="-1"></a>students <span class="ot">&lt;-</span> </span>
+<span id="cb347-2"><a href="c14.html#cb347-2" tabindex="-1"></a>    students <span class="sc">%&gt;%</span></span>
+<span id="cb347-3"><a href="c14.html#cb347-3" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">imd_band =</span> <span class="fu">factor</span>(imd_band, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;0-10%&quot;</span>,</span>
+<span id="cb347-4"><a href="c14.html#cb347-4" tabindex="-1"></a>                                                  <span class="st">&quot;10-20%&quot;</span>,</span>
+<span id="cb347-5"><a href="c14.html#cb347-5" tabindex="-1"></a>                                                  <span class="st">&quot;20-30%&quot;</span>,</span>
+<span id="cb347-6"><a href="c14.html#cb347-6" tabindex="-1"></a>                                                  <span class="st">&quot;30-40%&quot;</span>,</span>
+<span id="cb347-7"><a href="c14.html#cb347-7" tabindex="-1"></a>                                                  <span class="st">&quot;40-50%&quot;</span>,</span>
+<span id="cb347-8"><a href="c14.html#cb347-8" tabindex="-1"></a>                                                  <span class="st">&quot;50-60%&quot;</span>,</span>
+<span id="cb347-9"><a href="c14.html#cb347-9" tabindex="-1"></a>                                                  <span class="st">&quot;60-70%&quot;</span>,</span>
+<span id="cb347-10"><a href="c14.html#cb347-10" tabindex="-1"></a>                                                  <span class="st">&quot;70-80%&quot;</span>,</span>
+<span id="cb347-11"><a href="c14.html#cb347-11" tabindex="-1"></a>                                                  <span class="st">&quot;80-90%&quot;</span>,</span>
+<span id="cb347-12"><a href="c14.html#cb347-12" tabindex="-1"></a>                                                  <span class="st">&quot;90-100%&quot;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb347-13"><a href="c14.html#cb347-13" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">imd_band =</span> <span class="fu">as.factor</span>(imd_band))</span></code></pre></div>
+<p>Next, you’ll load a new file with interactions, or log-trace, data. This is the most granular data in the OULAD. In the OULAD documentation, this is called the virtual learning environment (VLE) data source. It’s a large file—even after taking a few steps to reduce its size. The file was prepared by only including interactions for the first one-third of the course.</p>
+<p>Import the data using the {dataedu} package.</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="c14.html#cb348-1" tabindex="-1"></a>interactions <span class="ot">&lt;-</span> dataedu<span class="sc">::</span>oulad_interactions_filtered</span></code></pre></div>
+<p>You’ll now explore the dataset to understand it better.</p>
+<p>First, <code>count()</code> the <code>activity_type</code> variable and sort the resulting output by frequency.</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="c14.html#cb349-1" tabindex="-1"></a>interactions <span class="sc">%&gt;%</span> </span>
+<span id="cb349-2"><a href="c14.html#cb349-2" tabindex="-1"></a>    <span class="fu">count</span>(activity_type, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##     activity_type       n
+## 1         forumng 1279917
+## 2         subpage 1104279
+## 3       oucontent 1065736
+## 4        homepage  832424
+## 5        resource  436704
+## 6            quiz  398966
+## 7             url  232573
+## 8          ouwiki   66413
+## 9            page   33539
+## 10  oucollaborate   25861
+## 11   externalquiz   18171
+## 12  questionnaire   16528
+## 13   ouelluminate   13829
+## 14       glossary    9630
+## 15       dualpane    7306
+## 16   htmlactivity    6562
+## 17       dataplus     311
+## 18  sharedsubpage     103
+## 19 repeatactivity       6</code></pre>
+<p>You can see there is a range of activities students do. You may wish to explore this data in other ways, even beyond what you do for this exercise.</p>
+<p>Think about how you would create a feature with <code>sum_click</code>. Think back to our discussion earlier; you have options for working with such time series data. Perhaps the simplest is to count the clicks.</p>
+<p>Summarize the number of clicks for each student, specific to a single course. This means you’ll need to group your data by <code>id_student</code>, <code>code_module</code>, and <code>code_presentation</code>, before creating a
 summary variable.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="c14.html#cb21-1" tabindex="-1"></a>interactions_summarized <span class="ot">&lt;-</span> interactions <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="c14.html#cb21-2" tabindex="-1"></a>    <span class="fu">group_by</span>(id_student, code_module, code_presentation) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-3"><a href="c14.html#cb21-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">sum_clicks =</span> <span class="fu">sum</span>(sum_click))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;id_student&#39;, &#39;code_module&#39;. You can
-## override using the `.groups` argument.</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="c14.html#cb23-1" tabindex="-1"></a>interactions_summarized</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="c14.html#cb351-1" tabindex="-1"></a>interactions_summarized <span class="ot">&lt;-</span> </span>
+<span id="cb351-2"><a href="c14.html#cb351-2" tabindex="-1"></a>    interactions <span class="sc">%&gt;%</span> </span>
+<span id="cb351-3"><a href="c14.html#cb351-3" tabindex="-1"></a>    <span class="fu">group_by</span>(id_student, code_module, code_presentation) <span class="sc">%&gt;%</span> </span>
+<span id="cb351-4"><a href="c14.html#cb351-4" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">sum_clicks =</span> <span class="fu">sum</span>(sum_click))</span></code></pre></div>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by id_student, code_module, and
+##   code_presentation.
+## ℹ Output is grouped by id_student and code_module.
+## ℹ Use `summarise(.groups = &quot;drop_last&quot;)` to silence this message.
+## ℹ Use `summarise(.by = c(id_student, code_module, code_presentation))` for
+##   per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="c14.html#cb353-1" tabindex="-1"></a>interactions_summarized</span></code></pre></div>
 <pre><code>## # A tibble: 29,160 × 4
 ## # Groups:   id_student, code_module [28,192]
 ##    id_student code_module code_presentation sum_clicks
-##         &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;                  &lt;dbl&gt;
+##         &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;                  &lt;int&gt;
 ##  1       6516 AAA         2014J                    999
 ##  2       8462 DDD         2013J                    516
 ##  3       8462 DDD         2014J                     10
@@ -918,68 +958,74 @@ summary variable.</p>
 ##  9      24213 DDD         2014B                    642
 ## 10      24391 GGG         2013J                    424
 ## # ℹ 29,150 more rows</code></pre>
-<p>How many times did students click? Let’s create a histogram to see.
-Please use {ggplot} and <code>geom_histogram()</code> to visualize the distribution
-of the <code>sum_clicks</code> variable you just created.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="c14.html#cb25-1" tabindex="-1"></a>interactions_summarized <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a href="c14.html#cb25-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sum_clicks)) <span class="sc">+</span></span>
-<span id="cb25-3"><a href="c14.html#cb25-3" tabindex="-1"></a>    <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="14-wt-machine-learning_files/figure-html/unnamed-chunk-12-1.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>This is a good start - we’ve created our first feature based upon the
-log data, <code>sum_clicks</code>! What are some other features we can add? An affordance
-of using the <code>summarize()</code> function in R is we can create multiple
-summary statistics at once. Let’s also calculate the standard deviation
-of the number of clicks as well as the mean. Please copy the code you
-wrote above into the code chunk below and then add these two additional
-summary statistics.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="c14.html#cb27-1" tabindex="-1"></a>interactions_summarized <span class="ot">&lt;-</span> interactions <span class="sc">%&gt;%</span> </span>
-<span id="cb27-2"><a href="c14.html#cb27-2" tabindex="-1"></a>    <span class="fu">group_by</span>(id_student, code_module, code_presentation) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-3"><a href="c14.html#cb27-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">sum_clicks =</span> <span class="fu">sum</span>(sum_click),</span>
-<span id="cb27-4"><a href="c14.html#cb27-4" tabindex="-1"></a>              <span class="at">sd_clicks =</span> <span class="fu">sd</span>(sum_click), </span>
-<span id="cb27-5"><a href="c14.html#cb27-5" tabindex="-1"></a>              <span class="at">mean_clicks =</span> <span class="fu">mean</span>(sum_click))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;id_student&#39;, &#39;code_module&#39;. You can
-## override using the `.groups` argument.</code></pre>
-<p>Let’s join together <em>all</em> of the data we’ll use for
-our modeling: <code>students</code> and <code>intteractions_summarized</code>. Use
-<code>left_join()</code> once more, assigning the resulting output the name
-<code>students_and_interactions</code>.</p>
-<p>Lots of joining! Sometimes, the hardest part of complex analyses lies in the preparation (and joining) of the data.</p>
+<p>How many times did students click? Create a histogram to see. Use {ggplot2} and <code>geom_histogram()</code> to visualize the distribution of the <code>sum_clicks</code> variable you just created.</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="c14.html#cb355-1" tabindex="-1"></a>interactions_summarized <span class="sc">%&gt;%</span> </span>
+<span id="cb355-2"><a href="c14.html#cb355-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sum_clicks)) <span class="sc">+</span></span>
+<span id="cb355-3"><a href="c14.html#cb355-3" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="fu">dataedu_colors</span>(<span class="st">&quot;darkblue&quot;</span>),</span>
+<span id="cb355-4"><a href="c14.html#cb355-4" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb355-5"><a href="c14.html#cb355-5" tabindex="-1"></a>  <span class="fu">theme_dataedu</span>()</span></code></pre></div>
+<p><img src="14-wt-machine-learning_files/figure-html/ch14-activity-histogram-1.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
+<p>This is a good start — you’ve created the first feature based on the log-trace data, <code>sum_clicks</code>. What are some other features you can add? A benefit of using the <code>summarize()</code> function in R is that you can create multiple summary statistics at once.</p>
+<p>Try calculating the standard deviation and mean of the number of clicks. Do this by copying the code you wrote above into the code chunk below and then add these two additional summary statistics.</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="c14.html#cb356-1" tabindex="-1"></a>interactions_summarized <span class="ot">&lt;-</span> </span>
+<span id="cb356-2"><a href="c14.html#cb356-2" tabindex="-1"></a>    interactions <span class="sc">%&gt;%</span> </span>
+<span id="cb356-3"><a href="c14.html#cb356-3" tabindex="-1"></a>    <span class="fu">group_by</span>(id_student, code_module, code_presentation) <span class="sc">%&gt;%</span> </span>
+<span id="cb356-4"><a href="c14.html#cb356-4" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">sum_clicks =</span> <span class="fu">sum</span>(sum_click),</span>
+<span id="cb356-5"><a href="c14.html#cb356-5" tabindex="-1"></a>              <span class="at">sd_clicks =</span> <span class="fu">sd</span>(sum_click), </span>
+<span id="cb356-6"><a href="c14.html#cb356-6" tabindex="-1"></a>              <span class="at">mean_clicks =</span> <span class="fu">mean</span>(sum_click))</span></code></pre></div>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by id_student, code_module, and
+##   code_presentation.
+## ℹ Output is grouped by id_student and code_module.
+## ℹ Use `summarise(.groups = &quot;drop_last&quot;)` to silence this message.
+## ℹ Use `summarise(.by = c(id_student, code_module, code_presentation))` for
+##   per-operation grouping (`?dplyr::dplyr_by`) instead.</code></pre>
+<p>Now join all of the data you’ll use for modeling: <code>students</code>, <code>assessments_joined</code>, and <code>interactions_summarized</code>.</p>
+<p>Use <code>left_join()</code> twice, assigning the resulting output the name <code>students_and_interactions</code>.</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="c14.html#cb358-1" tabindex="-1"></a>students_and_interactions <span class="ot">&lt;-</span> </span>
+<span id="cb358-2"><a href="c14.html#cb358-2" tabindex="-1"></a>    students <span class="sc">%&gt;%</span> </span>
+<span id="cb358-3"><a href="c14.html#cb358-3" tabindex="-1"></a>    <span class="fu">left_join</span>(assessments_joined) <span class="sc">%&gt;%</span> </span>
+<span id="cb358-4"><a href="c14.html#cb358-4" tabindex="-1"></a>    <span class="fu">left_join</span>(interactions_summarized)</span></code></pre></div>
 </div>
-<div id="your-turn-2" class="section level4 hasAnchor" number="14.5.1.4">
-<h4><span class="header-section-number">14.5.1.4</span> <span style="color: green;">Your Turn</span> ⤵<a href="c14.html#your-turn-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="c14.html#cb29-1" tabindex="-1"></a>students_and_interactions <span class="ot">&lt;-</span> <span class="fu">left_join</span>(students, </span>
-<span id="cb29-2"><a href="c14.html#cb29-2" tabindex="-1"></a>                                       interactions_summarized)</span></code></pre></div>
-<pre><code>## Joining with `by = join_by(code_module, code_presentation, id_student)`</code></pre>
+<div id="step-2-splitting-the-data" class="section level3 hasAnchor" number="14.6.2">
+<h3><span class="header-section-number">14.6.2</span> Step 2: Splitting the data<a href="c14.html#step-2-splitting-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As suggested above, a key step in supervised machine learning is splitting data into “training” and “testing” datasets. You’ll be using the training dataset to train the model. Then you’ll use the test dataset to evaluate the model’s performance. You’ll try the model you trained earlier, but this time on new test data. The outcome in this walkthrough is students passing the course in question.</p>
+<p>You’ll split the dataset into training and testing sets using an 80-20 split. Generally, a split like this is appropriate with a larger dataset; for smaller datasets, something closer to a 50-50 split may be more appropriate. You’ll also conduct a stratified sample using the outcome variable — here, <code>pass</code>. Stratifying means that the training and testing sets will each contain roughly the same proportion of students who passed and didn’t pass as the full dataset does. Without stratification, a random split could end up with very different pass rates in training and testing, which would muddy your evaluation. Stratification is generally a good practice <span class="citation">(<a href="references.html#ref-boehmke2019hands">Boehmke &amp; Greenwell, 2019</a>)</span>.</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="c14.html#cb359-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2025</span>) <span class="co"># As this step involves a random sample, setting the seed ensures the same result for pedagogical purposes</span></span>
+<span id="cb359-2"><a href="c14.html#cb359-2" tabindex="-1"></a></span>
+<span id="cb359-3"><a href="c14.html#cb359-3" tabindex="-1"></a><span class="co"># Specify the proportion for the split</span></span>
+<span id="cb359-4"><a href="c14.html#cb359-4" tabindex="-1"></a>train_test_split <span class="ot">&lt;-</span> </span>
+<span id="cb359-5"><a href="c14.html#cb359-5" tabindex="-1"></a>    <span class="fu">initial_split</span>(students_and_interactions, <span class="at">prop =</span> <span class="fl">0.8</span>, <span class="at">strata =</span> <span class="st">&quot;pass&quot;</span>)</span>
+<span id="cb359-6"><a href="c14.html#cb359-6" tabindex="-1"></a></span>
+<span id="cb359-7"><a href="c14.html#cb359-7" tabindex="-1"></a><span class="co"># Create the training data</span></span>
+<span id="cb359-8"><a href="c14.html#cb359-8" tabindex="-1"></a>data_train <span class="ot">&lt;-</span> </span>
+<span id="cb359-9"><a href="c14.html#cb359-9" tabindex="-1"></a>    <span class="fu">training</span>(train_test_split)</span>
+<span id="cb359-10"><a href="c14.html#cb359-10" tabindex="-1"></a></span>
+<span id="cb359-11"><a href="c14.html#cb359-11" tabindex="-1"></a><span class="co"># Create the testing data</span></span>
+<span id="cb359-12"><a href="c14.html#cb359-12" tabindex="-1"></a>data_test  <span class="ot">&lt;-</span> </span>
+<span id="cb359-13"><a href="c14.html#cb359-13" tabindex="-1"></a>    <span class="fu">testing</span>(train_test_split) </span></code></pre></div>
 </div>
-<div id="step-2-splitting-the-data" class="section level4 hasAnchor" number="14.5.1.5">
-<h4><span class="header-section-number">14.5.1.5</span> Step 2: Splitting the Data<a href="c14.html#step-2-splitting-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>We split the dataset into training and testing sets using an 80-20 split:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="c14.html#cb31-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)</span>
-<span id="cb31-2"><a href="c14.html#cb31-2" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="c14.html#cb31-3" tabindex="-1"></a>train_test_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(students_and_interactions, <span class="at">prop =</span> <span class="fl">0.8</span>, <span class="at">strata =</span> <span class="st">&quot;pass&quot;</span>)</span>
-<span id="cb31-4"><a href="c14.html#cb31-4" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="c14.html#cb31-5" tabindex="-1"></a>data_train <span class="ot">&lt;-</span> <span class="fu">training</span>(train_test_split)</span>
-<span id="cb31-6"><a href="c14.html#cb31-6" tabindex="-1"></a>data_test  <span class="ot">&lt;-</span> <span class="fu">testing</span>(train_test_split)</span></code></pre></div>
-</div>
-<div id="step-3-creating-a-recipe-for-selected-preprocessing-steps" class="section level4 hasAnchor" number="14.5.1.6">
-<h4><span class="header-section-number">14.5.1.6</span> Step 3: Creating a Recipe for Selected Preprocessing Steps<a href="c14.html#step-3-creating-a-recipe-for-selected-preprocessing-steps" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>To keep things simple, we will only include a few pre-processing steps.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="c14.html#cb32-1" tabindex="-1"></a>my_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(pass <span class="sc">~</span> disability <span class="sc">+</span> imd_band <span class="sc">+</span> mean_weighted_score <span class="sc">+</span> </span>
-<span id="cb32-2"><a href="c14.html#cb32-2" tabindex="-1"></a>                     num_of_prev_attempts <span class="sc">+</span> gender <span class="sc">+</span> region <span class="sc">+</span> highest_education <span class="sc">+</span></span>
-<span id="cb32-3"><a href="c14.html#cb32-3" tabindex="-1"></a>                     sum_clicks <span class="sc">+</span> </span>
-<span id="cb32-4"><a href="c14.html#cb32-4" tabindex="-1"></a>                     sd_clicks <span class="sc">+</span></span>
-<span id="cb32-5"><a href="c14.html#cb32-5" tabindex="-1"></a>                     mean_clicks,</span>
-<span id="cb32-6"><a href="c14.html#cb32-6" tabindex="-1"></a>                 <span class="at">data =</span> data_train) <span class="sc">%&gt;%</span></span>
-<span id="cb32-7"><a href="c14.html#cb32-7" tabindex="-1"></a>    <span class="co"># steps</span></span>
-<span id="cb32-8"><a href="c14.html#cb32-8" tabindex="-1"></a>    <span class="fu">step_impute_mean</span>(mean_weighted_score, sum_clicks, sd_clicks, mean_clicks) <span class="sc">%&gt;%</span></span>
-<span id="cb32-9"><a href="c14.html#cb32-9" tabindex="-1"></a>    <span class="fu">step_impute_mode</span>(imd_band) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-10"><a href="c14.html#cb32-10" tabindex="-1"></a>    <span class="fu">step_center</span>(mean_weighted_score) <span class="sc">%&gt;%</span></span>
-<span id="cb32-11"><a href="c14.html#cb32-11" tabindex="-1"></a>    <span class="fu">step_scale</span>(mean_weighted_score) <span class="sc">%&gt;%</span></span>
-<span id="cb32-12"><a href="c14.html#cb32-12" tabindex="-1"></a>    <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-13"><a href="c14.html#cb32-13" tabindex="-1"></a>    <span class="fu">step_scale</span>(num_of_prev_attempts)</span></code></pre></div>
-<p>We can inspect the recipe to verify the steps:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="c14.html#cb33-1" tabindex="-1"></a>my_rec</span></code></pre></div>
+<div id="step-3-creating-a-recipe-for-selected-preprocessing-steps" class="section level3 hasAnchor" number="14.6.3">
+<h3><span class="header-section-number">14.6.3</span> Step 3: Creating a recipe for selected preprocessing steps<a href="c14.html#step-3-creating-a-recipe-for-selected-preprocessing-steps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is the recipe step mentioned earlier in the walkthrough. You’ll do two things here.</p>
+<p>First, you’ll specify which predictor variables predict the outcome. For those familiar with the <code>lm()</code> function in R, this behaves similarly; the outcome goes on the left side of the <code>~</code>, and predictors go on the right. Note that you’ll be using the training data for this.</p>
+<p>Second, you’ll use <code>step_()</code> functions, which are for preprocessing. These are described in the comments below.</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="c14.html#cb360-1" tabindex="-1"></a>my_rec <span class="ot">&lt;-</span></span>
+<span id="cb360-2"><a href="c14.html#cb360-2" tabindex="-1"></a>    <span class="fu">recipe</span>(pass <span class="sc">~</span> disability <span class="sc">+</span> imd_band <span class="sc">+</span> mean_weighted_score <span class="sc">+</span> </span>
+<span id="cb360-3"><a href="c14.html#cb360-3" tabindex="-1"></a>                  num_of_prev_attempts <span class="sc">+</span> gender <span class="sc">+</span> region <span class="sc">+</span> highest_education <span class="sc">+</span></span>
+<span id="cb360-4"><a href="c14.html#cb360-4" tabindex="-1"></a>                  sum_clicks <span class="sc">+</span> sd_clicks <span class="sc">+</span> mean_clicks,</span>
+<span id="cb360-5"><a href="c14.html#cb360-5" tabindex="-1"></a>           <span class="at">data =</span> data_train) <span class="sc">%&gt;%</span></span>
+<span id="cb360-6"><a href="c14.html#cb360-6" tabindex="-1"></a>    <span class="co"># This step is to impute missing values for numeric variables</span></span>
+<span id="cb360-7"><a href="c14.html#cb360-7" tabindex="-1"></a>    <span class="fu">step_impute_mean</span>(mean_weighted_score, sum_clicks, sd_clicks, mean_clicks) <span class="sc">%&gt;%</span></span>
+<span id="cb360-8"><a href="c14.html#cb360-8" tabindex="-1"></a>    <span class="co"># This step is to impute missing values for categorical/factor variables</span></span>
+<span id="cb360-9"><a href="c14.html#cb360-9" tabindex="-1"></a>    <span class="fu">step_impute_mode</span>(imd_band) <span class="sc">%&gt;%</span></span>
+<span id="cb360-10"><a href="c14.html#cb360-10" tabindex="-1"></a>    <span class="co"># Center and scale these variables</span></span>
+<span id="cb360-11"><a href="c14.html#cb360-11" tabindex="-1"></a>    <span class="fu">step_center</span>(mean_weighted_score, num_of_prev_attempts) <span class="sc">%&gt;%</span></span>
+<span id="cb360-12"><a href="c14.html#cb360-12" tabindex="-1"></a>    <span class="fu">step_scale</span>(mean_weighted_score, num_of_prev_attempts) <span class="sc">%&gt;%</span></span>
+<span id="cb360-13"><a href="c14.html#cb360-13" tabindex="-1"></a>    <span class="co"># Dummy code all categorical/factor predictors</span></span>
+<span id="cb360-14"><a href="c14.html#cb360-14" tabindex="-1"></a>    <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>())</span></code></pre></div>
+<p>Inspect the recipe to verify the steps you have specified:</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="c14.html#cb361-1" tabindex="-1"></a>my_rec</span></code></pre></div>
 <pre><code>## </code></pre>
 <pre><code>## ── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
 <pre><code>## </code></pre>
@@ -991,60 +1037,168 @@ our modeling: <code>students</code> and <code>intteractions_summarized</code>. U
 <pre><code>## ── Operations</code></pre>
 <pre><code>## • Mean imputation for: mean_weighted_score, sum_clicks, sd_clicks, ...</code></pre>
 <pre><code>## • Mode imputation for: imd_band</code></pre>
-<pre><code>## • Centering for: mean_weighted_score</code></pre>
-<pre><code>## • Scaling for: mean_weighted_score</code></pre>
-<pre><code>## • Dummy variables from: all_nominal_predictors() and -all_outcomes()</code></pre>
-<pre><code>## • Scaling for: num_of_prev_attempts</code></pre>
+<pre><code>## • Centering for: mean_weighted_score num_of_prev_attempts</code></pre>
+<pre><code>## • Scaling for: mean_weighted_score num_of_prev_attempts</code></pre>
+<pre><code>## • Dummy variables from: all_nominal_predictors() -all_outcomes()</code></pre>
 </div>
-<div id="step-4-specifying-the-model-and-workflow" class="section level4 hasAnchor" number="14.5.1.7">
-<h4><span class="header-section-number">14.5.1.7</span> Step 4: Specifying the Model and Workflow<a href="c14.html#step-4-specifying-the-model-and-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Next, we specify a logistic regression model and bundle the recipe and model into a workflow. This step has a lot of pieces, but they are fairly boilerplate. The first part is to specify the model:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="c14.html#cb48-1" tabindex="-1"></a>my_mod <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb48-2"><a href="c14.html#cb48-2" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">&quot;glm&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb48-3"><a href="c14.html#cb48-3" tabindex="-1"></a>    <span class="fu">set_mode</span>(<span class="st">&quot;classification&quot;</span>)</span>
-<span id="cb48-4"><a href="c14.html#cb48-4" tabindex="-1"></a></span>
-<span id="cb48-5"><a href="c14.html#cb48-5" tabindex="-1"></a><span class="co"># my_mod &lt;- boost_tree() %&gt;%</span></span>
-<span id="cb48-6"><a href="c14.html#cb48-6" tabindex="-1"></a><span class="co">#   set_engine(&quot;xgboost&quot;) %&gt;%  # &quot;xgboost&quot; is a common engine for boosted trees</span></span>
-<span id="cb48-7"><a href="c14.html#cb48-7" tabindex="-1"></a><span class="co">#   set_mode(&quot;classification&quot;)</span></span></code></pre></div>
-<p>The next is to specify the workflow.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="c14.html#cb49-1" tabindex="-1"></a>my_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb49-2"><a href="c14.html#cb49-2" tabindex="-1"></a>    <span class="fu">add_recipe</span>(my_rec) <span class="sc">%&gt;%</span></span>
-<span id="cb49-3"><a href="c14.html#cb49-3" tabindex="-1"></a>    <span class="fu">add_model</span>(my_mod)</span></code></pre></div>
+<div id="step-4-specifying-the-model-and-workflow" class="section level3 hasAnchor" number="14.6.4">
+<h3><span class="header-section-number">14.6.4</span> Step 4: Specifying the model and workflow<a href="c14.html#step-4-specifying-the-model-and-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Next, specify a logistic regression model and bundle the recipe and model into a workflow.</p>
+<p>This step has a lot of pieces, but they are fairly boilerplate. First, specify the model:</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="c14.html#cb375-1" tabindex="-1"></a>my_mod <span class="ot">&lt;-</span> </span>
+<span id="cb375-2"><a href="c14.html#cb375-2" tabindex="-1"></a>    <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span> <span class="co"># Specifies the type of model</span></span>
+<span id="cb375-3"><a href="c14.html#cb375-3" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">&quot;glm&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># Specifies the package we use to estimate the model</span></span>
+<span id="cb375-4"><a href="c14.html#cb375-4" tabindex="-1"></a>    <span class="fu">set_mode</span>(<span class="st">&quot;classification&quot;</span>) <span class="co"># Specifies whether we are classifying a dichotomous, categorical, or factor variable</span></span></code></pre></div>
+<p>Next, specify the workflow, which will stitch the recipe and model together:</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="c14.html#cb376-1" tabindex="-1"></a>my_wf <span class="ot">&lt;-</span> </span>
+<span id="cb376-2"><a href="c14.html#cb376-2" tabindex="-1"></a>    <span class="fu">workflow</span>() <span class="sc">%&gt;%</span> <span class="co"># Initiates the workflow</span></span>
+<span id="cb376-3"><a href="c14.html#cb376-3" tabindex="-1"></a>    <span class="fu">add_recipe</span>(my_rec) <span class="sc">%&gt;%</span> </span>
+<span id="cb376-4"><a href="c14.html#cb376-4" tabindex="-1"></a>    <span class="fu">add_model</span>(my_mod)</span></code></pre></div>
+<p>You’re almost there!</p>
 </div>
-<div id="step-5-fitting-the-model" class="section level4 hasAnchor" number="14.5.1.8">
-<h4><span class="header-section-number">14.5.1.8</span> Step 5: Fitting the Model<a href="c14.html#step-5-fitting-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Now we fit the model to the training data. We do this by calling the <code>last_fit()</code> function on the workflow:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="c14.html#cb50-1" tabindex="-1"></a>final_fit <span class="ot">&lt;-</span> <span class="fu">last_fit</span>(my_wf, train_test_split)</span></code></pre></div>
+<div id="step-5-fitting-the-model" class="section level3 hasAnchor" number="14.6.5">
+<h3><span class="header-section-number">14.6.5</span> Step 5: Fitting the model<a href="c14.html#step-5-fitting-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now you’ll fit the model to the training data. First, you’ll need to specify which <em>metrics</em> you want to calculate. These are statistics that will help you understand how good the model is at making predictions. You’ll use accuracy, plus four other metrics — sensitivity, specificity, positive predictive value (PPV), and negative predictive value (NPV) — that you’ll interpret in detail in Step 6.</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="c14.html#cb377-1" tabindex="-1"></a>my_metrics <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(accuracy, sens, spec, ppv, npv)</span></code></pre></div>
+<p>Finally, you’ll fit the model. Do this by calling the <code>last_fit()</code> function on the workflow and the <em>split</em> specification of the data. You’ll also specify which metrics to use.</p>
+<p>Note that while there are other fitting functions available, you’re using <code>last_fit()</code> to do two steps at once: fitting the model to the training data, then using the trained model to make predictions on the test data and compute the metrics you specified. This is why you pass <code>train_test_split</code> (the split object) rather than the data itself — <code>last_fit()</code> uses the split to know which rows are training and which are testing.</p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="c14.html#cb378-1" tabindex="-1"></a>final_fit <span class="ot">&lt;-</span> <span class="fu">last_fit</span>(my_wf, train_test_split, <span class="at">metrics =</span> my_metrics)</span></code></pre></div>
+<p>If you wanted to do these steps separately — for example, to inspect the fitted model before evaluating it — you could use <code>fit()</code> on the training data and then call <code>predict()</code> on the test data manually. For the purposes of this walkthrough, <code>last_fit()</code> is the cleaner option.</p>
+<p>Other times, you may use <em>cross-validation</em>, where you’ll split the training data many times and fit the model to each of these splits. You’ll return to cross-validation briefly in the Conclusion. For more on the technique, consider reading Chapter 2 in <span class="citation">(<a href="references.html#ref-boehmke2019hands">Boehmke &amp; Greenwell, 2019</a>)</span>.</p>
 </div>
-<div id="step-6-evaluating-model-performance" class="section level4 hasAnchor" number="14.5.1.9">
-<h4><span class="header-section-number">14.5.1.9</span> Step 6: Evaluating Model Performance<a href="c14.html#step-6-evaluating-model-performance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Finally, we evaluate the model’s performance using the test set. The tidymodels package makes this easy.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="c14.html#cb51-1" tabindex="-1"></a>metrics <span class="ot">&lt;-</span> final_fit <span class="sc">%&gt;%</span></span>
-<span id="cb51-2"><a href="c14.html#cb51-2" tabindex="-1"></a>    <span class="fu">collect_metrics</span>()</span>
-<span id="cb51-3"><a href="c14.html#cb51-3" tabindex="-1"></a></span>
-<span id="cb51-4"><a href="c14.html#cb51-4" tabindex="-1"></a>metrics</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 4
-##   .metric     .estimator .estimate .config             
-##   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
-## 1 accuracy    binary         0.640 Preprocessor1_Model1
-## 2 roc_auc     binary         0.639 Preprocessor1_Model1
-## 3 brier_class binary         0.224 Preprocessor1_Model1</code></pre>
-<p>So, how did the model do? Not so bad!</p>
-<p>One affordance of tidymodels is we can readily switch out the model and engine. Try one of these modifications to the code to see how the predictive performance improves—for a random forest and a boosted tree model, respectively.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="c14.html#cb53-1" tabindex="-1"></a>my_mod <span class="ot">&lt;-</span> <span class="fu">rand_forest</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb53-2"><a href="c14.html#cb53-2" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">&quot;ranger&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># install.packages(&quot;ranger&quot;) needed first</span></span>
-<span id="cb53-3"><a href="c14.html#cb53-3" tabindex="-1"></a>    <span class="fu">set_mode</span>(<span class="st">&quot;classification&quot;</span>)</span>
-<span id="cb53-4"><a href="c14.html#cb53-4" tabindex="-1"></a></span>
-<span id="cb53-5"><a href="c14.html#cb53-5" tabindex="-1"></a>my_mod <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>() <span class="sc">%&gt;%</span> <span class="co"># install.packages(&quot;xgboost&quot;) needed first</span></span>
-<span id="cb53-6"><a href="c14.html#cb53-6" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">&quot;xgboost&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb53-7"><a href="c14.html#cb53-7" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">&quot;classification&quot;</span>)</span></code></pre></div>
+<div id="step-6-evaluating-model-performance" class="section level3 hasAnchor" number="14.6.6">
+<h3><span class="header-section-number">14.6.6</span> Step 6: Evaluating model performance<a href="c14.html#step-6-evaluating-model-performance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You’ve fit the model — now the question is: how good are its predictions? The {tidymodels} package makes it straightforward to retrieve the metrics you specified earlier:</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="c14.html#cb379-1" tabindex="-1"></a>metrics <span class="ot">&lt;-</span></span>
+<span id="cb379-2"><a href="c14.html#cb379-2" tabindex="-1"></a>    final_fit <span class="sc">%&gt;%</span></span>
+<span id="cb379-3"><a href="c14.html#cb379-3" tabindex="-1"></a>    <span class="fu">collect_metrics</span>()</span>
+<span id="cb379-4"><a href="c14.html#cb379-4" tabindex="-1"></a></span>
+<span id="cb379-5"><a href="c14.html#cb379-5" tabindex="-1"></a>metrics</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 4
+##   .metric  .estimator .estimate .config        
+##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;          
+## 1 accuracy binary         0.640 pre0_mod0_post0
+## 2 sens     binary         0.172 pre0_mod0_post0
+## 3 spec     binary         0.926 pre0_mod0_post0
+## 4 ppv      binary         0.587 pre0_mod0_post0
+## 5 npv      binary         0.647 pre0_mod0_post0</code></pre>
 </div>
 </div>
+<div id="interpreting-results" class="section level2 hasAnchor" number="14.7">
+<h2><span class="header-section-number">14.7</span> Interpreting results<a href="c14.html#interpreting-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How did the model do? Focus on accuracy for now: the model correctly predicted whether students passed around 64% of the time.</p>
+<div id="the-limitation-of-accuracy" class="section level3 hasAnchor" number="14.7.1">
+<h3><span class="header-section-number">14.7.1</span> The limitation of accuracy<a href="c14.html#the-limitation-of-accuracy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Accuracy is easy to interpret, but it can also be deceiving. Imagine that only 20% of students in a course actually pass. A model that <em>always</em> predicts “did not pass” — regardless of any input — would have 80% accuracy on this data, just because most students did not pass. That model would be useless for the actual purpose of identifying students who passed (or struggled), but its accuracy alone wouldn’t tell you that.</p>
+<p>This is a general issue. Accuracy can be insufficient when:</p>
+<ul>
+<li>Outcomes are imbalanced (one class is much more common than the other).</li>
+<li>Different kinds of errors have different consequences.</li>
+<li>You need to tune your model for a specific purpose.</li>
+</ul>
+<p>To get past these limitations, you need to look at which predictions the model got right and wrong.</p>
 </div>
-<div id="conclusion-10" class="section level2 hasAnchor" number="14.6">
-<h2><span class="header-section-number">14.6</span> Conclusion<a href="c14.html#conclusion-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Though we focus on this relatively simple model, or algorithm,, many of the ideas explored in this chapter will likely extend and prove useful for other machine learning methods. Our goal is for you to finish this final walkthrough with the confidence to explore using machine learning to answer a question or to solve a problem of your own with respect to teaching, learning, and educational systems.</p>
-<p>In this chapter, we introduced general machine learning ideas, like training and test datasets and evaluating the importance of specific variables, in the context of predicting students’ passing a course. Like many of the topics in this book—but, perhaps <em>particularly</em> so for machine learning—there is much more to discover on the topic, and we encourage you to consult the books and resources in the <a href="c17.html#c17">Learning More chapter</a> to learn about further applications of machine learning methods.</p>
+<div id="looking-deeper-with-a-confusion-matrix" class="section level3 hasAnchor" number="14.7.2">
+<h3><span class="header-section-number">14.7.2</span> Looking deeper with a confusion matrix<a href="c14.html#looking-deeper-with-a-confusion-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A confusion matrix is a 2 × 2 table that compares the model’s predictions against the true outcomes. It breaks the model’s predictions into four categories:</p>
+<ul>
+<li><strong>True positive (TP):</strong> the student passed, and the model predicted “pass.”</li>
+<li><strong>True negative (TN):</strong> the student did not pass, and the model predicted “did not pass.”</li>
+<li><strong>False positive (FP):</strong> the student did not pass, but the model predicted “pass.”</li>
+<li><strong>False negative (FN):</strong> the student passed, but the model predicted “did not pass.”</li>
+</ul>
+<p>You can produce a confusion matrix directly from <code>final_fit</code> by collecting the test-set predictions and passing them to <code>conf_mat()</code>:</p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="c14.html#cb381-1" tabindex="-1"></a>final_fit <span class="sc">%&gt;%</span></span>
+<span id="cb381-2"><a href="c14.html#cb381-2" tabindex="-1"></a>    <span class="fu">collect_predictions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb381-3"><a href="c14.html#cb381-3" tabindex="-1"></a>    <span class="fu">conf_mat</span>(<span class="at">truth =</span> pass, <span class="at">estimate =</span> .pred_class)</span></code></pre></div>
+<pre><code>##           Truth
+## Prediction    1    0
+##          1  426  300
+##          0 2047 3747</code></pre>
+<p>The accuracy you saw earlier is just (TP + TN) divided by the total. But the confusion matrix lets you ask much sharper questions — and several useful metrics can be derived from its four cells.</p>
+</div>
+<div id="metrics-built-from-the-confusion-matrix" class="section level3 hasAnchor" number="14.7.3">
+<h3><span class="header-section-number">14.7.3</span> Metrics built from the confusion matrix<a href="c14.html#metrics-built-from-the-confusion-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The metrics below all come from rearranging the same four numbers in the confusion matrix, but each answers a different question.</p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="25%" />
+<col width="53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Equation</th>
+<th>Question it answers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Accuracy</td>
+<td>(TP + TN) / Total</td>
+<td>What proportion of all predictions were correct?</td>
+</tr>
+<tr class="even">
+<td>Sensitivity (also called recall)</td>
+<td>TP / (TP + FN)</td>
+<td>Of all the students who actually passed, how many did the model correctly identify?</td>
+</tr>
+<tr class="odd">
+<td>Specificity</td>
+<td>TN / (TN + FP)</td>
+<td>Of all the students who actually did not pass, how many did the model correctly identify?</td>
+</tr>
+<tr class="even">
+<td>Precision (also called positive predictive value, PPV)</td>
+<td>TP / (TP + FP)</td>
+<td>Of all the students the model predicted would pass, how many actually did?</td>
+</tr>
+<tr class="odd">
+<td>Negative predictive value (NPV)</td>
+<td>TN / (TN + FN)</td>
+<td>Of all the students the model predicted would not pass, how many actually did not?</td>
+</tr>
+</tbody>
+</table>
+<p>Each of these appears in your <code>collect_metrics()</code> output, because you included them in <code>my_metrics</code> earlier. Look back at those values now in light of the table. The sensitivity value of around 0.17 tells you the model correctly identifies only a small share of students who actually passed — it misses most of them. The specificity value of around 0.93, by contrast, tells you the model correctly identifies most students who did not pass. The PPV of around 0.59 says that when the model does predict a student will pass, it’s right about 59% of the time; the NPV of around 0.65 says that when it predicts a student will not pass, it’s right about 65% of the time.</p>
+<p>Together, these suggest the model is biased toward predicting “not pass” — it does well at flagging students who won’t pass, but misses many of the students who actually do pass. This pattern is common when the outcome is imbalanced: in our test set, more students did not pass than did, so a model that leans toward predicting “not pass” can achieve reasonable accuracy without being especially good at the harder task of identifying who will pass.</p>
+</div>
+<div id="when-does-each-metric-matter" class="section level3 hasAnchor" number="14.7.4">
+<h3><span class="header-section-number">14.7.4</span> When does each metric matter?<a href="c14.html#when-does-each-metric-matter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Which of these metrics matters most depends entirely on the question you’re asking and the consequences of being wrong. Two examples make the point:</p>
+<ul>
+<li>If you’re using a model to flag students who might benefit from extra support, a false positive (flagging a student who didn’t actually need it) is relatively low-cost. You’d rather catch every student who needs help (high sensitivity) even at the cost of some false flags (lower PPV).</li>
+<li>If you’re using a model to make a high-stakes decision — say, automatically flagging students for academic dishonesty — false positives can do real harm to students who didn’t actually cheat. You’d want PPV to be very high before acting on a prediction, even if it means missing some real cases (lower sensitivity).</li>
+</ul>
+<p>Your judgment as a researcher, and as someone who understands the context, is critical here. There is no metric that is uniformly “best.” The right metric is the one that aligns with how the model will be used and what kinds of errors are acceptable in that use.</p>
+</div>
+<div id="beyond-the-confusion-matrix-auc-roc" class="section level3 hasAnchor" number="14.7.5">
+<h3><span class="header-section-number">14.7.5</span> Beyond the confusion matrix: AUC-ROC<a href="c14.html#beyond-the-confusion-matrix-auc-roc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You’ll also encounter another metric called AUC-ROC (Area Under the Curve - Receiver Operating Characteristic) in the supervised machine learning literature. The intuition is that a classification model usually produces a probability of belonging to a class (e.g., probability of passing), which is then converted to a yes/no prediction by applying a threshold (typically 0.5). AUC-ROC summarizes how well the model’s probabilities separate the two classes across every possible threshold, not just the default one. Values closer to 1.0 are better; 0.5 indicates a model that’s no better than chance. You don’t compute AUC-ROC here, but you can add <code>roc_auc</code> to your metric set if you want it.</p>
+</div>
+<div id="improving-the-model" class="section level3 hasAnchor" number="14.7.6">
+<h3><span class="header-section-number">14.7.6</span> Improving the model<a href="c14.html#improving-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On the question of how to improve the model: one benefit of the {tidymodels} framework is swapping in different algorithms with very few changes to your code. Try one of these modifications for a random forest and a boosted tree model and see how the predictive performance changes. How much better do these models do? Are the gains in accuracy overall, or in particular metrics like sensitivity or PPV?</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="c14.html#cb383-1" tabindex="-1"></a>my_mod <span class="ot">&lt;-</span></span>
+<span id="cb383-2"><a href="c14.html#cb383-2" tabindex="-1"></a>    <span class="fu">rand_forest</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb383-3"><a href="c14.html#cb383-3" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">&quot;ranger&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># install.packages(&quot;ranger&quot;) needed first</span></span>
+<span id="cb383-4"><a href="c14.html#cb383-4" tabindex="-1"></a>    <span class="fu">set_mode</span>(<span class="st">&quot;classification&quot;</span>)</span>
+<span id="cb383-5"><a href="c14.html#cb383-5" tabindex="-1"></a></span>
+<span id="cb383-6"><a href="c14.html#cb383-6" tabindex="-1"></a>my_mod <span class="ot">&lt;-</span></span>
+<span id="cb383-7"><a href="c14.html#cb383-7" tabindex="-1"></a>    <span class="fu">boost_tree</span>() <span class="sc">%&gt;%</span> <span class="co"># install.packages(&quot;xgboost&quot;) needed first</span></span>
+<span id="cb383-8"><a href="c14.html#cb383-8" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">&quot;xgboost&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb383-9"><a href="c14.html#cb383-9" tabindex="-1"></a>    <span class="fu">set_mode</span>(<span class="st">&quot;classification&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="conclusion-10" class="section level2 hasAnchor" number="14.8">
+<h2><span class="header-section-number">14.8</span> Conclusion<a href="c14.html#conclusion-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Though this is a relatively simple model, many of the ideas explored in this chapter will prove useful for other machine learning methods. The goal is for you to finish this walkthrough with the confidence to explore using machine learning to answer a question or to solve a problem of your own in the areas of teaching, learning, and educational systems.</p>
+<p>Here are several natural directions to go from here:</p>
+<p><strong>More careful feature engineering.</strong> In this walkthrough, you summarized the log-trace (interactions) data with three simple statistics: the sum, standard deviation, and mean of clicks per student. There’s a lot more you can do with this kind of time-series data. You could compute clicks within specific time windows (e.g., the first week of the course vs. the week before an assessment), count distinct activity types a student engaged with, or capture how a student’s activity pattern changes over time. Each of these is a different feature you can engineer, and good feature engineering is often what separates a so-so SML model from a strong one.</p>
+<p><strong>Cross-validation.</strong> The chapter used a single train/test split. A more robust approach is cross-validation: split your training data into several “folds” (typically 5 or 10), fit the model many times with each fold held out as a temporary validation set, and average the resulting metrics. This gives a more stable estimate of how well your model is likely to perform on new data, and is especially useful when you’re trying different models or tuning their parameters. The {tidymodels} packages support this with <code>vfold_cv()</code> and <code>fit_resamples()</code>.</p>
+<p><strong>More complex models.</strong> At the end of Step 6, you saw how to swap in a random forest or a boosted tree model with only a few lines of code. These gray box models (per the spectrum of interpretability discussed in the Methods section) can often capture patterns that logistic regression cannot — but they also have parameters that need to be tuned to perform well. Tuning is usually done in combination with cross-validation, using functions like <code>tune_grid()</code> from the {tune} package.</p>
+<p>In this chapter, we introduced general machine learning ideas in the context of predicting students’ passing a course. Like many of the topics in this book, there is much more to discover. We encourage you to consult the books and resources in the <a href="c17.html#c17">Learning More chapter</a> for more about machine learning methods.</p>
 
 </div>
 </div>
@@ -1068,48 +1222,62 @@ our modeling: <code>students</code> and <code>intteractions_summarized</code>. U
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/data-edu/data-science-in-education/edit/main/14-wt-machine-learning.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-},
-"fig_height": 5.3,
-"fig_width": 8.5
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/data-edu/data-science-in-education/edit/main/14-wt-machine-learning.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  },
+  "fig_height": 5.3,
+  "fig_width": 8.5
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
