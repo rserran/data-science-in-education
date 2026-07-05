@@ -151,7 +151,7 @@ install.packages(c("tidyverse", "apaTables"))
 
 Once installed, you need to load a package with `library()` before using its functions. For more on the installation of packages, see the [Packages section](#c06p) of [Chapter 6](#c06). 
 
-``` {r, loading-packages, message = F, warning = F}
+``` {r, message = F, warning = F}
 #| label: ch07-load-pkgs
 library(tidyverse)
 library(sjPlot)
@@ -706,8 +706,8 @@ In this section, you'll analyze the data using visualizations and models. You wi
 
 The first two lines of {ggplot2} code look similar for most graphs. The first line tells R which dataset to graph and which columns are the x-axis and y-axis. The second line tells R which shape to use when drawing the graph. You tell R which graph shape to use with a family of {ggplot2} functions that all start with `geom_`. Available shapes include points, bars, lines, and boxplots. Here’s a {ggplot2} example using a dataset of school mean test scores to graph a bar chart:
 
-```{r fig7-2, warning = FALSE, message = FALSE, results = 'hide', fig.showtext = TRUE, fig.cap = "Example plot"}
-#| label: ch07-ggplot2-example
+```{r warning = FALSE, message = FALSE, results = 'hide', fig.showtext = TRUE, fig.cap = "Example plot"}
+#| label: fig7-2
 # Make dataset
 students <- 
   tibble(
@@ -738,8 +738,8 @@ It's OK if those terms are new to you. The main point is that there are multiple
 
 What if you wanted to learn about the relationship between time spent on a course and students' final grades? Make a plot to graph that relationship. Below, you'll create a scatterplot using `geom_point()`.
 
-``` {r fig7-3, message = FALSE, warning = FALSE, results = 'hide', fig.cap = "Percentage earned vs. time spent", fig.showtext = TRUE}
-#| label: ch07-ggplot2-joined-dat-1
+``` {r message = FALSE, warning = FALSE, results = 'hide', fig.cap = "Percentage earned vs. time spent", fig.showtext = TRUE}
+#| label: fig7-3
 joined_dat %>%
     # aes() tells ggplot2 what variables to map to what feature of a plot
     # Here we map variables to the x- and y-axis
@@ -754,8 +754,8 @@ Note that you may receive a warning that reads `Warning message: Removed 5 rows 
 
 There appears to be some relationship in the data. Try adding a line of best fit using a linear model. The code below builds on the previous plot and adds another layer with `geom_smooth()`, which fits a smoothed line to the data.
 
-``` {r fig7-4, message = FALSE, warning = FALSE, results = 'hide', fig.cap = "Adding a line of best fit", fig.showtext = TRUE}
-#| label: ch07-ggplot2-joined-dat-2
+``` {r message = FALSE, warning = FALSE, results = 'hide', fig.cap = "Adding a line of best fit", fig.showtext = TRUE}
+#| label: fig7-4
 joined_dat %>%
     ggplot(aes(x = TimeSpent, y = final_grade)) +
     geom_point(color = dataedu_colors("green")) + # same as above

@@ -106,13 +106,17 @@ Let's get started. The first step in using the {bskyr} package is gaining access
 
 Then, go to "Privacy and Security", and click "App passwords" and then "Add App Password". You can use the randomly generated name.
 
-![This is the name for your "app password" - you can use the default generated name or provide your own that is specific to your analysis or use.](images/bluesky-app-password-name.png)
+```{r fig12-1, fig.cap = "Add app password", echo = FALSE, fig.alt="This is the name for your "app password" - you can use the default generated name or provide your own that is specific to your analysis or use."}
+knitr::include_graphics("./man/figures/Figure 12.1.png")
+```
 
 You *do not* need to check, "Allow access to your direct messages".
 
 A password will pop up (see the figure below) that you will copy and use next.
 
-![Example app password (note, this password won't work for you - you'll need to create your own).](images/bluesky-app-password-example.png)
+```{r fig12-2, fig.cap = "Example app password", echo = FALSE, fig.alt="Example app password. Note, this password won't work for you - you'll need to create your own."}
+knitr::include_graphics("./man/figures/Figure 12.2.png")
+```
 
 You're almost authenticated. You'll run these two lines of code once. This saves your username and this passcode in a hidden file (called \`.Renviron\`) that you will use for all subsequent analyses.
 
@@ -560,7 +564,8 @@ This table shows the most-mentioned users in our network. The `in_deg` column sh
 
 Now create a visualization of the network. You'll size nodes by their in-degree (how many mentions they received) and color them by betweenness centrality (how important they are for connecting parts of the network). To avoid clutter, only label the most-mentioned users:
 
-```{r}
+```{r fig.cap="Network visualization"}
+#| label: fig12-3
 # Prepare labels - we only want to show labels for the top 5% most-mentioned users
 # quantile(x, 0.95) finds the value where 95% of data points are below it
 # This helps us avoid overcrowding the plot with too many labels
@@ -640,7 +645,8 @@ g_connected <- g_metrics %>%
 
 Now recreate the visualization with only the connected nodes:
 
-```{r plot-connected}
+```{r fig.cap="Network visualization with isolated nodes removed"}
+#| label: fig12-4
 set.seed(42)
 
 p_connected <- ggraph(g_connected, layout = "fr") +
