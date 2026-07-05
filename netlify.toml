@@ -1,3 +1,4 @@
 [build]
   publish = "_book"
   command = "Rscript -e 'bookdown::render_book(\"index.Rmd\")'"
+  ignore = "exit 0"
