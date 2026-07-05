@@ -106,7 +106,7 @@ Let's get started. The first step in using the {bskyr} package is gaining access
 
 Then, go to "Privacy and Security", and click "App passwords" and then "Add App Password". You can use the randomly generated name.
 
-```{r fig12-1, fig.cap = "Add app password", echo = FALSE, fig.alt="This is the name for your "app password" - you can use the default generated name or provide your own that is specific to your analysis or use."}
+```{r fig12-1, fig.cap = "Add app password", echo = FALSE, fig.alt="This is the name for your app password - you can use the default generated name or provide your own that is specific to your analysis or use."}
 knitr::include_graphics("./man/figures/Figure 12.1.png")
 ```
 
