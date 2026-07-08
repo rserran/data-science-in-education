@@ -58,7 +58,7 @@ quizzes_1
 ```
 
 ```
-## # A tibble: 3 × 5
+## # A tibble: 3 x 5
 ##   teacher_id student_id quiz_1 quiz_2 quiz_3
 ##        <dbl>      <int>  <int>  <int>  <int>
 ## 1          1          1     27     87     35
@@ -75,7 +75,7 @@ quizzes_1 %>%
 ```
 
 ```
-## # A tibble: 9 × 4
+## # A tibble: 9 x 4
 ##   teacher_id student_id quiz_number score
 ##        <dbl>      <int> <chr>       <int>
 ## 1          1          1 quiz_1         27
@@ -102,7 +102,7 @@ quizzes_1 %>%
 ```
 
 ```
-## # A tibble: 3 × 2
+## # A tibble: 3 x 2
 ##   student_id quiz_mean
 ##        <int>     <dbl>
 ## 1          1      49.7
@@ -159,7 +159,7 @@ all_quizzes
 ```
 
 ```
-## # A tibble: 9 × 6
+## # A tibble: 9 x 6
 ##   teacher_id student_id quiz_1 quiz_2 quiz_3 intervention
 ##        <dbl>      <int>  <int>  <int>  <int>        <dbl>
 ## 1          1          1     27     87     35            0
@@ -188,15 +188,15 @@ all_quizzes %>%
 
 ```
 ## `summarise()` has regrouped the output.
-## ℹ Summaries were computed grouped by student_id and intervention.
-## ℹ Output is grouped by student_id.
-## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
-## ℹ Use `summarise(.by = c(student_id, intervention))` for per-operation grouping
+## i Summaries were computed grouped by student_id and intervention.
+## i Output is grouped by student_id.
+## i Use `summarise(.groups = "drop_last")` to silence this message.
+## i Use `summarise(.by = c(student_id, intervention))` for per-operation grouping
 ##   (`?dplyr::dplyr_by`) instead.
 ```
 
 ```
-## # A tibble: 9 × 3
+## # A tibble: 9 x 3
 ## # Groups:   student_id [9]
 ##   student_id intervention quiz_mean
 ##        <int>        <dbl>     <dbl>
@@ -289,7 +289,7 @@ Steven Spielberg said,
 
 >When I was a kid, there was no collaboration; it's you with a camera bossing your friend around. But as an adult, filmmaking is all about appreciating the talents of the people you surround yourself with and knowing you could never have made any of these films by yourself.
 >
-><footer>--- [@nytimes2011]</footer>
+>\hfill --- [@nytimes2011]
 
 Data science techniques are a powerful addition to an organization's problem-solving capacity. But when you're the only person who codes, it's easy to forget how important it is to collaborate. Here are some things to think about as you introduce data science to your education job.
 
@@ -310,7 +310,7 @@ Third, if your first attempt at borrowing the problem didn't help, listen and le
 In his book *Feck Perfuction*, designer @victore2019 writes,
 >Success goes to those who keep moving, to those who can practice, make mistakes, fail, and still progress. It all adds up. Like exercise for muscles, the more you learn, the more you develop, and the stronger your skills become
 >
-> <footer>--- p. 31</footer> 
+> \hfill --- p. 31 
 
 Doing data science, like all skills, needs repetition and mistakes as fuel for learning. But what happens if you are the first person in your organization to do data science? When you have no data science mentors, analytic routines, or examples of past practice, it can feel aimless. The antidote to that aimlessness is to practice daily.
 

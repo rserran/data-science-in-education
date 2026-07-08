@@ -107,13 +107,27 @@ Let's get started. The first step in using the {bskyr} package is gaining access
 
 Then, go to "Privacy and Security", and click "App passwords" and then "Add App Password". You can use the randomly generated name.
 
-![This is the name for your "app password" - you can use the default generated name or provide your own that is specific to your analysis or use.](images/bluesky-app-password-name.png)
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={This is the name for your app password - you can use the default generated name or provide your own that is specific to your analysis or use.}]{./man/figures/Figure 12.1} 
+
+}
+
+\caption{Add app password}(\#fig:fig12-1)
+\end{figure}
 
 You *do not* need to check, "Allow access to your direct messages".
 
 A password will pop up (see the figure below) that you will copy and use next.
 
-![Example app password (note, this password won't work for you - you'll need to create your own).](images/bluesky-app-password-example.png)
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={Example app password. Note, this password won't work for you - you'll need to create your own.}]{./man/figures/Figure 12.2} 
+
+}
+
+\caption{Example app password}(\#fig:fig12-2)
+\end{figure}
 
 You're almost authenticated. You'll run these two lines of code once. This saves your username and this passcode in a hidden file (called \`.Renviron\`) that you will use for all subsequent analyses.
 
@@ -239,19 +253,19 @@ posts %>%
 ```
 ## Rows: 575
 ## Columns: 13
-## $ uri          <chr> "at://did:plc:rdoz33zgr7u3duzutsru4ivv/app.bsky.feed.post…
-## $ cid          <chr> "bafyreibyclfepf25brkfuge6hzmxgbbnjzvb7asfulmsmyoz5jtqwzx…
-## $ author       <list> ["did:plc:rdoz33zgr7u3duzutsru4ivv", "tangandhara.bsky.s…
-## $ record       <list> ["app.bsky.feed.post", "2025-02-16T22:22:36.187Z", ["app…
-## $ embed        <list> ["app.bsky.embed.record#view", ["app.bsky.embed.record#v…
-## $ reply_count  <int> 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 2, 0, …
-## $ repost_count <int> 1, 2, 3, 2, 0, 1, 0, 1, 0, 0, 9, 0, 1, 2, 1, 3, 3, 1, 2, …
-## $ like_count   <int> 1, 11, 8, 8, 2, 6, 9, 1, 1, 0, 41, 6, 7, 1, 7, 17, 16, 6,…
-## $ quote_count  <int> 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, …
-## $ indexed_at   <chr> "2025-02-16T22:22:39.692Z", "2025-02-16T13:31:36.057Z", "…
-## $ viewer       <list> [FALSE, FALSE], [FALSE, FALSE], [FALSE, FALSE], [FALSE, …
-## $ labels       <list> [], [], [], [], [], [], [], [], [], [], [], [], [], [], …
-## $ cursor       <chr> "100", "100", "100", "100", "100", "100", "100", "100", "…
+## $ uri          <chr> "at://did:plc:rdoz33zgr7u3duzutsru4ivv/app.bsky.feed.post~
+## $ cid          <chr> "bafyreibyclfepf25brkfuge6hzmxgbbnjzvb7asfulmsmyoz5jtqwzx~
+## $ author       <list> ["did:plc:rdoz33zgr7u3duzutsru4ivv", "tangandhara.bsky.s~
+## $ record       <list> ["app.bsky.feed.post", "2025-02-16T22:22:36.187Z", ["app~
+## $ embed        <list> ["app.bsky.embed.record#view", ["app.bsky.embed.record#v~
+## $ reply_count  <int> 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 2, 0, ~
+## $ repost_count <int> 1, 2, 3, 2, 0, 1, 0, 1, 0, 0, 9, 0, 1, 2, 1, 3, 3, 1, 2, ~
+## $ like_count   <int> 1, 11, 8, 8, 2, 6, 9, 1, 1, 0, 41, 6, 7, 1, 7, 17, 16, 6,~
+## $ quote_count  <int> 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, ~
+## $ indexed_at   <chr> "2025-02-16T22:22:39.692Z", "2025-02-16T13:31:36.057Z", "~
+## $ viewer       <list> [FALSE, FALSE], [FALSE, FALSE], [FALSE, FALSE], [FALSE, ~
+## $ labels       <list> [], [], [], [], [], [], [], [], [], [], [], [], [], [], ~
+## $ cursor       <chr> "100", "100", "100", "100", "100", "100", "100", "100", "~
 ```
 
 What does this "named list" variable type mean? When you look at what looks like the author variable, you can see it's more complex. That's because the Bluesky API returns data in a format called JSON (JavaScript Object Notation), which isn't always compatible with table data.
@@ -342,21 +356,21 @@ An edgelist looks like the following example, where the `sender` (sometimes call
 
 
 ```
-## # A tibble: 12 × 2
-##    sender            receiver        
-##    <chr>             <chr>           
-##  1 Peralta, Enrique  Crum, Deidra    
-##  2 Turner, Sullivan  Cooper, Lacresha
-##  3 Turner, Sullivan  Naimi, Tessa    
-##  4 Harjo, Luke       Cooper, Lacresha
-##  5 Harjo, Luke       Crum, Deidra    
-##  6 Harjo, Luke       Taylor, Jerome  
-##  7 Morgado, Carolyn  Naimi, Tessa    
-##  8 Morgado, Carolyn  Ordaz, Dominique
-##  9 Morgado, Carolyn  Taylor, Jerome  
-## 10 Lennert, Aphisitt Salazar, Kevin  
-## 11 Robles, Jaclyn    Naimi, Tessa    
-## 12 Robles, Jaclyn    Salazar, Kevin
+## # A tibble: 12 x 2
+##    sender              receiver        
+##    <chr>               <chr>           
+##  1 el-Selim, Mundhir   Crum, Deion     
+##  2 Williams, Kelsey    Tilley, Marcello
+##  3 Williams, Kelsey    el-Salman, Qisma
+##  4 el-Hosein, Marzooqa Tilley, Marcello
+##  5 el-Hosein, Marzooqa Crum, Deion     
+##  6 el-Hosein, Marzooqa Charles, Kamani 
+##  7 Brunelli, Emily     el-Salman, Qisma
+##  8 Brunelli, Emily     Henry, Henry    
+##  9 Brunelli, Emily     Charles, Kamani 
+## 10 Paran, Connie       Murphy, Jamie   
+## 11 Rodriquez, Nathan   el-Salman, Qisma
+## 12 Rodriquez, Nathan   Murphy, Jamie
 ```
 
 In this edgelist, the `sender` column might identify someone who nominates another (the receiver) as someone they go to for help. The sender might also identify someone who interacts with the receiver in other ways, like "liking" or "mentioning" their posts. In the following steps, we will work to create an edgelist from the data from #tidytuesday on Bluesky.
@@ -510,8 +524,8 @@ nodes %>%
 ```
 ## Rows: 125
 ## Columns: 2
-## $ did   <chr> "did:plc:rdoz33zgr7u3duzutsru4ivv", "did:plc:s5sz3q5ffbgcdymwohl…
-## $ label <chr> "Tan", "Georgios Karamanis", "Umair Durrani", "C.Robbs", "Víctor…
+## $ did   <chr> "did:plc:rdoz33zgr7u3duzutsru4ivv", "did:plc:s5sz3q5ffbgcdymwohl~
+## $ label <chr> "Tan", "Georgios Karamanis", "Umair Durrani", "C.Robbs", "Víctor~
 ```
 
 And then the edges - both replies and mentions.
@@ -525,8 +539,8 @@ mention_edges %>%
 ```
 ## Rows: 62
 ## Columns: 2
-## $ from <chr> "did:plc:rdoz33zgr7u3duzutsru4ivv", "did:plc:ohi2xrnudescckz5bftp…
-## $ to   <chr> "did:plc:rdoz33zgr7u3duzutsru4ivv", "did:plc:ohi2xrnudescckz5bftp…
+## $ from <chr> "did:plc:rdoz33zgr7u3duzutsru4ivv", "did:plc:ohi2xrnudescckz5bftp~
+## $ to   <chr> "did:plc:rdoz33zgr7u3duzutsru4ivv", "did:plc:ohi2xrnudescckz5bftp~
 ```
 
 Great! Now you have the network data structured properly. The next step is to prepare this data for visualization by converting it into a format that the {tidygraph} and {ggraph} packages can work with.
@@ -568,14 +582,14 @@ if (nrow(bad_edges) > 0) {
 ```
 ## Dropping 15 edges with unknown endpoints.
 ## Examples:
-## # A tibble: 5 × 4
+## # A tibble: 5 x 4
 ##   from                             to                          .from_idx .to_idx
 ##   <chr>                            <chr>                           <int>   <int>
-## 1 did:plc:aqr5h6q7clmeheft3sknegcl did:plc:qm2k6rvko6jfm2hd3j…        38      NA
-## 2 did:plc:peeplnvlwcohp4jly3fpwj46 did:plc:tmg7lcns4qad5ijloi…        19      NA
-## 3 did:plc:n5yjdgwqyts3aswafnbeolez did:plc:kqbyr4gqt6p2l57htl…        69      NA
-## 4 did:plc:6hdxfihvnu4g6qarkvmy24ig did:plc:ahlayt6eklouieqqxl…        73      NA
-## 5 did:plc:peeplnvlwcohp4jly3fpwj46 did:plc:cdlcedk4tzrnbd4blj…        19      NA
+## 1 did:plc:aqr5h6q7clmeheft3sknegcl did:plc:qm2k6rvko6jfm2hd3j~        38      NA
+## 2 did:plc:peeplnvlwcohp4jly3fpwj46 did:plc:tmg7lcns4qad5ijloi~        19      NA
+## 3 did:plc:n5yjdgwqyts3aswafnbeolez did:plc:kqbyr4gqt6p2l57htl~        69      NA
+## 4 did:plc:6hdxfihvnu4g6qarkvmy24ig did:plc:ahlayt6eklouieqqxl~        73      NA
+## 5 did:plc:peeplnvlwcohp4jly3fpwj46 did:plc:cdlcedk4tzrnbd4blj~        19      NA
 ```
 
 ``` r
@@ -600,7 +614,7 @@ g_mentions
 ## #
 ## # A directed simple graph with 99 components
 ## #
-## # Node Data: 125 × 2 (active)
+## # Node Data: 125 x 2 (active)
 ##    did                              label               
 ##    <chr>                            <chr>               
 ##  1 did:plc:rdoz33zgr7u3duzutsru4ivv Tan                 
@@ -613,15 +627,15 @@ g_mentions
 ##  8 did:plc:jqfdjmap6g4psarvsxsfqi3n Yani Bellini Saibene
 ##  9 did:plc:435el47ddxdbziiobdihe5hh Yani Bellini Saibene
 ## 10 did:plc:ohi2xrnudescckz5bftpdk72 Ilya Kashnitsky     
-## # ℹ 115 more rows
+## # i 115 more rows
 ## #
-## # Edge Data: 31 × 2
+## # Edge Data: 31 x 2
 ##    from    to
 ##   <int> <int>
 ## 1    11     1
 ## 2    11    57
 ## 3    60    54
-## # ℹ 28 more rows
+## # i 28 more rows
 ```
 
 You've now created a network graph object (`g_mentions`) that contains both the nodes (users) and edges (interactions). This graph is a directed network, meaning that the direction of the interaction --- who mentioned or replied to whom --- matters.
@@ -679,7 +693,7 @@ nodes_tbl %>%
 ```
 
 ```
-## # A tibble: 10 × 4
+## # A tibble: 10 x 4
 ##    label                             in_deg out_deg      btw
 ##    <chr>                              <dbl>   <dbl>    <dbl>
 ##  1 "Nicola Rennie"                        6       8 0.00656 
@@ -762,7 +776,14 @@ p_net <- ggraph(g_metrics, layout = "fr") +   # "fr" = Fruchterman-Reingold layo
 p_net
 ```
 
-<img src="12-wt-social-network-analysis_files/figure-html/unnamed-chunk-20-1.png" alt="" width="100%" style="display: block; margin: auto;" />
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{12-wt-social-network-analysis_files/figure-latex/fig12-3-1} 
+
+}
+
+\caption{Network visualization}(\#fig:fig12-3)
+\end{figure}
 
 This visualization shows the structure of the #TidyTuesday network on Bluesky. Larger nodes represent users who receive more mentions, and the color indicates their betweenness centrality --- how crucial they are in connecting parts of the network.
 
@@ -801,7 +822,14 @@ p_connected <- ggraph(g_connected, layout = "fr") +
 p_connected
 ```
 
-<img src="12-wt-social-network-analysis_files/figure-html/plot-connected-1.png" alt="" width="100%" style="display: block; margin: auto;" />
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{12-wt-social-network-analysis_files/figure-latex/fig12-4-1} 
+
+}
+
+\caption{Network visualization with isolated nodes removed}(\#fig:fig12-4)
+\end{figure}
 
 This filtered visualization is cleaner and makes it easier to see the structure of interactions within the #TidyTuesday community. You can more clearly identify central figures, clusters of users who interact frequently, and bridges between different groups.
 

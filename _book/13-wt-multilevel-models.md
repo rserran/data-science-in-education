@@ -76,14 +76,14 @@ glimpse(penguins)
 ```
 ## Rows: 344
 ## Columns: 8
-## $ species     <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ad…
-## $ island      <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Tor…
-## $ bill_len    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, …
-## $ bill_dep    <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, …
-## $ flipper_len <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180,…
-## $ body_mass   <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, …
-## $ sex         <fct> male, female, female, NA, female, male, female, male, NA, …
-## $ year        <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+## $ species     <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ad~
+## $ island      <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Tor~
+## $ bill_len    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, ~
+## $ bill_dep    <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, ~
+## $ flipper_len <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180,~
+## $ body_mass   <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, ~
+## $ sex         <fct> male, female, female, NA, female, male, female, male, NA, ~
+## $ year        <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007~
 ```
 
 As you can see above, the `species` variable is a factor. Recall that factor data types are categorical variables. They associate a row with a category, or level, of that variable. So how do you consider factor variables in your model? `species` seems to be made up of words such as "Adelie".
@@ -103,8 +103,6 @@ levels(penguins$species)
 
 The function `dummy_cols()` returns a `tibble` where specified columns (such as `species`) are given dummy attributes.
 
-Please note that the code below will trigger a warning. A warning will run the code but alert you that something should be changed. This warning is because of an outdated parameter in the `dummy.data.frame()` function that hasn't been updated. R 3.6 and above triggers a warning when this happens. This is a good reminder that packages evolve (or don't), so you'll need to be aware of any changes when using them for analysis.
-
 
 ``` r
 d_penguins <- penguins %>% 
@@ -116,17 +114,17 @@ glimpse(d_penguins)
 ```
 ## Rows: 344
 ## Columns: 11
-## $ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
-## $ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
-## $ bill_len          <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
-## $ bill_dep          <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
-## $ flipper_len       <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
-## $ body_mass         <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
-## $ sex               <fct> male, female, female, NA, female, male, female, male…
-## $ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
-## $ species_Adelie    <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
-## $ species_Chinstrap <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-## $ species_Gentoo    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel~
+## $ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse~
+## $ bill_len          <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, ~
+## $ bill_dep          <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, ~
+## $ flipper_len       <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186~
+## $ body_mass         <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, ~
+## $ sex               <fct> male, female, female, NA, female, male, female, male~
+## $ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007~
+## $ species_Adelie    <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
+## $ species_Chinstrap <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0~
+## $ species_Gentoo    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0~
 ```
 
 `d_penguins` has _all_ of the original variables and three additional variables that `penguins` did not have. Specifically, `d_penguins` has one variable for each of the three species of penguin, with a zero if that particular observation is not associated with that species and a one if it is. 
@@ -175,7 +173,7 @@ dat %>%
 ```
 
 ```
-## # A tibble: 26 × 2
+## # A tibble: 26 x 2
 ##    course_id         n
 ##    <chr>         <int>
 ##  1 AnPhA-S116-01    43
@@ -188,7 +186,7 @@ dat %>%
 ##  8 BioA-T116-01      2
 ##  9 FrScA-S116-01    70
 ## 10 FrScA-S116-02    12
-## # ℹ 16 more rows
+## # i 16 more rows
 ```
 
 ## Analysis

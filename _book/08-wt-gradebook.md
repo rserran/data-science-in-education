@@ -320,10 +320,14 @@ gradebook %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="08-wt-gradebook_files/figure-html/fig8-1-1.png" alt="Bar Graph of Student Grades" width="100%" />
-<p class="caption">(\#fig:fig8-1)Bar Graph of Student Grades</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{08-wt-gradebook_files/figure-latex/fig8-1-1} 
+
+}
+
+\caption{Bar Graph of Student Grades}(\#fig:fig8-1)
+\end{figure}
 
 Using {ggplot2}, you can create many types of graphs. Using `classwork_df` from earlier, you can see the distribution of scores and how they differ across classwork assignments using box plots. This is possible because of the way you cleaned the `classwork_number` and `score` variables earlier in this walkthrough. As in the last plot, you can change the factor levels of `classwork_number` so they are in an understandable order.
 
@@ -365,10 +369,14 @@ classwork_df %>%
     )
 ```
 
-<div class="figure" style="text-align: center">
-<img src="08-wt-gradebook_files/figure-html/fig8-2-1.png" alt="Distribution of Classwork Scores" width="100%" />
-<p class="caption">(\#fig:fig8-2)Distribution of Classwork Scores</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{08-wt-gradebook_files/figure-latex/fig8-2-1} 
+
+}
+
+\caption{Distribution of classwork scores}(\#fig:fig8-2)
+\end{figure}
 
 ### Model data
 
@@ -398,10 +406,14 @@ gradebook %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="08-wt-gradebook_files/figure-html/fig8-3-1.png" alt="Relationship Between Overall Grade and Formative Assessments" width="100%" />
-<p class="caption">(\#fig:fig8-3)Relationship Between Overall Grade and Formative Assessments</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{08-wt-gradebook_files/figure-latex/fig8-3-1} 
+
+}
+
+\caption{Relationship Between Overall Grade and Formative Assessments}(\#fig:fig8-3)
+\end{figure}
 
 The graph suggests a correlation between overall class grade and formative assessment scores. As the formative scores go up, so does the overall grade. To see this better, use {ggplot2} to add a line of best fit.
 
@@ -422,10 +434,14 @@ gradebook %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="08-wt-gradebook_files/figure-html/fig8-4-1.png" alt="Relationship Between Overall Grade and Formative Assessments (with Line of Best Fit)" width="100%" />
-<p class="caption">(\#fig:fig8-4)Relationship Between Overall Grade and Formative Assessments (with Line of Best Fit)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{08-wt-gradebook_files/figure-latex/fig8-4-1} 
+
+}
+
+\caption{Relationship Between Overall Grade and Formative Assessments (with Line of Best Fit)}(\#fig:fig8-4)
+\end{figure}
 
 #### Outliers
 
@@ -447,10 +463,14 @@ gradebook %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="08-wt-gradebook_files/figure-html/fig8-5-1.png" alt="Distribution of Formative Assessment Scores" width="100%" />
-<p class="caption">(\#fig:fig8-5)Distribution of Formative Assessment Scores</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{08-wt-gradebook_files/figure-latex/fig8-5-1} 
+
+}
+
+\caption{Distribution of Formative Assessment Scores}(\#fig:fig8-5)
+\end{figure}
 
 The next box plot is for the overall grade scores: 
 
@@ -468,10 +488,14 @@ gradebook %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="08-wt-gradebook_files/figure-html/fig8-6-1.png" alt="Distribution of Overall Grade Scores" width="100%" />
-<p class="caption">(\#fig:fig8-6)Distribution of Overall Grade Scores</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{08-wt-gradebook_files/figure-latex/fig8-6-1} 
+
+}
+
+\caption{Distribution of overall grade scores}(\#fig:fig8-6)
+\end{figure}
 
 Based on these plots, there don't seem to be outliers in either of these variables. 
 

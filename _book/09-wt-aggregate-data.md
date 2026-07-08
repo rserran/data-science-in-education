@@ -83,19 +83,19 @@ tibble(
 ```
 
 ```
-## # A tibble: 10 × 3
+## # A tibble: 10 x 3
 ##    student school test_score
 ##    <chr>   <chr>       <int>
-##  1 a       k              90
-##  2 b       l              29
-##  3 c       m              92
-##  4 d       n              83
-##  5 e       o              55
-##  6 f       k              59
-##  7 g       l              89
-##  8 h       m              17
-##  9 i       n              96
-## 10 j       o              72
+##  1 a       k              94
+##  2 b       l              20
+##  3 c       m              93
+##  4 d       n              77
+##  5 e       o              87
+##  6 f       k              70
+##  7 g       l              47
+##  8 h       m              33
+##  9 i       n              64
+## 10 j       o              16
 ```
 
 Run the next code chunk, and you'll see that aggregate data totals up a variable---the variable `test_score` in this case---to "roll up" the student-level information. Each row of the resulting dataset represents a group. The group in this example is `school`, which you'll tell R to use by putting it in `group_by()`. Then, you'll calculate the average score by school with `summarize()` and `mean()`:
@@ -114,14 +114,14 @@ tibble(
 ```
 
 ```
-## # A tibble: 5 × 2
+## # A tibble: 5 x 2
 ##   school mean_score
 ##   <chr>       <dbl>
-## 1 k            51  
-## 2 l            67  
-## 3 m            50  
-## 4 n            39.5
-## 5 o            27.5
+## 1 k            60.5
+## 2 l            83.5
+## 3 m            40.5
+## 4 n            26.5
+## 5 o            69.5
 ```
 
 Notice that this dataset no longer identifies individual students.
@@ -542,10 +542,14 @@ district_tidy_df %>%
     theme(legend.position = "none")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="09-wt-aggregate-data_files/figure-html/fig9-1-1.png" alt="Percentage of Population by Subgroup" width="100%" />
-<p class="caption">(\#fig:fig9-1)Percentage of Population by Subgroup</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{09-wt-aggregate-data_files/figure-latex/fig9-1-1} 
+
+}
+
+\caption{Percentage of Population by Subgroup}(\#fig:fig9-1)
+\end{figure}
 
 Look at these data and note the shares of each race group. Almost 40% of students are Black, and around 36% are White. These numbers match the percentages provided in the original PDFs, which validates the calculations you did when you cleaned the data. Good job!
 
@@ -558,7 +562,7 @@ district_tidy_df %>%
 ```
 
 ```
-## # A tibble: 1 × 3
+## # A tibble: 1 x 3
 ##   school_name category value
 ##   <chr>       <chr>    <dbl>
 ## 1 Total       frpl_pct 0.569
@@ -590,10 +594,14 @@ district_merged_df %>%
     theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="09-wt-aggregate-data_files/figure-html/fig9-2-1.png" alt="Count of Schools by White Population" width="100%" />
-<p class="caption">(\#fig:fig9-2)Count of Schools by White Population</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{09-wt-aggregate-data_files/figure-latex/fig9-2-1} 
+
+}
+
+\caption{Count of Schools by White Population}(\#fig:fig9-2)
+\end{figure}
 
 26 of the 74 (35%) schools have between 0 and 10% White students. This number implies that although the school district may be diverse, the demographics are not evenly distributed across the schools. More than half of schools enroll less than 30% White students, even though White students make up 35% of the district student population.
 
@@ -633,10 +641,14 @@ district_tidy_df %>%
     theme(legend.position = "none")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="09-wt-aggregate-data_files/figure-html/fig9-3-1.png" alt="Distribution of Subgroups in High Poverty Schools" width="100%" />
-<p class="caption">(\#fig:fig9-3)Distribution of Subgroups in High Poverty Schools</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{09-wt-aggregate-data_files/figure-latex/fig9-3-1} 
+
+}
+
+\caption{Distribution of Subgroups in High Poverty Schools}(\#fig:fig9-3)
+\end{figure}
 
 8% of White students attend high-poverty schools, compared to 43% of Black students, 39% of Hispanic students, 28% of Asian students, and 45% of Native American students. In this district, non-White students disproportionately attend high-poverty schools.
 
@@ -661,10 +673,14 @@ district_merged_df %>%
     theme(legend.position = "none")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="09-wt-aggregate-data_files/figure-html/fig9-4-1.png" alt="FRPL Percentage vs. White Percentage" width="100%" />
-<p class="caption">(\#fig:fig9-4)FRPL Percentage vs. White Percentage</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{09-wt-aggregate-data_files/figure-latex/fig9-4-1} 
+
+}
+
+\caption{FRPL Percentage vs. White Percentage}(\#fig:fig9-4)
+\end{figure}
 
 Similar to the result in Creating Categories, a strong negative correlation exists between FRPL percentage and the percentage of White students in a school. That is, high-poverty schools appear to have a lower percentage of White students, and low-poverty schools have a higher percentage of White students.
 

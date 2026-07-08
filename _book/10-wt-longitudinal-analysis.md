@@ -55,7 +55,7 @@ and selecting plots for communicating results.
 
 Data scientists working in education don't always have access to student
 level data. Knowing how to model publicly available datasets, as in
-[*the previous chapter*](#c9), empowers data scientists to do analysis
+[*the previous chapter*](#c09), empowers data scientists to do analysis
 when individual-level data is not available. This walkthrough builds on
 the last chapter by focusing on students with disabilities data over
 time. Note that this kind of analysis goes by a number of names, such as
@@ -76,7 +76,7 @@ paper by @park2016 of The Williams Institute at UCLA.
 
 In this chapter, you'll learn to explore a publicly available dataset
 and analyze its data over time. Like most public datasets (see [*the
-previous chapter*](#c9)), this one contains aggregate data. This means
+previous chapter*](#c09)), this one contains aggregate data. This means
 that someone totaled up the student counts so that it doesn't reveal
 personally identifiable information.
 
@@ -295,21 +295,21 @@ first dataset has some lines at the top that contain no data:
 
 
 ```
-## # A tibble: 16,234 × 31
+## # A tibble: 16,234 x 31
 ##    `Extraction Date:` `6/12/2013` ...3       ...4  ...5  ...6  ...7  ...8  ...9 
 ##    <chr>              <chr>       <chr>      <chr> <chr> <chr> <chr> <chr> <chr>
 ##  1 Updated:           2/12/2014   <NA>       <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
 ##  2 Revised:           <NA>        <NA>       <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
 ##  3 <NA>               <NA>        <NA>       <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
-##  4 Year               State Name  SEA Educa… SEA … Amer… Asia… Blac… Hisp… Nati…
-##  5 2012               ALABAMA     Correctio… All … -     -     -     -     -    
-##  6 2012               ALABAMA     Home       All … 1     1     57    12    0    
-##  7 2012               ALABAMA     Homebound… All … -     -     -     -     -    
-##  8 2012               ALABAMA     Inside re… All … -     -     -     -     -    
-##  9 2012               ALABAMA     Inside re… All … -     -     -     -     -    
-## 10 2012               ALABAMA     Inside re… All … -     -     -     -     -    
-## # ℹ 16,224 more rows
-## # ℹ 22 more variables: ...10 <chr>, ...11 <chr>, ...12 <chr>, ...13 <chr>,
+##  4 Year               State Name  SEA Educa~ SEA ~ Amer~ Asia~ Blac~ Hisp~ Nati~
+##  5 2012               ALABAMA     Correctio~ All ~ -     -     -     -     -    
+##  6 2012               ALABAMA     Home       All ~ 1     1     57    12    0    
+##  7 2012               ALABAMA     Homebound~ All ~ -     -     -     -     -    
+##  8 2012               ALABAMA     Inside re~ All ~ -     -     -     -     -    
+##  9 2012               ALABAMA     Inside re~ All ~ -     -     -     -     -    
+## 10 2012               ALABAMA     Inside re~ All ~ -     -     -     -     -    
+## # i 16,224 more rows
+## # i 22 more variables: ...10 <chr>, ...11 <chr>, ...12 <chr>, ...13 <chr>,
 ## #   ...14 <chr>, ...15 <chr>, ...16 <chr>, ...17 <chr>, ...18 <chr>,
 ## #   ...19 <chr>, ...20 <chr>, ...21 <chr>, ...22 <chr>, ...23 <chr>,
 ## #   ...24 <chr>, ...25 <chr>, ...26 <chr>, ...27 <chr>, ...28 <chr>,
@@ -342,26 +342,26 @@ skip = 4)
 ```
 
 ```
-## # A tibble: 16,230 × 31
-##    Year  `State Name` `SEA Education Environment`         SEA Disability Categ…¹
+## # A tibble: 16,230 x 31
+##    Year  `State Name` `SEA Education Environment`         SEA Disability Categ~1
 ##    <chr> <chr>        <chr>                               <chr>                 
 ##  1 2012  ALABAMA      Correctional Facilities             All Disabilities      
 ##  2 2012  ALABAMA      Home                                All Disabilities      
 ##  3 2012  ALABAMA      Homebound/Hospital                  All Disabilities      
-##  4 2012  ALABAMA      Inside regular class 40% through 7… All Disabilities      
-##  5 2012  ALABAMA      Inside regular class 80% or more o… All Disabilities      
-##  6 2012  ALABAMA      Inside regular class less than 40%… All Disabilities      
-##  7 2012  ALABAMA      Other Location Regular Early Child… All Disabilities      
-##  8 2012  ALABAMA      Other Location Regular Early Child… All Disabilities      
-##  9 2012  ALABAMA      Parentally Placed in Private Schoo… All Disabilities      
+##  4 2012  ALABAMA      Inside regular class 40% through 7~ All Disabilities      
+##  5 2012  ALABAMA      Inside regular class 80% or more o~ All Disabilities      
+##  6 2012  ALABAMA      Inside regular class less than 40%~ All Disabilities      
+##  7 2012  ALABAMA      Other Location Regular Early Child~ All Disabilities      
+##  8 2012  ALABAMA      Other Location Regular Early Child~ All Disabilities      
+##  9 2012  ALABAMA      Parentally Placed in Private Schoo~ All Disabilities      
 ## 10 2012  ALABAMA      Residential Facility, Age 3-5       All Disabilities      
-## # ℹ 16,220 more rows
-## # ℹ abbreviated name: ¹​`SEA Disability Category`
-## # ℹ 27 more variables: `American Indian or Alaska Native Age 3 to 5` <chr>,
+## # i 16,220 more rows
+## # i abbreviated name: 1: `SEA Disability Category`
+## # i 27 more variables: `American Indian or Alaska Native Age 3 to 5` <chr>,
 ## #   `Asian Age 3-5` <chr>, `Black or African American Age 3-5` <chr>,
 ## #   `Hispanic/Latino Age 3-5` <chr>,
 ## #   `Native Hawaiian or Other Pacific Islander Age 3-5` <chr>,
-## #   `Two or More Races Age 3-5` <chr>, `White Age 3-5` <chr>, …
+## #   `Two or More Races Age 3-5` <chr>, `White Age 3-5` <chr>, ...
 ```
 
 The `skip` argument told `read_csv()` to make the line containing
@@ -597,26 +597,26 @@ all_files[[5]]
 ```
 
 ```
-## # A tibble: 16,230 × 50
+## # A tibble: 16,230 x 50
 ##    `2016` Alabama `Correctional Facilities`   `All Disabilities` `-...5` `-...6`
 ##    <chr>  <chr>   <chr>                       <chr>              <chr>   <chr>  
 ##  1 2016   Alabama Home                        All Disabilities   43      30     
 ##  2 2016   Alabama Homebound/Hospital          All Disabilities   -       -      
-##  3 2016   Alabama Inside regular class 40% t… All Disabilities   -       -      
-##  4 2016   Alabama Inside regular class 80% o… All Disabilities   -       -      
-##  5 2016   Alabama Inside regular class less … All Disabilities   -       -      
-##  6 2016   Alabama Parentally Placed in Priva… All Disabilities   -       -      
-##  7 2016   Alabama Residential Facility, Age … All Disabilities   5       3      
-##  8 2016   Alabama Residential Facility, Age … All Disabilities   -       -      
+##  3 2016   Alabama Inside regular class 40% t~ All Disabilities   -       -      
+##  4 2016   Alabama Inside regular class 80% o~ All Disabilities   -       -      
+##  5 2016   Alabama Inside regular class less ~ All Disabilities   -       -      
+##  6 2016   Alabama Parentally Placed in Priva~ All Disabilities   -       -      
+##  7 2016   Alabama Residential Facility, Age ~ All Disabilities   5       3      
+##  8 2016   Alabama Residential Facility, Age ~ All Disabilities   -       -      
 ##  9 2016   Alabama Separate Class              All Disabilities   58      58     
 ## 10 2016   Alabama Separate School, Age 3-5    All Disabilities   11      20     
-## # ℹ 16,220 more rows
-## # ℹ 44 more variables: `-...7` <chr>, `-...8` <chr>, `-...9` <chr>,
+## # i 16,220 more rows
+## # i 44 more variables: `-...7` <chr>, `-...8` <chr>, `-...9` <chr>,
 ## #   `-...10` <chr>, `-...11` <chr>, `-...12` <chr>, `-...13` <chr>,
 ## #   `-...14` <chr>, `-...15` <chr>, `-...16` <chr>, `-...17` <chr>,
 ## #   `-...18` <chr>, `-...19` <chr>, `0...20` <chr>, `0...21` <chr>,
 ## #   `0...22` <chr>, `0...23` <chr>, `0...24` <chr>, `0...25` <chr>,
-## #   `0...26` <chr>, `0...27` <chr>, `0...28` <chr>, `1...29` <chr>, …
+## #   `0...26` <chr>, `0...27` <chr>, `0...28` <chr>, `1...29` <chr>, ...
 ```
 
 You used `skip = 4` when you read in the datasets in the list. That
@@ -667,22 +667,22 @@ all_files[[1]] %>%
 ```
 
 ```
-## # A tibble: 16,230 × 8
-##    Year  `State Name` `SEA Education Environment`         SEA Disability Categ…¹
+## # A tibble: 16,230 x 8
+##    Year  `State Name` `SEA Education Environment`         SEA Disability Categ~1
 ##    <chr> <chr>        <chr>                               <chr>                 
 ##  1 2012  ALABAMA      Correctional Facilities             All Disabilities      
 ##  2 2012  ALABAMA      Home                                All Disabilities      
 ##  3 2012  ALABAMA      Homebound/Hospital                  All Disabilities      
-##  4 2012  ALABAMA      Inside regular class 40% through 7… All Disabilities      
-##  5 2012  ALABAMA      Inside regular class 80% or more o… All Disabilities      
-##  6 2012  ALABAMA      Inside regular class less than 40%… All Disabilities      
-##  7 2012  ALABAMA      Other Location Regular Early Child… All Disabilities      
-##  8 2012  ALABAMA      Other Location Regular Early Child… All Disabilities      
-##  9 2012  ALABAMA      Parentally Placed in Private Schoo… All Disabilities      
+##  4 2012  ALABAMA      Inside regular class 40% through 7~ All Disabilities      
+##  5 2012  ALABAMA      Inside regular class 80% or more o~ All Disabilities      
+##  6 2012  ALABAMA      Inside regular class less than 40%~ All Disabilities      
+##  7 2012  ALABAMA      Other Location Regular Early Child~ All Disabilities      
+##  8 2012  ALABAMA      Other Location Regular Early Child~ All Disabilities      
+##  9 2012  ALABAMA      Parentally Placed in Private Schoo~ All Disabilities      
 ## 10 2012  ALABAMA      Residential Facility, Age 3-5       All Disabilities      
-## # ℹ 16,220 more rows
-## # ℹ abbreviated name: ¹​`SEA Disability Category`
-## # ℹ 4 more variables: `Female Age 3 to 5` <chr>, `Male Age 3 to 5` <chr>,
+## # i 16,220 more rows
+## # i abbreviated name: 1: `SEA Disability Category`
+## # i 4 more variables: `Female Age 3 to 5` <chr>, `Male Age 3 to 5` <chr>,
 ## #   `Female Age 6 to 21` <chr>, `Male Age 6 to 21` <chr>
 ```
 
@@ -798,7 +798,7 @@ str(child_counts)
 ```
 
 ```
-## tibble [97,387 × 8] (S3: tbl_df/tbl/data.frame)
+## tibble [97,387 x 8] (S3: tbl_df/tbl/data.frame)
 ##  $ Year                     : chr [1:97387] "2012" "2012" "2012" "2012" ...
 ##  $ State Name               : chr [1:97387] "ALABAMA" "ALABAMA" "ALABAMA" "ALABAMA" ...
 ##  $ SEA Education Environment: chr [1:97387] "Correctional Facilities" "Home" "Homebound/Hospital" "Inside regular class 40% through 79% of day" ...
@@ -837,14 +837,14 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 16 × 2
+## # A tibble: 16 x 2
 ##    `SEA Disability Category`                                                   n
 ##    <chr>                                                                   <int>
 ##  1 All Disabilities                                                         6954
 ##  2 Autism                                                                   6954
 ##  3 Deaf-blindness                                                           6954
 ##  4 Developmental delay                                                      4636
-##  5 Developmental delay (valid only for children ages 3-9 when defined by …  2318
+##  5 Developmental delay (valid only for children ages 3-9 when defined by ~  2318
 ##  6 Emotional disturbance                                                    6954
 ##  7 Hearing impairment                                                       6954
 ##  8 Intellectual disability                                                  6954
@@ -911,7 +911,7 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 6 × 2
+## # A tibble: 6 x 2
 ##   state              n
 ##   <chr>          <int>
 ## 1 ALABAMA            4
@@ -994,7 +994,7 @@ child_counts <-
 
 ```
 ## Warning: There was 1 warning in `mutate()`.
-## ℹ In argument: `total = as.numeric(total)`.
+## i In argument: `total = as.numeric(total)`.
 ## Caused by warning:
 ## ! NAs introduced by coercion
 ```
@@ -1004,7 +1004,7 @@ child_counts
 ```
 
 ```
-## # A tibble: 2,928 × 6
+## # A tibble: 2,928 x 6
 ##    year  state   age             disability       gender total
 ##    <chr> <chr>   <chr>           <chr>            <chr>  <dbl>
 ##  1 2012  alabama Total, Age 3-5  All Disabilities f       2228
@@ -1017,7 +1017,7 @@ child_counts
 ##  8 2012  alabama Total, Age 6-21 All Disabilities m      48712
 ##  9 2012  alaska  Total, Age 3-5  All Disabilities f        676
 ## 10 2012  alaska  Total, Age 3-5  All Disabilities m       1440
-## # ℹ 2,918 more rows
+## # i 2,918 more rows
 ```
 
 Converting these count columns from character classes to number classes
@@ -1101,7 +1101,7 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 2,928 × 6
+## # A tibble: 2,928 x 6
 ##    year       state   age             disability       gender total
 ##    <date>     <chr>   <chr>           <chr>            <chr>  <dbl>
 ##  1 2012-01-01 alabama Total, Age 3-5  All Disabilities f       2228
@@ -1114,7 +1114,7 @@ child_counts %>%
 ##  8 2012-01-01 alabama Total, Age 6-21 All Disabilities m      48712
 ##  9 2012-01-01 alaska  Total, Age 3-5  All Disabilities f        676
 ## 10 2012-01-01 alaska  Total, Age 3-5  All Disabilities f         NA
-## # ℹ 2,918 more rows
+## # i 2,918 more rows
 ```
 
 You can simplify the dataset by removing the rows with `NA`, leaving one
@@ -1144,7 +1144,7 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 1,390 × 6
+## # A tibble: 1,390 x 6
 ##    year       state          age             disability       gender total
 ##    <date>     <chr>          <chr>           <chr>            <chr>  <dbl>
 ##  1 2012-01-01 alabama        Total, Age 3-5  All Disabilities f       2228
@@ -1157,7 +1157,7 @@ child_counts %>%
 ##  8 2012-01-01 alaska         Total, Age 6-21 All Disabilities m      10536
 ##  9 2012-01-01 american samoa Total, Age 3-5  All Disabilities f         45
 ## 10 2012-01-01 american samoa Total, Age 6-21 All Disabilities f        208
-## # ℹ 1,380 more rows
+## # i 1,380 more rows
 ```
 
 ## Analysis
@@ -1187,7 +1187,7 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 6 × 2
+## # A tibble: 6 x 2
 ##   state                                            mean_count
 ##   <chr>                                                 <dbl>
 ## 1 california                                          180879.
@@ -1243,10 +1243,14 @@ high_count %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="10-wt-longitudinal-analysis_files/figure-html/fig10-1-1.png" alt="Count of Female Students in Special Education Over Time" width="100%" />
-<p class="caption">(\#fig:fig10-1)Count of Female Students in Special Education Over Time</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{10-wt-longitudinal-analysis_files/figure-latex/fig10-1-1} 
+
+}
+
+\caption{Count of Female Students in Special Education Over Time}(\#fig:fig10-1)
+\end{figure}
 
 The result is a plot that has the years on the x-axis and a count of
 female students on the y-axis. Each line takes a different color based
@@ -1279,10 +1283,14 @@ high_count %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="10-wt-longitudinal-analysis_files/figure-html/fig10-2-1.png" alt="Count of Male Students in Special Education Over Time" width="100%" />
-<p class="caption">(\#fig:fig10-2)Count of Male Students in Special Education Over Time</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{10-wt-longitudinal-analysis_files/figure-latex/fig10-2-1} 
+
+}
+
+\caption{Count of Male Students in Special Education Over Time}(\#fig:fig10-2)
+\end{figure}
 
 You've looked at each gender separately. What do these lines look like
 if you visualized the total number of students each year per state? To
@@ -1304,10 +1312,14 @@ high_count %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="10-wt-longitudinal-analysis_files/figure-html/fig10-3-1.png" alt="Total Count of Students in Special Education Over Time" width="100%" />
-<p class="caption">(\#fig:fig10-3)Total Count of Students in Special Education Over Time</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{10-wt-longitudinal-analysis_files/figure-latex/fig10-3-1} 
+
+}
+
+\caption{Total Count of Students in Special Education Over Time}(\#fig:fig10-3)
+\end{figure}
 
 So far, you've looked at ways to count students over time. In each plot,
 you saw that while counts have grown overall, each state has different
@@ -1326,10 +1338,14 @@ high_count %>%
   theme_dataedu() 
 ```
 
-<div class="figure" style="text-align: center">
-<img src="10-wt-longitudinal-analysis_files/figure-html/fig10-4-1.png" alt="Median Students with Disabilities Count" width="100%" />
-<p class="caption">(\#fig:fig10-4)Median Students with Disabilities Count</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{10-wt-longitudinal-analysis_files/figure-latex/fig10-4-1} 
+
+}
+
+\caption{Median Students with Disabilities Count}(\#fig:fig10-4)
+\end{figure}
 
 The boxplots show what you might have expected from the line plots before. The highest median student count over time is California and
 the lowest is Pennsylvania.
@@ -1378,10 +1394,14 @@ high_count %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="10-wt-longitudinal-analysis_files/figure-html/fig10-5-1.png" alt="Male Student to Female Student Ratio Over Time" width="100%" />
-<p class="caption">(\#fig:fig10-5)Male Student to Female Student Ratio Over Time</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{10-wt-longitudinal-analysis_files/figure-latex/fig10-5-1} 
+
+}
+
+\caption{Male Student to Female Student Ratio Over Time}(\#fig:fig10-5)
+\end{figure}
 
 By visually inspecting the plot, you can hypothesize that there was no
 significant change in the male-to-female ratio between the years 2012
@@ -1458,10 +1478,14 @@ child_counts %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="10-wt-longitudinal-analysis_files/figure-html/fig10-6-1.png" alt="Comparison of Female Students to Male Students in Special Education" width="100%" />
-<p class="caption">(\#fig:fig10-6)Comparison of Female Students to Male Students in Special Education</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{10-wt-longitudinal-analysis_files/figure-latex/fig10-6-1} 
+
+}
+
+\caption{Comparison of Female Students to Male Students in Special Education}(\#fig:fig10-6)
+\end{figure}
 
 If you think of each potential point on the linear regression line as a
 ratio of male-to-female students, you'll notice that you don't know a
@@ -1482,15 +1506,15 @@ child_counts %>%
 ```
 
 ```
-## # A tibble: 6 × 5
+## # A tibble: 6 x 5
 ##   year       state                                           age        f      m
 ##   <date>     <chr>                                           <chr>  <dbl>  <dbl>
-## 1 2012-01-01 us, outlying areas, and freely associated stat… Tota… 1.93e6 3.89e6
-## 2 2013-01-01 us, outlying areas, and freely associated stat… Tota… 1.94e6 3.88e6
-## 3 2014-01-01 us, outlying areas, and freely associated stat… Tota… 1.97e6 3.92e6
-## 4 2015-01-01 us, outlying areas, and freely associated stat… Tota… 2.01e6 3.98e6
-## 5 2016-01-01 us, outlying areas, and freely associated stat… Tota… 2.01e6 3.97e6
-## 6 2017-01-01 us, outlying areas, and freely associated stat… Tota… 2.05e6 4.02e6
+## 1 2012-01-01 us, outlying areas, and freely associated stat~ Tota~ 1.93e6 3.89e6
+## 2 2013-01-01 us, outlying areas, and freely associated stat~ Tota~ 1.94e6 3.88e6
+## 3 2014-01-01 us, outlying areas, and freely associated stat~ Tota~ 1.97e6 3.92e6
+## 4 2015-01-01 us, outlying areas, and freely associated stat~ Tota~ 2.01e6 3.98e6
+## 5 2016-01-01 us, outlying areas, and freely associated stat~ Tota~ 2.01e6 3.97e6
+## 6 2017-01-01 us, outlying areas, and freely associated stat~ Tota~ 2.05e6 4.02e6
 ```
 
 Note that each of the data points in the upper right-hand corner of the
@@ -1518,10 +1542,14 @@ child_counts %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="10-wt-longitudinal-analysis_files/figure-html/fig10-7-1.png" alt="Comparison of Female Students to Male Students with Disabilities" width="100%" />
-<p class="caption">(\#fig:fig10-7)Comparison of Female Students to Male Students with Disabilities</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{10-wt-longitudinal-analysis_files/figure-latex/fig10-7-1} 
+
+}
+
+\caption{Comparison of Female Students to Male Students with Disabilities}(\#fig:fig10-7)
+\end{figure}
 
 Now you can fit a better model for the relationship between male and
 female student counts, albeit only the ones where the count of female
@@ -1564,7 +1592,7 @@ model_data %>%
 ```
 
 ```
-## # A tibble: 6 × 2
+## # A tibble: 6 x 2
 ##   year      n
 ##   <fct> <int>
 ## 1 2012     59
@@ -1587,10 +1615,14 @@ ggplot(data = model_data, aes(x = year, y = ratio)) +
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="10-wt-longitudinal-analysis_files/figure-html/fig10-8-1.png" alt="Male to Female Ratio Across Years (Jittered)" width="100%" />
-<p class="caption">(\#fig:fig10-8)Male to Female Ratio Across Years (Jittered)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{10-wt-longitudinal-analysis_files/figure-latex/fig10-8-1} 
+
+}
+
+\caption{Male to Female Ratio Across Years (Jittered)}(\#fig:fig10-8)
+\end{figure}
 
 Each year seems to have data points that can be included in the model.
 This means that there are enough data points to learn how the year
@@ -1682,7 +1714,7 @@ model_data %>%
 ```
 
 ```
-## # A tibble: 6 × 2
+## # A tibble: 6 x 2
 ##   year  mean_ratio
 ##   <fct>      <dbl>
 ## 1 2012        2.03
@@ -1756,7 +1788,7 @@ model_data %>%
 ```
 
 ```
-## # A tibble: 6 × 2
+## # A tibble: 6 x 2
 ##   year  median_ratio
 ##   <fct>        <dbl>
 ## 1 2012          1.99
@@ -1793,10 +1825,14 @@ model_data %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="10-wt-longitudinal-analysis_files/figure-html/fig10-9-1.png" alt="Median Male and Female Student Counts in Special Education" width="100%" />
-<p class="caption">(\#fig:fig10-9)Median Male and Female Student Counts in Special Education</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{10-wt-longitudinal-analysis_files/figure-latex/fig10-9-1} 
+
+}
+
+\caption{Median Male and Female Student Counts in Special Education}(\#fig:fig10-9)
+\end{figure}
 
 When discussing the plot, it helps to have your model output in your
 notes so you can reference specific coefficient estimates when needed.

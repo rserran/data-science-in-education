@@ -183,10 +183,14 @@ You can run the `install.packages()` functions within an `.R` script. If you cho
 
 If you do not want to write code for installing packages, you can also use the RStudio interface. Navigate to the "Packages" tab of the "Files" pane, click "Install", and search for and install one or more packages. 
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 6.1.png" alt="Image of the Packages pane, which is found in the bottom right corner of the RStudio IDE, along with the Files, Plots, Help, and Viewer panes" width="100%" />
-<p class="caption">(\#fig:fig6-1)Image of the Packages pane, which is found in the bottom right corner of the RStudio IDE, along with the Files, Plots, Help, and Viewer panes</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./man/figures/Figure 6.1} 
+
+}
+
+\caption{Image of the Packages pane, which is found in the bottom right corner of the RStudio IDE, along with the Files, Plots, Help, and Viewer panes}(\#fig:fig6-1)
+\end{figure}
 
 #### Loading a package
 
@@ -342,10 +346,16 @@ Read a couple of lines of code both above and below where the `coalesce()` funct
 
 What information is available in the Help documentation? Are there examples from the Help documentation that are similar to the code you're reviewing? For example, this seems related:
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 6.2.png" alt="Example from the `coalesce()` help documentation" width="100%" />
-<p class="caption">(\#fig:fig6-2)Example from the `coalesce()` help documentation</p>
-</div>
+(ref:fig6-2-cap) Example from the `coalesce()` help documentation
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./man/figures/Figure 6.2} 
+
+}
+
+\caption{(ref:fig6-2-cap)}(\#fig:fig6-2)
+\end{figure}
 
 ### Find the limits
 
@@ -404,10 +414,14 @@ Reflect on these questions to further your learning:
 
 In your Console, you may have noticed the following message: 
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 6.3.png" alt="List of attached packages and associated conflicts when loading the tidyverse" width="100%" />
-<p class="caption">(\#fig:fig6-3)List of attached packages and associated conflicts when loading the tidyverse</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./man/figures/Figure 6.3} 
+
+}
+
+\caption{List of attached packages and associated conflicts when loading the tidyverse}(\#fig:fig6-3)
+\end{figure}
 
 This isn't an error. It's important information for you to consider ahead of your analysis. When we first open R (via RStudio), we are working with base R---that is, everything that comes with R and a handful of pre-installed packages. 
 
@@ -469,10 +483,16 @@ Each of the three code examples above differs slightly, but two lines of code do
 
 In our Environment pane, you can see the data that's been loaded in R. You can click on the table icon on the far right of the row in the Environment pane to get an interactive table. In this case, the dataset is rather large, so RStudio may lag slightly as you open the table.
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 6.4.png" alt="Loading the `ma_data` dataset" width="100%" />
-<p class="caption">(\#fig:fig6-4)Loading the `ma_data` dataset</p>
-</div>
+(ref:fig6-4-cap) Loading the `ma_data` dataset
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./man/figures/Figure 6.4} 
+
+}
+
+\caption{(ref:fig6-4-cap)}(\#fig:fig6-4)
+\end{figure}
 
 #### The assignment operator
 
@@ -603,10 +623,14 @@ _Note: as you progress in your R learning journey you may find you need to move 
 
 Here's some fun history about the pipe operator and its package: The pipe operator first appeared in the {magrittr} package and is a play on a famous painting by the artist Magritte, who painted The Treachery of Images. In these images, he would paint an object, such as a pipe, and accompany it with the text "ceci n'est pas une pipe", which is French for "this is not a pipe". 
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 6.5.png" alt="The Treachery of Images by Magritte" width="100%" />
-<p class="caption">(\#fig:fig6-5)The Treachery of Images by Magritte</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./man/figures/Figure 6.5} 
+
+}
+
+\caption{The Treachery of Images by Magritte}(\#fig:fig6-5)
+\end{figure}
 
 It's common in the R programming world to name a package by choosing a word that represents what the package does or what it's for, then capitalizing the letter R if it appears in the package name or adding an R to the end of the package ({dplyr}, {tidyr}, {stringr}, and even {purrr}).
 

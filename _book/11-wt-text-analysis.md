@@ -127,7 +127,7 @@ tokens
 ```
 
 ```
-## # A tibble: 17,164 × 2
+## # A tibble: 17,164 x 2
 ##    post_id word                
 ##    <chr>   <chr>               
 ##  1 1       all                 
@@ -140,7 +140,7 @@ tokens
 ##  8 1       behind              
 ##  9 1       this                
 ## 10 1       plot                
-## # ℹ 17,154 more rows
+## # i 17,154 more rows
 ```
 
 You use `output = word` to tell `unnest_tokens()` that you want the column of tokens to be called `word`. We use `input = text` to tell `unnest_tokens()` to tokenize the posts in the `text` column of the `posts` dataset. The result is a new dataset where each row has a single word in the `word` column and a unique ID in the `post_id` column that tells us which post the word appears in.
@@ -174,7 +174,7 @@ tokens %>%
 ```
 
 ```
-## # A tibble: 2,949 × 2
+## # A tibble: 2,949 x 2
 ##    word            n
 ##    <chr>       <int>
 ##  1 tidytuesday   622
@@ -187,7 +187,7 @@ tokens %>%
 ##  8 ggplot2       152
 ##  9 r4ds          133
 ## 10 week's        130
-## # ℹ 2,939 more rows
+## # i 2,939 more rows
 ```
 
 You pass `count()` the argument `sort = TRUE` to sort the `n` variable from the highest value to the lowest value. This makes it easy to see the most frequently occurring words at the top. Not surprisingly, "tidytuesday" was the most frequent word in this dataset. For future analyses, you may wish to remove it given that it was the basis of the search.
@@ -205,7 +205,7 @@ tokens %>%
 ```
 
 ```
-## # A tibble: 2,949 × 3
+## # A tibble: 2,949 x 3
 ##    word            n percent
 ##    <chr>       <int>   <dbl>
 ##  1 tidytuesday   622    6.17
@@ -218,7 +218,7 @@ tokens %>%
 ##  8 ggplot2       152    1.51
 ##  9 r4ds          133    1.32
 ## 10 week's        130    1.29
-## # ℹ 2,939 more rows
+## # i 2,939 more rows
 ```
 
 Even at 622 appearances in our dataset, "tidytuesday" represents only about 6% of the total words. This makes sense when you consider our dataset contains 2,963 unique words. 
@@ -273,7 +273,7 @@ pos_tokens_count
 ```
 
 ```
-## # A tibble: 214 × 2
+## # A tibble: 214 x 2
 ##    word          n
 ##    <chr>     <int>
 ##  1 community    18
@@ -286,7 +286,7 @@ pos_tokens_count
 ##  8 share        10
 ##  9 main          9
 ## 10 public        9
-## # ℹ 204 more rows
+## # i 204 more rows
 ```
 
 You can visualize these words nicely by using {ggplot2} to show the positive words in a bar chart. There are 213 positive words total, which is hard to convey in a compact chart. Solve that problem by filtering the dataset to words that only appear 5 times or more. 
@@ -309,10 +309,14 @@ pos_tokens_count %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="11-wt-text-analysis_files/figure-html/fig11-1-1.png" alt="Count of Words Associated with Positivity" width="100%" />
-<p class="caption">(\#fig:fig11-1)Count of Words Associated with Positivity</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{11-wt-text-analysis_files/figure-latex/fig11-1-1} 
+
+}
+
+\caption{Count of Words Associated with Positivity}(\#fig:fig11-1)
+\end{figure}
 
 Note the use of `reorder()` when mapping the `word` variable to the x aesthetic. Using `reorder()` sorts the x-axis in descending order by the variable `n`. Sorting the bars from highest frequency to lowest makes it easier to identify and compare the most and least common words in the visualization. 
 
@@ -338,7 +342,7 @@ dv_tokens
 ```
 
 ```
-## # A tibble: 345 × 2
+## # A tibble: 345 x 2
 ##    post_id word   
 ##    <chr>   <chr>  
 ##  1 1       dataviz
@@ -351,7 +355,7 @@ dv_tokens
 ##  8 15      dataviz
 ##  9 16      dataviz
 ## 10 17      dataviz
-## # ℹ 335 more rows
+## # i 335 more rows
 ```
 
 The result is a dataset that has `post_id` in one column and the word "dataviz" in the other column. Use `$` to extract a vector of `post_id` for posts that have "dataviz" in the text. This vector has hundreds of values, so you can use `head` to view just the first ten.
@@ -378,7 +382,7 @@ pos_tokens
 ```
 
 ```
-## # A tibble: 517 × 2
+## # A tibble: 517 x 2
 ##    post_id word       
 ##    <chr>   <chr>      
 ##  1 1       credit     
@@ -391,7 +395,7 @@ pos_tokens
 ##  8 10      perfect    
 ##  9 12      usual      
 ## 10 12      content    
-## # ℹ 507 more rows
+## # i 507 more rows
 ```
 
 The result is a dataset that has `post_id` in one column and a positive word from `tokens` in the other column. You'll again use `$` to extract a vector of `post_id` for these posts.
@@ -454,7 +458,7 @@ dv_pos %>%
 ```
 
 ```
-## # A tibble: 2 × 3
+## # A tibble: 2 x 3
 ##   positive     n  perc
 ##      <dbl> <int> <dbl>
 ## 1        0   202 0.587
@@ -490,11 +494,11 @@ posts %>%
 ```
 
 ```
-## # A tibble: 2 × 2
+## # A tibble: 2 x 2
 ##   post_id text                                                                  
 ##   <chr>   <chr>                                                                 
-## 1 1       "All credit to @cvidonne.bsky.social for the idea behind this plot. I…
-## 2 3       "Posit Conf 2024 Shiny app (based on the #tidytuesday data and some s…
+## 1 1       "All credit to @cvidonne.bsky.social for the idea behind this plot. I~
+## 2 3       "Posit Conf 2024 Shiny app (based on the #tidytuesday data and some s~
 ```
 
 Randomly selecting rows from a dataset is a great technique to have in your toolkit. Random selection helps you avoid biases when picking rows to review.
@@ -507,7 +511,7 @@ sample(x = 1:10, size = 5)
 ```
 
 ```
-## [1] 10  1  6  2  8
+## [1] 4 8 2 1 6
 ```
 
 Passing `sample()` a vector of numbers and the size of the sample you want returns a random selection from the vector. Try changing the value of `x` and `size` to see how this works.
@@ -523,19 +527,19 @@ pos_posts %>%
 ```
 
 ```
-## # A tibble: 10 × 3
+## # A tibble: 10 x 3
 ##    post_id text                                                         positive
 ##    <chr>   <chr>                                                           <dbl>
-##  1 459     "The R4DS Online Learning Community welcomes you to week 4 …        1
-##  2 248     "Ytterligare en dos kieselbaserad terapi för att klara av s…        1
-##  3 95      "#TidyTuesday – 2025 W01 | Bring Your Own Data:\n\nTime and…        1
-##  4 235     "Monster Adjectives for #TidyTuesday\n\nAdjectives paired w…        1
-##  5 228     "🌍 TidyTuesday Presidential Governance Density Plot 🌍\n\nHe…        1
-##  6 335     "Here is my #viz for the #TidyTuesday challenge—W24. This o…        1
-##  7 366     "For Day 14 of #30DayChartChallenge a heatmap of Bob Ross‘ …        1
-##  8 171     "#TidyTuesday week 50: The Scent of Data\n\nWord clouds of …        1
-##  9 234     "#TidyTuesday week 45 - Democracy and Dictatorship. \n#30Da…        1
-## 10 22      "Is this partly an excuse to share my favourite #TidyTuesda…        1
+##  1 459     "The R4DS Online Learning Community welcomes you to week 4 ~        1
+##  2 248     "Ytterligare en dos kieselbaserad terapi för att klara av s~        1
+##  3 95      "#TidyTuesday – 2025 W01 | Bring Your Own Data:\n\nTime and~        1
+##  4 235     "Monster Adjectives for #TidyTuesday\n\nAdjectives paired w~        1
+##  5 228     "🌍 TidyTuesday Presidential Governance Density Plot 🌍\n\nHe~        1
+##  6 335     "Here is my #viz for the #TidyTuesday challenge—W24. This o~        1
+##  7 366     "For Day 14 of #30DayChartChallenge a heatmap of Bob Ross‘ ~        1
+##  8 171     "#TidyTuesday week 50: The Scent of Data\n\nWord clouds of ~        1
+##  9 234     "#TidyTuesday week 45 - Democracy and Dictatorship. \n#30Da~        1
+## 10 22      "Is this partly an excuse to share my favourite #TidyTuesda~        1
 ```
 
 That returned ten randomly selected posts. Let's look a little closer at how that works. You used `sample_n()`, which returns randomly selected rows from the posts dataset. You also specified that `size = 10`, which means `sample_n()` will give you 10 randomly selected rows. 

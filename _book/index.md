@@ -26,7 +26,8 @@ url: "datascienceineducation.com/"
 
 Welcome to Data Science in Education Using R! Inspired by {bookdown}, this book is open source. Its contents are reproducible and publicly accessible to people worldwide. The online version of the book is hosted at [datascienceineducation.com](https://datascienceineducation.com/).
 
-<img src="dsieur-cover-routledge.jpg" alt="" width="100%" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics[width=1\linewidth]{dsieur-cover-routledge} \end{center}
 
 ## Prologue {-}
 
@@ -46,10 +47,14 @@ We started talking about data science in education online because we wanted to b
 
 So give your chicken family a big hug, open up your laptop, and let’s start learning together. Turns out, there are a lot more hatchlings wanting to be eagles and chickens at the same time.
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 0.1.png" alt="The Tweet That Started It All" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-3)The Tweet That Started It All</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./man/figures/Figure 0.1} 
+
+}
+
+\caption{The Tweet That Started It All}(\#fig:unnamed-chunk-3)
+\end{figure}
 
 ## What's new in this edition?
 

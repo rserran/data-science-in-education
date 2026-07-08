@@ -189,10 +189,10 @@ code_module_dates <-
 
 ```
 ## `summarise()` has regrouped the output.
-## ℹ Summaries were computed grouped by code_module and code_presentation.
-## ℹ Output is grouped by code_module.
-## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
-## ℹ Use `summarise(.by = c(code_module, code_presentation))` for per-operation
+## i Summaries were computed grouped by code_module and code_presentation.
+## i Output is grouped by code_module.
+## i Use `summarise(.groups = "drop_last")` to silence this message.
+## i Use `summarise(.by = c(code_module, code_presentation))` for per-operation
 ##   grouping (`?dplyr::dplyr_by`) instead.
 ```
 
@@ -288,11 +288,11 @@ interactions_summarized <-
 
 ```
 ## `summarise()` has regrouped the output.
-## ℹ Summaries were computed grouped by id_student, code_module, and
+## i Summaries were computed grouped by id_student, code_module, and
 ##   code_presentation.
-## ℹ Output is grouped by id_student and code_module.
-## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
-## ℹ Use `summarise(.by = c(id_student, code_module, code_presentation))` for
+## i Output is grouped by id_student and code_module.
+## i Use `summarise(.groups = "drop_last")` to silence this message.
+## i Use `summarise(.by = c(id_student, code_module, code_presentation))` for
 ##   per-operation grouping (`?dplyr::dplyr_by`) instead.
 ```
 
@@ -301,7 +301,7 @@ interactions_summarized
 ```
 
 ```
-## # A tibble: 29,160 × 4
+## # A tibble: 29,160 x 4
 ## # Groups:   id_student, code_module [28,192]
 ##    id_student code_module code_presentation sum_clicks
 ##         <int> <chr>       <chr>                  <int>
@@ -315,7 +315,7 @@ interactions_summarized
 ##  8      24186 GGG         2014B                    118
 ##  9      24213 DDD         2014B                    642
 ## 10      24391 GGG         2013J                    424
-## # ℹ 29,150 more rows
+## # i 29,150 more rows
 ```
 
 How many times did students click? Create a histogram to see. Use {ggplot2} and `geom_histogram()` to visualize the distribution of the `sum_clicks` variable you just created.
@@ -329,7 +329,9 @@ interactions_summarized %>%
   theme_dataedu()
 ```
 
-<img src="14-wt-machine-learning_files/figure-html/ch14-activity-histogram-1.png" alt="" width="100%" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics[width=1\linewidth]{14-wt-machine-learning_files/figure-latex/ch14-activity-histogram-1} \end{center}
 
 This is a good start --- you've created the first feature based on the log-trace data, `sum_clicks`. What are some other features you can add? A benefit of using the `summarize()` function in R is that you can create multiple summary statistics at once. 
 
@@ -347,11 +349,11 @@ interactions_summarized <-
 
 ```
 ## `summarise()` has regrouped the output.
-## ℹ Summaries were computed grouped by id_student, code_module, and
+## i Summaries were computed grouped by id_student, code_module, and
 ##   code_presentation.
-## ℹ Output is grouped by id_student and code_module.
-## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
-## ℹ Use `summarise(.by = c(id_student, code_module, code_presentation))` for
+## i Output is grouped by id_student and code_module.
+## i Use `summarise(.groups = "drop_last")` to silence this message.
+## i Use `summarise(.by = c(id_student, code_module, code_presentation))` for
 ##   per-operation grouping (`?dplyr::dplyr_by`) instead.
 ```
 
@@ -428,7 +430,7 @@ my_rec
 ```
 
 ```
-## ── Recipe ──────────────────────────────────────────────────────────────────────
+## -- Recipe ----------------------------------------------------------------------
 ```
 
 ```
@@ -436,7 +438,7 @@ my_rec
 ```
 
 ```
-## ── Inputs
+## -- Inputs
 ```
 
 ```
@@ -453,27 +455,27 @@ my_rec
 ```
 
 ```
-## ── Operations
+## -- Operations
 ```
 
 ```
-## • Mean imputation for: mean_weighted_score, sum_clicks, sd_clicks, ...
+## * Mean imputation for: mean_weighted_score, sum_clicks, sd_clicks, ...
 ```
 
 ```
-## • Mode imputation for: imd_band
+## * Mode imputation for: imd_band
 ```
 
 ```
-## • Centering for: mean_weighted_score num_of_prev_attempts
+## * Centering for: mean_weighted_score num_of_prev_attempts
 ```
 
 ```
-## • Scaling for: mean_weighted_score num_of_prev_attempts
+## * Scaling for: mean_weighted_score num_of_prev_attempts
 ```
 
 ```
-## • Dummy variables from: all_nominal_predictors() -all_outcomes()
+## * Dummy variables from: all_nominal_predictors() -all_outcomes()
 ```
 
 ### Step 4: Specifying the model and workflow
@@ -538,7 +540,7 @@ metrics
 ```
 
 ```
-## # A tibble: 5 × 4
+## # A tibble: 5 x 4
 ##   .metric  .estimator .estimate .config        
 ##   <chr>    <chr>          <dbl> <chr>          
 ## 1 accuracy binary         0.640 pre0_mod0_post0

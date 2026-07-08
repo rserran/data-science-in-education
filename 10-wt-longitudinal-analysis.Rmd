@@ -57,7 +57,7 @@ and selecting plots for communicating results.
 
 Data scientists working in education don't always have access to student
 level data. Knowing how to model publicly available datasets, as in
-[*the previous chapter*](#c9), empowers data scientists to do analysis
+[*the previous chapter*](#c09), empowers data scientists to do analysis
 when individual-level data is not available. This walkthrough builds on
 the last chapter by focusing on students with disabilities data over
 time. Note that this kind of analysis goes by a number of names, such as
@@ -78,7 +78,7 @@ paper by @park2016 of The Williams Institute at UCLA.
 
 In this chapter, you'll learn to explore a publicly available dataset
 and analyze its data over time. Like most public datasets (see [*the
-previous chapter*](#c9)), this one contains aggregate data. This means
+previous chapter*](#c09)), this one contains aggregate data. This means
 that someone totaled up the student counts so that it doesn't reveal
 personally identifiable information.
 

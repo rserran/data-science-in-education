@@ -69,10 +69,14 @@ If you have problems installing these, consider [the Data Carpentry page](https:
 
 Now that we've installed both R and RStudio, we will be accessing R _through_ RStudio. One of the most reliable ways to tell if you're opening R or RStudio is to look at the icons: 
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 5.1.png" alt="R Icon and RStudio Icon" width="100%" />
-<p class="caption">(\#fig:fig5-1)Icons</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={R Icon and RStudio Icon}]{./man/figures/Figure 5.1} 
+
+}
+
+\caption{Icons}(\#fig:fig5-1)
+\end{figure}
 
 Whenever we want to work with R, we'll open RStudio. RStudio interfaces directly with R, and is an **I**ntegrated **D**evelopment **E**nvironment (IDE). This means that RStudio comes with built-in features that make using R easier. If you'd like more information on the difference between R and RStudio, consider reading the "Getting Started" section of the _[Modern Dive](https://moderndive.com/1-getting-started.html#)_ (https[]()://moderndive.com/1-getting-started.html#) textbook [@statisticalinf].
 
@@ -95,10 +99,14 @@ We bring up alternative IDEs---particularly ESS---because RStudio, as of this wr
 
 When we open RStudio for the first time, we should see something similar to this:
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 5.2.png" alt="Default RStudio layout" width="100%" />
-<p class="caption">(\#fig:fig5-2)RStudio layout</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={Default RStudio layout}]{./man/figures/Figure 5.2} 
+
+}
+
+\caption{RStudio layout}(\#fig:fig5-2)
+\end{figure}
 
 We'll refer to these three "panes" as the "Console pane", the "Environment pane", and the "Files pane".
 
@@ -108,10 +116,14 @@ As you work with R more, you'll find yourself using the tabs within each of the 
 
 When you create a new file, such as an R script, an R Markdown file, or a Shiny app, RStudio will open a fourth pane, known as the "Source pane". The Source pane should show up as a square in the top left. You can open an `.R` script in the Source pane by going to "File", selecting "New File", and then selecting "R Script":
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 5.3.png" alt="Creating a New Script in RStudio by going to file then R script" width="100%" />
-<p class="caption">(\#fig:fig5-3)Creating a new R script in RStudio</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={Creating a New Script in RStudio by going to file then R script}]{./man/figures/Figure 5.3} 
+
+}
+
+\caption{Creating a new R script in RStudio}(\#fig:fig5-3)
+\end{figure}
 
 You do not need to do anything specific with this file, but we encourage you to experiment with it if you would like. 
 
@@ -121,17 +133,25 @@ One of the balances to strike in this text is a balance between best practices i
 
 To accomplish this, go to "Tools", and select "Global Options" from the dropdown menu.
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 5.4.png" alt="Selecting Global Options from the Tool Dropdown Menu" width="100%" />
-<p class="caption">(\#fig:fig5-4)Selecting Global Options from the Tool dropdown menu</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={Selecting Global Options from the Tool Dropdown Menu}]{./man/figures/Figure 5.4} 
+
+}
+
+\caption{Selecting Global Options from the Tool dropdown menu}(\#fig:fig5-4)
+\end{figure}
 
 The "General" tab will open, with several checkboxes selected and unselected. It's important to select "Never" next to the "Save workspace to .RData on exit:" prompt. After selecting "Never", go through and check and uncheck boxes so that your General tab looks like this: 
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 5.5.png" alt="General tab from the Global Options in RStudio" width="100%" />
-<p class="caption">(\#fig:fig5-5)General tab from Global Options</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={General tab from the Global Options in RStudio}]{./man/figures/Figure 5.5} 
+
+}
+
+\caption{General tab from Global Options}(\#fig:fig5-5)
+\end{figure}
 
 Last, click on the "Appearance" tab from within Global Options. From here you can select your RStudio Font, Font Size, and Theme. Go through the options and select an appearance that works best for you, and know that you can always come back and change it. 
     
@@ -144,26 +164,38 @@ If, at any point, you find that one of your panes has disappeared, one of two th
 
 Look at the Environment pane as an example. If the Environment pane has been minimized, we'll see something like this:  
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 5.6.png" alt="RStudio layout with a minimized Environment pane" width="100%" />
-<p class="caption">(\#fig:fig5-6)RStudio layout with the Environment pane minimized</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={RStudio layout with a minimized Environment pane}]{./man/figures/Figure 5.6} 
+
+}
+
+\caption{RStudio layout with the Environment pane minimized}(\#fig:fig5-6)
+\end{figure}
 
 You'll know that the Environment pane has been minimized because, although we can see the pane headers in the top right, you can't see the information _within_ the Environment pane. To fix this, click on the icon of two squares in the top right of the Environment pane. If you click on the icon of the large square in the top right of the Environment pane, you'll maximize the Environment pane and minimize the Files pane. This is not preferred, since in general you'll want to see all the panes at once.
 
 If the Environment pane has somehow been closed, you can recover it by going to the "View" menu, selecting "Panes", and then selecting "Pane Layout", like so: 
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 5.7.png" alt="Accessing the Pane Layout from the View Dropdown Menu" width="100%" />
-<p class="caption">(\#fig:fig5-7)Accessing the Pane Layout from the View dropdown menu</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={Accessing the Pane Layout from the View Dropdown Menu}]{./man/figures/Figure 5.7} 
+
+}
+
+\caption{Accessing the Pane Layout from the View dropdown menu}(\#fig:fig5-7)
+\end{figure}
 
 When you select Pane Layout, you'll see this: 
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 5.8.png" alt="Pane Layout Options within RStudio" width="100%" />
-<p class="caption">(\#fig:fig5-8)Pane Layout options within RStudio</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={Pane Layout Options within RStudio}]{./man/figures/Figure 5.8} 
+
+}
+
+\caption{Pane Layout options within RStudio}(\#fig:fig5-8)
+\end{figure}
 
 From here, you can select which tabs you'd like to appear within each pane, and you can even change where each pane appears within RStudio. If the Environment pane had been closed, select it from the Pane Layout in order to re-open it within RStudio.
 
@@ -183,10 +215,14 @@ In the Console, type `3 + 4` and hit `Enter`.
 
 You should see the following:  
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 5.9.png" alt="Adding 3 and 4 on the console" width="100%" />
-<p class="caption">(\#fig:fig5-9)Using the Console as a calculator</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={Adding 3 and 4 on the console}]{./man/figures/Figure 5.9} 
+
+}
+
+\caption{Using the Console as a calculator}(\#fig:fig5-9)
+\end{figure}
 
 You've just used R to add the numbers 3 and 4. R has returned the sum of `3 + 4` on a new line, next to `[1]`. The `[1]` tells you that there is one row of data.
 
@@ -199,10 +235,14 @@ print("I am learning R")
 
 You should see this in the Console:
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 5.10.png" alt="Printing I am learning R on the console" width="100%" />
-<p class="caption">(\#fig:fig5-10)Printing text to the Console</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={Printing I am learning R on the console}]{./man/figures/Figure 5.10} 
+
+}
+
+\caption{Printing text to the Console}(\#fig:fig5-10)
+\end{figure}
 
 There's one error that you're likely going to come across, both when running code in the Console and in an R script. Explore that error now by running the following code in the Console and hitting `Enter`: 
 
@@ -213,10 +253,14 @@ print("This is going to cause a problem"
 
 Make sure that you left off the closing parenthesis. What you'll see in the Console is: 
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 5.11.png" alt="Printing this is going to cause a problem with the last parantheses missing" width="100%" />
-<p class="caption">(\#fig:fig5-11)Incomplete parentheses change what R expects next</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={Printing this is going to cause a problem with the last parantheses missing}]{./man/figures/Figure 5.11} 
+
+}
+
+\caption{Incomplete parentheses change what R expects next}(\#fig:fig5-11)
+\end{figure}
 
 When you're missing a closing parenthesis, R is expecting you to provide more code. You'll know this because instead of seeing the `>` prompt in your Console, you see a `+`, and R has not returned the expected print statement.
 

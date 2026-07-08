@@ -4,10 +4,14 @@
 
 This chapter is the first of eight walkthroughs, each exploring the *education data science pipeline* through different datasets. The pipeline includes common steps in data science projects, like cleaning, tidying, exploring, visualizing, and modeling data, as depicted by @r4ds2023.
 
-<div class="figure" style="text-align: center">
-<img src="./man/figures/Figure 7.1.png" alt="A diagram displaying the data science cycle: Import -&gt; Tidy -&gt; Understand  (which has the phases Transform -&gt; Visualize -&gt; Model in a cycle) -&gt; Communicate. Surrounding all of these is Program  Import, Tidy, Transform, and Visualize is highlighted." width="100%" />
-<p class="caption">(\#fig:fig7-1)Data science cycle</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,alt={A diagram displaying the data science cycle: Import -> Tidy -> Understand  (which has the phases Transform -> Visualize -> Model in a cycle) -> Communicate. Surrounding all of these is Program  Import, Tidy, Transform, and Visualize is highlighted.}]{./man/figures/Figure 7.1} 
+
+}
+
+\caption{Data science cycle}(\#fig:fig7-1)
+\end{figure}
 
 Using data from a number of sources, you will learn the end-to-end process of working with education datasets. While the walkthrough topics vary, their structure and section headings are consistent. Each walkthrough begins with a vocabulary section, followed by an introduction to the dataset and the central question or problem.
 
@@ -189,7 +193,7 @@ pre_survey
 ```
 
 ```
-## # A tibble: 1,102 × 12
+## # A tibble: 1,102 x 12
 ##    opdata_username opdata_CourseID Q1MaincellgroupRow1 Q1MaincellgroupRow2
 ##    <chr>           <chr>                         <dbl>               <dbl>
 ##  1 _80624_1        FrScA-S116-01                     4                   4
@@ -202,8 +206,8 @@ pre_survey
 ##  8 _80624_1        BioA-S116-01                      5                   3
 ##  9 _80624_1        BioA-T116-01                     NA                  NA
 ## 10 _80624_1        PhysA-S116-01                     4                   4
-## # ℹ 1,092 more rows
-## # ℹ 8 more variables: Q1MaincellgroupRow3 <dbl>, Q1MaincellgroupRow4 <dbl>,
+## # i 1,092 more rows
+## # i 8 more variables: Q1MaincellgroupRow3 <dbl>, Q1MaincellgroupRow4 <dbl>,
 ## #   Q1MaincellgroupRow5 <dbl>, Q1MaincellgroupRow6 <dbl>,
 ## #   Q1MaincellgroupRow7 <dbl>, Q1MaincellgroupRow8 <dbl>,
 ## #   Q1MaincellgroupRow9 <dbl>, Q1MaincellgroupRow10 <dbl>
@@ -214,21 +218,21 @@ course_data
 ```
 
 ```
-## # A tibble: 29,711 × 8
+## # A tibble: 29,711 x 8
 ##    CourseSectionOrigID Bb_UserPK Gradebook_Item    Grade_Category FinalGradeCEMS
 ##    <chr>                   <dbl> <chr>             <chr>                   <dbl>
-##  1 AnPhA-S116-01           60186 POINTS EARNED & … <NA>                     86.3
+##  1 AnPhA-S116-01           60186 POINTS EARNED & ~ <NA>                     86.3
 ##  2 AnPhA-S116-01           60186 WORK ATTEMPTED    <NA>                     86.3
-##  3 AnPhA-S116-01           60186 0.1: Message You… <NA>                     86.3
-##  4 AnPhA-S116-01           60186 0.2: Intro Assig… Hw                       86.3
-##  5 AnPhA-S116-01           60186 0.3: Intro Assig… Hw                       86.3
+##  3 AnPhA-S116-01           60186 0.1: Message You~ <NA>                     86.3
+##  4 AnPhA-S116-01           60186 0.2: Intro Assig~ Hw                       86.3
+##  5 AnPhA-S116-01           60186 0.3: Intro Assig~ Hw                       86.3
 ##  6 AnPhA-S116-01           60186 1.1: Quiz         Qz                       86.3
 ##  7 AnPhA-S116-01           60186 1.2: Quiz         Qz                       86.3
-##  8 AnPhA-S116-01           60186 1.3: Create a Li… Hw                       86.3
-##  9 AnPhA-S116-01           60186 1.3: Create a Li… Hw                       86.3
-## 10 AnPhA-S116-01           60186 1.4: Negative Fe… Hw                       86.3
-## # ℹ 29,701 more rows
-## # ℹ 3 more variables: Points_Possible <dbl>, Points_Earned <dbl>, Gender <chr>
+##  8 AnPhA-S116-01           60186 1.3: Create a Li~ Hw                       86.3
+##  9 AnPhA-S116-01           60186 1.3: Create a Li~ Hw                       86.3
+## 10 AnPhA-S116-01           60186 1.4: Negative Fe~ Hw                       86.3
+## # i 29,701 more rows
+## # i 3 more variables: Points_Possible <dbl>, Points_Earned <dbl>, Gender <chr>
 ```
 
 ``` r
@@ -236,7 +240,7 @@ course_minutes
 ```
 
 ```
-## # A tibble: 598 × 3
+## # A tibble: 598 x 3
 ##    Bb_UserPK CourseSectionOrigID TimeSpent
 ##        <dbl> <chr>                   <dbl>
 ##  1     44638 OcnA-S116-01            1383.
@@ -249,7 +253,7 @@ course_minutes
 ##  8     86349 OcnA-S116-01            1601.
 ##  9     86460 OcnA-S116-01            1891.
 ## 10     87970 OcnA-S116-01            3123.
-## # ℹ 588 more rows
+## # i 588 more rows
 ```
 
 ## Process data
@@ -304,7 +308,7 @@ df %>% mutate(total_students = male + female)
 ```
 
 ```
-## # A tibble: 1 × 3
+## # A tibble: 1 x 3
 ##    male female total_students
 ##   <dbl>  <dbl>          <dbl>
 ## 1     5      5             10
@@ -318,7 +322,7 @@ df %>% mutate(across(male, ~ . * 2))
 ```
 
 ```
-## # A tibble: 1 × 2
+## # A tibble: 1 x 2
 ##    male female
 ##   <dbl>  <dbl>
 ## 1    10      5
@@ -334,7 +338,7 @@ df %>% mutate(across(female, ~ . ^ 2))
 ```
 
 ```
-## # A tibble: 1 × 2
+## # A tibble: 1 x 2
 ##    male female
 ##   <dbl>  <dbl>
 ## 1     5     25
@@ -363,7 +367,7 @@ df %>%
 ```
 
 ```
-## # A tibble: 1 × 2
+## # A tibble: 1 x 2
 ##    male female
 ##   <dbl>  <dbl>
 ## 1    10      5
@@ -508,7 +512,7 @@ pivoted_dat
 ```
 
 ```
-## # A tibble: 3 × 3
+## # A tibble: 3 x 3
 ##   measure mean_response percent_NA
 ##   <chr>           <dbl>      <dbl>
 ## 1 int              4.25      0.178
@@ -563,21 +567,21 @@ pre_survey
 ```
 
 ```
-## # A tibble: 1,102 × 12
+## # A tibble: 1,102 x 12
 ##    student_id course_id       q1    q2    q3    q4    q5    q6    q7    q8    q9
 ##    <chr>      <chr>        <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-##  1 _80624_1   FrScA-S116-…     4     4     4     5     5     4     5     5     5
+##  1 _80624_1   FrScA-S116-~     4     4     4     5     5     4     5     5     5
 ##  2 _80623_1   BioA-S116-01     4     4     3     4     4     4     4     3     4
 ##  3 _82588_1   OcnA-S116-03    NA    NA    NA    NA    NA    NA    NA    NA    NA
-##  4 _80623_1   AnPhA-S116-…     4     3     3     4     3     3     3     4     2
-##  5 _80624_1   AnPhA-S116-…    NA    NA    NA    NA    NA    NA    NA    NA    NA
-##  6 _80624_1   AnPhA-S116-…     4     2     2     4     4     4     5     4     4
-##  7 _80624_1   AnPhA-T116-…    NA    NA    NA    NA    NA    NA    NA    NA    NA
+##  4 _80623_1   AnPhA-S116-~     4     3     3     4     3     3     3     4     2
+##  5 _80624_1   AnPhA-S116-~    NA    NA    NA    NA    NA    NA    NA    NA    NA
+##  6 _80624_1   AnPhA-S116-~     4     2     2     4     4     4     5     4     4
+##  7 _80624_1   AnPhA-T116-~    NA    NA    NA    NA    NA    NA    NA    NA    NA
 ##  8 _80624_1   BioA-S116-01     5     3     3     5     5     4     5     5     3
 ##  9 _80624_1   BioA-T116-01    NA    NA    NA    NA    NA    NA    NA    NA    NA
-## 10 _80624_1   PhysA-S116-…     4     4     3     4     4     4     4     4     3
-## # ℹ 1,092 more rows
-## # ℹ 1 more variable: q10 <dbl>
+## 10 _80624_1   PhysA-S116-~     4     4     3     4     4     4     4     4     3
+## # i 1,092 more rows
+## # i 1 more variable: q10 <dbl>
 ```
 
 The variable names look more consistent now!
@@ -651,7 +655,7 @@ pre_survey <- pre_survey %>%
 
 ```
 ## Warning: There was 1 warning in `mutate()`.
-## ℹ In argument: `student_id = as.numeric(student_id)`.
+## i In argument: `student_id = as.numeric(student_id)`.
 ## Caused by warning:
 ## ! NAs introduced by coercion
 ```
@@ -681,9 +685,9 @@ joined_dat <-
 
 ```
 ## Warning in left_join(course_data, pre_survey, by = join_by(student_id, course_id)): Detected an unexpected many-to-many relationship between `x` and `y`.
-## ℹ Row 54 of `x` matches multiple rows in `y`.
-## ℹ Row 401 of `y` matches multiple rows in `x`.
-## ℹ If a many-to-many relationship is expected, set `relationship =
+## i Row 54 of `x` matches multiple rows in `y`.
+## i Row 401 of `y` matches multiple rows in `x`.
+## i If a many-to-many relationship is expected, set `relationship =
 ##   "many-to-many"` to silence this warning.
 ```
 
@@ -692,21 +696,21 @@ joined_dat
 ```
 
 ```
-## # A tibble: 40,348 × 21
+## # A tibble: 40,348 x 21
 ##    course_id   subject semester section student_id Gradebook_Item Grade_Category
 ##    <chr>       <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
-##  1 AnPhA-S116… AnPhA   S116     01           60186 POINTS EARNED… <NA>          
-##  2 AnPhA-S116… AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
-##  3 AnPhA-S116… AnPhA   S116     01           60186 0.1: Message … <NA>          
-##  4 AnPhA-S116… AnPhA   S116     01           60186 0.2: Intro As… Hw            
-##  5 AnPhA-S116… AnPhA   S116     01           60186 0.3: Intro As… Hw            
-##  6 AnPhA-S116… AnPhA   S116     01           60186 1.1: Quiz      Qz            
-##  7 AnPhA-S116… AnPhA   S116     01           60186 1.2: Quiz      Qz            
-##  8 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
-##  9 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
-## 10 AnPhA-S116… AnPhA   S116     01           60186 1.4: Negative… Hw            
-## # ℹ 40,338 more rows
-## # ℹ 14 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
+##  1 AnPhA-S116~ AnPhA   S116     01           60186 POINTS EARNED~ <NA>          
+##  2 AnPhA-S116~ AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
+##  3 AnPhA-S116~ AnPhA   S116     01           60186 0.1: Message ~ <NA>          
+##  4 AnPhA-S116~ AnPhA   S116     01           60186 0.2: Intro As~ Hw            
+##  5 AnPhA-S116~ AnPhA   S116     01           60186 0.3: Intro As~ Hw            
+##  6 AnPhA-S116~ AnPhA   S116     01           60186 1.1: Quiz      Qz            
+##  7 AnPhA-S116~ AnPhA   S116     01           60186 1.2: Quiz      Qz            
+##  8 AnPhA-S116~ AnPhA   S116     01           60186 1.3: Create a~ Hw            
+##  9 AnPhA-S116~ AnPhA   S116     01           60186 1.3: Create a~ Hw            
+## 10 AnPhA-S116~ AnPhA   S116     01           60186 1.4: Negative~ Hw            
+## # i 40,338 more rows
+## # i 14 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
 ## #   Points_Earned <dbl>, Gender <chr>, q1 <dbl>, q2 <dbl>, q3 <dbl>, q4 <dbl>,
 ## #   q5 <dbl>, q6 <dbl>, q7 <dbl>, q8 <dbl>, q9 <dbl>, q10 <dbl>
 ```
@@ -735,21 +739,21 @@ semi_dat
 ```
 
 ```
-## # A tibble: 28,655 × 11
+## # A tibble: 28,655 x 11
 ##    course_id   subject semester section student_id Gradebook_Item Grade_Category
 ##    <chr>       <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
-##  1 AnPhA-S116… AnPhA   S116     01           60186 POINTS EARNED… <NA>          
-##  2 AnPhA-S116… AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
-##  3 AnPhA-S116… AnPhA   S116     01           60186 0.1: Message … <NA>          
-##  4 AnPhA-S116… AnPhA   S116     01           60186 0.2: Intro As… Hw            
-##  5 AnPhA-S116… AnPhA   S116     01           60186 0.3: Intro As… Hw            
-##  6 AnPhA-S116… AnPhA   S116     01           60186 1.1: Quiz      Qz            
-##  7 AnPhA-S116… AnPhA   S116     01           60186 1.2: Quiz      Qz            
-##  8 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
-##  9 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
-## 10 AnPhA-S116… AnPhA   S116     01           60186 1.4: Negative… Hw            
-## # ℹ 28,645 more rows
-## # ℹ 4 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
+##  1 AnPhA-S116~ AnPhA   S116     01           60186 POINTS EARNED~ <NA>          
+##  2 AnPhA-S116~ AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
+##  3 AnPhA-S116~ AnPhA   S116     01           60186 0.1: Message ~ <NA>          
+##  4 AnPhA-S116~ AnPhA   S116     01           60186 0.2: Intro As~ Hw            
+##  5 AnPhA-S116~ AnPhA   S116     01           60186 0.3: Intro As~ Hw            
+##  6 AnPhA-S116~ AnPhA   S116     01           60186 1.1: Quiz      Qz            
+##  7 AnPhA-S116~ AnPhA   S116     01           60186 1.2: Quiz      Qz            
+##  8 AnPhA-S116~ AnPhA   S116     01           60186 1.3: Create a~ Hw            
+##  9 AnPhA-S116~ AnPhA   S116     01           60186 1.3: Create a~ Hw            
+## 10 AnPhA-S116~ AnPhA   S116     01           60186 1.4: Negative~ Hw            
+## # i 28,645 more rows
+## # i 4 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
 ## #   Points_Earned <dbl>, Gender <chr>
 ```
 
@@ -767,21 +771,21 @@ anti_dat
 ```
 
 ```
-## # A tibble: 1,056 × 11
+## # A tibble: 1,056 x 11
 ##    course_id   subject semester section student_id Gradebook_Item Grade_Category
 ##    <chr>       <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
-##  1 AnPhA-S116… AnPhA   S116     01           85865 POINTS EARNED… <NA>          
-##  2 AnPhA-S116… AnPhA   S116     01           85865 WORK ATTEMPTED <NA>          
-##  3 AnPhA-S116… AnPhA   S116     01           85865 0.1: Message … <NA>          
-##  4 AnPhA-S116… AnPhA   S116     01           85865 0.2: Intro As… Hw            
-##  5 AnPhA-S116… AnPhA   S116     01           85865 0.3: Intro As… Hw            
-##  6 AnPhA-S116… AnPhA   S116     01           85865 1.1: Quiz      Qz            
-##  7 AnPhA-S116… AnPhA   S116     01           85865 1.2: Quiz      Qz            
-##  8 AnPhA-S116… AnPhA   S116     01           85865 1.3: Create a… Hw            
-##  9 AnPhA-S116… AnPhA   S116     01           85865 1.3: Create a… Hw            
-## 10 AnPhA-S116… AnPhA   S116     01           85865 1.4: Negative… Hw            
-## # ℹ 1,046 more rows
-## # ℹ 4 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
+##  1 AnPhA-S116~ AnPhA   S116     01           85865 POINTS EARNED~ <NA>          
+##  2 AnPhA-S116~ AnPhA   S116     01           85865 WORK ATTEMPTED <NA>          
+##  3 AnPhA-S116~ AnPhA   S116     01           85865 0.1: Message ~ <NA>          
+##  4 AnPhA-S116~ AnPhA   S116     01           85865 0.2: Intro As~ Hw            
+##  5 AnPhA-S116~ AnPhA   S116     01           85865 0.3: Intro As~ Hw            
+##  6 AnPhA-S116~ AnPhA   S116     01           85865 1.1: Quiz      Qz            
+##  7 AnPhA-S116~ AnPhA   S116     01           85865 1.2: Quiz      Qz            
+##  8 AnPhA-S116~ AnPhA   S116     01           85865 1.3: Create a~ Hw            
+##  9 AnPhA-S116~ AnPhA   S116     01           85865 1.3: Create a~ Hw            
+## 10 AnPhA-S116~ AnPhA   S116     01           85865 1.4: Negative~ Hw            
+## # i 1,046 more rows
+## # i 4 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
 ## #   Points_Earned <dbl>, Gender <chr>
 ```
 
@@ -799,9 +803,9 @@ right_dat <-
 
 ```
 ## Warning in right_join(course_data, pre_survey, by = c("student_id", "course_id")): Detected an unexpected many-to-many relationship between `x` and `y`.
-## ℹ Row 54 of `x` matches multiple rows in `y`.
-## ℹ Row 401 of `y` matches multiple rows in `x`.
-## ℹ If a many-to-many relationship is expected, set `relationship =
+## i Row 54 of `x` matches multiple rows in `y`.
+## i Row 401 of `y` matches multiple rows in `x`.
+## i If a many-to-many relationship is expected, set `relationship =
 ##   "many-to-many"` to silence this warning.
 ```
 
@@ -810,21 +814,21 @@ right_dat
 ```
 
 ```
-## # A tibble: 39,593 × 21
+## # A tibble: 39,593 x 21
 ##    course_id   subject semester section student_id Gradebook_Item Grade_Category
 ##    <chr>       <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
-##  1 AnPhA-S116… AnPhA   S116     01           60186 POINTS EARNED… <NA>          
-##  2 AnPhA-S116… AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
-##  3 AnPhA-S116… AnPhA   S116     01           60186 0.1: Message … <NA>          
-##  4 AnPhA-S116… AnPhA   S116     01           60186 0.2: Intro As… Hw            
-##  5 AnPhA-S116… AnPhA   S116     01           60186 0.3: Intro As… Hw            
-##  6 AnPhA-S116… AnPhA   S116     01           60186 1.1: Quiz      Qz            
-##  7 AnPhA-S116… AnPhA   S116     01           60186 1.2: Quiz      Qz            
-##  8 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
-##  9 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
-## 10 AnPhA-S116… AnPhA   S116     01           60186 1.4: Negative… Hw            
-## # ℹ 39,583 more rows
-## # ℹ 14 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
+##  1 AnPhA-S116~ AnPhA   S116     01           60186 POINTS EARNED~ <NA>          
+##  2 AnPhA-S116~ AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
+##  3 AnPhA-S116~ AnPhA   S116     01           60186 0.1: Message ~ <NA>          
+##  4 AnPhA-S116~ AnPhA   S116     01           60186 0.2: Intro As~ Hw            
+##  5 AnPhA-S116~ AnPhA   S116     01           60186 0.3: Intro As~ Hw            
+##  6 AnPhA-S116~ AnPhA   S116     01           60186 1.1: Quiz      Qz            
+##  7 AnPhA-S116~ AnPhA   S116     01           60186 1.2: Quiz      Qz            
+##  8 AnPhA-S116~ AnPhA   S116     01           60186 1.3: Create a~ Hw            
+##  9 AnPhA-S116~ AnPhA   S116     01           60186 1.3: Create a~ Hw            
+## 10 AnPhA-S116~ AnPhA   S116     01           60186 1.4: Negative~ Hw            
+## # i 39,583 more rows
+## # i 14 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
 ## #   Points_Earned <dbl>, Gender <chr>, q1 <dbl>, q2 <dbl>, q3 <dbl>, q4 <dbl>,
 ## #   q5 <dbl>, q6 <dbl>, q7 <dbl>, q8 <dbl>, q9 <dbl>, q10 <dbl>
 ```
@@ -841,9 +845,9 @@ right_dat2 <-
 
 ```
 ## Warning in right_join(pre_survey, course_data, by = c("student_id", "course_id")): Detected an unexpected many-to-many relationship between `x` and `y`.
-## ℹ Row 26 of `x` matches multiple rows in `y`.
-## ℹ Row 22129 of `y` matches multiple rows in `x`.
-## ℹ If a many-to-many relationship is expected, set `relationship =
+## i Row 26 of `x` matches multiple rows in `y`.
+## i Row 22129 of `y` matches multiple rows in `x`.
+## i If a many-to-many relationship is expected, set `relationship =
 ##   "many-to-many"` to silence this warning.
 ```
 
@@ -852,21 +856,21 @@ right_dat2
 ```
 
 ```
-## # A tibble: 40,348 × 21
+## # A tibble: 40,348 x 21
 ##    student_id course_id       q1    q2    q3    q4    q5    q6    q7    q8    q9
 ##         <dbl> <chr>        <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-##  1      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
-##  2      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
-##  3      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
-##  4      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
-##  5      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
-##  6      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
-##  7      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
-##  8      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
-##  9      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
-## 10      85791 FrScA-S116-…     3     3     3     3     4     3     3     3     2
-## # ℹ 40,338 more rows
-## # ℹ 10 more variables: q10 <dbl>, subject <chr>, semester <chr>, section <chr>,
+##  1      85791 FrScA-S116-~     3     3     3     3     4     3     3     3     2
+##  2      85791 FrScA-S116-~     3     3     3     3     4     3     3     3     2
+##  3      85791 FrScA-S116-~     3     3     3     3     4     3     3     3     2
+##  4      85791 FrScA-S116-~     3     3     3     3     4     3     3     3     2
+##  5      85791 FrScA-S116-~     3     3     3     3     4     3     3     3     2
+##  6      85791 FrScA-S116-~     3     3     3     3     4     3     3     3     2
+##  7      85791 FrScA-S116-~     3     3     3     3     4     3     3     3     2
+##  8      85791 FrScA-S116-~     3     3     3     3     4     3     3     3     2
+##  9      85791 FrScA-S116-~     3     3     3     3     4     3     3     3     2
+## 10      85791 FrScA-S116-~     3     3     3     3     4     3     3     3     2
+## # i 40,338 more rows
+## # i 10 more variables: q10 <dbl>, subject <chr>, semester <chr>, section <chr>,
 ## #   Gradebook_Item <chr>, Grade_Category <chr>, FinalGradeCEMS <dbl>,
 ## #   Points_Possible <dbl>, Points_Earned <dbl>, Gender <chr>
 ```
@@ -901,21 +905,21 @@ joined_dat
 ```
 
 ```
-## # A tibble: 40,348 × 22
+## # A tibble: 40,348 x 22
 ##    course_id   subject semester section student_id Gradebook_Item Grade_Category
 ##    <chr>       <chr>   <chr>    <chr>        <dbl> <chr>          <chr>         
-##  1 AnPhA-S116… AnPhA   S116     01           60186 POINTS EARNED… <NA>          
-##  2 AnPhA-S116… AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
-##  3 AnPhA-S116… AnPhA   S116     01           60186 0.1: Message … <NA>          
-##  4 AnPhA-S116… AnPhA   S116     01           60186 0.2: Intro As… Hw            
-##  5 AnPhA-S116… AnPhA   S116     01           60186 0.3: Intro As… Hw            
-##  6 AnPhA-S116… AnPhA   S116     01           60186 1.1: Quiz      Qz            
-##  7 AnPhA-S116… AnPhA   S116     01           60186 1.2: Quiz      Qz            
-##  8 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
-##  9 AnPhA-S116… AnPhA   S116     01           60186 1.3: Create a… Hw            
-## 10 AnPhA-S116… AnPhA   S116     01           60186 1.4: Negative… Hw            
-## # ℹ 40,338 more rows
-## # ℹ 15 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
+##  1 AnPhA-S116~ AnPhA   S116     01           60186 POINTS EARNED~ <NA>          
+##  2 AnPhA-S116~ AnPhA   S116     01           60186 WORK ATTEMPTED <NA>          
+##  3 AnPhA-S116~ AnPhA   S116     01           60186 0.1: Message ~ <NA>          
+##  4 AnPhA-S116~ AnPhA   S116     01           60186 0.2: Intro As~ Hw            
+##  5 AnPhA-S116~ AnPhA   S116     01           60186 0.3: Intro As~ Hw            
+##  6 AnPhA-S116~ AnPhA   S116     01           60186 1.1: Quiz      Qz            
+##  7 AnPhA-S116~ AnPhA   S116     01           60186 1.2: Quiz      Qz            
+##  8 AnPhA-S116~ AnPhA   S116     01           60186 1.3: Create a~ Hw            
+##  9 AnPhA-S116~ AnPhA   S116     01           60186 1.3: Create a~ Hw            
+## 10 AnPhA-S116~ AnPhA   S116     01           60186 1.4: Negative~ Hw            
+## # i 40,338 more rows
+## # i 15 more variables: FinalGradeCEMS <dbl>, Points_Possible <dbl>,
 ## #   Points_Earned <dbl>, Gender <chr>, q1 <dbl>, q2 <dbl>, q3 <dbl>, q4 <dbl>,
 ## #   q5 <dbl>, q6 <dbl>, q7 <dbl>, q8 <dbl>, q9 <dbl>, q10 <dbl>,
 ## #   TimeSpent <dbl>
@@ -937,28 +941,28 @@ glimpse(joined_dat)
 ```
 ## Rows: 40,348
 ## Columns: 22
-## $ course_id       <chr> "AnPhA-S116-01", "AnPhA-S116-01", "AnPhA-S116-01", "An…
-## $ subject         <chr> "AnPhA", "AnPhA", "AnPhA", "AnPhA", "AnPhA", "AnPhA", …
-## $ semester        <chr> "S116", "S116", "S116", "S116", "S116", "S116", "S116"…
-## $ section         <chr> "01", "01", "01", "01", "01", "01", "01", "01", "01", …
-## $ student_id      <dbl> 60186, 60186, 60186, 60186, 60186, 60186, 60186, 60186…
-## $ Gradebook_Item  <chr> "POINTS EARNED & TOTAL COURSE POINTS", "WORK ATTEMPTED…
-## $ Grade_Category  <chr> NA, NA, NA, "Hw", "Hw", "Qz", "Qz", "Hw", "Hw", "Hw", …
-## $ FinalGradeCEMS  <dbl> 86.3, 86.3, 86.3, 86.3, 86.3, 86.3, 86.3, 86.3, 86.3, …
-## $ Points_Possible <dbl> 5, 30, 105, 140, 5, 5, 20, 50, 10, 50, 5, 5, 24, 10, 1…
-## $ Points_Earned   <dbl> 4.05, 24.00, 71.67, 140.97, 5.00, 4.00, NA, 50.00, NA,…
-## $ Gender          <chr> "F", "F", "F", "F", "M", "F", "F", "F", "F", "F", "M",…
-## $ q1              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
-## $ q2              <dbl> 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, …
-## $ q3              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
-## $ q4              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
-## $ q5              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
-## $ q6              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
-## $ q7              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
-## $ q8              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
-## $ q9              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
-## $ q10             <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
-## $ TimeSpent       <dbl> 2087, 2087, 2087, 2087, 2087, 2087, 2087, 2087, 2087, …
+## $ course_id       <chr> "AnPhA-S116-01", "AnPhA-S116-01", "AnPhA-S116-01", "An~
+## $ subject         <chr> "AnPhA", "AnPhA", "AnPhA", "AnPhA", "AnPhA", "AnPhA", ~
+## $ semester        <chr> "S116", "S116", "S116", "S116", "S116", "S116", "S116"~
+## $ section         <chr> "01", "01", "01", "01", "01", "01", "01", "01", "01", ~
+## $ student_id      <dbl> 60186, 60186, 60186, 60186, 60186, 60186, 60186, 60186~
+## $ Gradebook_Item  <chr> "POINTS EARNED & TOTAL COURSE POINTS", "WORK ATTEMPTED~
+## $ Grade_Category  <chr> NA, NA, NA, "Hw", "Hw", "Qz", "Qz", "Hw", "Hw", "Hw", ~
+## $ FinalGradeCEMS  <dbl> 86.3, 86.3, 86.3, 86.3, 86.3, 86.3, 86.3, 86.3, 86.3, ~
+## $ Points_Possible <dbl> 5, 30, 105, 140, 5, 5, 20, 50, 10, 50, 5, 5, 24, 10, 1~
+## $ Points_Earned   <dbl> 4.05, 24.00, 71.67, 140.97, 5.00, 4.00, NA, 50.00, NA,~
+## $ Gender          <chr> "F", "F", "F", "F", "M", "F", "F", "F", "F", "F", "M",~
+## $ q1              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ~
+## $ q2              <dbl> 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, ~
+## $ q3              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ~
+## $ q4              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ~
+## $ q5              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ~
+## $ q6              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ~
+## $ q7              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ~
+## $ q8              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ~
+## $ q9              <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ~
+## $ q10             <dbl> 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ~
+## $ TimeSpent       <dbl> 2087, 2087, 2087, 2087, 2087, 2087, 2087, 2087, 2087, ~
 ```
 
 You can see a similar pattern by using `View(joined_dat)`. 
@@ -977,7 +981,7 @@ distinct(joined_dat, Gradebook_Item)
 ```
 
 ```
-## # A tibble: 222 × 1
+## # A tibble: 222 x 1
 ##    Gradebook_Item                                  
 ##    <chr>                                           
 ##  1 POINTS EARNED & TOTAL COURSE POINTS             
@@ -990,7 +994,7 @@ distinct(joined_dat, Gradebook_Item)
 ##  8 1.3: Create a Living Creature                   
 ##  9 1.3: Create a Living Creature - Discussion Board
 ## 10 1.4: Negative Feedback Loop Flowchart           
-## # ℹ 212 more rows
+## # i 212 more rows
 ```
 
 You can also use `distinct()` to identify unique combinations of variables. Do this now to find the unique combination of courses and gradebook items by adding another variable to `distinct()`:
@@ -1001,7 +1005,7 @@ distinct(joined_dat, course_id, Gradebook_Item)
 ```
 
 ```
-## # A tibble: 1,269 × 2
+## # A tibble: 1,269 x 2
 ##    course_id     Gradebook_Item                                  
 ##    <chr>         <chr>                                           
 ##  1 AnPhA-S116-01 POINTS EARNED & TOTAL COURSE POINTS             
@@ -1014,7 +1018,7 @@ distinct(joined_dat, course_id, Gradebook_Item)
 ##  8 AnPhA-S116-01 1.3: Create a Living Creature                   
 ##  9 AnPhA-S116-01 1.3: Create a Living Creature - Discussion Board
 ## 10 AnPhA-S116-01 1.4: Negative Feedback Loop Flowchart           
-## # ℹ 1,259 more rows
+## # i 1,259 more rows
 ```
 
 The resulting data frame is much longer because there are more distinct combinations of `course_id` and `Gradebook_Item` values than there are distinct `Gradebook_Item` values. It looks like gradebook items were repeated across courses, likely across different sections of the same course.
@@ -1066,10 +1070,14 @@ students %>%
   theme_dataedu()
 ```
 
-<div class="figure" style="text-align: center">
-<img src="07-wt-ed-ds-pipeline_files/figure-html/fig7-2-1.png" alt="Example plot" width="100%" />
-<p class="caption">(\#fig:fig7-2)Example plot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{07-wt-ed-ds-pipeline_files/figure-latex/fig7-2-1} 
+
+}
+
+\caption{Example plot}(\#fig:fig7-2)
+\end{figure}
 
 The `data` argument in the first line tells R to use the dataset called `students`. The `aes` (aesthetics) argument tells R to use values from the `school_id` column for the x-axis and values from the `mean_score` column for the y-axis. In the second line, the `geom_bar` function tells R to draw the graph as a bar chart. Finally, customize your graph font and color palette with `theme_dataedu()`, a custom theme created for this book. Each line of {ggplot2} code is connected by a `+` at the end, which tells R the next line of code is another {ggplot2} layer.
 
@@ -1097,10 +1105,14 @@ joined_dat %>%
     labs(x = "Time spent", y = "Final grade")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="07-wt-ed-ds-pipeline_files/figure-html/fig7-3-1.png" alt="Percentage earned vs. time spent" width="100%" />
-<p class="caption">(\#fig:fig7-3)Percentage earned vs. time spent</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{07-wt-ed-ds-pipeline_files/figure-latex/fig7-3-1} 
+
+}
+
+\caption{Percentage earned vs. time spent}(\#fig:fig7-3)
+\end{figure}
 
 Note that you may receive a warning that reads `Warning message: Removed 5 rows containing missing values (geom_point).` This is expected and is caused by the `NA` values introduced earlier in this walkthrough.
 
@@ -1119,10 +1131,14 @@ joined_dat %>%
          y = "Final Grade")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="07-wt-ed-ds-pipeline_files/figure-html/fig7-4-1.png" alt="Adding a line of best fit" width="100%" />
-<p class="caption">(\#fig:fig7-4)Adding a line of best fit</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{07-wt-ed-ds-pipeline_files/figure-latex/fig7-4-1} 
+
+}
+
+\caption{Adding a line of best fit}(\#fig:fig7-4)
+\end{figure}
 
 Looking at this plot, it appears that students who spent more time on the course tended to have higher final grades.
 
@@ -1257,10 +1273,10 @@ survey_responses <-
 
 ```
 ## `summarise()` has regrouped the output.
-## ℹ Summaries were computed grouped by student_id and measure.
-## ℹ Output is grouped by student_id.
-## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
-## ℹ Use `summarise(.by = c(student_id, measure))` for per-operation grouping
+## i Summaries were computed grouped by student_id and measure.
+## i Output is grouped by student_id.
+## i Use `summarise(.groups = "drop_last")` to silence this message.
+## i Use `summarise(.by = c(student_id, measure))` for per-operation grouping
 ##   (`?dplyr::dplyr_by`) instead.
 ```
 
@@ -1269,7 +1285,7 @@ survey_responses
 ```
 
 ```
-## # A tibble: 515 × 4
+## # A tibble: 515 x 4
 ## # Groups:   student_id [515]
 ##    student_id   int    pc    uv
 ##         <dbl> <dbl> <dbl> <dbl>
@@ -1283,7 +1299,7 @@ survey_responses
 ##  8      52326  5     3.5   5   
 ##  9      52446  3     3     3.33
 ## 10      53248  4     3     3.33
-## # ℹ 505 more rows
+## # i 505 more rows
 ```
 
 Now that you've prepared the survey responses, we can use the `apa.cor.table()` function to create a correlation table:
