@@ -334,7 +334,9 @@ Read a couple of lines of code both above and below where the `coalesce()` funct
 
 What information is available in the Help documentation? Are there examples from the Help documentation that are similar to the code you're reviewing? For example, this seems related:
 
-```{r fig6-2, fig.cap = "Example from the `coalesce()` help documentation", echo = FALSE}
+(ref:fig6-2-cap) Example from the `coalesce()` help documentation
+
+```{r fig6-2, fig.cap = "(ref:fig6-2-cap)", echo = FALSE}
 knitr::include_graphics("./man/figures/Figure 6.2.png")
 ```
 
@@ -457,7 +459,9 @@ Each of the three code examples above differs slightly, but two lines of code do
 
 In our Environment pane, you can see the data that's been loaded in R. You can click on the table icon on the far right of the row in the Environment pane to get an interactive table. In this case, the dataset is rather large, so RStudio may lag slightly as you open the table.
 
-```{r fig6-4, fig.cap = "Loading the `ma_data` dataset", echo = FALSE}
+(ref:fig6-4-cap) Loading the `ma_data` dataset
+
+```{r fig6-4, fig.cap = "(ref:fig6-4-cap)", echo = FALSE}
 knitr::include_graphics("./man/figures/Figure 6.4.png")
 ```
 

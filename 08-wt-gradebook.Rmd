@@ -296,7 +296,7 @@ gradebook %>%
 
 Using {ggplot2}, you can create many types of graphs. Using `classwork_df` from earlier, you can see the distribution of scores and how they differ across classwork assignments using box plots. This is possible because of the way you cleaned the `classwork_number` and `score` variables earlier in this walkthrough. As in the last plot, you can change the factor levels of `classwork_number` so they are in an understandable order.
 
-```{r fig8-2, message = FALSE, warning = FALSE, results = 'hide', fig.cap = "Distribution of Classwork Scores", fig.showtext = TRUE}
+```{r fig8-2, message = FALSE, warning = FALSE, results = 'hide', fig.cap = "Distribution of classwork scores", fig.showtext = TRUE}
 # Box plot of continuous variable
 classwork_df %>%
   mutate(classwork_number = 
@@ -399,7 +399,7 @@ gradebook %>%
 
 The next box plot is for the overall grade scores: 
 
-```{r fig8-6, message = FALSE, warning = FALSE, results = 'hide', fig.cap = "Distribution of Overall Grade Scores", fig.showtext = TRUE}  
+```{r fig8-6, message = FALSE, warning = FALSE, results = 'hide', fig.cap = "Distribution of overall grade scores", fig.showtext = TRUE}  
 # Box plot of overall grade scores in percentage
 # To determine if there are any outliers
 gradebook %>%

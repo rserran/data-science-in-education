@@ -25,3 +25,10 @@ bookdown::word_document2:
   fontfamily: serif
   fig_height: 5.3
   fig_width: 8.5
+bookdown::pdf_book:
+  latex_engine: xelatex
+  keep_tex: yes
+  toc: yes
+  fig_height: 5.3
+  fig_width: 8.5
+  pandoc_args: [ "--csl", "apa_pl.csl" ]

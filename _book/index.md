@@ -24,35 +24,57 @@ url: "datascienceineducation.com/"
 > 
 > This is the website for the second edition of Data Science in Education Using R. For the first edition, visit [datascienceineducation-1ed.netlify.app/](https://datascienceineducation-1ed.netlify.app/)
 
-Welcome to Data Science in Education Using R! Inspired by {bookdown}, this book is open source. Its contents are reproducible and publicly accessible for people worldwide. The online version of the book is hosted at [datascienceineducation.com](https://datascienceineducation.com/).
+Welcome to Data Science in Education Using R! Inspired by {bookdown}, this book is open source. Its contents are reproducible and publicly accessible to people worldwide. The online version of the book is hosted at [datascienceineducation.com](https://datascienceineducation.com/).
 
-![](dsieur-cover-routledge.jpg){width=100%}
+
+\begin{center}\includegraphics[width=1\linewidth]{dsieur-cover-routledge} \end{center}
 
 ## Prologue {-}
 
-There’s this story going around the internet about an eagle egg that hatches in a chicken farm. The eagle egg hatches near the chicken eggs. The local hens are so busy doing their thing that they don’t notice the baby eagle egg is not their own. The eagle chick is born into the world and, having no knowledge of its own eagleness, joins its new family on a nervous and exciting first day of life. Over the next few years the baby eagle lives as chickens live. It eats chicken feed, learns to fly in short choppy hops a few feet at a time, and masters the rapid head jabs of the chicken strut. 
+There’s this story going around the internet about an eagle egg that hatches on a chicken farm. The eagle egg hatches near the chicken eggs. The local hens are so busy doing their thing that they don’t notice the baby eagle egg is not their own. The eagle chick is born and, having no knowledge of its own eagleness, joins its new family on a nervous and exciting first day of life. Over the next few years the baby eagle lives as chickens live. It eats chicken feed, learns to fly in short, choppy hops, and masters the rapid head jabs of the chicken walk. 
 
-One day, while strutting around the chicken farm, the young eagle sees something soaring through the sky. The flying creature has long wings, which it stretches wide before tucking them back in and angling itself downward for a dive towards the earth. The sight of this other-worldly bird stirs something in the young eagle. 
+One day, while strutting around the chicken farm, the young eagle sees something soaring through the sky. The flying creature has long wings, which it stretches wide before tucking them in and angling downward to dive toward the earth. The sight of this other-worldly bird stirs something in the young eagle. 
 
-Over the next few weeks the eagle finds it can’t shake the vision of the soaring eagle from its mind. It tests the conversational waters during feeding time. It wonders out loud, “What if we tried to fly more than two feet off the ground?” The other chickens stare back. The young eagle, uncertain if these stares are ambivalence or the default chicken eye position, begins to ponder the only way forward. It must learn to fly high while living with the chicken family it loves.
+Over the next few weeks, the eagle can’t shake the vision of the soaring bird from its mind. At feeding time, it wonders out loud, “What if we tried to fly more than two feet off the ground?” The other chickens stare back. The young eagle isn't sure if these stares are ambivalence or the default chicken eye position. So, it begins to ponder the only way forward. It must learn to fly high while living with its chicken family.
 
-This is a book about learning to program in R while working in education. It’s for folks who feel at home in the education community but are looking out into the world and wondering how to use data better. It’s about being a great educator and wondering if it’s too late to learn to code. It’s about being an educator who’s learning to code and wondering if there are others you can learn with. 
+This is both a book for educators and a book about learning to program in R. It’s for folks who feel at home in the education community but are also wondering how to use data better. It’s about being an educator and wondering if it’s too late to learn to code. And it’s about being an educator learning to code and wondering if there are others to learn with. 
 
-We were on Twitter a lot in November of 2017. We talked about things like debugging R code, interpreting model coefficients, and working on spreadsheets with three header rows. We kept coming back to these topics over and over again. It was like having an obscure hobby with online friends because it’s hard to find local knitters who only knit Friends characters, or vinyl collectors who only collect Swedish disco albums. When you work as a data science consultant in education or as an educator learning data science, it’s hard to find that professional community that just gets you. Going to education conferences is great, but the eyes glaze over when you start talking about regression models. The data science conferences are super, but the group at the cocktail table gets smaller when you vent about the state of aggregate test score data. 
+We were on social media a lot in November of 2017. We talked about things like debugging code, interpreting model coefficients, and working on spreadsheets with too many rows. We kept coming back to these topics over and over again. It was like having an obscure hobby with online friends because it’s hard to find local knitters who only knit Friends characters or vinyl collectors who only collect Swedish disco albums. 
 
-We started talking about data science in education online because we wanted to be around folks who do data science in education. We wrote this book for you, so you can learn data science with datasets you can find in education work. We don’t claim to be experts at education or data science, but we’re pretty good at talking about what it’s like to do both in a time where doing both is just starting to take off. 
+When you work as a data science consultant in education or as an educator learning data science, it’s hard to find a professional community that gets you. Attending education conferences is great, but the eyes glaze over when you talk about regression models. The data science conferences are super, but folks leave the cocktail table when you vent about the state of aggregate test score data. 
+
+We started talking about data science in education online because we wanted to be around folks who do data science in education. We wrote this book for you, so you can learn data science with datasets you can find in education work. We don’t claim to be experts at education or data science, but we’re pretty good at talking about what it’s like to do both in a meaningful way. 
 
 So give your chicken family a big hug, open up your laptop, and let’s start learning together. Turns out, there are a lot more hatchlings wanting to be eagles and chickens at the same time.
 
-![(\#fig:unnamed-chunk-3)The Tweet That Started It All](./man/figures/Figure 0.1.png){width=100%}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{./man/figures/Figure 0.1} 
+
+}
+
+\caption{The Tweet That Started It All}(\#fig:unnamed-chunk-3)
+\end{figure}
+
+## What's new in this edition?
+
+When we worked on the first edition of *Data Science in Education Using R*, the world was a different place. It was before the widespread use of Artificial Intelligence. We had just changed jobs and moved to different cities. We welcomed a few new "collaborators" (children!) onto the team. And, of course, educational data science itself was changing.
+
+And yet a great deal remains the same for this edition. We used the same Slack channel that supported and galvanized the first edition. We still used R and RStudio (and added Positron!). And we still value developing the knowledge and skill to do data science in educational settings, from K-12 and higher education classrooms to research.
+
+In this book we aimed to maintain what was good about the first edition while updating it to reflect what's changed in educational data science. Namely, we updated the walkthroughs to use modern packages (e.g., using the {tidymodels} collection of packages for modeling and machine learning), updated data sources to better reflect current practice (i.e., Bluesky for Twitter data accessed through their respective Application Programming Interfaces), and generally spruced up the code and prose for a better reading experience.
+
+There are some topics we did not address, like the role of Artificial Intelligence in the work of data scientists. We believe the audience of this book is best served by its original focus. Instead, we point readers to the growing collection of tutorials and guides for using Artificial Intelligence techniques and models in their educational data science toolkit.
+
+We hope that Data Science in Education Using R serves as an accessible yet rigorous support for your educational data science work now and well into the future.
 
 ## Acknowledgements {-}
 
 This work was supported by many individuals from the [DataEdu Slack channel](https://dataedu.slack.com/) (https://dataedu.slack.com/). Thank you to everyone who contributed code, suggested changes, asked questions, filed issues, and even designed a logo for us: Daniel Anderson, Abi Aryan, Jason Becker, William Bork, Jon Duan, Ben Gibbons, Erin Grand, Ellis Hughes, Ludmila Janda, Jake Kaupp, Nathan Kenner, Zuhaib Mahmood, David Ranzolin, Kris Stevens, Bret Staudt Willet, and Gustavo Velásquez.
 
-Thank you to the data scientists in education that took time to share their stories with us: Isabella Fante, LaCole Foots, Tobie Irvine, Arpi Karapetyan, John LaPlante, and Andrew Morozov. 
+Thank you to the data scientists in education who took the time to share their stories with us: Isabella Fante, LaCole Foots, Tobie Irvine, Arpi Karapetyan, John LaPlante, and Andrew Morozov. 
 
-Thank you to the editor of this book at Routledge, Hannah Shakespeare. We appreciated Hannah’s incisive, constructive feedback, interest, and support for the book and our unique approach to writing it - one which involved writing the book "in the open" (through GitHub) and sharing it on a freely-available website.
+Thank you to Hannah Shakespeare, the editor of this book at Routledge. We appreciated Hannah’s incisive, constructive feedback, interest, and support for the book and our unique approach to writing it - one that involved writing the book "in the open" (through GitHub) and sharing it on a freely available website.
 
 ## Dedications {-}
 
@@ -80,7 +102,7 @@ Isabella:
 
 If you would like to cite this book, please use the citation below:
 
-> Estrellado, R. A., Freer, E. A., Motsipak, J., Rosenberg, J. M., & Velásquez, I. C. (2020). *Data science in education using R*. London, England: Routledge. *Nb.* All authors contributed equally. 
+> Estrellado, R. A., Freer, J., Rosenberg, J. M., & Velásquez, I. C. (2020). *Data science in education using R, 2nd edition*. London, England: Routledge. *Nb.* All authors contributed equally. 
 
 ## Purchasing the book {-}
 
